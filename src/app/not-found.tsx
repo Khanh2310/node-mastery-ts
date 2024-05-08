@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { Button } from '@/components/Button'
+import { Button } from '@/components/molecules/ButtonCommon'
 import { Logo } from '@/components/Logo'
 import { SlimLayout } from '@/components/SlimLayout'
 

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import clsx from 'clsx'
+import { Button as ButtonUi } from '@/components/atoms/Button'
 
 const baseStyles = {
   solid:
@@ -56,7 +57,7 @@ export function Button({ className, ...props }: ButtonProps) {
   )
 
   return typeof props.href === 'undefined' ? (
-    <button className={className} {...props} />
+    <ButtonUi className={className} {...props} />
   ) : (
     <Link className={className} {...props} />
   )

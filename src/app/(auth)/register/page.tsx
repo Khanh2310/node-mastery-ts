@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import { Button } from '@/components/Button'
+import { Button } from '@/components/molecules/ButtonCommon/ButtonCommon'
 import { SelectField, TextField } from '@/components/Fields'
 import { Logo } from '@/components/Logo'
 import { SlimLayout } from '@/components/SlimLayout'
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function Register() {
   return (
-    <SlimLayout>
+    <>
       <div className="flex">
         <Link href="/" aria-label="Home">
           <Logo className="h-10 w-auto" />
@@ -83,6 +83,6 @@ export default function Register() {
           </Button>
         </div>
       </form>
-    </SlimLayout>
+    </>
   )
 }

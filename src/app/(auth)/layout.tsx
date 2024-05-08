@@ -1,9 +1,9 @@
 import { Inter, Lexend } from 'next/font/google'
 import clsx from 'clsx'
-
+import { Toaster } from "@/components/ui/toaster"
 import '@/styles/tailwind.css'
 import { type Metadata } from 'next'
-import { Providers } from './provider'
+import { AuthLayout } from '@/components/layouts/AuthLayout'
 
 export const metadata: Metadata = {
   title: {
@@ -26,7 +26,7 @@ const lexend = Lexend({
   variable: '--font-lexend',
 })
 
-export default function RootLayout({
+export default function AuthRootLayout({
   children,
 }: {
   children: React.ReactNode
@@ -41,7 +41,8 @@ export default function RootLayout({
       )}
     >
       <body className="flex h-full flex-col">
-        <Providers>{children}</Providers>
+        <AuthLayout>{children}</AuthLayout>
+        <Toaster />
       </body>
     </html>
   )
