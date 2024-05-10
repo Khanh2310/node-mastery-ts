@@ -1,7 +1,6 @@
 import { Inter, Lexend } from 'next/font/google'
-import clsx from 'clsx'
-import { Toaster } from "@/components/ui/toaster"
-import '@/styles/tailwind.css'
+import { Toaster } from '@/components/ui/toaster'
+
 import { type Metadata } from 'next'
 import { AuthLayout } from '@/components/layouts/AuthLayout'
 
@@ -32,18 +31,9 @@ export default function AuthRootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html
-      lang="en"
-      className={clsx(
-        'h-full scroll-smooth bg-white antialiased',
-        inter.variable,
-        lexend.variable,
-      )}
-    >
-      <body className="flex h-full flex-col">
-        <AuthLayout>{children}</AuthLayout>
-        <Toaster />
-      </body>
-    </html>
+    <>
+      <AuthLayout>{children}</AuthLayout>
+      
+    </>
   )
 }

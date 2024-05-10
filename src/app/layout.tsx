@@ -1,6 +1,7 @@
 import { Inter, Lexend } from 'next/font/google'
 import clsx from 'clsx'
 
+import { Toaster } from '@/components/ui/toaster'
 import '@/styles/tailwind.css'
 import { type Metadata } from 'next'
 import { Providers } from './provider'
@@ -41,7 +42,13 @@ export default function RootLayout({
       )}
     >
       <body className="flex h-full flex-col">
-        <Providers>{children}</Providers>
+        <Providers>
+          <>
+          {children}
+          <Toaster />
+          </>
+          
+        </Providers>
       </body>
     </html>
   )

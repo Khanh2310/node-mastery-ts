@@ -3,6 +3,7 @@ import axios from "axios"
 import { LoginInput } from '@/schemas/Login'
 import { User } from '@/types/User'
 import { UrlApi } from '@/config/url'
+import { RegistrationInput } from '@/schemas/Register'
 
 
 export const axiosUnAuthInstance = axios.create({
@@ -11,7 +12,7 @@ export const axiosUnAuthInstance = axios.create({
   })
 
 
-  const fetcher = async (url: string, { arg }: { arg: LoginInput}): Promise<User> => {
+  const fetcher = async (url: string, { arg }: { arg: LoginInput | RegistrationInput}): Promise<User> => {
     const { data } = await axiosUnAuthInstance.post<User>(url, arg)
     return data
   }
@@ -37,3 +38,27 @@ export const useMutateLogin = () => {
     error
   ] as const
   }
+
+
+  
+export const useMutateRegister = () => {
+  const url = UrlApi.REGISTER
+  const { trigger: register, isMutating, data, error } = useSWRMutation(url, fetcher)
+
+
+  return [
+  async (formData: RegistrationInput) => {
+    try {
+      delete formData.confirmPassword
+      const res = await register(formData)
+      return res
+    } catch (e) {
+      console.error(e)
+      throw e
+    }
+  },
+  isMutating,
+  data,
+  error
+] as const
+}

@@ -2,25 +2,29 @@
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
 import { TextBoxWithLabel } from '@/components/molecules/TextBoxWithLabel'
-import { LoginInputSchema, LoginInput } from '@/schemas/Login'
-import { useMutateLogin } from '@/components/hooks/Auth/useMutateLogin'
+import { useMutateRegister } from '@/components/hooks/Auth/useMutateAuth'
 import { useToast } from '@/components/ui/use-toast'
 import { Button } from '@/components/molecules/ButtonCommon'
+import { RegistrationInput, RegistrationInputSchema } from '@/schemas/Register'
+import { log } from 'console'
 
-type Values = LoginInput
+type Values = RegistrationInput
 
 type Props = {
   initialValues?: Partial<Values>
 }
 
-const defaultValues: LoginInput = {
+const defaultValues: Values = {
   email: '',
   password: '',
+  firstName: '',
+  lastName: '',
+  confirmPassword: '',
 }
 
 export const RegisterForm = ({ initialValues }: Props) => {
-    const { toast } = useToast()
-  const [login, isMutating, data, error] = useMutateLogin()
+  const { toast } = useToast()
+  const [registerTrigger, isMutating] = useMutateRegister()
 
   const {
     register,
@@ -28,32 +32,47 @@ export const RegisterForm = ({ initialValues }: Props) => {
     formState: { errors, isSubmitting },
   } = useForm({
     defaultValues: { ...defaultValues, ...initialValues },
-    resolver: zodResolver(LoginInputSchema),
+    resolver: zodResolver(RegistrationInputSchema),
   })
 
-  const onValid = async (values: LoginInput) => {
+  const onValid = async (values: Values) => {
     try {
-        const user = await login(values)
-        toast({
-            variant: 'destructive',
-            title: 'Incorrect username or password',
-          })
-      } catch (e) {
-        console.error(e)
-        toast({
-            variant: 'destructive',
-            title: "'Unexpected error occurred'",
-          })
-      } 
+      const res = await registerTrigger(values)
+      toast({
+        variant: 'default',
+        title: 'Incorrect username or password',
+      })
+    } catch (error: any) {
+      console.error(error)
+      toast({
+        variant: 'destructive',
+        title: error.response.data.message,
+      })
+    }
   }
 
   return (
     <>
       <form
-        className="mt-4 grid grid-cols-1 gap-y-3 sm:gap-y-5"
+        className="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2"
         onSubmit={handleSubmit(onValid)}
       >
         <TextBoxWithLabel
+          labelProps={{ children: 'First name' }}
+          textboxProps={register('firstName')}
+          error={errors.firstName?.message}
+          isRequired
+        />
+
+        <TextBoxWithLabel
+          labelProps={{ children: 'last name' }}
+          textboxProps={register('lastName')}
+          error={errors.lastName?.message}
+          isRequired
+        />
+
+        <TextBoxWithLabel
+          className="col-span-full"
           labelProps={{ children: 'Email address' }}
           textboxProps={register('email')}
           error={errors.email?.message}
@@ -62,13 +81,27 @@ export const RegisterForm = ({ initialValues }: Props) => {
 
         <TextBoxWithLabel
           labelProps={{ children: 'Password' }}
+          className="col-span-full"
           textboxProps={{ ...register('password'), type: 'password' }}
           error={errors.password?.message}
           isRequired
         />
 
-        <Button type="submit" className="mt-5" disabled={isSubmitting}>
-          Sign in
+        <TextBoxWithLabel
+          labelProps={{ children: 'Confirm password' }}
+          className="col-span-full"
+          textboxProps={{ ...register('confirmPassword'), type: 'password' }}
+          error={errors.confirmPassword?.message}
+          isRequired
+        />
+        <Button
+          type="submit"
+          variant="solid"
+          color="blue"
+          className="col-span-full mt-5"
+          disabled={isSubmitting || isMutating}
+        >
+          Sign up <span aria-hidden="true">&rarr;</span>
         </Button>
       </form>
     </>

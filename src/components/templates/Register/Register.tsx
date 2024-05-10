@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import { Logo } from '@/components/Logo'
-import { LoginForm } from '@/components/organisms/LoginForm'
+import { RegisterForm } from '@/components/organisms/RegisterForm'
 
-export const Login = () => {
+export const Register = () => {
   return (
     <>
-      <div className="flex">
+       <div className="flex">
         <Link href="/" aria-label="Home">
           <Logo className="h-10 w-auto" />
         </Link>
@@ -23,7 +23,7 @@ export const Login = () => {
         </Link>{' '}
         to your account.
       </p>
-      <LoginForm />
+      <RegisterForm />
     </>
   )
 }
