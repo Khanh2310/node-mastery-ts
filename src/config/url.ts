@@ -1,14 +1,15 @@
 export class AuthUrlApi {
-    public static readonly LOGIN = '/auth/login'
-    
-    public static readonly REGISTER = '/auth/register'
-    
-    public static readonly PROFILE = '/auth/profile'
-    
-    public static readonly REFRESH_TOKEN = '/auth/refresh-token'
+  public static readonly LOGIN = '/auth/login'
+
+  public static readonly REGISTER = '/auth/register'
+
+  public static readonly REFRESH_TOKEN = '/auth/refresh-token'
 }
 
-
 export class UrlApi {
+  public static readonly PROFILE = '/user/profile'
 
+  public static readonly GENERATE_QR = '/transactions-history/generate-qr'
+
+  public static readonly CONFIRM_TRANSACTION = '/transactions-history/confirm-transactions'
 }

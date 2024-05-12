@@ -80,3 +80,18 @@ export const handleErrorApi = ({
 export const normalizePath = (path: string) => {
   return path.startsWith('/') ? path.slice(1) : path
 }
+
+
+export const fullName = (firstName: string, lastName: string) => {
+  return `${firstName} ${lastName}`;
+}
+
+export const isClient = () => {
+  return typeof window !== "undefined"
+}
+
+
+export const classNames = (...classes: string[]) => {
+  return classes.filter(Boolean).join(' ')
+}
+

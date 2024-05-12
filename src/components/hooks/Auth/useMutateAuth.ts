@@ -10,6 +10,8 @@ import {
   EntityErrorPayload,
   HttpError,
 } from '@/lib/utils'
+import { setUserToLocalStorage } from '../User/useQueryUser'
+import { CommonResType } from '@/schemas/commonType'
 
 export const axiosUnAuthInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -22,13 +24,6 @@ axiosUnAuthInstance.interceptors.response.use(
     const { response, config } = error
     const { data } = response
     if (response.status === ENTITY_ERROR_STATUS) {
-      // throw new EntityError(
-      //   data as {
-      //     status: 422
-      //     payload: EntityErrorPayload
-      //   }
-      // )
-
       return Promise.reject({
         status: response.status,
         payload: data,
@@ -49,8 +44,8 @@ axiosUnAuthInstance.interceptors.response.use(
 const fetcher = async (
   url: string,
   { arg }: { arg: LoginInput | RegistrationInput },
-): Promise<User> => {
-  const { data } = await axiosUnAuthInstance.post<User>(url, arg)
+): Promise<CommonResType<User>> => {
+  const { data } = await axiosUnAuthInstance.post<CommonResType<User>>(url, arg)
   return data
 }
 
@@ -66,8 +61,9 @@ export const useMutateLogin = () => {
   return [
     async (formData: LoginInput) => {
       try {
-        const user = await login(formData)
-        return user
+        const res = await login(formData)
+        setUserToLocalStorage(res.payload)
+        return res
       } catch (e) {
         console.error(e)
         throw e
