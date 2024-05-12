@@ -1,9 +1,10 @@
-import Image from 'next/image'
-
-import backgroundImage from '@/images/background-auth.jpg'
+import { cookies } from 'next/headers'
 import { BackgroundAuth } from '@/components/molecules/BackgroundAuth'
 
 export function AuthLayout({ children }: { children: React.ReactNode }) {
+  const cookieStore = cookies()
+  const sessionToken = cookieStore.get('access_token')
+  console.log('sessionToken', sessionToken)
   return (
     <>
       <div className="relative flex min-h-full shrink-0 justify-center px-5 items-center lg:px-0">

@@ -7,6 +7,8 @@ import { useToast } from '@/components/ui/use-toast'
 import { Button } from '@/components/molecules/ButtonCommon'
 import { RegistrationInput, RegistrationInputSchema } from '@/schemas/Register'
 import { log } from 'console'
+import { handleErrorApi } from '@/lib/utils'
+import { useRouter } from 'next/navigation'
 
 type Values = RegistrationInput
 
@@ -24,11 +26,14 @@ const defaultValues: Values = {
 
 export const RegisterForm = ({ initialValues }: Props) => {
   const { toast } = useToast()
+  const router = useRouter()
   const [registerTrigger, isMutating] = useMutateRegister()
 
   const {
     register,
     handleSubmit,
+    setError,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm({
     defaultValues: { ...defaultValues, ...initialValues },
@@ -37,16 +42,21 @@ export const RegisterForm = ({ initialValues }: Props) => {
 
   const onValid = async (values: Values) => {
     try {
-      const res = await registerTrigger(values)
+      await registerTrigger(values)
       toast({
         variant: 'default',
-        title: 'Incorrect username or password',
+        title: 'Success',
+        description: 'Create account successfully!',
       })
+      reset()
+      setTimeout(() => {
+        router.push('/login')
+        router.refresh()
+      }, 5000);
     } catch (error: any) {
-      console.error(error)
-      toast({
-        variant: 'destructive',
-        title: error.response.data.message,
+      handleErrorApi({
+        error,
+        setError: setError,
       })
     }
   }

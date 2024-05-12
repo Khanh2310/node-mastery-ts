@@ -1,9 +1,11 @@
 import axios from 'axios'
 
-import { getUserFromLocalStorage, removeUserFromLocalStorage } from '@/components/hooks/useQueryUser'
+import { getUserFromLocalStorage, removeUserFromLocalStorage } from '@/components/hooks/User/useQueryUser'
+import envConfig from '@/config/env'
+import { AuthUrlApi } from '@/config/url'
 
 const axiosInstance = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL,
+  baseURL: envConfig.NEXT_PUBLIC_API_URL,
   withCredentials: true
 })
 
@@ -51,8 +53,8 @@ axiosInstance.interceptors.response.use(
 
       return new Promise((resolve, reject) => {
         axios
-          .get('/authentication/refresh', {
-            baseURL: import.meta.env.VITE_API_URL,
+          .get(AuthUrlApi.REFRESH_TOKEN, {
+            baseURL: envConfig.NEXT_PUBLIC_API_URL,
             timeout: 30000,
             withCredentials: true
           })

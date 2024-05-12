@@ -7,6 +7,7 @@ import { useMutateLogin } from '@/components/hooks/Auth/useMutateAuth'
 import { useToast } from '@/components/ui/use-toast'
 import { Button } from '@/components/molecules/ButtonCommon'
 import { useRouter } from 'next/navigation'
+import { handleErrorApi } from '@/lib/utils'
 
 type Values = LoginInput
 
@@ -27,6 +28,7 @@ export const LoginForm = ({ initialValues }: Props) => {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors, isSubmitting },
   } = useForm({
     defaultValues: { ...defaultValues, ...initialValues },
@@ -37,26 +39,27 @@ export const LoginForm = ({ initialValues }: Props) => {
     try {
       await login(values)
       router.push('/')
+      router.refresh()
     } catch (error: any) {
-      if (error.response.status === 401) {
-        if (error.response.data.message == 'Confirm your email first') {
+      if (error?.status === 401) {
+        if (error.payload.message == 'Confirm your email first') {
           toast({
             variant: 'destructive',
-            title: error.response.data.message ,
+            title: error.payload.message,
           })
-      } else {
+        } else {
+          handleErrorApi({
+            error,
+            setError: setError,
+          })
+        }
+      } else
         toast({
           variant: 'destructive',
-          title: 'Incorrect username or password',
+          title: 'Unexpected error occurred',
         })
-      }
-      toast({
-        variant: 'destructive',
-        title: 'Unexpected error occurred',
-      })
     }
   }
-}
 
   return (
     <>
