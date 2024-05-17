@@ -1,7 +1,7 @@
 import useSWRMutation from 'swr/mutation'
 import axios from 'axios'
 import { LoginInput } from '@/schemas/Login'
-import { User } from '@/types/User'
+import { UserResponse } from '@/types/User'
 import { AuthUrlApi } from '@/config/url'
 import { RegistrationInput } from '@/schemas/Register'
 import {
@@ -44,8 +44,8 @@ axiosUnAuthInstance.interceptors.response.use(
 const fetcher = async (
   url: string,
   { arg }: { arg: LoginInput | RegistrationInput },
-): Promise<CommonResType<User>> => {
-  const { data } = await axiosUnAuthInstance.post<CommonResType<User>>(url, arg)
+): Promise<CommonResType<UserResponse>> => {
+  const { data } = await axiosUnAuthInstance.post<CommonResType<UserResponse>>(url, arg)
   return data
 }
 
@@ -62,7 +62,7 @@ export const useMutateLogin = () => {
     async (formData: LoginInput) => {
       try {
         const res = await login(formData)
-        setUserToLocalStorage(res.payload)
+        setUserToLocalStorage(res.payload.user)
         return res
       } catch (e) {
         console.error(e)

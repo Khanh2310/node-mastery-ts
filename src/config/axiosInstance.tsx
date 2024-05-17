@@ -5,7 +5,7 @@ import envConfig from '@/config/env'
 import { AuthUrlApi } from '@/config/url'
 
 const axiosInstance = axios.create({
-  baseURL: envConfig.NEXT_PUBLIC_API_URL,
+  baseURL: envConfig.API_URL,
   withCredentials: true
 })
 

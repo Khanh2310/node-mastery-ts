@@ -13,3 +13,10 @@ export class UrlApi {
 
   public static readonly CONFIRM_TRANSACTION = '/transactions-history/confirm-transactions'
 }
+
+export const privateServerAPI = {
+  authUrlApi: {
+    Login: "/auth/login",
+    Register: "/auth/register"
+  },
+}
