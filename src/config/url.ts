@@ -7,7 +7,7 @@ export class AuthUrlApi {
 }
 
 export class UrlApi {
-  public static readonly PROFILE = '/user/profile'
+  public static readonly PROFILE = '/profile'
 
   public static readonly GENERATE_QR = '/transactions-history/generate-qr'
 
@@ -19,4 +19,7 @@ export const privateServerAPI = {
     Login: "/auth/login",
     Register: "/auth/register"
   },
+  userUrlApi: {
+    profile: '/user/profile'
+  }
 }

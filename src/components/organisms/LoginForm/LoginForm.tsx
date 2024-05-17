@@ -38,9 +38,8 @@ export const LoginForm = ({ initialValues }: Props) => {
   const onValid = async (values: Values) => {
     try {
        const res = await login(values)
-       console.log('res', res)
-      // router.push('/')
-      // router.refresh()
+      router.push('/')
+      router.refresh()
     } catch (error: any) {
       if (error?.status === 401) {
         if (error.payload.message == 'Confirm your email first') {

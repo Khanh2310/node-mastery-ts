@@ -3,12 +3,21 @@ export type Token = {
   refreshToken: RefreshToken
 }
 
+export type OptionsCookie = {
+  expires: Date
+  httpOnly: boolean
+  path: string
+  maxAge: number
+  secure: boolean
+  sameSite: string
+}
+
 export type AccessToken = {
   token: string
-  expiresDate: string
+  options: OptionsCookie
 }
 
 export type RefreshToken = {
   token: string
-  expiresDate: string
+  options: OptionsCookie
 }
