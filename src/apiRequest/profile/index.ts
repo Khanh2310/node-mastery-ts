@@ -1,10 +1,11 @@
 import { CommonResType } from '@/schemas/commonType'
-import axiosInstance from '@/config/axiosInstance'
 import { User } from '@/types/User'
 import { privateServerAPI } from '@/config/url'
+import { AxiosRequestConfig } from 'axios'
+import { axiosInstanceServer } from '@/config/axiosForServer'
 
 const userApiRequest = {
-    profile: () => axiosInstance.get<CommonResType<User>>(privateServerAPI.userUrlApi.profile)
+    profile: (config: AxiosRequestConfig<any> ) => axiosInstanceServer.get<CommonResType<User>>(privateServerAPI.userUrlApi.profile, config)
 }
 
 export default userApiRequest

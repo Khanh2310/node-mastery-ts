@@ -71,6 +71,7 @@ const getUser = async (url: string): Promise<User> => {
 export const useQueryUser = (force: boolean = false) => {
   const url = UrlApi.PROFILE
   const user_id = getUserFromLocalStorage()
+  console.log('user_id', user_id)
   const { data: user, error } = useSWR(user_id || force ? url : null, getUser, {
     shouldRetryOnError: false,
     revalidateOnMount: true,
