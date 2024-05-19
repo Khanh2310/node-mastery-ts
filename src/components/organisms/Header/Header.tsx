@@ -101,7 +101,6 @@ function MobileNavigation() {
 
 export const Header = () => {
   const { user, error } = useQueryUser()
-  console.log('user', user)
 
   return (
     <header className="fixed z-10 w-full bg-white/30 py-5 backdrop-blur-md">

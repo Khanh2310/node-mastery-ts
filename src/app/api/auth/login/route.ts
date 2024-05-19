@@ -6,7 +6,11 @@ export async function POST(request: Request) {
     const body = await request.json() as LoginInput
     try {
       const res =  await authApiRequest.login(body)
-
+      console.log(' ');
+      console.log('*'.repeat(10));
+      console.log(JSON.stringify(res.data.payload, null, 2))
+      console.log('*'.repeat(10));
+      console.log(' ');
       const {token} = res.data.payload
 
       const cookies = [

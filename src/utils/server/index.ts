@@ -29,7 +29,7 @@ export const responseClient = ({status = 200, headerData, body}: {
       cookie += `; Path=${options.path}`;
     }
     if (options.expires) {
-      cookie += `; Expires=${options.expires.toUTCString()}`;
+      cookie += `; Expires=${options.expires}`;
     }
     if (options.maxAge) {
       cookie += `; Max-Age=${options.maxAge}`;
