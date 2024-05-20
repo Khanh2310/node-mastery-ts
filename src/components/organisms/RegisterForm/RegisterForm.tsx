@@ -52,7 +52,7 @@ export const RegisterForm = ({ initialValues }: Props) => {
       setTimeout(() => {
         router.push('/login')
         router.refresh()
-      }, 5000);
+      }, 5000)
     } catch (error: any) {
       handleErrorApi({
         error,
@@ -105,6 +105,7 @@ export const RegisterForm = ({ initialValues }: Props) => {
           isRequired
         />
         <Button
+          loading={isMutating}
           type="submit"
           variant="solid"
           color="blue"

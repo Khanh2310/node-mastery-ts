@@ -84,6 +84,7 @@ export const LoginForm = ({ initialValues }: Props) => {
         />
 
         <Button
+          loading={isMutating}
           type="submit"
           variant="solid"
           color="blue"

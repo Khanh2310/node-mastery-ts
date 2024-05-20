@@ -1,5 +1,4 @@
-import userApiRequest from '@/apiRequest/profile'
-import { Token } from '@/types/token'
+import userApiRequest from '@/apiRequest/Profile'
 import { responseClient } from '@/utils/server'
 import { cookies } from 'next/headers'
 
@@ -12,18 +11,20 @@ export async function GET(request: Request) {
     try {
         const res = await userApiRequest.profile({
             headers: {
-                'Authorization': 'Bearer ' + accessToken.value
+                'Authorization': 'Bearer ' + accessToken?.value
             }
         })
      
         return responseClient({
             status: 200,
-            body: res.data
+            body: res?.data
           })
         
     } catch(e: any) {
-        return Response.json(e.response.data ,{
-            status: e.response.status
-          })
+        console.error(e?.response?.data || e.response)
+        return responseClient({
+          status: e.response?.status,
+          body: e.response?.data
+        })
     }
 }

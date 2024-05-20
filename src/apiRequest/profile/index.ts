@@ -5,7 +5,7 @@ import { AxiosRequestConfig } from 'axios'
 import { axiosInstanceServer } from '@/config/axiosForServer'
 
 const userApiRequest = {
-    profile: (config: AxiosRequestConfig<any> ) => axiosInstanceServer.get<CommonResType<User>>(privateServerAPI.userUrlApi.profile, config)
+    profile: (config: AxiosRequestConfig<any> ) => axiosInstanceServer.get<CommonResType<User>>(privateServerAPI.userUrlApi.Profile, config)
 }
 
 export default userApiRequest

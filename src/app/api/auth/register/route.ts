@@ -18,7 +18,7 @@ export async function POST(request: Request) {
       })
     }
     catch(e: any) {
-      console.error(e)
+      console.error(e?.response?.data || e.response)
       return responseClient({
         status: e.response.status,
         body: e.response.data

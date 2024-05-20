@@ -17,9 +17,10 @@ export class UrlApi {
 export const privateServerAPI = {
   authUrlApi: {
     Login: "/auth/login",
-    Register: "/auth/register"
+    Register: "/auth/register",
   },
   userUrlApi: {
-    profile: '/user/profile'
+    Profile: '/user/profile',
+    RefreshToken: '/auth/refresh-token'
   }
 }
