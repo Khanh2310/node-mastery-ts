@@ -1,11 +1,13 @@
-import userApiRequest from '@/apiRequest/profile'
+import transactionApi from '@/apiRequest/transaction'
+import { GenerateQRSInput } from '@/schemas/Transaction'
 import { CookieToken } from '@/types/token'
 import { responseClient } from '@/utils/server'
 import { cookies } from 'next/headers'
 
-export async function GET(request: Request) {
+export async function POST(request: Request) {
     const cookieStore = cookies()
     const accessToken = cookieStore.get('accessToken') as CookieToken
+    const body = await request.json() as GenerateQRSInput
 
     if(!accessToken) {
         return responseClient({
@@ -15,7 +17,10 @@ export async function GET(request: Request) {
     }
     
     try {
-        const res = await userApiRequest.profile(accessToken?.value)
+        const res = await transactionApi.generateQR({
+            formData: body,
+            token: accessToken?.value
+        })
      
         return responseClient({
             status: 200,

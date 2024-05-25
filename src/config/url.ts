@@ -9,9 +9,9 @@ export class AuthUrlApi {
 export class UrlApi {
   public static readonly PROFILE = '/profile'
 
-  public static readonly GENERATE_QR = '/transactions-history/generate-qr'
+  public static readonly GENERATE_QR = '/transaction/generate-qr'
 
-  public static readonly CONFIRM_TRANSACTION = '/transactions-history/confirm-transactions'
+  public static readonly CONFIRM_TRANSACTION = '/transaction/confirm'
 }
 
 export const privateServerAPI = {
@@ -21,6 +21,11 @@ export const privateServerAPI = {
   },
   userUrlApi: {
     Profile: '/user/profile',
-    RefreshToken: '/auth/refresh-token'
+    RefreshToken: '/auth/refresh-token',
+
+    transaction: {
+      generateQR: '/transactions-history/generate-qr',
+      confirm: '/transactions-history/confirm-transactions',
+    }
   }
 }

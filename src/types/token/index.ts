@@ -21,3 +21,14 @@ export type RefreshToken = {
   token: string
   options: OptionsCookie
 }
+
+
+export type CookieToken = {
+  name: string, value: string, path: string
+} | undefined
+
+
+export type TokeCallAPI<T> = {
+  token: string,
+  formData: T
+}
