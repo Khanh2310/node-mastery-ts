@@ -9,6 +9,8 @@ import { Button } from '@/components/molecules/ButtonCommon/ButtonCommon'
 import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
 import { NavLink } from '@/components/NavLink'
+import { useQueryUser } from '@/components/hooks/User/useQueryUser'
+import { fullName } from '@/lib/utils'
 
 function MobileNavLink({
   href,
@@ -55,7 +57,7 @@ function MobileNavigation() {
   return (
     <Popover>
       <Popover.Button
-        className="relative z-10 flex h-8 w-8 items-center justify-center ui-not-focus-visible:outline-none"
+        className="ui-not-focus-visible:outline-none relative z-10 flex h-8 w-8 items-center justify-center"
         aria-label="Toggle Navigation"
       >
         {({ open }) => <MobileNavIcon open={open} />}
@@ -97,9 +99,11 @@ function MobileNavigation() {
   )
 }
 
-export function Header() {
+export const Header = () => {
+  const { user, error } = useQueryUser()
+
   return (
-    <header className="py-10">
+    <header className="fixed z-10 w-full bg-white/30 py-5 backdrop-blur-md">
       <Container>
         <nav className="relative z-50 flex justify-between">
           <div className="flex items-center md:gap-x-12">
@@ -114,7 +118,11 @@ export function Header() {
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
             <div className="hidden md:block">
-              <NavLink href="/login">Sign in</NavLink>
+              {user ? (
+                <NavLink href="/profile">{fullName(user.firstName, user.lastName)}</NavLink>
+              ) : (
+                <NavLink href="/login">Sign in</NavLink>
+              )}
             </div>
             <Button href="/register" color="blue">
               <span>

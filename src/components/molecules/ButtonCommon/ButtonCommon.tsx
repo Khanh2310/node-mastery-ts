@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import clsx from 'clsx'
 import { Button as ButtonUi } from '@/components/atoms/Button'
+import { ButtonLoading} from '@/components/atoms/ButtonLoading'
+
 
 const baseStyles = {
   solid:
@@ -40,9 +42,9 @@ type ButtonProps = (
     | (Omit<React.ComponentPropsWithoutRef<'button'>, 'color'> & {
         href?: undefined
       })
-  )
+  ) & {loading?: boolean}
 
-export function Button({ className, ...props }: ButtonProps) {
+export function Button({ className , loading = false, ...props }: ButtonProps) {
   props.variant ??= 'solid'
   props.color ??= 'slate'
 
@@ -57,7 +59,7 @@ export function Button({ className, ...props }: ButtonProps) {
   )
 
   return typeof props.href === 'undefined' ? (
-    <ButtonUi className={className} {...props} />
+      loading ? <ButtonLoading className={className}/> : <ButtonUi className={className} {...props} />
   ) : (
     <Link className={className} {...props} />
   )

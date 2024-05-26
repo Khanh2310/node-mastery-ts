@@ -1,12 +1,11 @@
 import Link from 'next/link'
-
 import { Button } from '@/components/molecules/ButtonCommon'
 import { Logo } from '@/components/Logo'
-import { SlimLayout } from '@/components/SlimLayout'
+import { AuthLayout } from '@/components/layouts/AuthLayout'
 
 export default function NotFound() {
   return (
-    <SlimLayout>
+    <AuthLayout>
       <div className="flex">
         <Link href="/" aria-label="Home">
           <Logo className="h-10 w-auto" />
@@ -22,6 +21,6 @@ export default function NotFound() {
       <Button href="/" className="mt-10">
         Go back home
       </Button>
-    </SlimLayout>
+    </AuthLayout>
   )
 }

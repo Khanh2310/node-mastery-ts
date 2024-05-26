@@ -1,6 +1,3 @@
-import Image from 'next/image'
-
-import backgroundImage from '@/images/background-auth.jpg'
 import { BackgroundAuth } from '@/components/molecules/BackgroundAuth'
 
 export function AuthLayout({ children }: { children: React.ReactNode }) {
