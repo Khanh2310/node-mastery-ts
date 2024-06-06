@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
-import { NavLink } from '@/components/NavLink'
+import { NavLink } from '@/components/atoms/NavLink/NavLink'
 
 export const Footer = () => {
   return (

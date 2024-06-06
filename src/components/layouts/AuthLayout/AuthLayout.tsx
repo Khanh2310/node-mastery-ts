@@ -1,6 +1,8 @@
+import { getUserFromLocalStorage } from '@/components/hooks/User/useQueryUser'
 import { BackgroundAuth } from '@/components/molecules/BackgroundAuth'
 
 export function AuthLayout({ children }: { children: React.ReactNode }) {
+
   return (
     <>
       <div className="relative flex min-h-full shrink-0 justify-center px-5 items-center lg:px-0">

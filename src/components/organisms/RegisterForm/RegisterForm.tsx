@@ -22,6 +22,7 @@ const defaultValues: Values = {
   firstName: '',
   lastName: '',
   confirmPassword: '',
+  phoneNumber: ''
 }
 
 export const RegisterForm = ({ initialValues }: Props) => {
@@ -84,8 +85,16 @@ export const RegisterForm = ({ initialValues }: Props) => {
         <TextBoxWithLabel
           className="col-span-full"
           labelProps={{ children: 'Email address' }}
-          textboxProps={register('email')}
+          textboxProps={{...register('email') , type: "email"}}
           error={errors.email?.message}
+          isRequired
+        />
+
+        <TextBoxWithLabel
+          className="col-span-full"
+          labelProps={{ children: 'Phone number' }}
+          textboxProps={register('phoneNumber')}
+          error={errors.phoneNumber?.message}
           isRequired
         />
 

@@ -3,6 +3,7 @@ import { z } from 'zod'
 export const RegistrationInputSchema = z
   .object({
     email: z.string().min(1, 'Email is required').email('Invalid email'),
+    phoneNumber: z.string().refine((value) => /^[+]{1}(?:[0-9-()/.]\s?){6,15}[0-9]{1}$/.test(value), "Invalid phone number"),
     firstName: z.string().min(1, 'First name is required'),
     lastName: z.string().min(1, 'Last name is required'),
     password: z

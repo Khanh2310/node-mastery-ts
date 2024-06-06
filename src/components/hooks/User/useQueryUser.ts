@@ -1,7 +1,7 @@
 'use client'
 import axiosInstance from '@/config/axiosInstance'
 import { UrlApi } from '@/config/url'
-import { isClient } from '@/lib/utils'
+import { fullName, isClient } from '@/lib/utils'
 import { CommonResType } from '@/schemas/commonType'
 import { User } from '@/types/User'
 import useSWR from 'swr'
@@ -38,15 +38,33 @@ export const setToLocalStorage = (key: string, value: string) => {
 
 export const setUserToLocalStorage = (user: User) => {
   setToLocalStorage('user', user.id.toString())
+  setToLocalStorage('displayName', fullName(user.firstName, user.lastName))
 }
 
 export const removeUserFromLocalStorage = () => {
   localStorage.removeItem('user')
+  localStorage.removeItem('displayName')
 }
 
 export const getUserFromLocalStorage = (): string | null => {
   if (isClient()) {
     const user = localStorage.getItem('user') || ''
+
+    if (user) {
+      try {
+        return user
+      } catch (error) {
+        return null
+      }
+    }
+  }
+
+  return null
+}
+
+export const getUserNameFromLocalStorage = (): string | null => {
+  if (isClient()) {
+    const user = localStorage.getItem('displayName') || ''
 
     if (user) {
       try {
@@ -72,7 +90,7 @@ export const useQueryUser = (force: boolean = false) => {
   const url = UrlApi.PROFILE
   const user_id = getUserFromLocalStorage()
  
-  const { data: user, error } = useSWR(user_id || force ? url : null, getUser, {
+  const { data: user, isLoading } = useSWR(user_id || force ? url : null, getUser, {
     shouldRetryOnError: false,
     revalidateOnMount: true,
     revalidateOnFocus: false,
@@ -80,5 +98,5 @@ export const useQueryUser = (force: boolean = false) => {
     keepPreviousData: true
   })
 
-  return { user, error }
+  return { user, isLoading }
 }

@@ -1,15 +1,16 @@
 'use client'
-
 import { Fragment } from 'react'
 import Link from 'next/link'
 import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
-import { Button } from '@/components/molecules/ButtonCommon/ButtonCommon'
+import { Button } from '@/components/molecules/ButtonCommon'
 import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
-import { NavLink } from '@/components/NavLink'
-import { useQueryUser } from '@/components/hooks/User/useQueryUser'
+import { NavLink } from '@/components/atoms/NavLink'
+import {
+  useQueryUser,
+} from '@/components/hooks/User/useQueryUser'
 import { fullName } from '@/lib/utils'
 
 function MobileNavLink({
@@ -100,7 +101,7 @@ function MobileNavigation() {
 }
 
 export const Header = () => {
-  const { user, error } = useQueryUser()
+  const { user } = useQueryUser()
 
   return (
     <header className="fixed z-10 w-full bg-white/30 py-5 backdrop-blur-md">
@@ -118,17 +119,20 @@ export const Header = () => {
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
             <div className="hidden md:block">
-              {user ? (
-                <NavLink href="/profile">{fullName(user.firstName, user.lastName)}</NavLink>
-              ) : (
-                <NavLink href="/login">Sign in</NavLink>
-              )}
+              <Button
+                href={user ? '/profile' : '/login'}
+                color={user && 'blue'}
+              >
+                {user ? fullName(user.firstName, user.lastName) : 'Sign in'}
+              </Button>
             </div>
-            <Button href="/register" color="blue">
-              <span>
-                Get started <span className="hidden lg:inline">today</span>
-              </span>
-            </Button>
+            {!user && (
+              <Button href="/register" color="blue">
+                <span>
+                  Get started <span className="hidden lg:inline">today</span>
+                </span>
+              </Button>
+            )}
             <div className="-mr-1 md:hidden">
               <MobileNavigation />
             </div>

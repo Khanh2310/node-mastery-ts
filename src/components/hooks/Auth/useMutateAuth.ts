@@ -1,3 +1,4 @@
+"user sever"
 import useSWRMutation from 'swr/mutation'
 import axios from 'axios'
 import { LoginInput } from '@/schemas/Login'
@@ -6,9 +7,7 @@ import { AuthUrlApi } from '@/config/url'
 import { RegistrationInput } from '@/schemas/Register'
 import {
   ENTITY_ERROR_STATUS,
-  EntityError,
   EntityErrorPayload,
-  HttpError,
 } from '@/lib/utils'
 import { setUserToLocalStorage } from '../User/useQueryUser'
 import { CommonResType } from '@/schemas/commonType'
