@@ -19,16 +19,16 @@ type Props = {
 const defaultValues: Values = {
   email: '',
   password: '',
-  firstName: '',
-  lastName: '',
-  confirmPassword: '',
-  phoneNumber: ''
+  first_name: '',
+  last_name: '',
+  confirm_password: '',
+  phone_number: ''
 }
 
 export const RegisterForm = ({ initialValues }: Props) => {
   const { toast } = useToast()
   const router = useRouter()
-  const [registerTrigger, isMutating] = useMutateRegister()
+  const {registerTrigger, isMutating} = useMutateRegister()
 
   const {
     register,
@@ -70,15 +70,15 @@ export const RegisterForm = ({ initialValues }: Props) => {
       >
         <TextBoxWithLabel
           labelProps={{ children: 'First name' }}
-          textboxProps={register('firstName')}
-          error={errors.firstName?.message}
+          textboxProps={register('first_name')}
+          error={errors.first_name?.message}
           isRequired
         />
 
         <TextBoxWithLabel
           labelProps={{ children: 'last name' }}
-          textboxProps={register('lastName')}
-          error={errors.lastName?.message}
+          textboxProps={register('last_name')}
+          error={errors.last_name?.message}
           isRequired
         />
 
@@ -93,8 +93,8 @@ export const RegisterForm = ({ initialValues }: Props) => {
         <TextBoxWithLabel
           className="col-span-full"
           labelProps={{ children: 'Phone number' }}
-          textboxProps={register('phoneNumber')}
-          error={errors.phoneNumber?.message}
+          textboxProps={register('phone_number')}
+          error={errors.phone_number?.message}
           isRequired
         />
 
@@ -109,8 +109,8 @@ export const RegisterForm = ({ initialValues }: Props) => {
         <TextBoxWithLabel
           labelProps={{ children: 'Confirm password' }}
           className="col-span-full"
-          textboxProps={{ ...register('confirmPassword'), type: 'password' }}
-          error={errors.confirmPassword?.message}
+          textboxProps={{ ...register('confirm_password'), type: 'password' }}
+          error={errors.confirm_password?.message}
           isRequired
         />
         <Button

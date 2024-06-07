@@ -1,8 +1,8 @@
 import { Inter, Lexend } from 'next/font/google'
 
 import { type Metadata } from 'next'
-import { Aside } from '@/components/organisms/SideBar'
 import { PrivateLayout } from '@/components/layouts/PrivateLayout'
+import { HeaderPrivate } from '@/components/organisms/HeaderPrivate'
 
 export const metadata: Metadata = {
   title: {
@@ -33,11 +33,9 @@ export default function AuthRootLayout({
   return (
     <>
       <div>
-        <Aside />
-        <main className="lg:pl-72">
-          <div className="px-4 py-10 sm:px-6 lg:px-8 lg:py-6">
-            <PrivateLayout>{children}</PrivateLayout>
-          </div>
+        <HeaderPrivate />
+        <main className='mt-24'>
+          {children}
         </main>
       </div>
     </>

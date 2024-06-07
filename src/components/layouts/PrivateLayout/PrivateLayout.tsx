@@ -1,7 +1,7 @@
 export function PrivateLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <div className="pt-10 max-[1000px] w-[90%] m-auto">{children}</div>
+      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">{children}</div>
     </>
   )
 }

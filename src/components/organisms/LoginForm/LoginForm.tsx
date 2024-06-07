@@ -23,7 +23,7 @@ const defaultValues: Values = {
 export const LoginForm = ({ initialValues }: Props) => {
   const { toast } = useToast()
   const router = useRouter()
-  const [login, isMutating] = useMutateLogin()
+  const { login, isMutating}= useMutateLogin()
 
   const {
     register,
@@ -37,7 +37,7 @@ export const LoginForm = ({ initialValues }: Props) => {
 
   const onValid = async (values: Values) => {
     try {
-       const res = await login(values)
+      const res = await login(values)
       router.push('/')
       router.refresh()
     } catch (error: any) {

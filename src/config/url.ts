@@ -9,23 +9,7 @@ export class AuthUrlApi {
 export class UrlApi {
   public static readonly PROFILE = '/user/profile'
 
-  public static readonly GENERATE_QR = '/transactions-history/generate-qr'
+  public static readonly GENERATE_QR = '/transactions/generate-qr'
 
-  public static readonly CONFIRM_TRANSACTION = '/transactions-history/confirm-transactions'
+  public static readonly CONFIRM_TRANSACTION = '/transactions/confirm-transactions'
 }
-
-// export const privateServerAPI = {
-//   authUrlApi: {
-//     Login: "/auth/login",
-//     Register: "/auth/register",
-//   },
-//   userUrlApi: {
-//     Profile: '/user/profile',
-//     RefreshToken: '/auth/refresh-token',
-
-//     transaction: {
-//       generateQR: '/transactions-history/generate-qr',
-//       confirm: '/transactions-history/confirm-transactions',
-//     }
-//   }
-// }

@@ -37,34 +37,16 @@ export const setToLocalStorage = (key: string, value: string) => {
 }
 
 export const setUserToLocalStorage = (user: User) => {
-  setToLocalStorage('user', user.id.toString())
-  setToLocalStorage('displayName', fullName(user.firstName, user.lastName))
+  setToLocalStorage('user', user.phone_number)
 }
 
 export const removeUserFromLocalStorage = () => {
   localStorage.removeItem('user')
-  localStorage.removeItem('displayName')
 }
 
 export const getUserFromLocalStorage = (): string | null => {
   if (isClient()) {
     const user = localStorage.getItem('user') || ''
-
-    if (user) {
-      try {
-        return user
-      } catch (error) {
-        return null
-      }
-    }
-  }
-
-  return null
-}
-
-export const getUserNameFromLocalStorage = (): string | null => {
-  if (isClient()) {
-    const user = localStorage.getItem('displayName') || ''
 
     if (user) {
       try {

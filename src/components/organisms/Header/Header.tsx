@@ -120,10 +120,10 @@ export const Header = () => {
           <div className="flex items-center gap-x-5 md:gap-x-8">
             <div className="hidden md:block">
               <Button
-                href={user ? '/profile' : '/login'}
+                href={user ? '/dashboard' : '/login'}
                 color={user && 'blue'}
               >
-                {user ? fullName(user.firstName, user.lastName) : 'Sign in'}
+                {user ? fullName(user.first_name, user.last_name) : 'Sign in'}
               </Button>
             </div>
             {!user && (

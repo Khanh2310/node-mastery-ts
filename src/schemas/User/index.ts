@@ -7,8 +7,8 @@ export enum LANGUAGE {
 export const User = z.object({
   id: z.number(),
   avatar: z.string(),
-  firstName: z.string(),
-  lastName: z.string(),
+  first_name: z.string(),
+  last_name: z.string(),
   email: z.string(),
   language: z.nativeEnum(LANGUAGE),
   is_validate_email: z.boolean(),
