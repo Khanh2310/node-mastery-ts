@@ -33,20 +33,23 @@ export default function DepositATM() {
   const { generate, isMutating } = useMutateGenerateQR()
   const { confirmTopUp, isMutating: isConfirming } = useMutateConfirmTopUp()
 
-  const onReInputAmount = () => {
-    setImage('')
-  }
 
   const {
     register,
     handleSubmit,
     setError,
     getValues,
+    reset,
     formState: { errors, isSubmitting },
   } = useForm({
     defaultValues: { ...defaultValues },
     resolver: zodResolver(GenerateQRSchema),
   })
+
+  const onReInputAmount = () => {
+    setImage('')
+    reset()
+  }
 
   const onValid = async (values: Values) => {
     try {
@@ -67,13 +70,16 @@ export default function DepositATM() {
   const onConfirm = async () => {
     try {
       const values = getValues()
-      console.log('values', values )
-      const res = await confirmTopUp(values)
+      const res = await confirmTopUp({
+        amount: 1 * values.amount,
+        currency: values.currency,
+      })
       toast({
         variant: 'default',
         title: 'Success',
         description: 'We will check your request top up!',
       })
+      onReInputAmount()
     } catch (error: any) {
       toast({
         variant: 'destructive',
@@ -134,7 +140,7 @@ export default function DepositATM() {
             width={500}
             height={700}
           />
-           <Button
+          <Button
             loading={isMutating || isConfirming}
             variant="solid"
             color="blue"
@@ -156,7 +162,7 @@ export default function DepositATM() {
             ...register('amount'),
             min: 1,
             type: 'number',
-            disabled: !!image
+            disabled: !!image,
           }}
           error={errors.amount?.message}
           isRequired
@@ -177,8 +183,8 @@ export default function DepositATM() {
                 ))}
               </>
             ),
-            disabled: !!image
-          }} 
+            disabled: !!image,
+          }}
           error={errors.currency?.message}
         />
 
