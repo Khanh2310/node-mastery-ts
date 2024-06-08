@@ -31,7 +31,7 @@ export const TopUpTab = () => {
   ]
   return (
     <TabGroup>
-      <TabList className="mb-3 bg-gray-200 max-w-lg p-2 rounded-lg flex gap-1">
+      <TabList className="mb-10 bg-gray-200 max-w-lg p-2 rounded-lg flex gap-1">
         {listTab.map(({ id, title }) => (
           <Tab className="w-[calc((100%-0.25rem)/2)] rounded-lg py-2 px-4 text-sm/6 font-semibold focus:outline-none text-gray-500 data-[hover]:font-bold data-[selected]:text-black data-[selected]:font-bold data-[selected]:bg-gray-100 data-[hover]:text-black transform duration-200 ease-in-out" key={id}>{title}</Tab>
         ))}

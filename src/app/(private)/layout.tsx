@@ -13,18 +13,6 @@ export const metadata: Metadata = {
     'Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited.',
 }
 
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-})
-
-const lexend = Lexend({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-lexend',
-})
-
 export default function AuthRootLayout({
   children,
 }: {
@@ -34,7 +22,7 @@ export default function AuthRootLayout({
     <>
       <div>
         <HeaderPrivate />
-        <main className='mt-24'>
+        <main className='py-24'>
           {children}
         </main>
       </div>

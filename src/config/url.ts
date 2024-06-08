@@ -9,6 +9,8 @@ export class AuthUrlApi {
 export class UrlApi {
   public static readonly PROFILE = '/user/profile'
 
+  public static readonly TRANSACTIONS = '/transactions'
+
   public static readonly GENERATE_QR = '/transactions/generate-qr'
 
   public static readonly CONFIRM_TRANSACTION = '/transactions/confirm-transactions'

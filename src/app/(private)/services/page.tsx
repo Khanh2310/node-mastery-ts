@@ -1,5 +1,5 @@
-import { PrivateLayout } from '@/components/layouts/PrivateLayout'
+import { ServiceTemplate } from '@/components/templates/Service'
 
-export default function Profile() {
-  return <PrivateLayout>service</PrivateLayout>
+export default function Services() {
+  return <ServiceTemplate />
 }
