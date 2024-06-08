@@ -9,7 +9,7 @@ import dynamic from 'next/dynamic'
 import qrImage from '@/images/app/qr-code-svgrepo-com.svg'
 import Image from 'next/image'
 
-export const ListTopUp = () => {
+export default function ListTopUp() {
   const listTopUp = [
     {
       id: useId(),
@@ -23,12 +23,23 @@ export const ListTopUp = () => {
     },
   ]
   return (
-    <div className="mt-10 flex flex-wrap gap-5">
-      {listTopUp.map(({ id, name, Component }) => (
-        <Disclosure as="div" className="w-full" key={id}>
-    
+    <div>
+      <div>
+        <h2 className="border-l-8 border-l-orange-600 px-2 text-3xl font-bold uppercase leading-normal">
+          Top up automatically 24/24
+        </h2>
+        <p className="mt-1 text-base leading-normal">
+          Recharge ATM 100% automatically, add money to shop account after 5 -
+          30 seconds
+        </p>
+      </div>
+      <div className="mt-10 flex flex-wrap gap-5">
+        {listTopUp.map(({ id, name, Component }) => (
+          <Disclosure as="div" className="w-full" key={id}>
             <>
-              <DisclosureButton className={`w-full rounded-md border p-5 text-left md:w-[calc((100%-1.25rem)/2)]`}>
+              <DisclosureButton
+                className={`w-full rounded-md border p-5 text-left md:w-[calc((100%-1.25rem)/2)]`}
+              >
                 <div className="flex w-full items-center gap-5">
                   <Image
                     src={qrImage}
@@ -50,15 +61,16 @@ export const ListTopUp = () => {
                   leaveTo="opacity-0 -translate-y-6"
                 >
                   <DisclosurePanel className="origin-top transition">
-                    <div className='p-5 rounded-lg border'>
-                    <Component />
+                    <div className="rounded-lg border p-5">
+                      <Component />
                     </div>
                   </DisclosurePanel>
                 </Transition>
               </div>
             </>
-        </Disclosure>
-      ))}
+          </Disclosure>
+        ))}
+      </div>
     </div>
   )
 }

@@ -19,8 +19,33 @@ const fetcher = async (
 //   fetcher,
 // )
 
+export const useMutateConfirmTopUp = () => {
+  const url = UrlApi.CONFIRM_TRANSACTION
+  const {
+    trigger: confirmTopUp,
+    isMutating,
+    data,
+    error,
+  } = useSWRMutation(url, fetcher)
 
-export const useMutateGenerateQ = () => {
+  return {
+    confirmTopUp: async (formData: GenerateQRSInput) => {
+      try {
+        const res = await confirmTopUp(formData)
+        return res
+      } catch (e) {
+        console.error(e)
+        throw e
+      }
+    },
+    isMutating,
+    data,
+    error,
+  } 
+}
+
+
+export const useMutateGenerateQR = () => {
     const url = UrlApi.GENERATE_QR
     const {
       trigger: generate,

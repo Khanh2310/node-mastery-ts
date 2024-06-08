@@ -7,7 +7,7 @@ export const SelectBox = forwardRef<HTMLSelectElement, ComponentPropsWithoutRef<
 ) {
   return (
     <select
-      className={`${className} block w-full rounded-md border-gray-300 text-base font-medium text-gray-900 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm`}
+      className={`${className} text-slate-900 bg-white rounded-md block w-full px-3 h-10 shadow-sm sm:text-sm focus:outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-sky-500 ring-1 ring-slate-200 disabled:bg-gray-300 disabled:text-gray-500`}
       {...props}
       ref={ref}
     />

@@ -1,10 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 'use client'
 import { Button } from '@/components/molecules/ButtonCommon'
-import { useMutateGenerateQ } from '@/components/hooks/Transactions/useMutateTransaction'
+import {
+  useMutateGenerateQR,
+  useMutateConfirmTopUp,
+} from '@/components/hooks/Transactions/useMutateTransaction'
 import { SelectBoxWithLabel } from '@/components/molecules/SelectBoxWithLabel'
 import { TextBoxWithLabel } from '@/components/molecules/TextBoxWithLabel'
-import { toast } from '@/components/ui/use-toast'
+import { toast, useToast } from '@/components/ui/use-toast'
 import { handleErrorApi } from '@/lib/utils'
 
 import { GenerateQRSchema, GenerateQRSInput } from '@/schemas/Transaction'
@@ -25,13 +28,20 @@ const defaultValues: Values = {
 
 export default function DepositATM() {
   const [image, setImage] = useState('')
+  const { toast } = useToast()
   const phoneNumber = getUserFromLocalStorage()
-  const { generate, isMutating } = useMutateGenerateQ()
+  const { generate, isMutating } = useMutateGenerateQR()
+  const { confirmTopUp, isMutating: isConfirming } = useMutateConfirmTopUp()
+
+  const onReInputAmount = () => {
+    setImage('')
+  }
 
   const {
     register,
     handleSubmit,
     setError,
+    getValues,
     formState: { errors, isSubmitting },
   } = useForm({
     defaultValues: { ...defaultValues },
@@ -49,7 +59,25 @@ export default function DepositATM() {
       })
       toast({
         variant: 'destructive',
-        title: 'Unexpected error occurred',
+        title: error?.message || 'Unexpected error occurred',
+      })
+    }
+  }
+
+  const onConfirm = async () => {
+    try {
+      const values = getValues()
+      console.log('values', values )
+      const res = await confirmTopUp(values)
+      toast({
+        variant: 'default',
+        title: 'Success',
+        description: 'We will check your request top up!',
+      })
+    } catch (error: any) {
+      toast({
+        variant: 'destructive',
+        title: error?.message || 'Unexpected error occurred',
       })
     }
   }
@@ -91,14 +119,11 @@ export default function DepositATM() {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <div className=" flex flex-col justify-center items-center">
+        <div className=" flex flex-col items-center justify-center">
           <Button
-            color="blue"
-            className="my-5 rounded-md bg-red-500 w-3/4 hover:bg-red-400"
-            onClick={async () => {
-              //   Trigger `updateUser` with a specific argument.
-              console.log('test')
-            }}
+            loading={isMutating || isConfirming}
+            className="my-5 w-3/4 rounded-md bg-red-500 text-white hover:bg-red-400"
+            onClick={onConfirm}
           >
             Confirm. I have transferred
           </Button>
@@ -109,6 +134,15 @@ export default function DepositATM() {
             width={500}
             height={700}
           />
+           <Button
+            loading={isMutating || isConfirming}
+            variant="solid"
+            color="blue"
+            className="px-5"
+            onClick={onReInputAmount}
+          >
+            Re-enter the price
+          </Button>
         </div>
       </Transition>
       <form
@@ -122,6 +156,7 @@ export default function DepositATM() {
             ...register('amount'),
             min: 1,
             type: 'number',
+            disabled: !!image
           }}
           error={errors.amount?.message}
           isRequired
@@ -142,7 +177,8 @@ export default function DepositATM() {
                 ))}
               </>
             ),
-          }}
+            disabled: !!image
+          }} 
           error={errors.currency?.message}
         />
 
@@ -150,34 +186,13 @@ export default function DepositATM() {
           variant="solid"
           color="blue"
           className="col-span-full mt-5"
-          disabled={isSubmitting || isMutating}
-          loading={isMutating}
+          disabled={isSubmitting || isMutating || !!image}
+          loading={isMutating || isConfirming}
           type="submit"
         >
           Generate QR
         </Button>
       </form>
-
-      {/* {image && (
-        <Button
-          color="blue"
-          className="mt-10"
-          onClick={async () => {
-            //   Trigger `updateUser` with a specific argument.
-            try {
-              const result = await confirm(price)
-              if (result?.payload?.data.qrDataURL) {
-                setImage(result?.payload?.data.qrDataURL)
-              }
-            } catch (e) {
-              // error handling
-              console.log('e', e)
-            }
-          }}
-        >
-          Confirm transactions
-        </Button>
-      )} */}
     </>
   )
 }
