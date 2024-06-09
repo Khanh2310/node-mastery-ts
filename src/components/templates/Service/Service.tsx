@@ -1,6 +1,6 @@
 import { ServiceCard } from '@/components/molecules/ServiceCard'
 import { Title } from '@/components/molecules/Title'
-import udemyLogo from '@/images/icons/udemy.svg'
+import udemyLogo from '@/images/icons/udemy/udemy.svg'
 
 export const ServiceTemplate = () => {
   return (

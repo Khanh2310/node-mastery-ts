@@ -1,5 +1,10 @@
+import { PrivateLayout } from '@/components/layouts/PrivateLayout'
 import { ServiceTemplate } from '@/components/templates/Service'
 
 export default function Services() {
-  return <ServiceTemplate />
+  return (
+    <PrivateLayout>
+      <ServiceTemplate />
+    </PrivateLayout>
+  )
 }

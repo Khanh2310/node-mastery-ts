@@ -4,7 +4,6 @@ import {
   TabList,
   TabPanel,
   TabPanels,
-  Transition,
 } from '@headlessui/react'
 import dynamic from 'next/dynamic'
 import { useId } from 'react'

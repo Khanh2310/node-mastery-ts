@@ -1,3 +1,5 @@
+import { PrivateLayout } from '@/components/layouts/PrivateLayout'
+
 export default function Profile() {
-    return <>profile</>
+  return <PrivateLayout>profile</PrivateLayout>
 }

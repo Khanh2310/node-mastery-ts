@@ -1,16 +1,13 @@
-import { Inter, Lexend } from 'next/font/google'
-
 import { type Metadata } from 'next'
-import { PrivateLayout } from '@/components/layouts/PrivateLayout'
 import { HeaderPrivate } from '@/components/organisms/HeaderPrivate'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - Udemy Service',
-    default: 'Udemy Service - Accounting made simple for small businesses',
+    template: '%s - Diligent Service',
+    default: 'Diligent Service - Provide useful services',
   },
   description:
-    'Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited.',
+    'Providing Udemy services at affordable prices!',
 }
 
 export default function AuthRootLayout({
@@ -22,7 +19,7 @@ export default function AuthRootLayout({
     <>
       <div>
         <HeaderPrivate />
-        <main className='py-24'>
+        <main>
           {children}
         </main>
       </div>
