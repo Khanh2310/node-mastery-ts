@@ -7,7 +7,7 @@ import {
 } from '@/components/hooks/Transactions/useMutateTransaction'
 import { SelectBoxWithLabel } from '@/components/molecules/SelectBoxWithLabel'
 import { TextBoxWithLabel } from '@/components/molecules/TextBoxWithLabel'
-import { toast, useToast } from '@/components/ui/use-toast'
+import { useToast } from '@/components/ui/use-toast'
 import { handleErrorApi } from '@/lib/utils'
 
 import { GenerateQRSchema, GenerateQRSInput } from '@/schemas/Transaction'
@@ -22,8 +22,8 @@ import { Transition } from '@headlessui/react'
 type Values = GenerateQRSInput
 
 const defaultValues: Values = {
-  amount: 10,
-  currency: CURRENCY.USD,
+  amount: 10000,
+  currency: CURRENCY.VND,
 }
 
 export default function DepositATM() {
@@ -170,7 +170,7 @@ export default function DepositATM() {
         <SelectBoxWithLabel
           className="col-span-full"
           labelProps={{
-            children: 'Select Currency',
+            children: 'Currency',
           }}
           selectBoxProps={{
             ...register('currency'),
@@ -178,12 +178,12 @@ export default function DepositATM() {
               <>
                 {Object.entries(CURRENCY).map(([key, value], i) => (
                   <option key={key} value={key}>
-                    {i + 1}. {value}
+                     {value}
                   </option>
                 ))}
               </>
             ),
-            disabled: !!image,
+            disabled: true,
           }}
           error={errors.currency?.message}
         />
