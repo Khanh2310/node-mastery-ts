@@ -33,7 +33,6 @@ export default function DepositATM() {
   const { generate, isMutating } = useMutateGenerateQR()
   const { confirmTopUp, isMutating: isConfirming } = useMutateConfirmTopUp()
 
-
   const {
     register,
     handleSubmit,
@@ -178,7 +177,7 @@ export default function DepositATM() {
               <>
                 {Object.entries(CURRENCY).map(([key, value], i) => (
                   <option key={key} value={key}>
-                     {value}
+                    {value}
                   </option>
                 ))}
               </>

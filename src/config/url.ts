@@ -15,3 +15,9 @@ export class UrlApi {
 
   public static readonly CONFIRM_TRANSACTION = '/transactions/confirm-transactions'
 }
+
+export class UrlApiUdemy {
+   public static readonly CREATE_INSTRUCTOR = '/service/udemy/instructors'
+
+
+}

@@ -1,5 +1,5 @@
 import { type Metadata } from 'next'
-import { Aside } from '@/components/organisms/Services/Udemy/Aside'
+import { Aside } from '@/components/organisms/Services'
 
 export const metadata: Metadata = {
   title: {
@@ -17,7 +17,9 @@ export default function UdemyServiceLayout({
   return (
     <div className="flex min-h-dvh">
       <Aside className="w-full max-w-24" />
-      <div className="w-[90%] mx-auto max-w-[calc(100%-96px)] pt-24 bg-gray-100">{children}</div>
+      <div className="mx-auto w-[90%] max-w-[calc(100%-96px)] pt-24">
+        <div className="px-4">{children}</div>
+      </div>
     </div>
   )
 }

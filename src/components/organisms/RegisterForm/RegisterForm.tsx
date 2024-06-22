@@ -55,6 +55,8 @@ export const RegisterForm = ({ initialValues }: Props) => {
         router.refresh()
       }, 5000)
     } catch (error: any) {
+      
+      console.log('error', error)
       handleErrorApi({
         error,
         setError: setError,

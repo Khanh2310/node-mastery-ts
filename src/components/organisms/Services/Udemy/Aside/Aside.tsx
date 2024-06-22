@@ -23,18 +23,11 @@ export const Aside = ({ className }: Props) => {
     },
     {
       id: useId(),
-      title: 'Instructor',
-      icon: user,
-      href: 'instructors',
-      className: '',
-    },
-    {
-      id: useId(),
-      title: 'Courses',
+      title: 'Course Management',
       icon: courses,
-      href: 'courses',
+      href: 'course-management',
       className: '',
-    },
+    }
   ]
   return (
     <div className={`${className} space-y-5 bg-white pt-24 shadow-lg`}>
@@ -47,7 +40,7 @@ export const Aside = ({ className }: Props) => {
               (pathname === `/service-udemy` && item.href === '/')
               ? 'bg-gray-100'
               : 'hover:bg-gray-200',
-            `mx-auto flex w-[80%] flex-col items-center justify-center rounded-lg p-2 text-xs font-bold leading-normal transform duration-300 ease-in-out`,
+            `mx-auto flex w-[80%] flex-col items-center justify-center rounded-lg p-2 text-xs font-bold leading-normal transform duration-300 ease-in-out text-center`,
           )}
         >
           <Image

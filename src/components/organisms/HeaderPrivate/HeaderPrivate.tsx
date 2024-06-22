@@ -15,6 +15,7 @@ import { useSelectedLayoutSegment } from 'next/navigation'
 import { classNames } from '@/lib/utils'
 import { AvatarCompany } from '@/components/atoms/AvatarCompany'
 import { useQueryUser } from '@/components/hooks/User/useQueryUser'
+import Link from 'next/link'
 
 export const HeaderPrivate = () => {
   const { user } = useQueryUser()
@@ -22,15 +23,15 @@ export const HeaderPrivate = () => {
   const listMenu = [
     {
       name: 'Dashboard',
-      href: 'dashboard',
+      href: '/dashboard',
     },
     {
       name: 'Services',
-      href: 'services',
+      href: '/services',
     },
     {
       name: 'Top up',
-      href: 'top-up',
+      href: '/top-up',
     },
   ]
 
@@ -60,7 +61,7 @@ export const HeaderPrivate = () => {
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
 
                   {listMenu.map((item) => (
-                    <a
+                    <Link
                       href={item.href}
                       key={item.href}
                       className={classNames(
@@ -71,7 +72,7 @@ export const HeaderPrivate = () => {
                       )}
                     >
                       {item.name}
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
