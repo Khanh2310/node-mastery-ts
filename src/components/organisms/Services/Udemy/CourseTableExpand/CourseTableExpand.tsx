@@ -198,14 +198,7 @@ export const CourseTableExpand = ({
                                   exit={{ height: 0, opacity: 0 }}
                                   transition={{ duration: 0.4 }}
                                 >
-                                  <CouponArea
-                                    courseId={course.id}
-                                    initData={
-                                      course?.Coupon.length > 0
-                                        ? course?.Coupon[0]
-                                        : null
-                                    }
-                                  />
+                                  <CouponArea courseId={course.id} />
                                 </motion.tr>
                               </CollapsibleContent>
                             </>
