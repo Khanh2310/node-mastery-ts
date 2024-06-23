@@ -22,10 +22,13 @@ import { ChevronDownIcon } from '@radix-ui/react-icons'
 import { Button } from '@/components/molecules/ButtonCommon'
 import { ArrowPathIcon } from '@heroicons/react/24/outline'
 import { TextboxForSearch } from '@/components/molecules/TextboxForSearch'
+import { CreateCourseArea } from '../CreateCourseArea'
 
 export const InstructorTable = () => {
   const [spinEffect, setSpinEffect] = useState<boolean>(false)
   const [searchText, setSearchText] = useState('')
+  
+  const [instructorData, setInstructorData] = useState<{id: number, name: string} | null>(null)
 
 
   // query
@@ -65,6 +68,7 @@ export const InstructorTable = () => {
             placeholder: 'Search Instructor Name',
             name: 'search',
             value: searchText,
+            disabled: isLoading,
             onChange: (e) => setSearchText(e.target.value),
           }}
           resetSearch={resetSearch}
@@ -72,6 +76,7 @@ export const InstructorTable = () => {
         <Button
           type="button"
           color="blue"
+          disabled={isLoading}
           onClick={() => {
             setSpinEffect(true)
             refetch().finally(() => {
@@ -143,7 +148,7 @@ export const InstructorTable = () => {
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.4 }}
                         >
-                          <CourseTableExpand instructorId={instructor.id} />
+                          <CourseTableExpand instructorId={instructor.id} instructorName={instructor.instructor_name} setInstructorData={setInstructorData}/>
                         </motion.tr>
                       </CollapsibleContent>
                     </>
@@ -153,6 +158,7 @@ export const InstructorTable = () => {
           </TableBody>
         </Table>
       </div>
+      <CreateCourseArea instructorData={instructorData} setInstructorData={setInstructorData}/>
     </div>
   )
 }

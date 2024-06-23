@@ -21,4 +21,6 @@ export class UrlApi {
 
 export class UrlApiUdemy {
   public static readonly INSTRUCTOR = '/service/udemy/instructors'
+  public static readonly COURSE = '/service/udemy/courses'
+  public static readonly COUPON = '/service/udemy/coupons'
 }
