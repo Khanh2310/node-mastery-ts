@@ -4,7 +4,7 @@ import { Dispatch, SetStateAction, createContext, useContext, useEffect, useStat
 import { SWRConfig } from 'swr'
 import { useRouter } from 'next/navigation'
 import { useQueryUser } from '@/components/hooks/User/useQueryUser'
-import axiosInstance from '@/config/axiosInstance'
+import axiosInstance, { setOnUnauthorized } from '@/config/axiosInstance'
 import { AuthUrlApi } from '@/config/url'
 
 interface AuthContextType {
@@ -29,6 +29,13 @@ export function Providers(props: { children: React.ReactNode }) {
     setUser(null);
     router.push('/');
   };
+
+  useEffect(() => {
+    setOnUnauthorized(() => {
+      setUser(null);
+      router.push('/login');
+    });
+  }, [router]);
 
   useEffect(() => {
     if (data) {

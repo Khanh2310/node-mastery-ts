@@ -1,9 +1,4 @@
 import axios from 'axios'
-
-import {
-  getUserFromLocalStorage,
-  removeUserFromLocalStorage,
-} from '@/components/hooks/User/useQueryUser'
 import envConfig from '@/config/env'
 import { AuthUrlApi } from '@/config/url'
 import { ENTITY_ERROR_STATUS, EntityErrorPayload } from '@/lib/utils'
@@ -18,6 +13,12 @@ let failedQueue: {
   resolve: (value: unknown) => void
   reject: (reason?: unknown) => void
 }[] = []
+
+let onUnauthorized: (() => void) | null = null
+
+export const setOnUnauthorized = (callback: () => void) => {
+  onUnauthorized = callback
+}
 
 const processQueue = (error: null, token = null) => {
   failedQueue.forEach((prom) => {
@@ -80,11 +81,13 @@ axiosInstance.interceptors.response.use(
           })
           .catch((err) => {
             processQueue(err, null)
-            const user = getUserFromLocalStorage()
-            removeUserFromLocalStorage()
+            // const user = getUserFromLocalStorage()
+            // removeUserFromLocalStorage()
             reject(err)
-            if (err?.response?.status === 401 && user) {
-              location.reload()
+            if (err?.response?.status === 401) {
+              if (onUnauthorized) {
+                onUnauthorized()
+              }
             }
           })
           .then(() => {
