@@ -6,17 +6,19 @@ import { Dialog, Transition } from '@headlessui/react'
 import {
   Bars3Icon,
   HomeIcon,
+  UserIcon,
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { usePathname } from 'next/navigation'
-import { NavLink } from '@/components/NavLink'
+import { NavLink } from '@/components/atoms/NavLink/NavLink'
 
 export const Aside = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false) 
   const pathname = usePathname()
 
   const navigation = [
-    { name: 'Profile', to: '/profile', icon: HomeIcon },
+    { name: 'DashBoard', to: '/dashboard', icon: HomeIcon },
+    { name: 'DashBoard', to: '/profile', icon: UserIcon },
     { name: 'Recharge', to: '/recharge', icon: Bars3Icon}
   ]
 
@@ -142,6 +144,7 @@ export const Aside = () => {
                 </ul>
               </li>
             </ul>
+            <div>test</div>
           </nav>
         </div>
       </div>

@@ -1,16 +1,24 @@
 import axios from 'axios'
-
-import { getUserFromLocalStorage, removeUserFromLocalStorage } from '@/components/hooks/User/useQueryUser'
 import envConfig from '@/config/env'
 import { AuthUrlApi } from '@/config/url'
+import { ENTITY_ERROR_STATUS, EntityErrorPayload } from '@/lib/utils'
 
 const axiosInstance = axios.create({
   baseURL: envConfig.NEXT_PUBLIC_API_URL,
-  withCredentials: true
+  withCredentials: true,
 })
 
 let isRefreshing = false
-let failedQueue: { resolve: (value: unknown) => void; reject: (reason?: unknown) => void }[] = []
+let failedQueue: {
+  resolve: (value: unknown) => void
+  reject: (reason?: unknown) => void
+}[] = []
+
+let onUnauthorized: (() => void) | null = null
+
+export const setOnUnauthorized = (callback: () => void) => {
+  onUnauthorized = callback
+}
 
 const processQueue = (error: null, token = null) => {
   failedQueue.forEach((prom) => {
@@ -28,6 +36,7 @@ axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
     const { response, config } = error
+    const { data } = response
 
     if (response.status === 401 && !config._retry) {
       if (isRefreshing) {
@@ -39,8 +48,8 @@ axiosInstance.interceptors.response.use(
               ...config,
               headers: {
                 'Content-Type': 'application/json',
-                Accept: 'application/json, text/plain, */*'
-              }
+                Accept: 'application/json, text/plain, */*',
+              },
             })
           })
           .catch((err) => {
@@ -56,7 +65,7 @@ axiosInstance.interceptors.response.use(
           .get(AuthUrlApi.REFRESH_TOKEN, {
             baseURL: envConfig.NEXT_PUBLIC_API_URL,
             timeout: 30000,
-            withCredentials: true
+            withCredentials: true,
           })
           .then(({ data }) => {
             processQueue(null, data.token)
@@ -65,27 +74,45 @@ axiosInstance.interceptors.response.use(
                 ...config,
                 headers: {
                   'Content-Type': 'application/json',
-                  Accept: 'application/json, text/plain, */*'
-                }
-              })
+                  Accept: 'application/json, text/plain, */*',
+                },
+              }),
             )
           })
           .catch((err) => {
             processQueue(err, null)
-            const user = getUserFromLocalStorage()
-            removeUserFromLocalStorage()
+            // const user = getUserFromLocalStorage()
+            // removeUserFromLocalStorage()
             reject(err)
-            if (err?.response?.status === 401 && user) {
-              location.reload()
+            if (err?.response?.status === 401) {
+              if (onUnauthorized) {
+                onUnauthorized()
+              }
             }
           })
           .then(() => {
             isRefreshing = false
           })
       })
+    } else if (response.status === 401 && config._retry) {
+      return Promise.reject(error)
     }
-    return Promise.reject(error)
-  }
+    if (response.status === ENTITY_ERROR_STATUS) {
+      return Promise.reject({
+        status: response.status,
+        payload: data,
+      } as {
+        status: 422
+        payload: EntityErrorPayload
+      })
+    } else {
+      // throw new HttpError(data)
+      return Promise.reject({
+        status: response.status,
+        payload: data,
+      })
+    }
+  },
 )
 
 export default axiosInstance

@@ -1,16 +1,15 @@
 'use client'
-
 import { Fragment } from 'react'
 import Link from 'next/link'
 import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
 
-import { Button } from '@/components/molecules/ButtonCommon/ButtonCommon'
+import { Button } from '@/components/molecules/ButtonCommon'
 import { Container } from '@/components/Container'
-import { Logo } from '@/components/Logo'
-import { NavLink } from '@/components/NavLink'
-import { useQueryUser } from '@/components/hooks/User/useQueryUser'
+import { Logo } from '@/components/atoms/Logo'
+// import { NavLink } from '@/components/atoms/NavLink'
 import { fullName } from '@/lib/utils'
+import { useAuth } from '@/app/provider'
 
 function MobileNavLink({
   href,
@@ -54,6 +53,7 @@ function MobileNavIcon({ open }: { open: boolean }) {
 }
 
 function MobileNavigation() {
+  const { user } = useAuth()
   return (
     <Popover>
       <Popover.Button
@@ -87,11 +87,13 @@ function MobileNavigation() {
             as="div"
             className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5"
           >
-            <MobileNavLink href="#features">Features</MobileNavLink>
+            {/* <MobileNavLink href="#features">Features</MobileNavLink>
             <MobileNavLink href="#testimonials">Testimonials</MobileNavLink>
             <MobileNavLink href="#pricing">Pricing</MobileNavLink>
-            <hr className="m-2 border-slate-300/40" />
-            <MobileNavLink href="/login">Sign in</MobileNavLink>
+            <hr className="m-2 border-slate-300/40" /> */}
+            <MobileNavLink href={user ? '/dashboard' : '/login'}>
+              {user ? user.email : 'Sign in'}
+            </MobileNavLink>
           </Popover.Panel>
         </Transition.Child>
       </Transition.Root>
@@ -100,7 +102,7 @@ function MobileNavigation() {
 }
 
 export const Header = () => {
-  const { user, error } = useQueryUser()
+  const { user } = useAuth()
 
   return (
     <header className="fixed z-10 w-full bg-white/30 py-5 backdrop-blur-md">
@@ -111,24 +113,27 @@ export const Header = () => {
               <Logo className="h-10 w-auto" />
             </Link>
             <div className="hidden md:flex md:gap-x-6">
-              <NavLink href="#features">Features</NavLink>
+              {/* <NavLink href="#features">Features</NavLink>
               <NavLink href="#testimonials">Testimonials</NavLink>
-              <NavLink href="#pricing">Pricing</NavLink>
+              <NavLink href="#pricing">Pricing</NavLink> */}
             </div>
           </div>
-          <div className="flex items-center gap-x-5 md:gap-x-8">
+          <div className="flex items-center gap-x-2 md:gap-x-4">
             <div className="hidden md:block">
-              {user ? (
-                <NavLink href="/profile">{fullName(user.firstName, user.lastName)}</NavLink>
-              ) : (
-                <NavLink href="/login">Sign in</NavLink>
-              )}
+              <Button
+                href={user ? '/dashboard' : '/login'}
+                color={user ? 'blue' : 'slate'}
+              >
+                {user ? fullName(user.first_name, user.last_name) : 'Sign in'}
+              </Button>
             </div>
-            <Button href="/register" color="blue">
-              <span>
-                Get started <span className="hidden lg:inline">today</span>
-              </span>
-            </Button>
+            {!user && (
+              <Button href="/register" color="blue">
+                <span>
+                  Get started <span className="hidden lg:inline">today</span>
+                </span>
+              </Button>
+            )}
             <div className="-mr-1 md:hidden">
               <MobileNavigation />
             </div>

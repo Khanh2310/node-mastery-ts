@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Logo } from '@/components/Logo'
+import { Logo } from '@/components/atoms/Logo'
 import { LoginForm } from '@/components/organisms/LoginForm'
 
 export const Login = () => {
@@ -20,7 +20,7 @@ export const Login = () => {
           className="font-medium text-blue-600 hover:underline"
         >
           Sign up
-        </Link>{' '}
+        </Link>
         for a free trial.
       </p>
       <LoginForm/>

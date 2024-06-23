@@ -1,5 +1,7 @@
 export class AuthUrlApi {
   public static readonly LOGIN = '/auth/login'
+  
+  public static readonly LOGOUT = '/auth/logout'
 
   public static readonly REGISTER = '/auth/register'
 
@@ -7,25 +9,18 @@ export class AuthUrlApi {
 }
 
 export class UrlApi {
-  public static readonly PROFILE = '/profile'
+  public static readonly PROFILE = '/user/profile'
 
-  public static readonly GENERATE_QR = '/transaction/generate-qr'
+  public static readonly TRANSACTIONS = '/transactions'
 
-  public static readonly CONFIRM_TRANSACTION = '/transaction/confirm'
+  public static readonly GENERATE_QR = '/transactions/generate-qr'
+
+  public static readonly CONFIRM_TRANSACTION =
+    '/transactions/confirm-transactions'
 }
 
-export const privateServerAPI = {
-  authUrlApi: {
-    Login: "/auth/login",
-    Register: "/auth/register",
-  },
-  userUrlApi: {
-    Profile: '/user/profile',
-    RefreshToken: '/auth/refresh-token',
-
-    transaction: {
-      generateQR: '/transactions-history/generate-qr',
-      confirm: '/transactions-history/confirm-transactions',
-    }
-  }
+export class UrlApiUdemy {
+  public static readonly INSTRUCTOR = '/service/udemy/instructors'
+  public static readonly COURSE = '/service/udemy/courses'
+  public static readonly COUPON = '/service/udemy/coupon'
 }

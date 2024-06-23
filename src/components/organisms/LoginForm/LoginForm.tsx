@@ -8,6 +8,7 @@ import { useToast } from '@/components/ui/use-toast'
 import { Button } from '@/components/molecules/ButtonCommon'
 import { useRouter } from 'next/navigation'
 import { handleErrorApi } from '@/lib/utils'
+import { useAuth } from '@/app/provider'
 
 type Values = LoginInput
 
@@ -21,9 +22,10 @@ const defaultValues: Values = {
 }
 
 export const LoginForm = ({ initialValues }: Props) => {
+  const { setUser } = useAuth()
   const { toast } = useToast()
   const router = useRouter()
-  const [login, isMutating] = useMutateLogin()
+  const { login, isMutating } = useMutateLogin()
 
   const {
     register,
@@ -37,7 +39,8 @@ export const LoginForm = ({ initialValues }: Props) => {
 
   const onValid = async (values: Values) => {
     try {
-       const res = await login(values)
+      const res = await login(values)
+      setUser(res.payload.user)
       router.push('/')
       router.refresh()
     } catch (error: any) {

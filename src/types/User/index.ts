@@ -3,8 +3,9 @@ import { Token } from "../token"
 export type User = {
     id: number
     email: string
-    firstName: string
-    lastName: string
+    first_name: string
+    phone_number: string
+    last_name: string
     avatar: string
     language: string
     created_at: string

@@ -14,6 +14,7 @@ export type EntityErrorPayload = {
     field: string
     message: string
   }[]
+  statusCode: number
 }
 
 export class HttpError extends Error {
@@ -58,8 +59,9 @@ export const handleErrorApi = ({
   setError?: UseFormSetError<any>
   duration?: number
 }) => {
-  if (error instanceof EntityError && setError) {
-    error.payload.errors.forEach((item) => {
+  const errorRes = new EntityError(error)
+  if (errorRes.status === ENTITY_ERROR_STATUS && setError) {
+    errorRes.payload.errors.forEach((item) => {
       setError(item.field, {
         type: 'server',
         message: item.message

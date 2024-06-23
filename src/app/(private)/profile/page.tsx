@@ -1,7 +1,5 @@
-'use client'
-import { useQueryUser } from "@/components/hooks/User/useQueryUser"
+import { PrivateLayout } from '@/components/layouts/PrivateLayout'
 
 export default function Profile() {
-    const { user, error } = useQueryUser(true)
-    return <>profile</>
+  return <PrivateLayout>profile</PrivateLayout>
 }

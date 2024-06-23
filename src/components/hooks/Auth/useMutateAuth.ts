@@ -1,3 +1,4 @@
+"user sever"
 import useSWRMutation from 'swr/mutation'
 import axios from 'axios'
 import { LoginInput } from '@/schemas/Login'
@@ -6,9 +7,7 @@ import { AuthUrlApi } from '@/config/url'
 import { RegistrationInput } from '@/schemas/Register'
 import {
   ENTITY_ERROR_STATUS,
-  EntityError,
   EntityErrorPayload,
-  HttpError,
 } from '@/lib/utils'
 import { setUserToLocalStorage } from '../User/useQueryUser'
 import { CommonResType } from '@/schemas/commonType'
@@ -21,7 +20,7 @@ export const axiosUnAuthInstance = axios.create({
 axiosUnAuthInstance.interceptors.response.use(
   (response) => response,
   (error) => {
-    const { response, config } = error
+    const { response } = error
     const { data } = response
     if (response.status === ENTITY_ERROR_STATUS) {
       return Promise.reject({
@@ -58,8 +57,8 @@ export const useMutateLogin = () => {
     error,
   } = useSWRMutation(url, fetcher)
 
-  return [
-    async (formData: LoginInput) => {
+  return {
+    login: async (formData: LoginInput) => {
       try {
         const res = await login(formData)
         setUserToLocalStorage(res.payload.user)
@@ -72,7 +71,7 @@ export const useMutateLogin = () => {
     isMutating,
     data,
     error,
-  ] as const
+  }
 }
 
 export const useMutateRegister = () => {
@@ -84,10 +83,10 @@ export const useMutateRegister = () => {
     error,
   } = useSWRMutation(url, fetcher)
 
-  return [
-    async (formData: RegistrationInput) => {
+  return {
+    registerTrigger: async (formData: RegistrationInput) => {
       try {
-        delete formData.confirmPassword
+        delete formData.confirm_password
         const res = await register(formData)
         return res
       } catch (e) {
@@ -98,5 +97,5 @@ export const useMutateRegister = () => {
     isMutating,
     data,
     error,
-  ] as const
+  }
 }

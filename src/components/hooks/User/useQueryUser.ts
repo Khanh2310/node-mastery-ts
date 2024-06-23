@@ -1,7 +1,7 @@
 'use client'
 import axiosInstance from '@/config/axiosInstance'
 import { UrlApi } from '@/config/url'
-import { isClient } from '@/lib/utils'
+import { fullName, isClient } from '@/lib/utils'
 import { CommonResType } from '@/schemas/commonType'
 import { User } from '@/types/User'
 import useSWR from 'swr'
@@ -37,7 +37,7 @@ export const setToLocalStorage = (key: string, value: string) => {
 }
 
 export const setUserToLocalStorage = (user: User) => {
-  setToLocalStorage('user', user.id.toString())
+  setToLocalStorage('user', user.phone_number)
 }
 
 export const removeUserFromLocalStorage = () => {
@@ -72,7 +72,7 @@ export const useQueryUser = (force: boolean = false) => {
   const url = UrlApi.PROFILE
   const user_id = getUserFromLocalStorage()
  
-  const { data: user, error } = useSWR(user_id || force ? url : null, getUser, {
+  const { data: user, isLoading, error } = useSWR(user_id || force ? url : null, getUser, {
     shouldRetryOnError: false,
     revalidateOnMount: true,
     revalidateOnFocus: false,
@@ -80,5 +80,5 @@ export const useQueryUser = (force: boolean = false) => {
     keepPreviousData: true
   })
 
-  return { user, error }
+  return { user, isLoading, error }
 }
