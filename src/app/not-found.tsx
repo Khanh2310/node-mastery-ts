@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Button } from '@/components/molecules/ButtonCommon'
-import { Logo } from '@/components/Logo'
+import { Logo } from '@/components/atoms/Logo'
 import { AuthLayout } from '@/components/layouts/AuthLayout'
 
 export default function NotFound() {

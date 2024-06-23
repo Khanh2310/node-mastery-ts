@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Logo } from '@/components/Logo'
+import { Logo } from '@/components/atoms/Logo'
 import { RegisterForm } from '@/components/organisms/RegisterForm'
 
 export const Register = () => {
