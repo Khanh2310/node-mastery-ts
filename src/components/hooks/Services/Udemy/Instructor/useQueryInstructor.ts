@@ -10,10 +10,10 @@ const getInstructors = async (url: string): Promise<InstructorsResponseType> => 
   return data.payload
 }
 
-export const useQueryInstructors = (query: PaginationQueryInput) => {
-  const url = `${UrlApiUdemy.INSTRUCTOR}?page=${query.page}&limit=${query.limit}`
+export const useQueryInstructors = (query: PaginationQueryInput & {search?: string}) => {
+  const url = `${UrlApiUdemy.INSTRUCTOR}?page=${query.page}&limit=${query.limit}${query?.search ? `&search=${query.search}`: ''}`
 
-  const { data: instructors, isLoading } = useSWR(url, getInstructors)
+  const { data: instructors, isLoading, mutate: refetch } = useSWR(url, getInstructors)
 
-  return { instructors, isLoading }
+  return { instructors, isLoading, refetch }
 }

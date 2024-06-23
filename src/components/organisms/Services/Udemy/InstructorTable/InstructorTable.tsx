@@ -19,18 +19,74 @@ import { motion } from 'framer-motion'
 import { classNames, stringDatetimeFormat } from '@/utils/clinet'
 import { InstructorStatus } from '@/types/services'
 import { ChevronDownIcon } from '@radix-ui/react-icons'
+import { Button } from '@/components/molecules/ButtonCommon'
+import { ArrowPathIcon } from '@heroicons/react/24/outline'
+import { TextboxForSearch } from '@/components/molecules/TextboxForSearch'
 
 export const InstructorTable = () => {
+  const [spinEffect, setSpinEffect] = useState<boolean>(false)
+  const [searchText, setSearchText] = useState('')
+
+
+  // query
+  const [search, setSearch] = useState('')
   const [pageIndex, setPageIndex] = useState(1)
-  const { instructors, isLoading } = useQueryInstructors({
+  const { instructors, isLoading, refetch } = useQueryInstructors({
     page: pageIndex,
     limit: 10,
+    search: search,
   })
 
-  console.log('instructors', instructors)
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setSearch(searchText)
+    setPageIndex(1)
+  }
+
+  const resetSearch = () => {
+    setSearchText('')
+    setSearch('')
+    setPageIndex(1)
+  }
+ 
 
   return (
-    <div className="w-full text-base leading-normal mt-5">
+    <div className="mt-5 w-full text-base leading-normal">
+      <div className="my-2 flex items-center gap-4">
+        <TextboxForSearch
+          onSubmit={handleSubmit}
+          className="w-full max-w-sm"
+          labelProps={{
+            children: 'Search',
+          }}
+          textboxProps={{
+            className:
+              'block w-full pl-4 pr-2 py-0 bg-white shadow-none border-none focus:border-none focus:outline-0 focus:ring-0 text-sm placeholder-gray-500 sm:text-sm rounded-l-md rounded-none',
+            placeholder: 'Search Instructor Name',
+            name: 'search',
+            value: searchText,
+            onChange: (e) => setSearchText(e.target.value),
+          }}
+          resetSearch={resetSearch}
+        />
+        <Button
+          type="button"
+          color="blue"
+          onClick={() => {
+            setSpinEffect(true)
+            refetch().finally(() => {
+              setTimeout(() => {
+                setSpinEffect(false)
+              }, 1000)
+            })
+          }}
+          className="flex items-center rounded-md"
+        >
+          <div className={`${spinEffect && `animate-spin`}`}>
+            <ArrowPathIcon className={`h-4 w-4 scale-x-[-1]`} />
+          </div>
+        </Button>
+      </div>
       <div className="rounded-md sm:border">
         <Table>
           <TableHeader>
@@ -47,10 +103,10 @@ export const InstructorTable = () => {
                   <Collapsible key={instructor.id} asChild>
                     <>
                       <TableRow>
-                        <TableCell>{instructor.instructor_name}</TableCell>
+                        <TableCell><a href={instructor.instructor_link} target='_blank' className='underline hover:text-blue-400'>{instructor.instructor_name}</a></TableCell>
                         <TableCell>
                           <CollapsibleTrigger
-                            className="w-fit rounded-md bg-gray-200 p-2 hover:bg-gray-300 transform duration-300 ease-in-out"
+                            className="w-fit transform rounded-md bg-gray-200 p-2 duration-300 ease-in-out hover:bg-gray-300"
                             asChild
                           >
                             <div className="flex items-center gap-2">
@@ -58,7 +114,7 @@ export const InstructorTable = () => {
                               <span className="font-medium">
                                 {instructor.Course?.length}
                               </span>
-                              <ChevronDownIcon className='h-4 w-auto'/>
+                              <ChevronDownIcon className="h-4 w-auto" />
                             </div>
                           </CollapsibleTrigger>
                         </TableCell>
