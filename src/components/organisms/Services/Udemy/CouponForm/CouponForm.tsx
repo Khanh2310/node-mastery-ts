@@ -5,26 +5,24 @@ import { TextBoxWithLabel } from '@/components/molecules/TextBoxWithLabel'
 import { useToast } from '@/components/ui/use-toast'
 import { Button } from '@/components/molecules/ButtonCommon'
 import { handleErrorApi } from '@/lib/utils'
-import { CourseInput, CourseInputSchema } from '@/schemas/Services'
-import { useMutateCreateCourse } from '@/components/hooks/Services'
+import { CouponInput, CouponInputSchema } from '@/schemas/Services'
+import { useMutateCreateCoupon } from '@/components/hooks/Services'
 
-type Values = CourseInput
+type Values = CouponInput
 
 type Props = {
-  instructorId: number
-  initialValues?: Partial<Values>
+  initialValues?: Partial<Values> | null
+  courseId: number
 }
 
 const defaultValues: Values = {
-  course_link: '',
-  course_name: '',
   coupon: '',
   start_date: '',
 }
 
-export const CourseForm = ({ initialValues, instructorId }: Props) => {
+export const CouponForm = ({ initialValues, courseId }: Props) => {
   const { toast } = useToast()
-  const { create, isMutating } = useMutateCreateCourse()
+  const { create, isMutating } = useMutateCreateCoupon()
 
   const {
     register,
@@ -33,16 +31,21 @@ export const CourseForm = ({ initialValues, instructorId }: Props) => {
     reset,
     formState: { errors, isSubmitting },
   } = useForm({
-    defaultValues: { ...defaultValues, ...initialValues },
-    resolver: zodResolver(CourseInputSchema),
+    defaultValues: initialValues
+      ? {
+          ...defaultValues,
+          ...initialValues,
+          start_date: new Date(initialValues?.start_date as string)
+            .toISOString()
+            .split('T')[0],
+        }
+      : { ...defaultValues },
+    resolver: zodResolver(CouponInputSchema),
   })
 
   const onValid = async (values: Values) => {
     try {
-      const res = await create({...values, instructor_id: instructorId})
-      if (res.status === 200) {
-        reset()
-      }
+      const res = await create({ ...values, course_id: courseId })
       toast({
         variant: 'default',
         title: 'Success!',
@@ -64,31 +67,9 @@ export const CourseForm = ({ initialValues, instructorId }: Props) => {
       >
         <TextBoxWithLabel
           className="col-span-full"
-          labelProps={{ children: 'Course link' }}
-          textboxProps={register('course_link')}
-          error={
-            errors.course_link?.message || errors.root?.course_link.message
-          }
-          isRequired
-        />
-
-        <TextBoxWithLabel
-          className="col-span-full"
-          labelProps={{ children: 'Course name' }}
-          textboxProps={register('course_name')}
-          error={
-            errors.course_name?.message || errors.root?.course_name.message
-          }
-          isRequired
-        />
-
-        <TextBoxWithLabel
-          className="col-span-full"
-          labelProps={{ children: 'Coupon' }}
+          labelProps={{ children: 'Instructor link' }}
           textboxProps={register('coupon')}
-          error={
-            errors.course_name?.message || errors.root?.course_name.message
-          }
+          error={errors.coupon?.message}
           isRequired
         />
 
@@ -107,7 +88,7 @@ export const CourseForm = ({ initialValues, instructorId }: Props) => {
           className="col-span-full mt-5 rounded-md"
           disabled={isSubmitting || isMutating}
         >
-          Create
+          {initialValues ? 'Update' : 'Create'}
         </Button>
       </form>
     </>

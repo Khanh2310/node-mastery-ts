@@ -1,3 +1,3 @@
 export default function Udemy() {
-  return <div>hello</div>
+  return <div>Home Service Dashboard</div>
 }

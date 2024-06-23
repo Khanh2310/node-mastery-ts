@@ -17,7 +17,7 @@ export default function UdemyServiceLayout({
   return (
     <div className="flex min-h-dvh pl-24">
       <Aside className="w-full max-w-24 fixed top-0 left-0 h-screen" />
-      <div className="mx-auto w-[90%] max-w-[calc(100%-96px)] pt-24">
+      <div className="mx-auto md:w-[90%] w-full md:max-w-[calc(100%-96px)] pt-24">
         <div className="px-4">{children}</div>
       </div>
     </div>

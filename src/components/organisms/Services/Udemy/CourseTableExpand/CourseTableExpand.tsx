@@ -1,6 +1,6 @@
 'use client'
 import { Loading } from '@/components/atoms/Loading'
-import { useQueryCourses } from '@/components/hooks/Services/Udemy/Course/useQueryCourse'
+import { useQueryCourses } from '@/components/hooks/Services'
 import { Button } from '@/components/molecules/ButtonCommon'
 import { TextboxForSearch } from '@/components/molecules/TextboxForSearch'
 import {
@@ -21,6 +21,7 @@ import { Dispatch, SetStateAction, useState } from 'react'
 import { CourseStatus } from '@/types/services'
 import { classNames, stringDatetimeFormat } from '@/utils/clinet'
 import { motion } from 'framer-motion'
+import { CouponArea } from '../CouponArea'
 
 export const CourseTableExpand = ({
   instructorId,
@@ -62,7 +63,7 @@ export const CourseTableExpand = ({
   }
   return (
     <td className="bg-gray-200 p-5" colSpan={100}>
-      <div className="flex gap-10 items-center justify-between"> 
+      <div className="flex items-center justify-between gap-10">
         <h3 className="border-l-8 border-l-orange-600 px-2 text-lg font-bold leading-normal">
           Courses of Instructor
         </h3>
@@ -131,12 +132,12 @@ export const CourseTableExpand = ({
                     <TableRow className="bg-gray-100">
                       <TableHead className="font-bold">Course Name</TableHead>
                       <TableHead className="font-bold">Course Rank</TableHead>
-                      <TableHead className="font-bold">Course Status</TableHead>
+                      <TableHead className="font-bold">Coupon</TableHead>
                       <TableHead className="font-bold">Rate Star</TableHead>
                       <TableHead className="font-bold">
                         Ready For Rating
                       </TableHead>
-                      <TableHead className="font-bold">Coupon</TableHead>
+                      <TableHead className="font-bold">Status</TableHead>
                       <TableHead className="font-bold">Created At</TableHead>
                     </TableRow>
                   </TableHeader>
@@ -155,6 +156,7 @@ export const CourseTableExpand = ({
                                     {course.course_name}
                                   </a>
                                 </TableCell>
+                                <TableCell>{course.course_rank}</TableCell>
                                 <TableCell>
                                   <CollapsibleTrigger
                                     className="w-fit transform rounded-md bg-gray-200 p-2 duration-300 ease-in-out hover:bg-gray-300"
@@ -169,7 +171,6 @@ export const CourseTableExpand = ({
                                     </div>
                                   </CollapsibleTrigger>
                                 </TableCell>
-                                <TableCell>{course.course_rank}</TableCell>
                                 <TableCell>{course.rate_star}</TableCell>
                                 <TableCell>{course.readyForRating}</TableCell>
                                 <TableCell>
@@ -197,7 +198,14 @@ export const CourseTableExpand = ({
                                   exit={{ height: 0, opacity: 0 }}
                                   transition={{ duration: 0.4 }}
                                 >
-                                  abc
+                                  <CouponArea
+                                    courseId={course.id}
+                                    initData={
+                                      course?.Coupon.length > 0
+                                        ? course?.Coupon[0]
+                                        : null
+                                    }
+                                  />
                                 </motion.tr>
                               </CollapsibleContent>
                             </>

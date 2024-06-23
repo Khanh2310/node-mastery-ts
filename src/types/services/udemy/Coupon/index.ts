@@ -11,3 +11,8 @@ export type Coupon = {
     start_date: string
     expire_date: string
 }
+
+export type CouponResponse = {
+    coupon: Coupon
+  }
+  

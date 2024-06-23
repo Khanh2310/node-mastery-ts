@@ -1,5 +1,5 @@
 'use client'
-import { useQueryInstructors } from '@/components/hooks/Services/Udemy/Instructor/useQueryInstructor'
+import { useQueryInstructors } from '@/components/hooks/Services'
 import {
   Table,
   TableBody,
@@ -92,8 +92,8 @@ export const InstructorTable = () => {
           </div>
         </Button>
       </div>
-      <div className="rounded-md sm:border">
-        <Table>
+      <div className="rounded-md sm:border min-w-lg overflow-x-auto">
+        <Table className='w-full'>
           <TableHeader>
             <TableRow className="bg-gray-100">
               <TableHead className="font-bold">Instructor Name</TableHead>

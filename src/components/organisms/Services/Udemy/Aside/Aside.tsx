@@ -23,7 +23,7 @@ export const Aside = ({ className }: Props) => {
     },
     {
       id: useId(),
-      title: 'Course Management',
+      title: 'Course',
       icon: courses,
       href: 'course-management',
       className: '',
