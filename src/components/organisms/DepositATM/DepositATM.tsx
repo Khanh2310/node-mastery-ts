@@ -18,6 +18,7 @@ import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { getUserFromLocalStorage } from '@/components/hooks/User/useQueryUser'
 import { Transition } from '@headlessui/react'
+import { useAuth } from '@/app/provider'
 
 type Values = GenerateQRSInput
 
@@ -29,7 +30,7 @@ const defaultValues: Values = {
 export default function DepositATM() {
   const [image, setImage] = useState('')
   const { toast } = useToast()
-  const phoneNumber = getUserFromLocalStorage()
+  const { user } = useAuth()
   const { generate, isMutating } = useMutateGenerateQR()
   const { confirmTopUp, isMutating: isConfirming } = useMutateConfirmTopUp()
 
@@ -99,7 +100,7 @@ export default function DepositATM() {
           <li>
             <span className="font-semibold">Step 2:</span> Make sure the
             transfer content is{' '}
-            <span className="font-semibold text-yellow-500">{phoneNumber}</span>
+            <span className="font-semibold text-yellow-500">{user?.phone_number}</span>
             .
           </li>
           <li>

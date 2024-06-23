@@ -8,10 +8,8 @@ import { Button } from '@/components/molecules/ButtonCommon'
 import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
 import { NavLink } from '@/components/atoms/NavLink'
-import {
-  useQueryUser,
-} from '@/components/hooks/User/useQueryUser'
 import { fullName } from '@/lib/utils'
+import { useAuth } from '@/app/provider'
 
 function MobileNavLink({
   href,
@@ -101,7 +99,7 @@ function MobileNavigation() {
 }
 
 export const Header = () => {
-  const { user } = useQueryUser()
+  const { loading, user } = useAuth()
 
   return (
     <header className="fixed z-10 w-full bg-white/30 py-5 backdrop-blur-md">
@@ -121,7 +119,7 @@ export const Header = () => {
             <div className="hidden md:block">
               <Button
                 href={user ? '/dashboard' : '/login'}
-                color={user && 'blue'}
+                color={user ? 'blue' : 'slate'}
               >
                 {user ? fullName(user.first_name, user.last_name) : 'Sign in'}
               </Button>

@@ -1,5 +1,7 @@
 export class AuthUrlApi {
   public static readonly LOGIN = '/auth/login'
+  
+  public static readonly LOGOUT = '/auth/logout'
 
   public static readonly REGISTER = '/auth/register'
 
@@ -13,11 +15,10 @@ export class UrlApi {
 
   public static readonly GENERATE_QR = '/transactions/generate-qr'
 
-  public static readonly CONFIRM_TRANSACTION = '/transactions/confirm-transactions'
+  public static readonly CONFIRM_TRANSACTION =
+    '/transactions/confirm-transactions'
 }
 
 export class UrlApiUdemy {
-   public static readonly CREATE_INSTRUCTOR = '/service/udemy/instructors'
-
-
+  public static readonly CREATE_INSTRUCTOR = '/service/udemy/instructors'
 }

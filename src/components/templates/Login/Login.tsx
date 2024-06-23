@@ -20,7 +20,7 @@ export const Login = () => {
           className="font-medium text-blue-600 hover:underline"
         >
           Sign up
-        </Link>{' '}
+        </Link>
         for a free trial.
       </p>
       <LoginForm/>

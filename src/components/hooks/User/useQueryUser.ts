@@ -72,7 +72,7 @@ export const useQueryUser = (force: boolean = false) => {
   const url = UrlApi.PROFILE
   const user_id = getUserFromLocalStorage()
  
-  const { data: user, isLoading } = useSWR(user_id || force ? url : null, getUser, {
+  const { data: user, isLoading, error } = useSWR(user_id || force ? url : null, getUser, {
     shouldRetryOnError: false,
     revalidateOnMount: true,
     revalidateOnFocus: false,
@@ -80,5 +80,5 @@ export const useQueryUser = (force: boolean = false) => {
     keepPreviousData: true
   })
 
-  return { user, isLoading }
+  return { user, isLoading, error }
 }

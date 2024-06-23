@@ -1,39 +1,35 @@
-import { Inter, Lexend } from 'next/font/google'
-import { Toaster } from '@/components/ui/toaster'
-
-import { type Metadata } from 'next'
+'use client'
 import { AuthLayout } from '@/components/layouts/AuthLayout'
-
-export const metadata: Metadata = {
-  title: {
-    template: '%s - Udemy Service',
-    default: 'Udemy Service - Accounting made simple for small businesses',
-  },
-  description:
-    'Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited.',
-}
-
-const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-})
-
-const lexend = Lexend({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-lexend',
-})
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import { useAuth } from '../provider'
+import { Loading } from '@/components/atoms/Loading'
 
 export default function AuthRootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+
+  const { loading, user } = useAuth()
+  const router = useRouter()
+
+  useEffect(() => {
+    if (!!user) {
+      router.push('/')
+    }
+  }, [user, router])
+
+  if (loading) {
+    return <Loading className="mt-20" />
+  }
+  if (user) {
+    return null // This ensures the page does not flicker before redirecting
+  }
+
   return (
     <>
       <AuthLayout>{children}</AuthLayout>
-      
     </>
   )
 }

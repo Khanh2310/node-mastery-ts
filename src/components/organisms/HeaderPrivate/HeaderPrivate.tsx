@@ -14,11 +14,15 @@ import { useSelectedLayoutSegment } from 'next/navigation'
 
 import { classNames } from '@/lib/utils'
 import { AvatarCompany } from '@/components/atoms/AvatarCompany'
-import { useQueryUser } from '@/components/hooks/User/useQueryUser'
 import Link from 'next/link'
+import { User } from '@/types/User'
 
-export const HeaderPrivate = () => {
-  const { user } = useQueryUser()
+type Props = {
+  user: User | null
+  logout: () => Promise<void>;
+}
+
+export const HeaderPrivate = ({ user, logout }: Props) => {
   const segment = useSelectedLayoutSegment()
   const listMenu = [
     {
@@ -36,7 +40,7 @@ export const HeaderPrivate = () => {
   ]
 
   return (
-    <Disclosure as="nav" className="fixed w-full bg-white shadow z-10">
+    <Disclosure as="nav" className="fixed z-10 w-full bg-white shadow">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -113,21 +117,22 @@ export const HeaderPrivate = () => {
                               'block px-4 py-2 text-sm text-gray-700',
                             )}
                           >
-                            Your Profile
+                            {user?.email}
                           </a>
                         )}
                       </MenuItem>
                       <MenuItem>
                         {({ focus }) => (
-                          <a
-                            href="#"
+                          <button
+                            type='button'
+                            onClick={logout}
                             className={classNames(
                               focus ? 'bg-gray-100' : '',
-                              'block px-4 py-2 text-sm text-gray-700',
+                              'block px-4 py-2 text-sm text-gray-700 w-full text-left',
                             )}
                           >
                             Sign out
-                          </a>
+                          </button>
                         )}
                       </MenuItem>
                     </MenuItems>
