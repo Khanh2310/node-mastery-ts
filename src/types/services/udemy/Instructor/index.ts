@@ -11,8 +11,14 @@ export type Instructor = {
   management_group: string
   status: InstructorStatus
   created_at: string
+  Course?: { id: string }[]
 }
 
 export type InstructorResponse = {
   instructor: Instructor
+}
+
+export type InstructorsResponseType = {
+  items: Instructor[] | []
+  totalData: number
 }

@@ -20,5 +20,5 @@ export class UrlApi {
 }
 
 export class UrlApiUdemy {
-  public static readonly CREATE_INSTRUCTOR = '/service/udemy/instructors'
+  public static readonly INSTRUCTOR = '/service/udemy/instructors'
 }

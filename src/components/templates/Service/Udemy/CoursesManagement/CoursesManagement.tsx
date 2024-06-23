@@ -1,5 +1,5 @@
 import { Title } from '@/components/molecules/Title'
-import { CreateInstructorArea } from '@/components/organisms/Services'
+import { CreateInstructorArea, InstructorTable } from '@/components/organisms/Services'
 
 export const CoursesManagementTemplate = () => {
   return (
@@ -7,6 +7,7 @@ export const CoursesManagementTemplate = () => {
       <Title className="mb-10" title="Course Management" caption="" />
       <div className="">
         <CreateInstructorArea />
+        <InstructorTable />
       </div>
     </div>
   )

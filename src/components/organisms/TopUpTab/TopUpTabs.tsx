@@ -1,10 +1,5 @@
-import {
-  Tab,
-  TabGroup,
-  TabList,
-  TabPanel,
-  TabPanels,
-} from '@headlessui/react'
+import { Loading } from '@/components/atoms/Loading'
+import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 import dynamic from 'next/dynamic'
 import { useId } from 'react'
 
@@ -16,7 +11,7 @@ export const TopUpTab = () => {
       Component: dynamic(
         () => import('@/components/organisms/ListTopUp/ListTopUp'),
         {
-          loading: () => <p>Loading...</p>,
+          loading: () => <Loading className="mt-24" />,
         },
       ),
     },
@@ -24,21 +19,26 @@ export const TopUpTab = () => {
       id: useId(),
       title: 'History',
       Component: dynamic(() => import('@/components/organisms/TopUpHistory'), {
-        loading: () => <p>Loading...</p>,
+        loading: () => <Loading className="mt-24" />,
       }),
     },
   ]
   return (
     <TabGroup>
-      <TabList className="mb-10 bg-gray-200 max-w-lg p-2 rounded-lg flex gap-1">
+      <TabList className="mb-10 flex max-w-lg gap-1 rounded-lg bg-gray-200 p-2">
         {listTab.map(({ id, title }) => (
-          <Tab className="w-[calc((100%-0.25rem)/2)] rounded-lg py-2 px-4 text-sm/6 font-semibold focus:outline-none text-gray-500 data-[hover]:font-bold data-[selected]:text-black data-[selected]:font-bold data-[selected]:bg-gray-100 data-[hover]:text-black transform duration-200 ease-in-out" key={id}>{title}</Tab>
+          <Tab
+            className="w-[calc((100%-0.25rem)/2)] transform rounded-lg px-4 py-2 text-sm/6 font-semibold text-gray-500 duration-200 ease-in-out focus:outline-none data-[selected]:bg-gray-100 data-[hover]:font-bold data-[selected]:font-bold data-[hover]:text-black data-[selected]:text-black"
+            key={id}
+          >
+            {title}
+          </Tab>
         ))}
       </TabList>
       <TabPanels>
         {listTab.map(({ id, Component }) => (
-          <TabPanel key={id}> 
-              <Component /> 
+          <TabPanel key={id}>
+            <Component />
           </TabPanel>
         ))}
       </TabPanels>

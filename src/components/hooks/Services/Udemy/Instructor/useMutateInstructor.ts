@@ -17,7 +17,7 @@ const fetcher = async (
 }
 
 export const useMutateCreateInstructor = () => {
-  const url = UrlApiUdemy.CREATE_INSTRUCTOR
+  const url = UrlApiUdemy.INSTRUCTOR
   const {
     trigger: create,
     isMutating,
