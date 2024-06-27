@@ -5,6 +5,7 @@ import { Toaster } from '@/components/ui/toaster'
 import '@/styles/tailwind.css'
 import { type Metadata } from 'next'
 import { Providers } from './provider'
+import { ViewTransitions } from 'next-view-transitions'
 
 export const metadata: Metadata = {
   title: {
@@ -33,6 +34,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+    <ViewTransitions>
     <html
       lang="en"
       className={clsx(
@@ -50,5 +52,6 @@ export default function RootLayout({
         </Providers>
       </body>
     </html>
+    </ViewTransitions>
   )
 }

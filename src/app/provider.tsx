@@ -41,7 +41,7 @@ export function Providers(props: { children: React.ReactNode }) {
     if (data) {
       setUser(data)
       setLoading(false)
-    } else if (error) {
+    } else {
       setLoading(false)
     }
   }, [data, error, router])
