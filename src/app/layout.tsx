@@ -43,7 +43,7 @@ export default function RootLayout({
         lexend.variable,
       )}
     >
-      <body  suppressHydrationWarning={true} className="flex h-full flex-col">
+      <body  suppressHydrationWarning={true} className="flex h-full flex-col scrollbar-thin">
         <Providers>
           <>
           {children}

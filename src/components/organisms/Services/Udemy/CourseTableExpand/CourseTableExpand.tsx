@@ -26,7 +26,7 @@ export const CourseTableExpand = ({
   })
 
   return (
-    <td className="py-10 pl-16 pr-5" colSpan={100}>
+    <td className="py-10 pl-10 pr-5" colSpan={100}>
       <div className="flex items-center justify-between gap-10">
         <h3 className="border-l-8 border-l-orange-600 px-2 text-lg font-bold leading-normal">
           Courses of Instructor

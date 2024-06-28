@@ -29,7 +29,7 @@ export const InstructorColumn = ({
   defaultOpen,
 }: Props) => {
   const [open, setOpen] = useState(defaultOpen)
-  
+
   return (
     <Collapsible
       asChild
@@ -50,8 +50,9 @@ export const InstructorColumn = ({
               </div>
             </CollapsibleTrigger>
           </TableCell>
-          <TableCell>
+          <TableCell className="max-w-[400px] truncate">
             <a
+              title={instructor.instructor_name}
               href={instructor.instructor_link}
               target="_blank"
               className="underline hover:text-blue-400"

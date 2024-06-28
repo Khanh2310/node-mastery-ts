@@ -34,8 +34,9 @@ export const CourseColumn = ({ course }: Props) => {
                 </div>
               </CollapsibleTrigger>
             </TableCell>
-            <TableCell>
+            <TableCell className="max-w-[350px] truncate">
               <a
+                title={course.course_name}
                 href={course.course_link}
                 target="_blank"
                 className="underline hover:text-blue-400"
@@ -45,7 +46,7 @@ export const CourseColumn = ({ course }: Props) => {
             </TableCell>
             <TableCell>{course.course_rank}</TableCell>
             <TableCell>
-              <div className="flex items-center gap-2"> 
+              <div className="flex items-center gap-2">
                 <span className="font-medium">{course.Coupon.length}</span>
               </div>
             </TableCell>
@@ -67,7 +68,10 @@ export const CourseColumn = ({ course }: Props) => {
             </TableCell>
             <TableCell>{stringDatetimeFormat(course.create_at)}</TableCell>
           </TableRow>
-          <CollapsibleContent asChild className="border-b border-solid bg-[rgb(250,250,251)]">
+          <CollapsibleContent
+            asChild
+            className="border-b border-solid bg-[rgb(250,250,251)]"
+          >
             <motion.tr
               initial={{ height: 0, opacity: 0 }}
               animate={{ height: 'auto', opacity: 1 }}
