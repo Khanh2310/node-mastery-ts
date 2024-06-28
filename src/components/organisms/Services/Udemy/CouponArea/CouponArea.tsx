@@ -24,8 +24,8 @@ export const CouponArea = ({ courseId }: Props) => {
             Coupon
           </h3>
           <p className="mt-2 text-base leading-normal">
-            Please enter a valid coupon. The valid period of the coupon is from
-            the creation date to the following 30 days
+            Please enter a valid coupon. <br/>The valid period of the coupon is from
+            the creation date to the following 30 days.
           </p>
         </div>
         <div className="w-[calc((100%-1rem)/2)]">

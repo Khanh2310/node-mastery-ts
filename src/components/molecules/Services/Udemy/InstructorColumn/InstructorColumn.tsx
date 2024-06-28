@@ -11,6 +11,7 @@ import { classNames, stringDatetimeFormat } from '@/utils/clinet'
 import { motion } from 'framer-motion'
 import { CourseTableExpand } from '@/components/organisms/Services'
 import { Dispatch, SetStateAction, useState } from 'react'
+import { Button } from '@/components/molecules/ButtonCommon'
 type Props = {
   instructor: Instructor
   setInstructorData: Dispatch<
@@ -69,19 +70,34 @@ export const InstructorColumn = ({ instructor, setInstructorData }: Props) => {
             </p>
           </TableCell>
           <TableCell>{stringDatetimeFormat(instructor.created_at)}</TableCell>
+          <TableCell>
+            {' '}
+            <Button
+              type="button"
+              color="blue"
+              onClick={() =>
+                setInstructorData({
+                  id: instructor.id,
+                  name: instructor.instructor_name,
+                })
+              }
+              className="flex items-center rounded-md"
+            >
+              Add Course
+            </Button>
+          </TableCell>
         </TableRow>
-        <CollapsibleContent asChild className='border-b border-solid bg-[rgb(250,250,251)]'>
+        <CollapsibleContent
+          asChild
+          className="border-b border-solid bg-[rgb(250,250,251)]"
+        >
           <motion.tr
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <CourseTableExpand
-              instructorId={instructor.id}
-              instructorName={instructor.instructor_name}
-              setInstructorData={setInstructorData}
-            />
+            <CourseTableExpand instructorId={instructor.id} />
           </motion.tr>
         </CollapsibleContent>
       </>

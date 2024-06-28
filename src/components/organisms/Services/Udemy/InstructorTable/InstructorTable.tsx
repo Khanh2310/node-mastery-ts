@@ -9,8 +9,6 @@ import {
 } from '@/components/ui/table'
 
 import { Fragment, useState } from 'react'
-import { Button } from '@/components/molecules/ButtonCommon'
-import { ArrowPathIcon } from '@heroicons/react/24/outline'
 import { TextboxForSearch } from '@/components/molecules/TextboxForSearch'
 import { CreateCourseArea } from '../CreateCourseArea'
 import { InstructorColumn } from '@/components/molecules/Services'
@@ -27,7 +25,7 @@ export const InstructorTable = () => {
   // query
   const [search, setSearch] = useState('')
   const [pageIndex, setPageIndex] = useState(1)
-  const { instructors, isLoading, refetch } = useQueryInstructors({
+  const { instructors, isLoading } = useQueryInstructors({
     page: pageIndex,
     limit: 10,
     search: search,
@@ -47,7 +45,7 @@ export const InstructorTable = () => {
 
   return (
     <div className="mt-5 w-full rounded-md bg-white p-5 text-base leading-normal shadow-md">
-      <div className="my-2 flex items-center gap-4">
+      <div className="my-2 flex items-center justify-end gap-4">
         <TextboxForSearch
           onSubmit={handleSubmit}
           className="w-full max-w-sm"
@@ -65,27 +63,9 @@ export const InstructorTable = () => {
           }}
           resetSearch={resetSearch}
         />
-        <Button
-          type="button"
-          color="blue"
-          disabled={isLoading}
-          onClick={() => {
-            setSpinEffect(true)
-            refetch().finally(() => {
-              setTimeout(() => {
-                setSpinEffect(false)
-              }, 1000)
-            })
-          }}
-          className="flex items-center rounded-md"
-        >
-          <div className={`${spinEffect && `animate-spin`}`}>
-            <ArrowPathIcon className={`h-4 w-4 scale-x-[-1]`} />
-          </div>
-        </Button>
       </div>
-      <div className="min-w-lg overflow-x-auto rounded-md sm:border">
-        <Table className="w-full">
+      <div className="w-full overflow-x-auto rounded-md sm:border">
+        <Table className="w-full min-w-[1050px]">
           <TableHeader>
             <TableRow className="bg-gray-50">
               <TableHead className="font-bold"></TableHead>
@@ -100,6 +80,9 @@ export const InstructorTable = () => {
               </TableHead>
               <TableHead className="font-bold text-[rgb(38,38,38)]">
                 Created At
+              </TableHead>
+              <TableHead className="font-bold text-[rgb(38,38,38)]">
+                Actions
               </TableHead>
             </TableRow>
           </TableHeader>
