@@ -13,6 +13,7 @@ import { CourseTableExpand } from '@/components/organisms/Services'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { Button } from '@/components/molecules/ButtonCommon'
 type Props = {
+  defaultOpen: boolean
   instructor: Instructor
   setInstructorData: Dispatch<
     SetStateAction<{
@@ -22,11 +23,20 @@ type Props = {
   >
 }
 
-export const InstructorColumn = ({ instructor, setInstructorData }: Props) => {
-  const [open, setOpen] = useState(false)
-
+export const InstructorColumn = ({
+  instructor,
+  setInstructorData,
+  defaultOpen,
+}: Props) => {
+  const [open, setOpen] = useState(defaultOpen)
+  
   return (
-    <Collapsible asChild open={open} onOpenChange={setOpen}>
+    <Collapsible
+      asChild
+      open={open}
+      onOpenChange={setOpen}
+      defaultOpen={defaultOpen}
+    >
       <>
         <TableRow>
           <TableCell>
@@ -71,7 +81,6 @@ export const InstructorColumn = ({ instructor, setInstructorData }: Props) => {
           </TableCell>
           <TableCell>{stringDatetimeFormat(instructor.created_at)}</TableCell>
           <TableCell>
-            {' '}
             <Button
               type="button"
               color="blue"

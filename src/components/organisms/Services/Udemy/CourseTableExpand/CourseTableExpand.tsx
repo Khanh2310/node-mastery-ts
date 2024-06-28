@@ -1,6 +1,7 @@
 'use client'
 import { Loading } from '@/components/atoms/Loading'
 import { useQueryCourses } from '@/components/hooks/Services'
+import { PaginationTable } from '@/components/molecules/Pagination'
 import { CourseColumn } from '@/components/molecules/Services'
 import {
   Table,
@@ -38,8 +39,8 @@ export const CourseTableExpand = ({
         <>
           {instructorId ? (
             <div className="mt-5 w-full text-base leading-normal">
-              <div className="rounded-md sm:border">
-                <Table className="bg-white">
+              <div className="">
+                <Table className="bg-white border-collapse sm:border rounded-md">
                   <TableHeader className="border-b border-solid">
                     <TableRow>
                       <TableHead className="font-bold"></TableHead>
@@ -76,6 +77,12 @@ export const CourseTableExpand = ({
                       : null}
                   </TableBody>
                 </Table>
+                <PaginationTable
+                  currentPage={pageIndex}
+                  limit={10}
+                  totalRecord={courses?.totalData || 0}
+                  onPageChange={setPageIndex}
+                />
               </div>
             </div>
           ) : null}

@@ -1,6 +1,5 @@
 'use client'
 import dashboard from '@/images/icons/udemy/dashboard.svg'
-import user from '@/images/icons/udemy/user.svg'
 import courses from '@/images/icons/udemy/course.svg'
 import { classNames } from '@/lib/utils'
 import Image from 'next/image'
@@ -46,7 +45,7 @@ export const Aside = ({ className }: Props) => {
           <Image
             src={item.icon}
             alt={'home'}
-            className="h-8 w-8 text-gray-600"
+            className="h-5 w-5 text-gray-600"
             width={100}
             height={100}
           />
