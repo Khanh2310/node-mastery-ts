@@ -8,20 +8,20 @@ import axiosInstance, { setOnUnauthorized } from '@/config/axiosInstance'
 import { AuthUrlApi } from '@/config/url'
 
 interface AuthContextType {
-  user: User | null
+  user: User | null | undefined
   loading: boolean
   logout: () => Promise<void>
-  setUser: Dispatch<SetStateAction<User | null>>
+  setUser: Dispatch<SetStateAction<User | null| undefined>>
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
 export function Providers(props: { children: React.ReactNode }) {
-  const [user, setUser] = useState<User | null>(null)
+  const [user, setUser] = useState<User | null  | undefined>(null)
   const [loading, setLoading] = useState(true)
   const router = useRouter()
 
-  const { user: data, error } = useQueryUser()
+  const { user: data, isLoading } = useQueryUser()
 
 
   const logout = async () => {
@@ -30,21 +30,20 @@ export function Providers(props: { children: React.ReactNode }) {
     router.push('/');
   };
 
+  useEffect(()=>{
+    setUser(data)
+  }, [data])
+
+  useEffect(()=>{
+    setLoading(isLoading)
+  }, [isLoading])
+
   useEffect(() => {
     setOnUnauthorized(() => {
       setUser(null);
       router.push('/login');
     });
   }, [router]);
-
-  useEffect(() => {
-    if (data) {
-      setUser(data)
-      setLoading(false)
-    } else {
-      setLoading(false)
-    }
-  }, [data, error, router])
 
   return (
     <SWRConfig
