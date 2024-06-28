@@ -17,7 +17,7 @@ export const CouponArea = ({ courseId }: Props) => {
       </td>
     )
   return (
-    <td className="p-5" colSpan={100}>
+    <td className="py-10 pr-5 pl-16" colSpan={100}>
       <div className="block gap-4 md:flex">
         <div className="w-[calc((100%-1rem)/2)]">
           <h3 className="border-l-8 border-l-orange-600 px-2 text-lg font-bold leading-normal">

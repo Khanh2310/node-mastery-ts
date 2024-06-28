@@ -3,33 +3,26 @@ import { useQueryInstructors } from '@/components/hooks/Services'
 import {
   Table,
   TableBody,
-  TableCell,
   TableHead,
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from '@/components/ui/collapsible'
-import { useState } from 'react'
-import { CourseTableExpand } from '../CourseTableExpand'
-import { motion } from 'framer-motion'
-import { classNames, stringDatetimeFormat } from '@/utils/clinet'
-import { InstructorStatus } from '@/types/services'
-import { ChevronDownIcon } from '@radix-ui/react-icons'
+
+import { Fragment, useState } from 'react'
 import { Button } from '@/components/molecules/ButtonCommon'
 import { ArrowPathIcon } from '@heroicons/react/24/outline'
 import { TextboxForSearch } from '@/components/molecules/TextboxForSearch'
 import { CreateCourseArea } from '../CreateCourseArea'
+import { InstructorColumn } from '@/components/molecules/Services'
 
 export const InstructorTable = () => {
   const [spinEffect, setSpinEffect] = useState<boolean>(false)
   const [searchText, setSearchText] = useState('')
-  
-  const [instructorData, setInstructorData] = useState<{id: number, name: string} | null>(null)
 
+  const [instructorData, setInstructorData] = useState<{
+    id: number
+    name: string
+  } | null>(null)
 
   // query
   const [search, setSearch] = useState('')
@@ -51,10 +44,9 @@ export const InstructorTable = () => {
     setSearch('')
     setPageIndex(1)
   }
- 
 
   return (
-    <div className="mt-5 w-full text-base leading-normal">
+    <div className="mt-5 w-full rounded-md bg-white p-5 text-base leading-normal shadow-md">
       <div className="my-2 flex items-center gap-4">
         <TextboxForSearch
           onSubmit={handleSubmit}
@@ -92,73 +84,43 @@ export const InstructorTable = () => {
           </div>
         </Button>
       </div>
-      <div className="rounded-md sm:border min-w-lg overflow-x-auto">
-        <Table className='w-full'>
+      <div className="min-w-lg overflow-x-auto rounded-md sm:border">
+        <Table className="w-full">
           <TableHeader>
-            <TableRow className="bg-gray-100">
-              <TableHead className="font-bold">Instructor Name</TableHead>
-              <TableHead className="font-bold">Course</TableHead>
-              <TableHead className="font-bold">Status</TableHead>
-              <TableHead className="font-bold">Created At</TableHead>
+            <TableRow className="bg-gray-50">
+              <TableHead className="font-bold"></TableHead>
+              <TableHead className="font-bold text-[rgb(38,38,38)]">
+                Instructor Name
+              </TableHead>
+              <TableHead className="font-bold text-[rgb(38,38,38)]">
+                Course
+              </TableHead>
+              <TableHead className="font-bold text-[rgb(38,38,38)]">
+                Status
+              </TableHead>
+              <TableHead className="font-bold text-[rgb(38,38,38)]">
+                Created At
+              </TableHead>
             </TableRow>
           </TableHeader>
-          <TableBody>
+          <TableBody className="bg-white">
             {instructors?.items
               ? instructors?.items.map((instructor) => (
-                  <Collapsible key={instructor.id} asChild>
-                    <>
-                      <TableRow>
-                        <TableCell><a href={instructor.instructor_link} target='_blank' className='underline hover:text-blue-400'>{instructor.instructor_name}</a></TableCell>
-                        <TableCell>
-                          <CollapsibleTrigger
-                            className="w-fit transform rounded-md bg-gray-200 p-2 duration-300 ease-in-out hover:bg-gray-300"
-                            asChild
-                          >
-                            <div className="flex items-center gap-2">
-                              Courses:
-                              <span className="font-medium">
-                                {instructor.Course?.length}
-                              </span>
-                              <ChevronDownIcon className="h-4 w-auto" />
-                            </div>
-                          </CollapsibleTrigger>
-                        </TableCell>
-                        <TableCell>
-                          <p
-                            className={classNames(
-                              `${
-                                InstructorStatus.ALIVE === instructor.status
-                                  ? 'border-green-600 bg-green-200 text-green-600'
-                                  : 'border-yellow-600 bg-yellow-200 text-yellow-600'
-                              }`,
-                              'w-fit rounded-sm border px-2 py-1 text-xs font-semibold capitalize',
-                            )}
-                          >
-                            {instructor.status}
-                          </p>
-                        </TableCell>
-                        <TableCell>
-                          {stringDatetimeFormat(instructor.created_at)}
-                        </TableCell>
-                      </TableRow>
-                      <CollapsibleContent asChild>
-                        <motion.tr
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.4 }}
-                        >
-                          <CourseTableExpand instructorId={instructor.id} instructorName={instructor.instructor_name} setInstructorData={setInstructorData}/>
-                        </motion.tr>
-                      </CollapsibleContent>
-                    </>
-                  </Collapsible>
+                  <Fragment key={instructor.id}>
+                    <InstructorColumn
+                      instructor={instructor}
+                      setInstructorData={setInstructorData}
+                    />
+                  </Fragment>
                 ))
               : null}
           </TableBody>
         </Table>
       </div>
-      <CreateCourseArea instructorData={instructorData} setInstructorData={setInstructorData}/>
+      <CreateCourseArea
+        instructorData={instructorData}
+        setInstructorData={setInstructorData}
+      />
     </div>
   )
 }
