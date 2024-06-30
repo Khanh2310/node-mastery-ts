@@ -48,16 +48,22 @@ export const CourseTableExpand = ({
                         Course Name
                       </TableHead>
                       <TableHead className="font-bold text-[rgb(38,38,38)]">
-                        Course Rank
+                        Available coupon
                       </TableHead>
                       <TableHead className="font-bold text-[rgb(38,38,38)]">
-                        Available coupon
+                        Course Rank
                       </TableHead>
                       <TableHead className="font-bold text-[rgb(38,38,38)]">
                         Rate Star
                       </TableHead>
                       <TableHead className="font-bold text-[rgb(38,38,38)]">
                         Ready For Rating
+                      </TableHead>
+                      <TableHead className="font-bold text-[rgb(38,38,38)]">
+                        Enroll
+                      </TableHead>
+                      <TableHead className="font-bold text-[rgb(38,38,38)]">
+                        Rated
                       </TableHead>
                       <TableHead className="font-bold text-[rgb(38,38,38)]">
                         Status

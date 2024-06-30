@@ -13,40 +13,40 @@ import { TextboxForSearch } from '@/components/molecules/TextboxForSearch'
 import { CreateCourseArea } from '../CreateCourseArea'
 import { InstructorColumn } from '@/components/molecules/Services'
 import { PaginationTable } from '@/components/molecules/Pagination'
+import { QueryComponent } from '@/components/molecules/Services/Udemy/QueryComponent'
+import { InstructorQueryInput } from '@/schemas/Services'
+import { RatingRange } from '@/types/services'
 
 export const InstructorTable = () => {
-  const [searchText, setSearchText] = useState('')
-
   const [instructorData, setInstructorData] = useState<{
     id: number
     name: string
   } | null>(null)
 
-  // query
-  const [search, setSearch] = useState('')
+  // query 
+  const [query, setQuery] = useState<InstructorQueryInput>({
+    search: undefined,
+    ratingRange: undefined,
+    ratingRank: undefined,
+  })
   const [pageIndex, setPageIndex] = useState(1)
   const { instructors, isLoading } = useQueryInstructors({
     page: pageIndex,
     limit: 10,
-    search: search,
+    search: query.search,
+    ratingRange: query.ratingRange,
+    ratingRank: query.ratingRank,
   })
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setSearch(searchText)
-    setPageIndex(1)
-  }
-
-  const resetSearch = () => {
-    setSearchText('')
-    setSearch('')
+  const handleSubmit = async (values: InstructorQueryInput) => {
+    setQuery(values)
     setPageIndex(1)
   }
 
   return (
     <div className="mt-5 w-full rounded-md bg-white p-5 text-base leading-normal shadow-md">
       <div className="my-2 flex items-center justify-end gap-4">
-        <TextboxForSearch
+        {/* <TextboxForSearch
           onSubmit={handleSubmit}
           className="w-full max-w-sm"
           labelProps={{
@@ -62,10 +62,12 @@ export const InstructorTable = () => {
             onChange: (e) => setSearchText(e.target.value),
           }}
           resetSearch={resetSearch}
-        />
+        /> */}
+
+        <QueryComponent isMutating={isLoading} onSubmit={handleSubmit} />
       </div>
-      <div className="w-full overflow-x-auto mt-5">
-        <Table className="w-full min-w-[1050px] border-collapse sm:border rounded-md">
+      <div className="mt-5 w-full overflow-x-auto">
+        <Table className="w-full min-w-[1050px] border-collapse rounded-md sm:border">
           <TableHeader>
             <TableRow className="bg-gray-50">
               <TableHead className="font-bold"></TableHead>

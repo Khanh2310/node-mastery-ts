@@ -44,14 +44,16 @@ export const CourseColumn = ({ course }: Props) => {
                 {course.course_name}
               </a>
             </TableCell>
-            <TableCell>{course.course_rank}</TableCell>
             <TableCell>
               <div className="flex items-center gap-2">
                 <span className="font-medium">{course.Coupon.length}</span>
               </div>
             </TableCell>
+            <TableCell>{course.course_rank}</TableCell>
             <TableCell>{course.rate_star}</TableCell>
             <TableCell>{course.readyForRating}</TableCell>
+            <TableCell>{course.s_enroll_count}</TableCell>
+            <TableCell>{course.s_rate_count}</TableCell>
             <TableCell>
               <p
                 className={classNames(
