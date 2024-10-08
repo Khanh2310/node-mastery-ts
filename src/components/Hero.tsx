@@ -9,10 +9,16 @@ import logoStaticKit from '@/images/logos/statickit.svg'
 import logoTransistor from '@/images/logos/transistor.svg'
 import logoTuple from '@/images/logos/tuple.svg'
 
+import avatar1 from '@/images/avatars/avatar-1.png'
+import avatar2 from '@/images/avatars/avatar-2.png'
+import avatar3 from '@/images/avatars/avatar-3.png'
+import avatar4 from '@/images/avatars/avatar-4.png'
+import avatar5 from '@/images/avatars/avatar-5.png'
+
 export function Hero() {
   return (
-    <Container className="pb-16 pt-20 text-center lg:pt-32">
-      <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
+    <Container className="bg-[#f4e7ff] pb-16 pt-20 text-center lg:pt-32">
+      <h1 className="font-display mx-auto max-w-4xl text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
         Accounting{' '}
         <span className="relative whitespace-nowrap text-blue-600">
           <svg
@@ -46,40 +52,107 @@ export function Hero() {
           <span className="ml-3">Watch video</span>
         </Button>
       </div>
-      <div className="mt-36 lg:mt-44">
-        <p className="font-display text-base text-slate-900">
-          Trusted by these six companies so far
-        </p>
-        <ul
-          role="list"
-          className="mt-8 flex items-center justify-center gap-x-8 sm:flex-col sm:gap-x-0 sm:gap-y-10 xl:flex-row xl:gap-x-12 xl:gap-y-0"
+
+      <div className="lg:mt-30 relative mt-36 w-full bg-white ">
+        <svg
+          data-v-2dd81426=""
+          className="svg"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          version="1.1"
+          viewBox="0 0 1920 30"
+          preserveAspectRatio="none"
         >
+          <g data-v-2dd81426="">
+            <path
+              data-v-2dd81426=""
+              d="M0,0C0,0,1920,0,1920,0C1920,0,1920,30,1920,30C1920,30,1496.5,-1.66533e-15,961.5,0C426.5,1.66533e-15,0,30,0,30C0,30,0,0,0,0Z"
+              fillRule="evenodd"
+              fill="#f4e7ff"
+              fillOpacity="1"
+            ></path>
+          </g>
+        </svg>
+        <div className="mt-12 flex cursor-pointer flex-wrap  items-center justify-between gap-6 bg-white px-4 sm:px-6 lg:px-8">
           {[
-            [
-              { name: 'Transistor', logo: logoTransistor },
-              { name: 'Tuple', logo: logoTuple },
-              { name: 'StaticKit', logo: logoStaticKit },
-            ],
-            [
-              { name: 'Mirage', logo: logoMirage },
-              { name: 'Laravel', logo: logoLaravel },
-              { name: 'Statamic', logo: logoStatamic },
-            ],
-          ].map((group, groupIndex) => (
-            <li key={groupIndex}>
-              <ul
-                role="list"
-                className="flex flex-col items-center gap-y-8 sm:flex-row sm:gap-x-12 sm:gap-y-0"
-              >
-                {group.map((company) => (
-                  <li key={company.name} className="flex">
-                    <Image src={company.logo} alt={company.name} unoptimized />
-                  </li>
-                ))}
-              </ul>
-            </li>
+            { name: 'Trial', logo: logoTransistor, avatart: avatar1 },
+            { name: 'Tuple', logo: logoTuple, avatart: avatar1 },
+            { name: 'StaticKit', logo: logoStaticKit, avatart: avatar1 },
+          ].map((company, index) => (
+            <div
+              className="relative flex  w-full max-w-[27rem] flex-col items-center overflow-hidden rounded-2xl shadow-xl"
+              key={index}
+            >
+              <p className="mt-6 block">{company.name}</p>
+
+              <div className=" mt-8 flex items-center justify-center">
+                <div className="border-3 -ml-5 overflow-hidden rounded-full border-white first:ml-0">
+                  <Image
+                    src={company.avatart}
+                    alt=""
+                    width={40}
+                    height={40}
+                    className=" block w-full object-cover"
+                  />
+                </div>
+                <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
+                  <Image
+                    src={avatar2}
+                    alt=""
+                    width={40}
+                    height={40}
+                    className=" block w-full object-cover"
+                  />
+                </div>
+                <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
+                  <Image
+                    src={avatar3}
+                    alt=""
+                    width={40}
+                    height={40}
+                    className=" block w-full object-cover"
+                  />
+                </div>
+                <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
+                  <Image
+                    src={avatar4}
+                    alt=""
+                    width={40}
+                    height={40}
+                    className=" block w-full object-cover"
+                  />
+                </div>
+              </div>
+              <div className="relative z-10 w-full bg-[#3e78e9] pb-3">
+                <svg
+                  data-v-fb0f0a5d=""
+                  className="absolute -top-4 -z-10 h-[20px] xl:h-[19px]"
+                  preserveAspectRatio="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  version="1.1"
+                  width="100%"
+                  height="15.100669860839844"
+                  viewBox="0 0 324 15.100669860839844"
+                >
+                  <g data-v-fb0f0a5d="">
+                    <path
+                      data-v-fb0f0a5d=""
+                      d="M0,15L148.773,15Q74.3864,13.8677,0,0L0,15ZM148.773,15Q155.386,15.1007,162,15.1007Q168.614,15.1007,175.227,15L148.773,15ZM175.227,15L324,15L324,0Q249.614,13.8677,175.227,15Z"
+                      fill="#3e78e9"
+                      fillOpacity="1"
+                    ></path>
+                  </g>
+                </svg>
+                <p className="my-3 text-sm text-gray-200">joined 1 days ago</p>
+                <div className="text-4xl text-white">
+                  $4.04
+                  <p className="text-base ">/month</p>
+                </div>
+              </div>
+            </div>
           ))}
-        </ul>
+        </div>
       </div>
     </Container>
   )

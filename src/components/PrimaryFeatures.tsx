@@ -11,6 +11,7 @@ import screenshotExpenses from '@/images/screenshots/expenses.png'
 import screenshotPayroll from '@/images/screenshots/payroll.png'
 import screenshotReporting from '@/images/screenshots/reporting.png'
 import screenshotVatReturns from '@/images/screenshots/vat-returns.png'
+import React from 'react'
 
 const features = [
   {
@@ -105,7 +106,7 @@ export function PrimaryFeatures() {
                       <h3>
                         <Tab
                           className={clsx(
-                            'font-display text-lg ui-not-focus-visible:outline-none',
+                            'font-display ui-not-focus-visible:outline-none text-lg',
                             selectedIndex === featureIndex
                               ? 'text-blue-600 lg:text-white'
                               : 'text-blue-100 hover:text-white lg:text-white',

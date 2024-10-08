@@ -9,6 +9,7 @@ import { Container } from '@/components/Container'
 import screenshotContacts from '@/images/screenshots/contacts.png'
 import screenshotInventory from '@/images/screenshots/inventory.png'
 import screenshotProfitLoss from '@/images/screenshots/profit-loss.png'
+import React from 'react'
 
 interface Feature {
   name: React.ReactNode
@@ -138,7 +139,7 @@ function Feature({
       >
         {feature.name}
       </h3>
-      <p className="mt-2 font-display text-xl text-slate-900">
+      <p className="font-display mt-2 text-xl text-slate-900">
         {feature.summary}
       </p>
       <p className="mt-4 text-sm text-slate-600">{feature.description}</p>
@@ -192,14 +193,14 @@ function FeaturesDesktop() {
               />
             ))}
           </Tab.List>
-          <Tab.Panels className="relative mt-20 overflow-hidden rounded-4xl bg-slate-200 px-14 py-16 xl:px-16">
+          <Tab.Panels className="rounded-4xl relative mt-20 overflow-hidden bg-slate-200 px-14 py-16 xl:px-16">
             <div className="-mx-5 flex">
               {features.map((feature, featureIndex) => (
                 <Tab.Panel
                   static
                   key={feature.summary}
                   className={clsx(
-                    'px-5 transition duration-500 ease-in-out ui-not-focus-visible:outline-none',
+                    'ui-not-focus-visible:outline-none px-5 transition duration-500 ease-in-out',
                     featureIndex !== selectedIndex && 'opacity-60',
                   )}
                   style={{ transform: `translateX(-${selectedIndex * 100}%)` }}
@@ -216,7 +217,7 @@ function FeaturesDesktop() {
                 </Tab.Panel>
               ))}
             </div>
-            <div className="pointer-events-none absolute inset-0 rounded-4xl ring-1 ring-inset ring-slate-900/10" />
+            <div className="rounded-4xl pointer-events-none absolute inset-0 ring-1 ring-inset ring-slate-900/10" />
           </Tab.Panels>
         </>
       )}
