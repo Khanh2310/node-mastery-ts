@@ -6,6 +6,8 @@ import avatarImage2 from '@/images/avatars/avatar-2.png'
 import avatarImage3 from '@/images/avatars/avatar-3.png'
 import avatarImage4 from '@/images/avatars/avatar-4.png'
 import avatarImage5 from '@/images/avatars/avatar-5.png'
+import iconRocket from '@/images/icons/rocket.webp'
+import Udemy from '../app/(private)/service-udemy/page'
 
 const testimonials = [
   [
@@ -70,6 +72,45 @@ const testimonials = [
   ],
 ]
 
+const listPeopleUse = [
+  {
+    image: 'iconRocket',
+    title: 'REAL-TIME DELIVERY',
+    content:
+      'Real-time delivery after payment without waiting, fast arrival to dispel your worries',
+  },
+  {
+    image: 'iconRocket',
+    title: 'REAL-TIME DELIVERY',
+    content:
+      'Real-time delivery after payment without waiting, fast arrival to dispel your worries',
+  },
+  {
+    image: 'iconRocket',
+    title: 'REAL-TIME DELIVERY',
+    content:
+      'Real-time delivery after payment without waiting, fast arrival to dispel your worries',
+  },
+  {
+    image: 'iconRocket',
+    title: 'REAL-TIME DELIVERY',
+    content:
+      'Real-time delivery after payment without waiting, fast arrival to dispel your worries',
+  },
+  {
+    image: 'iconRocket',
+    title: 'REAL-TIME DELIVERY',
+    content:
+      'Real-time delivery after payment without waiting, fast arrival to dispel your worries',
+  },
+  {
+    image: 'iconRocket',
+    title: 'REAL-TIME DELIVERY',
+    content:
+      'Real-time delivery after payment without waiting, fast arrival to dispel your worries',
+  },
+]
+
 function QuoteIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
   return (
     <svg aria-hidden="true" width={105} height={78} {...props}>
@@ -83,20 +124,38 @@ export function Testimonials() {
     <section
       id="testimonials"
       aria-label="What our customers are saying"
-      className="bg-slate-50 py-20 sm:py-32"
+      className="bg-slate-50 py-20 sm:py-32 xl:px-7"
     >
       <Container>
         <div className="mx-auto max-w-2xl md:text-center">
           <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
-            Loved by businesses worldwide.
+            Why more and more people use Udemy?
           </h2>
-          <p className="mt-4 text-lg tracking-tight text-slate-700">
-            Our software is so simple that people can’t help but fall in love
-            with it. Simplicity is easy when you just skip tons of
-            mission-critical features.
-          </p>
         </div>
-        <ul
+
+        <div className="flex flex-wrap justify-between">
+          {listPeopleUse.map((item, index) => (
+            <div
+              className="flex w-[438px] px-4 py-6 hover:rounded-2xl hover:shadow-[0_24px_40px_#e6dbdb52]"
+              key={index}
+            >
+              <div className="mr-6 flex h-20 w-20 items-center justify-center rounded-[64px] shadow-[0_20px_20px_#0000000d] hover:bg-[#ef534f] hover:shadow-[0_4px_10px_#00000014] ">
+                <Image
+                  src={iconRocket}
+                  width={36}
+                  height={36}
+                  alt=""
+                  className="  hover:fill-white"
+                />
+              </div>
+              <div className="">
+                <p className="pb-6 text-lg text-[#333232]">{item.title}</p>
+                <span className="text-sm text-[#999696]">{item.content}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+        {/* <ul
           role="list"
           className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3"
         >
@@ -137,7 +196,7 @@ export function Testimonials() {
               </ul>
             </li>
           ))}
-        </ul>
+        </ul> */}
       </Container>
     </section>
   )

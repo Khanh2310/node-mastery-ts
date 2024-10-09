@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 
 import { Button } from '@/components/molecules/ButtonCommon/ButtonCommon'
@@ -14,10 +15,24 @@ import avatar2 from '@/images/avatars/avatar-2.png'
 import avatar3 from '@/images/avatars/avatar-3.png'
 import avatar4 from '@/images/avatars/avatar-4.png'
 import avatar5 from '@/images/avatars/avatar-5.png'
+import arrow from '@/images/icons/arrow.png'
+import arrow_up from '@/images/icons/arrow_up.png'
+import deco_1 from '@/images/avatars/deco-1.png'
+import { useRef, useState } from 'react'
+import Link from 'next/link'
 
 export function Hero() {
+  const [show, setShow] = useState<{ [key: number]: any }>({})
+
+  const handleShowContent = (itemId: number) => {
+    setShow((prevVisibleItems) => ({
+      ...prevVisibleItems,
+      [itemId]: !prevVisibleItems[itemId],
+    }))
+  }
+
   return (
-    <Container className="bg-[#f4e7ff] pb-16 pt-20 text-center lg:pt-32">
+    <Container className="bg-[#ecd3ff]  pt-20 text-center lg:pt-32">
       <h1 className="font-display mx-auto max-w-4xl text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
         Accounting{' '}
         <span className="relative whitespace-nowrap text-blue-600">
@@ -68,65 +83,51 @@ export function Hero() {
               data-v-2dd81426=""
               d="M0,0C0,0,1920,0,1920,0C1920,0,1920,30,1920,30C1920,30,1496.5,-1.66533e-15,961.5,0C426.5,1.66533e-15,0,30,0,30C0,30,0,0,0,0Z"
               fillRule="evenodd"
-              fill="#f4e7ff"
+              fill="#ecd3ff"
               fillOpacity="1"
             ></path>
           </g>
         </svg>
-        <div className="mt-12 flex cursor-pointer flex-wrap  items-center justify-between gap-6 bg-white px-4 sm:px-6 lg:px-8">
-          {[
-            { name: 'Trial', logo: logoTransistor, avatart: avatar1 },
-            { name: 'Tuple', logo: logoTuple, avatart: avatar1 },
-            { name: 'StaticKit', logo: logoStaticKit, avatart: avatar1 },
-          ].map((company, index) => (
-            <div
-              className="relative flex  w-full max-w-[27rem] flex-col items-center overflow-hidden rounded-2xl shadow-xl"
-              key={index}
-            >
-              <p className="mt-6 block">{company.name}</p>
 
-              <div className=" mt-8 flex items-center justify-center">
-                <div className="border-3 -ml-5 overflow-hidden rounded-full border-white first:ml-0">
-                  <Image
-                    src={company.avatart}
-                    alt=""
-                    width={40}
-                    height={40}
-                    className=" block w-full object-cover"
-                  />
-                </div>
-                <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
-                  <Image
-                    src={avatar2}
-                    alt=""
-                    width={40}
-                    height={40}
-                    className=" block w-full object-cover"
-                  />
-                </div>
-                <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
-                  <Image
-                    src={avatar3}
-                    alt=""
-                    width={40}
-                    height={40}
-                    className=" block w-full object-cover"
-                  />
-                </div>
-                <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
-                  <Image
-                    src={avatar4}
-                    alt=""
-                    width={40}
-                    height={40}
-                    className=" block w-full object-cover"
-                  />
-                </div>
-              </div>
-              <div className="relative z-10 w-full bg-[#3e78e9] pb-3">
+        <div className="relative text-center text-6xl font-semibold">
+          <Image
+            src={deco_1}
+            width={100}
+            height={100}
+            alt=""
+            className="absolute bottom-0 right-16 -translate-x-full translate-y-1/2"
+          />
+          Tool for every kind
+          <br /> of business
+          <p className="mt-5 text-sm text-gray-400">
+            Some metrisc play an essential role to measure the pulse of a
+            companys customer service efficiency
+          </p>
+          <Image
+            src={deco_1}
+            width={100}
+            height={100}
+            alt=""
+            className="absolute left-[10rem] top-0 -rotate-[90deg] "
+          />
+        </div>
+        <div className="mt-12 grid w-full gap-8 bg-white lg:grid-cols-2 xl:grid-cols-3 xl:px-40">
+          {[
+            { name: 'Trial', id: 1 },
+            {
+              name: 'Enorollment',
+              id: 2,
+            },
+            { name: 'Rating', id: 3 },
+          ].map((option) => (
+            <div className="" key={option.id}>
+              <div className="relative flex cursor-pointer flex-col items-center overflow-hidden  rounded-2xl shadow-xl before:absolute before:top-[48%] before:h-[22px] before:w-full before:bg-[#ef534f] hover:shadow-[0_8px_32px_#0000003d]">
+                <p className="mt-6 block text-[32px] font-semibold">
+                  {option.name}
+                </p>
                 <svg
                   data-v-fb0f0a5d=""
-                  className="absolute -top-4 -z-10 h-[20px] xl:h-[19px]"
+                  className="absolute top-1/2 w-full -translate-y-[18px]"
                   preserveAspectRatio="none"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -139,16 +140,181 @@ export function Hero() {
                     <path
                       data-v-fb0f0a5d=""
                       d="M0,15L148.773,15Q74.3864,13.8677,0,0L0,15ZM148.773,15Q155.386,15.1007,162,15.1007Q168.614,15.1007,175.227,15L148.773,15ZM175.227,15L324,15L324,0Q249.614,13.8677,175.227,15Z"
-                      fill="#3e78e9"
+                      fill="#ef534f"
                       fillOpacity="1"
                     ></path>
                   </g>
                 </svg>
-                <p className="my-3 text-sm text-gray-200">joined 1 days ago</p>
-                <div className="text-4xl text-white">
-                  $4.04
-                  <p className="text-base ">/month</p>
+                <div className=" relative z-10 mt-8 flex items-center justify-center">
+                  <div className="border-3 -ml-5 overflow-hidden rounded-full border-white first:ml-0">
+                    <Image
+                      src={avatar1}
+                      alt=""
+                      width={40}
+                      height={40}
+                      className=" block w-full object-cover"
+                    />
+                  </div>
+
+                  <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
+                    <Image
+                      src={avatar2}
+                      alt=""
+                      width={40}
+                      height={40}
+                      className=" block w-full object-cover"
+                    />
+                  </div>
+                  <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
+                    <Image
+                      src={avatar3}
+                      alt=""
+                      width={40}
+                      height={40}
+                      className=" block w-full object-cover"
+                    />
+                  </div>
+                  <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
+                    <Image
+                      src={avatar4}
+                      alt=""
+                      width={40}
+                      height={40}
+                      className=" block w-full object-cover"
+                    />
+                  </div>
                 </div>
+                <div className="relative z-10 w-full bg-[#ef534f] pb-3 ">
+                  <p className="my-3 text-sm text-gray-200">
+                    joined 1 days ago
+                  </p>
+                  <div className="text-4xl text-white">
+                    $4.04
+                    <p className="text-base ">/month</p>
+                  </div>
+                </div>
+              </div>
+              <div
+                className="mt-5 overflow-hidden rounded-2xl bg-[#fef1f7] p-5"
+                onClick={() => handleShowContent(option.id)}
+              >
+                <ul
+                  className={`${
+                    show[option.id] ? 'h-auto' : 'max-h-[60px]'
+                  } overflow-hidden transition-all`}
+                >
+                  <li className="flex items-center gap-2">
+                    <span className="">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="size-4 text-[#e91f64]"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="m4.5 12.75 6 6 9-13.5"
+                        />
+                      </svg>
+                    </span>
+                    <p className="truncate text-sm text-[#ef534f]">
+                      dhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashj
+                    </p>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="size-4 text-[#e91f64]"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="m4.5 12.75 6 6 9-13.5"
+                        />
+                      </svg>
+                    </span>
+                    <p className="truncate text-sm text-[#ef534f]">
+                      dhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashj
+                    </p>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="size-4 text-[#e91f64]"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="m4.5 12.75 6 6 9-13.5"
+                        />
+                      </svg>
+                    </span>
+                    <p className="truncate text-sm text-[#ef534f]">
+                      dhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashj
+                    </p>
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <span className="">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="size-4 text-[#e91f64]"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="m4.5 12.75 6 6 9-13.5"
+                        />
+                      </svg>
+                    </span>
+                    <p className="truncate text-sm text-[#ef534f]">
+                      dhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashj
+                    </p>
+                  </li>
+                </ul>
+                <div className="mx-auto my-3 w-3 cursor-pointer">
+                  {show[option.id] ? (
+                    <>
+                      <div className="transition-all">
+                        <Image src={arrow_up} width={10} height={10} alt="" />
+                      </div>
+                      <div>
+                        <Image src={arrow_up} width={10} height={10} alt="" />
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="transition-all">
+                        <Image src={arrow} width={10} height={10} alt="" />
+                      </div>
+                      <div>
+                        <Image src={arrow} width={10} height={10} alt="" />
+                      </div>
+                    </>
+                  )}
+                </div>
+                <Link
+                  href="#"
+                  className="block cursor-pointer rounded-full bg-[#ef534f] py-4 text-xs font-bold uppercase text-white"
+                >
+                  {option.name === 'Trial' ? 'USE NOW' : 'PURCHASE NOW'}
+                </Link>
               </div>
             </div>
           ))}

@@ -12,12 +12,12 @@ export default function Home() {
     <BasicLayout>
       <main>
         <Hero />
-        <PrimaryFeatures />
+        {/* <PrimaryFeatures /> */}
         <SecondaryFeatures />
         <CallToAction />
         <Testimonials />
-        <Pricing />
-        <Faqs />
+        {/* <Pricing /> */}
+        {/* <Faqs /> */}
       </main>
     </BasicLayout>
   )
