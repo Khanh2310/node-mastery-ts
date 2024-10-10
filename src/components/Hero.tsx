@@ -11,9 +11,13 @@ import avatar4 from '@/images/avatars/avatar-4.png'
 import arrow from '@/images/icons/arrow.png'
 import arrow_up from '@/images/icons/arrow_up.png'
 import deco_1 from '@/images/avatars/deco-1.png'
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import { Autoplay, Pagination, Navigation } from 'swiper/modules'
 export function Hero() {
   const [show, setShow] = useState<{ [key: number]: any }>({})
 
@@ -24,6 +28,26 @@ export function Hero() {
     }))
   }
 
+  const slides = [
+    '/avatars/avatar1.jpg',
+    '/avatars/avatar2.jpg',
+    '/avatars/avatar3.jpg',
+    '/avatars/avatar4.jpg',
+    '/avatars/avatar5.jpg',
+    '/avatars/avatar5.jpg',
+  ]
+
+  const autoSlide = true
+  const autoSlideInterval = 3000
+  const [curr, setCurr] = useState(0)
+
+  const next = () =>
+    setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1))
+  useEffect(() => {
+    if (!autoSlide) return
+    const slideInterval = setInterval(next, autoSlideInterval)
+    return () => clearInterval(slideInterval)
+  }, [])
   return (
     <Container className="bg-[#ecd3ff] pt-20 text-center lg:pt-32">
       <h1 className="font-display mx-auto max-w-4xl text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
@@ -117,7 +141,7 @@ export function Hero() {
               key={option.id}
               className="w-[calc(33.33% - 11px)] tablet:w-[calc(50% - 11px)] SP:w-full"
             >
-              <div className=" flex cursor-pointer flex-col items-center overflow-hidden rounded-2xl bg-white  shadow-xl">
+              <div className=" flex cursor-pointer flex-col items-center overflow-hidden rounded-2xl bg-white shadow-xl">
                 <div className="relative w-full pb-10">
                   <p className="mt-6 block text-[32px] font-semibold">
                     {option.name}
@@ -142,43 +166,59 @@ export function Hero() {
                       ></path>
                     </g>
                   </svg>
-                  <div className="absolute bottom-0 left-1/2 z-10 mt-8 flex -translate-x-1/2 translate-y-1/2 items-center justify-center">
-                    <div className="border-3 -ml-5 overflow-hidden rounded-full border-white first:ml-0">
-                      <Image
-                        src={avatar1}
-                        alt=""
-                        width={40}
-                        height={40}
-                        className=" block w-full object-cover"
-                      />
+                  {/* <Swiper
+                    className="absolute bottom-0 left-1/2 z-10 mt-8 flex -translate-x-1/2 translate-y-1/2 items-center justify-center"
+                    spaceBetween={0}
+                    slidesPerView={5}
+                    navigation
+                    pagination={{ clickable: true }}
+                    scrollbar={{ draggable: true }}
+                    onSwiper={(swiper) => console.log(swiper)}
+                    onSlideChange={() => console.log('slide change')}
+                    modules={[Navigation, Pagination, Autoplay]}
+                  >
+                    {avatars.map((avatar, index) => (
+                      <SwiperSlide key={index}>
+                        <div className="border-3 -ml-5 w-[40px] overflow-hidden rounded-full border-white">
+                          <Image
+                            src={avatar4}
+                            alt=""
+                            width={40}
+                            height={40}
+                            className=" block  object-cover"
+                          />
+                        </div>
+                        <div className="swiper-button-prev"></div>
+                        <div className="swiper-button-next"></div>
+                      </SwiperSlide>
+                    ))}
+                  </Swiper> */}
+                  <div className="absolute bottom-0 left-1/2 z-20 mt-8 flex max-w-[200px] -translate-x-1/2 translate-y-1/2 items-center justify-center overflow-x-hidden">
+                    <div
+                      className="flex transition-transform duration-500 ease-out"
+                      style={{ transform: `translateX(-${curr * 100}%)` }}
+                    >
+                      {slides}
                     </div>
-
-                    <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
-                      <Image
-                        src={avatar2}
-                        alt=""
-                        width={40}
-                        height={40}
-                        className=" block w-full object-cover"
-                      />
-                    </div>
-                    <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
-                      <Image
-                        src={avatar3}
-                        alt=""
-                        width={40}
-                        height={40}
-                        className=" block w-full object-cover"
-                      />
-                    </div>
-                    <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
-                      <Image
-                        src={avatar4}
-                        alt=""
-                        width={40}
-                        height={40}
-                        className=" block w-full object-cover"
-                      />
+                    <div className="absolute left-0 right-0">
+                      <div className="flex items-center justify-center gap-2">
+                        {slides.map((item, i) => (
+                          <div
+                            className={`border-3 -ml-5 w-[40px] overflow-hidden rounded-full border-white bg-white transition-all first:ml-0 ${
+                              curr === i ? 'p-1' : 'bg-opacity-50'
+                            }`}
+                            key={i}
+                          >
+                            <Image
+                              src={avatar4}
+                              alt=""
+                              width={40}
+                              height={40}
+                              className=" block h-full w-full object-cover"
+                            />
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
