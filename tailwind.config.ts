@@ -78,6 +78,11 @@ const config = {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
+      screens: {
+        tablet: { min: '712px', max: '1060px' },
+        PC: { min: '1060px', max: '1406px' },
+        SP: { max: '712px' },
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

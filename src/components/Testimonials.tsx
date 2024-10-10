@@ -124,7 +124,7 @@ export function Testimonials() {
     <section
       id="testimonials"
       aria-label="What our customers are saying"
-      className="bg-slate-50 py-20 sm:py-32 xl:px-7"
+      className="bg-slate-50 py-20 sm:py-32"
     >
       <Container>
         <div className="mx-auto max-w-2xl md:text-center">
@@ -133,10 +133,10 @@ export function Testimonials() {
           </h2>
         </div>
 
-        <div className="flex flex-wrap justify-between">
+        <div className="mx-auto flex w-[1366px] flex-wrap justify-between">
           {listPeopleUse.map((item, index) => (
             <div
-              className="flex w-[438px] px-4 py-6 hover:rounded-2xl hover:shadow-[0_24px_40px_#e6dbdb52]"
+              className="flex w-full px-4 py-6 hover:rounded-2xl hover:shadow-[0_24px_40px_#e6dbdb52] lg:max-w-[438px]"
               key={index}
             >
               <div className="mr-6 flex h-20 w-20 items-center justify-center rounded-[64px] shadow-[0_20px_20px_#0000000d] hover:bg-[#ef534f] hover:shadow-[0_4px_10px_#00000014] ">
@@ -149,7 +149,9 @@ export function Testimonials() {
                 />
               </div>
               <div className="">
-                <p className="pb-6 text-lg text-[#333232]">{item.title}</p>
+                <p className="pb-6 text-lg font-bold text-[#333232]">
+                  {item.title}
+                </p>
                 <span className="text-sm text-[#999696]">{item.content}</span>
               </div>
             </div>

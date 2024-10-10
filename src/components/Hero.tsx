@@ -3,18 +3,11 @@ import Image from 'next/image'
 
 import { Button } from '@/components/molecules/ButtonCommon/ButtonCommon'
 import { Container } from '@/components/Container'
-import logoLaravel from '@/images/logos/laravel.svg'
-import logoMirage from '@/images/logos/mirage.svg'
-import logoStatamic from '@/images/logos/statamic.svg'
-import logoStaticKit from '@/images/logos/statickit.svg'
-import logoTransistor from '@/images/logos/transistor.svg'
-import logoTuple from '@/images/logos/tuple.svg'
 
 import avatar1 from '@/images/avatars/avatar-1.png'
 import avatar2 from '@/images/avatars/avatar-2.png'
 import avatar3 from '@/images/avatars/avatar-3.png'
 import avatar4 from '@/images/avatars/avatar-4.png'
-import avatar5 from '@/images/avatars/avatar-5.png'
 import arrow from '@/images/icons/arrow.png'
 import arrow_up from '@/images/icons/arrow_up.png'
 import deco_1 from '@/images/avatars/deco-1.png'
@@ -32,7 +25,7 @@ export function Hero() {
   }
 
   return (
-    <Container className="bg-[#ecd3ff]  pt-20 text-center lg:pt-32">
+    <Container className="bg-[#ecd3ff] pt-20 text-center lg:pt-32">
       <h1 className="font-display mx-auto max-w-4xl text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
         Accounting{' '}
         <span className="relative whitespace-nowrap text-blue-600">
@@ -111,7 +104,7 @@ export function Hero() {
             className="absolute left-[10rem] top-0 -rotate-[90deg] "
           />
         </div>
-        <div className="mt-12 grid w-full gap-8 bg-white lg:grid-cols-2 xl:grid-cols-3 xl:px-40">
+        <div className="tablet:max-w-[672px] PC:w-[1020px] tablet:grid-cols-2 PC:grid-cols-2 tablet:px-5 SP:grid-cols-1 SP:w-full SP:max-w-[333px] SP:px-5  mx-auto mt-12 grid w-[1366px] grid-cols-3 gap-8 bg-white px-40">
           {[
             { name: 'Trial', id: 1 },
             {
@@ -120,77 +113,82 @@ export function Hero() {
             },
             { name: 'Rating', id: 3 },
           ].map((option) => (
-            <div className="" key={option.id}>
-              <div className="relative flex cursor-pointer flex-col items-center overflow-hidden  rounded-2xl shadow-xl before:absolute before:top-[48%] before:h-[22px] before:w-full before:bg-[#ef534f] hover:shadow-[0_8px_32px_#0000003d]">
-                <p className="mt-6 block text-[32px] font-semibold">
-                  {option.name}
-                </p>
-                <svg
-                  data-v-fb0f0a5d=""
-                  className="absolute top-1/2 w-full -translate-y-[18px]"
-                  preserveAspectRatio="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  version="1.1"
-                  width="100%"
-                  height="15.100669860839844"
-                  viewBox="0 0 324 15.100669860839844"
-                >
-                  <g data-v-fb0f0a5d="">
-                    <path
-                      data-v-fb0f0a5d=""
-                      d="M0,15L148.773,15Q74.3864,13.8677,0,0L0,15ZM148.773,15Q155.386,15.1007,162,15.1007Q168.614,15.1007,175.227,15L148.773,15ZM175.227,15L324,15L324,0Q249.614,13.8677,175.227,15Z"
-                      fill="#ef534f"
-                      fillOpacity="1"
-                    ></path>
-                  </g>
-                </svg>
-                <div className=" relative z-10 mt-8 flex items-center justify-center">
-                  <div className="border-3 -ml-5 overflow-hidden rounded-full border-white first:ml-0">
-                    <Image
-                      src={avatar1}
-                      alt=""
-                      width={40}
-                      height={40}
-                      className=" block w-full object-cover"
-                    />
-                  </div>
+            <div
+              key={option.id}
+              className="w-[calc(33.33% - 11px)] tablet:w-[calc(50% - 11px)] SP:w-full"
+            >
+              <div className=" flex cursor-pointer flex-col items-center overflow-hidden rounded-2xl bg-white  shadow-xl">
+                <div className="relative w-full pb-10">
+                  <p className="mt-6 block text-[32px] font-semibold">
+                    {option.name}
+                  </p>
+                  <svg
+                    data-v-fb0f0a5d=""
+                    className="absolute bottom-0 w-full translate-y-[1px]"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    version="1.1"
+                    width="100%"
+                    height="15.100669860839844"
+                    viewBox="0 0 324 15.100669860839844"
+                  >
+                    <g data-v-fb0f0a5d="">
+                      <path
+                        data-v-fb0f0a5d=""
+                        d="M0,15L148.773,15Q74.3864,13.8677,0,0L0,15ZM148.773,15Q155.386,15.1007,162,15.1007Q168.614,15.1007,175.227,15L148.773,15ZM175.227,15L324,15L324,0Q249.614,13.8677,175.227,15Z"
+                        fill="#ef534f"
+                        fillOpacity="1"
+                      ></path>
+                    </g>
+                  </svg>
+                  <div className="absolute bottom-0 left-1/2 z-10 mt-8 flex -translate-x-1/2 translate-y-1/2 items-center justify-center">
+                    <div className="border-3 -ml-5 overflow-hidden rounded-full border-white first:ml-0">
+                      <Image
+                        src={avatar1}
+                        alt=""
+                        width={40}
+                        height={40}
+                        className=" block w-full object-cover"
+                      />
+                    </div>
 
-                  <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
-                    <Image
-                      src={avatar2}
-                      alt=""
-                      width={40}
-                      height={40}
-                      className=" block w-full object-cover"
-                    />
-                  </div>
-                  <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
-                    <Image
-                      src={avatar3}
-                      alt=""
-                      width={40}
-                      height={40}
-                      className=" block w-full object-cover"
-                    />
-                  </div>
-                  <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
-                    <Image
-                      src={avatar4}
-                      alt=""
-                      width={40}
-                      height={40}
-                      className=" block w-full object-cover"
-                    />
+                    <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
+                      <Image
+                        src={avatar2}
+                        alt=""
+                        width={40}
+                        height={40}
+                        className=" block w-full object-cover"
+                      />
+                    </div>
+                    <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
+                      <Image
+                        src={avatar3}
+                        alt=""
+                        width={40}
+                        height={40}
+                        className=" block w-full object-cover"
+                      />
+                    </div>
+                    <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
+                      <Image
+                        src={avatar4}
+                        alt=""
+                        width={40}
+                        height={40}
+                        className=" block w-full object-cover"
+                      />
+                    </div>
                   </div>
                 </div>
-                <div className="relative z-10 w-full bg-[#ef534f] pb-3 ">
-                  <p className="my-3 text-sm text-gray-200">
+                <div className="relative z-[2] w-full bg-[#ef534f] pb-3 pt-7">
+                  <p className="my-1 text-sm text-gray-200">
                     joined 1 days ago
                   </p>
                   <div className="text-4xl text-white">
                     $4.04
-                    <p className="text-base ">/month</p>
+                    <p className="text-sm">/month</p>
                   </div>
                 </div>
               </div>
@@ -221,7 +219,7 @@ export function Hero() {
                       </svg>
                     </span>
                     <p className="truncate text-sm text-[#ef534f]">
-                      dhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashj
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     </p>
                   </li>
                   <li className="flex items-center gap-2">
@@ -242,7 +240,7 @@ export function Hero() {
                       </svg>
                     </span>
                     <p className="truncate text-sm text-[#ef534f]">
-                      dhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashj
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     </p>
                   </li>
                   <li className="flex items-center gap-2">
@@ -263,7 +261,7 @@ export function Hero() {
                       </svg>
                     </span>
                     <p className="truncate text-sm text-[#ef534f]">
-                      dhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashj
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     </p>
                   </li>
                   <li className="flex items-center gap-2">
@@ -284,7 +282,7 @@ export function Hero() {
                       </svg>
                     </span>
                     <p className="truncate text-sm text-[#ef534f]">
-                      dhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashjdhajdhjasdhjsahdjashj
+                      Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     </p>
                   </li>
                 </ul>
