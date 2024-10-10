@@ -11,13 +11,12 @@ import avatar4 from '@/images/avatars/avatar-4.png'
 import arrow from '@/images/icons/arrow.png'
 import arrow_up from '@/images/icons/arrow_up.png'
 import deco_1 from '@/images/avatars/deco-1.png'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
-import { Autoplay, Pagination, Navigation } from 'swiper/modules'
+
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 export function Hero() {
   const [show, setShow] = useState<{ [key: number]: any }>({})
 
@@ -28,26 +27,17 @@ export function Hero() {
     }))
   }
 
-  const slides = [
-    '/avatars/avatar1.jpg',
-    '/avatars/avatar2.jpg',
-    '/avatars/avatar3.jpg',
-    '/avatars/avatar4.jpg',
-    '/avatars/avatar5.jpg',
-    '/avatars/avatar5.jpg',
-  ]
+  const slides = ['1', '2', '3', '4', '5']
 
-  const autoSlide = true
-  const autoSlideInterval = 3000
-  const [curr, setCurr] = useState(0)
+  const settings = {
+    infinite: true,
+    speed: 600,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+  }
 
-  const next = () =>
-    setCurr((curr) => (curr === slides.length - 1 ? 0 : curr + 1))
-  useEffect(() => {
-    if (!autoSlide) return
-    const slideInterval = setInterval(next, autoSlideInterval)
-    return () => clearInterval(slideInterval)
-  }, [])
   return (
     <Container className="bg-[#ecd3ff] pt-20 text-center lg:pt-32">
       <h1 className="font-display mx-auto max-w-4xl text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
@@ -128,7 +118,7 @@ export function Hero() {
             className="absolute left-[10rem] top-0 -rotate-[90deg] "
           />
         </div>
-        <div className="tablet:max-w-[672px] PC:w-[1020px] tablet:grid-cols-2 PC:grid-cols-2 tablet:px-5 SP:grid-cols-1 SP:w-full SP:max-w-[333px] SP:px-5  mx-auto mt-12 grid w-[1366px] grid-cols-3 gap-8 bg-white px-40">
+        <div className="mx-auto mt-12 grid w-[1366px] grid-cols-3 gap-8 bg-white px-40 tablet:max-w-[672px]  tablet:grid-cols-2 tablet:px-5 PC:w-[1020px] PC:grid-cols-2 SP:w-full SP:max-w-[333px] SP:grid-cols-1 SP:px-5">
           {[
             { name: 'Trial', id: 1 },
             {
@@ -166,60 +156,45 @@ export function Hero() {
                       ></path>
                     </g>
                   </svg>
-                  {/* <Swiper
-                    className="absolute bottom-0 left-1/2 z-10 mt-8 flex -translate-x-1/2 translate-y-1/2 items-center justify-center"
-                    spaceBetween={0}
-                    slidesPerView={5}
-                    navigation
-                    pagination={{ clickable: true }}
-                    scrollbar={{ draggable: true }}
-                    onSwiper={(swiper) => console.log(swiper)}
-                    onSlideChange={() => console.log('slide change')}
-                    modules={[Navigation, Pagination, Autoplay]}
-                  >
-                    {avatars.map((avatar, index) => (
-                      <SwiperSlide key={index}>
-                        <div className="border-3 -ml-5 w-[40px] overflow-hidden rounded-full border-white">
-                          <Image
-                            src={avatar4}
-                            alt=""
-                            width={40}
-                            height={40}
-                            className=" block  object-cover"
-                          />
-                        </div>
-                        <div className="swiper-button-prev"></div>
-                        <div className="swiper-button-next"></div>
-                      </SwiperSlide>
-                    ))}
-                  </Swiper> */}
-                  <div className="absolute bottom-0 left-1/2 z-20 mt-8 flex max-w-[200px] -translate-x-1/2 translate-y-1/2 items-center justify-center overflow-x-hidden">
-                    <div
-                      className="flex transition-transform duration-500 ease-out"
-                      style={{ transform: `translateX(-${curr * 100}%)` }}
-                    >
-                      {slides}
-                    </div>
-                    <div className="absolute left-0 right-0">
-                      <div className="flex items-center justify-center gap-2">
-                        {slides.map((item, i) => (
-                          <div
-                            className={`border-3 -ml-5 w-[40px] overflow-hidden rounded-full border-white bg-white transition-all first:ml-0 ${
-                              curr === i ? 'p-1' : 'bg-opacity-50'
-                            }`}
-                            key={i}
-                          >
-                            <Image
-                              src={avatar4}
-                              alt=""
-                              width={40}
-                              height={40}
-                              className=" block h-full w-full object-cover"
-                            />
-                          </div>
-                        ))}
+                  <div className="slider-container absolute bottom-0 left-1/2 z-10 mt-8 flex -translate-x-1/2 translate-y-1/2 items-center justify-center">
+                    <Slider {...settings} className="w-[200px] overflow-hidden">
+                      <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
+                        <Image
+                          src={avatar4}
+                          alt=""
+                          width={40}
+                          height={40}
+                          className=" block w-full object-cover"
+                        />
                       </div>
-                    </div>
+                      <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
+                        <Image
+                          src={avatar4}
+                          alt=""
+                          width={40}
+                          height={40}
+                          className=" block w-full object-cover"
+                        />
+                      </div>
+                      <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
+                        <Image
+                          src={avatar4}
+                          alt=""
+                          width={40}
+                          height={40}
+                          className=" block w-full object-cover"
+                        />
+                      </div>
+                      <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
+                        <Image
+                          src={avatar4}
+                          alt=""
+                          width={40}
+                          height={40}
+                          className=" block w-full object-cover"
+                        />
+                      </div>
+                    </Slider>
                   </div>
                 </div>
                 <div className="relative z-[2] w-full bg-[#ef534f] pb-3 pt-7">
