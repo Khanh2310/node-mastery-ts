@@ -120,7 +120,7 @@ export function Hero() {
           </g>
         </svg>
 
-        <div className="relative text-center text-6xl font-semibold">
+        <div className="relative text-center text-3xl font-semibold md:text-4xl lg:text-6xl">
           <Image
             src={deco_1}
             width={100}
@@ -139,7 +139,7 @@ export function Hero() {
             width={100}
             height={100}
             alt=""
-            className="absolute left-[10rem] top-0 -rotate-[90deg] "
+            className="absolute top-0 -rotate-[90deg] md:left-[5rem] lg:left-[10rem] "
           />
         </div>
         <div className="mx-auto mt-12 grid w-[1366px] grid-cols-3 gap-8 bg-white px-0 tablet:max-w-[672px] tablet:grid-cols-2 tablet:px-5 PC:w-[1020px] PC:grid-cols-2 SP:w-full SP:max-w-[333px] SP:grid-cols-1 SP:px-5">
@@ -157,7 +157,7 @@ export function Hero() {
             >
               <div className=" flex cursor-pointer flex-col items-center overflow-hidden rounded-2xl bg-white shadow-xl transition-all hover:shadow-[0_8px_32px_#0000003d]">
                 <div className="relative w-full pb-10">
-                  <p className="mt-6 block text-[32px] font-semibold">
+                  <p className="mt-6 block text-[32px] font-semibold lg:mb-8">
                     {option.name}
                   </p>
                   <svg
@@ -180,7 +180,7 @@ export function Hero() {
                       ></path>
                     </g>
                   </svg>
-                  <div className="slider-container absolute bottom-0 left-1/2 z-10 mt-8 flex -translate-x-1/2 translate-y-1/2 items-center justify-center overflow-hidden">
+                  <div className="slider-container absolute bottom-0 left-1/2 z-10 flex -translate-x-1/2 translate-y-1/2 items-center justify-center overflow-hidden">
                     <Slider
                       {...settings}
                       ref={sliderRef}
@@ -198,9 +198,9 @@ export function Hero() {
                           <Image
                             src={avatar1}
                             alt=""
-                            width={40}
-                            height={40}
-                            className=" block w-full object-cover"
+                            width={48}
+                            height={48}
+                            className=" block h-10 w-10 object-cover"
                           />
                         </div>
                       ))}
