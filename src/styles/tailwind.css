@@ -82,11 +82,6 @@
     @apply bg-background text-foreground;
   }
 }
-
-button.slick-arrow.slick-prev {
-  display: none !important;
-}
-
-button.slick-arrow.slick-next {
-  display: none !important;
+.slick-track {
+  display: flex !important;
 }

@@ -11,10 +11,12 @@ import avatar4 from '@/images/avatars/avatar-4.png'
 import arrow from '@/images/icons/arrow.png'
 import arrow_up from '@/images/icons/arrow_up.png'
 import deco_1 from '@/images/avatars/deco-1.png'
-import { useEffect, useState } from 'react'
+import iconPlus from '@/images/icons/plus.webp'
+
+import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 
-import Slider from 'react-slick'
+import Slider, { Settings } from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 export function Hero() {
@@ -27,15 +29,40 @@ export function Hero() {
     }))
   }
 
-  const slides = ['1', '2', '3', '4', '5']
+  const [slides, setSlides] = useState([
+    { id: 1, content: 'Slide 1' },
+    { id: 2, content: 'Slide 2' },
+    { id: 3, content: 'Slide 3' },
+    { id: 4, content: 'Slide 4' },
+  ])
 
-  const settings = {
+  const sliderRef = useRef<Slider | null>(null)
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const addSlide = () => {
+    const newSlide = {
+      id: slides.length + 1,
+      content: `Slide ${slides.length + 1}`,
+    }
+    setSlides([...slides, newSlide])
+  }
+
+  useEffect(() => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext()
+    }
+  }, [slides])
+
+  const settings: Settings = {
+    className: 'center',
     infinite: true,
-    speed: 600,
-    slidesToShow: 5,
+    draggable: false,
+    swipe: false,
+    speed: 500,
+    slidesToShow: 4,
     slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
+    nextArrow: undefined,
+    prevArrow: undefined,
   }
 
   return (
@@ -118,7 +145,7 @@ export function Hero() {
             className="absolute left-[10rem] top-0 -rotate-[90deg] "
           />
         </div>
-        <div className="mx-auto mt-12 grid w-[1366px] grid-cols-3 gap-8 bg-white px-40 tablet:max-w-[672px]  tablet:grid-cols-2 tablet:px-5 PC:w-[1020px] PC:grid-cols-2 SP:w-full SP:max-w-[333px] SP:grid-cols-1 SP:px-5">
+        <div className="mx-auto mt-12 grid w-[1366px] grid-cols-3 gap-8 bg-white px-0 tablet:max-w-[672px] tablet:grid-cols-2 tablet:px-5 PC:w-[1020px] PC:grid-cols-2 SP:w-full SP:max-w-[333px] SP:grid-cols-1 SP:px-5">
           {[
             { name: 'Trial', id: 1 },
             {
@@ -131,7 +158,7 @@ export function Hero() {
               key={option.id}
               className="w-[calc(33.33% - 11px)] tablet:w-[calc(50% - 11px)] SP:w-full"
             >
-              <div className=" flex cursor-pointer flex-col items-center overflow-hidden rounded-2xl bg-white shadow-xl">
+              <div className=" flex cursor-pointer flex-col items-center overflow-hidden rounded-2xl bg-white shadow-xl transition-all hover:shadow-[0_8px_32px_#0000003d]">
                 <div className="relative w-full pb-10">
                   <p className="mt-6 block text-[32px] font-semibold">
                     {option.name}
@@ -156,51 +183,53 @@ export function Hero() {
                       ></path>
                     </g>
                   </svg>
-                  <div className="slider-container absolute bottom-0 left-1/2 z-10 mt-8 flex -translate-x-1/2 translate-y-1/2 items-center justify-center">
-                    <Slider {...settings} className="w-[200px] overflow-hidden">
-                      <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
-                        <Image
-                          src={avatar4}
-                          alt=""
-                          width={40}
-                          height={40}
-                          className=" block w-full object-cover"
-                        />
-                      </div>
-                      <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
-                        <Image
-                          src={avatar4}
-                          alt=""
-                          width={40}
-                          height={40}
-                          className=" block w-full object-cover"
-                        />
-                      </div>
-                      <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
-                        <Image
-                          src={avatar4}
-                          alt=""
-                          width={40}
-                          height={40}
-                          className=" block w-full object-cover"
-                        />
-                      </div>
-                      <div className="border-3 -ml-5 overflow-hidden rounded-full border-white">
-                        <Image
-                          src={avatar4}
-                          alt=""
-                          width={40}
-                          height={40}
-                          className=" block w-full object-cover"
-                        />
-                      </div>
+                  <div className="slider-container absolute bottom-0 left-1/2 z-10 mt-8 flex -translate-x-1/2 translate-y-1/2 items-center justify-center overflow-hidden">
+                    <Slider
+                      {...settings}
+                      ref={sliderRef}
+                      className="w-[200px] overflow-hidden "
+                    >
+                      {slides.map((_, index) => (
+                        <div
+                          className={`border-3 overflow-hidden rounded-full border-white  ${
+                            currentIndex === index &&
+                            'scale-105 transform duration-500'
+                          }`}
+                          key={index}
+                          data-index={index}
+                        >
+                          <Image
+                            src={avatar4}
+                            alt=""
+                            width={40}
+                            height={40}
+                            className=" block w-full object-cover"
+                          />
+                        </div>
+                      ))}
                     </Slider>
+
+                    <button onClick={addSlide}>
+                      <Image
+                        src={iconPlus}
+                        alt=""
+                        width={40}
+                        height={40}
+                        className=" block w-full object-cover"
+                      />
+                    </button>
                   </div>
                 </div>
                 <div className="relative z-[2] w-full bg-[#ef534f] pb-3 pt-7">
-                  <p className="my-1 text-sm text-gray-200">
-                    joined 1 days ago
-                  </p>
+                  {slides.map((item, index) => (
+                    <p
+                      className="my-1 transform text-sm text-gray-200 duration-500"
+                      key={index}
+                    >
+                      {slides.length - 1 === item.id &&
+                        item.content + ' joined 1 second ago'}
+                    </p>
+                  ))}
                   <div className="text-4xl text-white">
                     $4.04
                     <p className="text-sm">/month</p>
