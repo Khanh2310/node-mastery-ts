@@ -4,10 +4,7 @@ import Image from 'next/image'
 import { Button } from '@/components/molecules/ButtonCommon/ButtonCommon'
 import { Container } from '@/components/Container'
 
-import avatar1 from '@/images/avatars/avatar-1.png'
-import avatar2 from '@/images/avatars/avatar-2.png'
-import avatar3 from '@/images/avatars/avatar-3.png'
-import avatar4 from '@/images/avatars/avatar-4.png'
+import avatar1 from '@/images/avatars/avatar-4.png'
 import arrow from '@/images/icons/arrow.png'
 import arrow_up from '@/images/icons/arrow_up.png'
 import deco_1 from '@/images/avatars/deco-1.png'
@@ -199,7 +196,7 @@ export function Hero() {
                           data-index={index}
                         >
                           <Image
-                            src={avatar4}
+                            src={avatar1}
                             alt=""
                             width={40}
                             height={40}

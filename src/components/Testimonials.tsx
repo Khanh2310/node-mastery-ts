@@ -6,7 +6,7 @@ import avatarImage2 from '@/images/avatars/avatar-2.png'
 import avatarImage3 from '@/images/avatars/avatar-3.png'
 import avatarImage4 from '@/images/avatars/avatar-4.png'
 import avatarImage5 from '@/images/avatars/avatar-5.png'
-import iconRocket from '@/images/icons/rocket.webp'
+import iconRocket from '@/images/icons/rocket.svg'
 import Udemy from '../app/(private)/service-udemy/page'
 
 const testimonials = [
@@ -81,33 +81,32 @@ const listPeopleUse = [
   },
   {
     image: 'iconRocket',
-    title: 'REAL-TIME DELIVERY',
+    title: 'QUICK RESET',
     content:
-      'Real-time delivery after payment without waiting, fast arrival to dispel your worries',
+      'Click reset passkey on the subscription page without waiting and manual operation',
   },
   {
     image: 'iconRocket',
-    title: 'REAL-TIME DELIVERY',
+    title: 'SSL CERTIFICATE',
     content:
-      'Real-time delivery after payment without waiting, fast arrival to dispel your worries',
+      'Payments take place in a secure environment with an SSL security certificate',
   },
   {
     image: 'iconRocket',
-    title: 'REAL-TIME DELIVERY',
+    title: '24/7 LIVE SUPPORT',
     content:
-      'Real-time delivery after payment without waiting, fast arrival to dispel your worries',
+      'provides 24/7 online private customer service, help you have a good experience',
   },
   {
     image: 'iconRocket',
-    title: 'REAL-TIME DELIVERY',
-    content:
-      'Real-time delivery after payment without waiting, fast arrival to dispel your worries',
+    title: 'SUITABLE SUBSCRIBER',
+    content: 'Get premium subscription at lower price.',
   },
   {
     image: 'iconRocket',
-    title: 'REAL-TIME DELIVERY',
+    title: 'REFUND GUARANTEE',
     content:
-      'Real-time delivery after payment without waiting, fast arrival to dispel your worries',
+      'We offer buyer protection, with refunds available within 24 hours.',
   },
 ]
 
@@ -124,7 +123,7 @@ export function Testimonials() {
     <section
       id="testimonials"
       aria-label="What our customers are saying"
-      className="bg-slate-50 py-20 sm:py-32"
+      className="bg-slate-50 py-20 sm:py-32 md:px-20 xl:px-40"
     >
       <Container>
         <div className="mx-auto max-w-2xl md:text-center">
@@ -133,22 +132,25 @@ export function Testimonials() {
           </h2>
         </div>
 
-        <div className="mx-auto flex w-[1366px] flex-wrap justify-between">
+        <div
+          className="md:w-max-[80%] mx-auto flex w-[80%] flex-wrap justify-center sm:justify-center
+        md:w-full md:max-w-[1366px] lg:max-w-none lg:justify-between tablet:justify-center"
+        >
           {listPeopleUse.map((item, index) => (
             <div
-              className="flex w-full px-4 py-6 hover:rounded-2xl hover:shadow-[0_24px_40px_#e6dbdb52] lg:max-w-[438px]"
+              className="flex w-full px-4 py-6 hover:rounded-2xl hover:shadow-[0_24px_40px_#e6dbdb52] md:w-[438px] "
               key={index}
             >
-              <div className="mr-6 flex h-20 w-20 items-center justify-center rounded-[64px] shadow-[0_20px_20px_#0000000d] hover:bg-[#ef534f] hover:shadow-[0_4px_10px_#00000014] ">
+              <div className="mr-6 flex h-16 w-16 items-center justify-center rounded-full shadow-[0_20px_20px_#0000000d] hover:bg-[#ef534f] hover:fill-white hover:shadow-[0_4px_10px_#00000014]">
                 <Image
                   src={iconRocket}
                   width={36}
                   height={36}
                   alt=""
-                  className="  hover:fill-white"
+                  className=" hover:fill-white"
                 />
               </div>
-              <div className="">
+              <div className="flex-1">
                 <p className="pb-6 text-lg font-bold text-[#333232]">
                   {item.title}
                 </p>
@@ -157,7 +159,8 @@ export function Testimonials() {
             </div>
           ))}
         </div>
-        {/* <ul
+
+        <ul
           role="list"
           className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3"
         >
@@ -198,7 +201,7 @@ export function Testimonials() {
               </ul>
             </li>
           ))}
-        </ul> */}
+        </ul>
       </Container>
     </section>
   )
