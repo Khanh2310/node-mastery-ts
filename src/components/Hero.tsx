@@ -120,13 +120,13 @@ export function Hero() {
           </g>
         </svg>
 
-        <div className="relative text-center text-3xl font-semibold md:text-4xl lg:text-6xl">
+        <div className="relative right-0 text-center text-3xl font-semibold md:text-4xl lg:text-6xl">
           <Image
             src={deco_1}
             width={100}
             height={100}
             alt=""
-            className="absolute bottom-0 right-16 -translate-x-full translate-y-1/2"
+            className="absolute bottom-0 right-0 translate-y-1/2 md:translate-x-0  lg:right-16 lg:-translate-x-full"
           />
           Tool for every kind
           <br /> of business
@@ -200,7 +200,7 @@ export function Hero() {
                             alt=""
                             width={48}
                             height={48}
-                            className=" block h-10 w-10 object-cover"
+                            className="w-full object-cover"
                           />
                         </div>
                       ))}

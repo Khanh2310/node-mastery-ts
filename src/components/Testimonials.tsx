@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 
 import { Container } from '@/components/Container'
@@ -7,69 +8,67 @@ import avatarImage3 from '@/images/avatars/avatar-3.png'
 import avatarImage4 from '@/images/avatars/avatar-4.png'
 import avatarImage5 from '@/images/avatars/avatar-5.png'
 import iconRocket from '@/images/icons/rocket.svg'
-import Udemy from '../app/(private)/service-udemy/page'
+import avatar1 from '@/images/avatars/avatar-4.png'
+
+import Slider, { Settings } from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 const testimonials = [
-  [
-    {
-      content:
-        'Udemy Service is so easy to use I can’t help but wonder if it’s really doing the things the government expects me to do.',
-      author: {
-        name: 'Sheryl Berge',
-        role: 'CEO at Lynch LLC',
-        image: avatarImage1,
-      },
+  {
+    content:
+      'Udemy Service is so easy to use I can’t help but wonder if it’s really doing the things the government expects me to do.',
+    author: {
+      name: 'Sheryl Berge',
+      role: 'CEO at Lynch LLC',
+      image: avatarImage1,
     },
-    {
-      content:
-        'I’m trying to get a hold of someone in support, I’m in a lot of trouble right now and they are saying it has something to do with my books. Please get back to me right away.',
-      author: {
-        name: 'Amy Hahn',
-        role: 'Director at Velocity Industries',
-        image: avatarImage4,
-      },
+  },
+  {
+    content:
+      'I’m trying to get a hold of someone in support, I’m in a lot of trouble right now and they are saying it has something to do with my books. Please get back to me right away.',
+    author: {
+      name: 'Amy Hahn',
+      role: 'Director at Velocity Industries',
+      image: avatarImage4,
     },
-  ],
-  [
-    {
-      content:
-        'The best part about Udemy Service is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.',
-      author: {
-        name: 'Leland Kiehn',
-        role: 'Founder of Kiehn and Sons',
-        image: avatarImage5,
-      },
+  },
+  {
+    content:
+      'The best part about Udemy Service is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.',
+    author: {
+      name: 'Leland Kiehn',
+      role: 'Founder of Kiehn and Sons',
+      image: avatarImage5,
     },
-    {
-      content:
-        'There are so many things I had to do with my old software that I just don’t do at all with Udemy Service. Suspicious but I can’t say I don’t love it.',
-      author: {
-        name: 'Erin Powlowski',
-        role: 'COO at Armstrong Inc',
-        image: avatarImage2,
-      },
+  },
+  {
+    content:
+      'There are so many things I had to do with my old software that I just don’t do at all with Udemy Service. Suspicious but I can’t say I don’t love it.',
+    author: {
+      name: 'Erin Powlowski',
+      role: 'COO at Armstrong Inc',
+      image: avatarImage2,
     },
-  ],
-  [
-    {
-      content:
-        'I used to have to remit tax to the EU and with Udemy Service I somehow don’t have to do that anymore. Nervous to travel there now though.',
-      author: {
-        name: 'Peter Renolds',
-        role: 'Founder of West Inc',
-        image: avatarImage3,
-      },
+  },
+  {
+    content:
+      'I used to have to remit tax to the EU and with Udemy Service I somehow don’t have to do that anymore. Nervous to travel there now though.',
+    author: {
+      name: 'Peter Renolds',
+      role: 'Founder of West Inc',
+      image: avatarImage3,
     },
-    {
-      content:
-        'This is the fourth email I’ve sent to your support team. I am literally being held in jail for tax fraud. Please answer your damn emails, this is important.',
-      author: {
-        name: 'Amy Hahn',
-        role: 'Director at Velocity Industries',
-        image: avatarImage4,
-      },
+  },
+  {
+    content:
+      'This is the fourth email I’ve sent to your support team. I am literally being held in jail for tax fraud. Please answer your damn emails, this is important.',
+    author: {
+      name: 'Amy Hahn',
+      role: 'Director at Velocity Industries',
+      image: avatarImage4,
     },
-  ],
+  },
 ]
 
 const listPeopleUse = [
@@ -119,6 +118,14 @@ function QuoteIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
 }
 
 export function Testimonials() {
+  const settings: Settings = {
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    centerPadding: '40px',
+    centerMode: true,
+  }
+
   return (
     <section
       id="testimonials"
@@ -160,48 +167,35 @@ export function Testimonials() {
           ))}
         </div>
 
-        <ul
-          role="list"
-          className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3"
-        >
-          {testimonials.map((column, columnIndex) => (
-            <li key={columnIndex}>
-              <ul role="list" className="flex flex-col gap-y-6 sm:gap-y-8">
-                {column.map((testimonial, testimonialIndex) => (
-                  <li key={testimonialIndex}>
-                    <figure className="relative rounded-2xl bg-white p-6 shadow-xl shadow-slate-900/10">
-                      <QuoteIcon className="absolute left-6 top-6 fill-slate-100" />
-                      <blockquote className="relative">
-                        <p className="text-lg tracking-tight text-slate-900">
-                          {testimonial.content}
-                        </p>
-                      </blockquote>
-                      <figcaption className="relative mt-6 flex items-center justify-between border-t border-slate-100 pt-6">
-                        <div>
-                          <div className="font-display text-base text-slate-900">
-                            {testimonial.author.name}
-                          </div>
-                          <div className="mt-1 text-sm text-slate-500">
-                            {testimonial.author.role}
-                          </div>
-                        </div>
-                        <div className="overflow-hidden rounded-full bg-slate-50">
-                          <Image
-                            className="h-14 w-14 object-cover"
-                            src={testimonial.author.image}
-                            alt=""
-                            width={56}
-                            height={56}
-                          />
-                        </div>
-                      </figcaption>
-                    </figure>
-                  </li>
-                ))}
-              </ul>
-            </li>
+        <Slider {...settings} className="slider-container">
+          {testimonials.map((slideItem, slideIndex) => (
+            <div
+              className=" h-full rounded-2xl p-6 shadow-[0_4px_16px_#00000014]"
+              key={slideIndex}
+            >
+              <div className="mb-6 flex items-start">
+                <div className="mr-4">
+                  <Image
+                    src={slideItem.author.image}
+                    width={48}
+                    height={48}
+                    alt=""
+                    className="w-full rounded-full object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="text-base font-bold leading-5 text-[#333333]">
+                    {slideItem.author.name}
+                  </p>
+                  <p className="mt-3 text-sm leading-4 text-[#999696]">
+                    {slideItem.author.role}
+                  </p>
+                </div>
+              </div>
+              <div className=" text-sm">{slideItem.content}</div>
+            </div>
           ))}
-        </ul>
+        </Slider>
       </Container>
     </section>
   )
