@@ -3,6 +3,7 @@ import clsx from 'clsx'
 
 import { Toaster } from '@/components/ui/toaster'
 import '@/styles/tailwind.css'
+import '@/styles/Asesment.scss'
 import { type Metadata } from 'next'
 import { Providers } from './provider'
 
@@ -41,13 +42,14 @@ export default function RootLayout({
         lexend.variable,
       )}
     >
-      <body  suppressHydrationWarning={true} className="flex h-full flex-col">
+      <body suppressHydrationWarning={true} className="flex h-full flex-col">
         <Providers>
           <>
-          {children}
-          <Toaster />
+            {children}
+            <Toaster />
           </>
         </Providers>
+        <div id="modal-root" />
       </body>
     </html>
   )

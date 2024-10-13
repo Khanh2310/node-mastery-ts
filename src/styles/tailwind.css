@@ -81,6 +81,8 @@
   body {
     @apply bg-background text-foreground;
   }
+
+
 }
 
 
@@ -89,10 +91,15 @@
 }
 
 
-.slick-slide {
+.testimonial.slick-slide {
   height: auto !important;
 }
 
-.slick-slide>div {
+.testimonial {
   height: 100%;
+}
+
+
+.testimonial.slick-initialized .slick-slide {
+  margin: 0 8px !important;
 }

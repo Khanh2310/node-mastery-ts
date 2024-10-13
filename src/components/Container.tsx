@@ -7,7 +7,7 @@ export function Container({
   return (
     <div
       // className={clsx('mx-auto max-w-7xl px-4 sm:px-6 lg:px-8', className)}
-      className={clsx('', className)}
+      className={clsx('overflow-hidden', className)}
       {...props}
     />
   )

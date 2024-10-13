@@ -22,6 +22,8 @@ const config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        purpleColor: '#7b5bf7',
+        'gradient-dot': 'linear-gradient(180deg, rgba(244, 244, 246, 1) 50%, rgba(236, 247, 255, 1) 50%)'
       },
       colors: {
         border: 'hsl(var(--border))',
@@ -57,7 +59,6 @@ const config = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
-        colorBase: '#a435f3',
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -82,6 +83,7 @@ const config = {
         tablet: { min: '712px', max: '1060px' },
         PC: { min: '1060px', max: '1406px' },
         SP: { max: '712px' },
+        laptops: {min: '768px', max: '1200px'},
       },
     },
   },

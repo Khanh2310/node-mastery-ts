@@ -1,5 +1,6 @@
+import { Asessment } from '@/components/Asessment'
 import { CallToAction } from '@/components/CallToAction'
-import { Faqs } from '@/components/Faqs'
+
 import { Hero } from '@/components/Hero'
 import { Pricing } from '@/components/Pricing'
 import { PrimaryFeatures } from '@/components/PrimaryFeatures'
@@ -12,12 +13,12 @@ export default function Home() {
     <BasicLayout>
       <main>
         <Hero />
+        <Asessment />
         {/* <PrimaryFeatures /> */}
-        <SecondaryFeatures />
-        <CallToAction />
+        {/* <SecondaryFeatures /> */}
+        {/* <CallToAction /> */}
         <Testimonials />
         {/* <Pricing /> */}
-        {/* <Faqs /> */}
       </main>
     </BasicLayout>
   )
