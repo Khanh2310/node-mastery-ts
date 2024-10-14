@@ -65,13 +65,13 @@ export function Hero() {
   return (
     <Container className="bg-[#7b5bf7] pt-20 text-center lg:pt-32">
       <div className="px-5 md:pb-36">
-      <h1 className="text-[22px] md:text-[32px] text-center pt-16 pb-6 text-white font-bold">
-      Shared premium subscription with lower price on Udemy Service
-      </h1>
+        <h1 className="text-[22px] md:text-[32px] text-center pt-16 pb-6 text-white font-bold">
+          Shared premium subscription with lower price on Udemy Service
+        </h1>
 
-      <p className="md:text-lg font-medium text-white pb-10 text-base">
-      Providing high-quality, affordable streaming for 5 years
-      </p>
+        <p className="md:text-lg font-medium text-white pb-10 text-base">
+          Providing high-quality, affordable streaming for 5 years
+        </p>
       </div>
       <div className="lg:-mt-[20px] mt-36 w-full bg-white relative z-10">
         <svg
@@ -140,10 +140,9 @@ export function Hero() {
                     >
                       {slides.map((_, index) => (
                         <div
-                          className={`border-3 overflow-hidden rounded-full border-white  ${
-                            currentIndex === index &&
+                          className={`border-3 overflow-hidden rounded-full border-white  ${currentIndex === index &&
                             'scale-105 transform duration-500'
-                          }`}
+                            }`}
                           key={index}
                           data-index={index}
                         >
@@ -190,9 +189,8 @@ export function Hero() {
                 onClick={() => handleShowContent(option.id)}
               >
                 <ul
-                  className={`${
-                    show[option.id] ? 'h-auto' : 'max-h-[60px]'
-                  } overflow-hidden transition-all`}
+                  className={`${show[option.id] ? 'h-auto' : 'max-h-[60px]'
+                    } overflow-hidden transition-all`}
                 >
                   <li className="flex items-center gap-2">
                     <span className="">

@@ -14,8 +14,8 @@ export const Asessment = () => {
 
       const observer = new IntersectionObserver((entries) => {
         for (let i = entries.length - 1; i >= 0; i--) {
-          const entry = entries[i]
-          if (entry.isIntersecting ) {
+          const entry: any = entries[i]
+          if (entry.isIntersecting) {
             document.querySelectorAll('.assessment .items').forEach((img) => {
               img.classList.remove('current')
             })
@@ -68,16 +68,16 @@ export const Asessment = () => {
       id_img: 'section-1',
       id_text: '',
       title1: 'Lorem',
-      subtitle1: 'Safe account',
+      subtitle1: 'Increase Enrollment',
       description1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
       title2: 'Title 2',
-      subtitle2: 'Easy Cards',
+      subtitle2: 'Increase Your Course Rating',
       description2: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
       title3: '',
-      subtitle3: 'Smooth Payments',
+      subtitle3: 'Increase Your Revenue',
       description3: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
       title4: 'title4',
-      subtitle4: 'Easy to use',
+      subtitle4: 'Your account is 100% Safe',
       description4: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
       cls_cur: '',
     },
