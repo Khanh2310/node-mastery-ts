@@ -16,9 +16,7 @@
     .assessment_container_wrap {
       .assessment_container_wrap_content {
         .assessment_wrap {
-
           .assessment_wrap_picture {
-
             .assessment_content-image {
               &:not(:first-child) {
                 position: absolute;
@@ -49,7 +47,6 @@
   }
 
   .assessment_content-image {
-    
     &.current {
       opacity: 1;
       visibility: visible;
@@ -60,8 +57,6 @@
   .assessment_content-big {
     padding-bottom: 0;
   }
-
-  
 }
 
 .assessment .progress > div div {
@@ -205,7 +200,6 @@
   }
 
   .assessment .assessment_bg {
-
     .assessment_content_wrapper {
     }
   }
@@ -214,9 +208,7 @@
     .assessment_content_content
     .assessment_container_wrap
     .assessment_container_wrap_content {
-
     .assessment_wrap {
-    
     }
 
     .assessment_slide {
@@ -245,8 +237,6 @@
     height: 38px;
   }
 
-
-
   .assessment .progress > div.right {
     padding-left: 60px;
   }
@@ -273,10 +263,7 @@
   }
 }
 
-
-
 .assessment {
-
   &.pos_sticky {
     position: sticky;
     top: 0;
@@ -310,7 +297,6 @@
     }
 
     &-image {
-
       img {
         display: block;
         margin: auto;
@@ -339,7 +325,6 @@
       color: $prev-color;
 
       &.right {
-
         h2 {
           font-size: 1rem;
           line-height: 1.5rem;
@@ -351,7 +336,6 @@
             height: 0;
           }
         }
-
 
         div {
           transition: all 0.3s linear;
@@ -399,8 +383,6 @@
             top: calc($line-height / 2);
             transform: translateX(-50%) translateY(-50%);
           }
-
-          
         }
       }
 
@@ -471,7 +453,6 @@
             line-height: 2.3rem;
           }
 
-
           div {
             &.current {
               color: #273553;
@@ -482,14 +463,9 @@
                 font-size: 1.55rem;
                 line-height: 2.3rem;
               }
-
-            
             }
-
-           
           }
         }
-
       }
     }
   }
@@ -516,3 +492,50 @@
   }
 }
 
+@keyframes sway {
+  0% {
+    transform: rotate(8deg);
+  }
+  50% {
+    transform: rotate(-8deg);
+  }
+  100% {
+    transform: rotate(8deg);
+  }
+}
+
+body {
+  width: 100%;
+  background: #25bded;
+}
+
+@-webkit-keyframes swinging {
+  0% {
+    -webkit-transform: rotate(10deg);
+  }
+  50% {
+    -webkit-transform: rotate(-5deg);
+  }
+  100% {
+    -webkit-transform: rotate(10deg);
+  }
+}
+
+@keyframes swinging {
+  0% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-5deg);
+  }
+  100% {
+    transform: rotate(10deg);
+  }
+}
+
+.swingimage {
+  -webkit-transform-origin: 50% 0;
+  transform-origin: 50% 0;
+  -webkit-animation: swinging 2.5s ease-in-out forwards infinite;
+  animation: swinging 2.5s ease-in-out forwards infinite;
+}
