@@ -79,6 +79,9 @@ export const Asessment = () => {
       title4: 'title4',
       subtitle4: 'Your account is 100% Safe',
       description4: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+      title5: 'title5',
+      subtitle5: 'Realtime Monitor Your Action',
+      description5: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
       cls_cur: '',
     },
   ]
@@ -119,6 +122,11 @@ export const Asessment = () => {
               className="assessment_container_bg_scroll_item h-screen 4"
               data-show="#assm_4"
               data-item=".assm_4_4"
+            ></div>
+            <div
+              className="assessment_container_bg_scroll_item h-screen 4"
+              data-show="#assm_5"
+              data-item=".assm_5_5"
             ></div>
           </div>
         </div>
