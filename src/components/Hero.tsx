@@ -65,8 +65,8 @@ export function Hero() {
   return (
     <>
       <div className="relative h-[450px] bg-[#C1CEFE] text-center">
-        <div className="px-5 md:pb-36 lg:pt-40">
-          <h1 className="pb-6   text-center text-[22px] font-bold text-white md:text-[32px]">
+        <div className="mx-auto w-full max-w-[1366px] px-5 md:pb-36 lg:pt-40">
+          <h1 className="pb-6 text-center text-[22px] font-bold text-white md:text-[32px]">
             Shared premium subscription with lower price on Udemy Service
           </h1>
 
@@ -99,7 +99,7 @@ export function Hero() {
       </div>
       <Container className="pt-20 text-center lg:pt-0">
         <div className="relative z-10 mt-36 w-full bg-white lg:-mt-[20px]">
-          <div className="relative z-10 mx-auto mt-12 grid  w-[1366px] -translate-y-[60px] grid-cols-4  gap-8 rounded-full px-0 xl:px-0 tablet:max-w-[672px] tablet:grid-cols-2 tablet:px-0 PC:w-[1020px] PC:grid-cols-2 SP:w-full SP:max-w-[333px] SP:grid-cols-1 SP:px-5">
+          <div className="relative z-10 mx-auto mt-12 flex max-w-[1366px] -translate-y-[60px] flex-wrap justify-center rounded-full">
             {[
               { id: 1, name: 'Free Trial', credit: '10 credits' },
               {
@@ -113,7 +113,7 @@ export function Hero() {
             ].map((option) => (
               <div
                 key={option.id}
-                className="w-[calc(33.33% - 11px)] tablet:w-[calc(50% - 11px)] SP:w-full"
+                className="mr-6 last:mr-0  lg:w-[calc(25%-18px)]"
               >
                 <div className=" flex cursor-pointer flex-col items-center overflow-hidden rounded-2xl bg-white shadow-xl transition-all hover:shadow-[0_8px_32px_#0000003d]">
                   <div className="relative w-full pb-10">
@@ -177,28 +177,20 @@ export function Hero() {
                       </button>
                     </div>
                   </div>
-                  <div className="relative z-[2] w-full bg-[#758ECD] pb-3 pt-7">
-                    {slides.map((item, index) => {
-                      let randomTime = index + Math.floor(Math.random() * index)
-                      return (
-                        <p
-                          className={` my-1 transform text-sm text-white  ${
-                            slides.length - 1 === item.id
-                              ? 'opacity-1 transition-all delay-700 duration-1000 ease-in-out'
-                              : 'opacity-0 transition-all delay-700 duration-1000 ease-in-out'
-                          }`}
-                          key={index}
-                        >
-                          {slides.length - 1 === item.id &&
-                            item.content +
-                              ` joined ${
-                                randomTime >= 60
-                                  ? randomTime + ' minutes ago'
-                                  : randomTime + ' seconds ago'
-                              }`}
-                        </p>
-                      )
-                    })}
+                  <div className="relative z-[2] w-full bg-[#758ECD] pb-5 pt-7">
+                    {slides.map((item, index) => (
+                      <p
+                        className={` my-1 transform text-sm text-white  ${
+                          slides.length - 1 === item.id
+                            ? 'opacity-1 transition-all delay-700 duration-1000 ease-in-out'
+                            : 'opacity-0 transition-all delay-700 duration-1000 ease-in-out'
+                        }`}
+                        key={index}
+                      >
+                        {slides.length - 1 === item.id &&
+                          item.content + ` joined ${index + ' seconds ago'}`}
+                      </p>
+                    ))}
                     <div className="font-bold text-white lg:mt-4 lg:text-lg lg:leading-[22px]">
                       {option.credit}
                     </div>
