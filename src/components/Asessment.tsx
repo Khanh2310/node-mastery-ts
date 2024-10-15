@@ -63,26 +63,26 @@ export const Asessment = () => {
       id_as: 'assm_1',
       id_img: 'section-1',
       id_text: '',
-      subtitle1: 'Increase Enrollment',
+      subtitle1: 'Boost Enrollment',
       description1:
-        'We generate real traffic from real students who are genuinely interested in your courses. Our natural traffic and real student enrollments ensure that your growth is sustainable and authentic. With our affordable pricing starting at just $0.1 USD, you can achieve your goals without breaking the bank.',
-      subtitle2: 'Increase Your Course Rating',
+        "Experience a significant increase in enrollment numbers as we drive authentic traffic to your courses from real students who are genuinely eager to learn. Our strategies ensure that your courses reach those who are not just browsing, are actively seeking the knowledge you offer. Say goodbye to stagnant numbers and hello to a vibrant classroom filled with engaged learners!",
+      subtitle2: 'Enhance Your Course Rating',
       description2:
-        "Are you tired of seeing other Udemy instructors with booming enrollments and glowing reviews while you struggle to make a name for yourself? It's time to take control of your success. Our service offers a proven method to increase your ratings. Our low prices make it easy to invest in your growth just from 0.5$ USD for 5-star rate.",
-      subtitle3: 'Increase Your Revenue',
+        "Elevate your course ratings to new heights with our proven methodologies. We specialize in tailored solutions that foster positive reviews, helping your courses shine in the crowded marketplace. With our incredible starting price of just $0.50 for a 5-star rating, investing in your course’s reputation has never been more accessible. Watch as your ratings improve, bringing more visibility and credibility to your offerings!",
+      subtitle3: 'Maximize Your Revenue',
       description3:
-        'Our targeted approach ensures that your courses reach the right audience, resulting in higher engagement, better reviews, and ultimately, a larger profit margin.',
-      subtitle4: 'Your account is 100% Safe',
+        'Unlock your earning potential with our targeted approach that ensures your courses connect with the right audience. Our marketing strategies not only increase engagement but also foster positive reviews, leading to greater profitability. With our support, you’ll transform your passion for teaching into a sustainable income stream, empowering your financial freedom!',
+      subtitle4: '100% Account Safety',
       description4:
-        "Our commitment to ethical practices and strict adherence to Udemy's Terms of Service guarantees a safe and reliable experience for you. We prioritize the security of your account and the integrity of your instructor profile, ensuring that you can focus on creating exceptional content without worrying about any potential risks",
-      subtitle5: 'Realtime Monitor Your Action',
+        "Your peace of mind is our top priority. We are committed to maintaining the integrity of your Udemy account by strictly adhering to Udemy’s Terms of Service. Our ethical practices guarantee a secure and reliable experience, so you can focus on what you do best—creating exceptional courses—without worrying about your account’s safety.",
+      subtitle5: 'Real-Time Performance Monitoring',
       description5:
-        "Our History Tracking Dashboard provides real-time insights into your executing's performance, allowing you to monitor progress. With our pay-per-success-run model, you only pay for the actual action generated, ensuring a cost-effective and results-oriented solution.",
+        "Gain invaluable insights into your campaign’s effectiveness with our advanced History Tracking Dashboard. This tool provides real-time updates on your performance, allowing you to make informed decisions and adjustments as needed. Our pay-per-success model ensures that you only invest in actions that yield results, making it a highly cost-effective and results-oriented solution that aligns with your goals.",
       cls_cur: '',
     },
   ]
   return (
-    <div className="">
+    <div className="scroll-smooth">
       <div
         className="assessment relative z-10 h-auto bg-transparent py-0 md:py-[130px] lg:py-[70px] "
         id="assessmentflow"
@@ -90,12 +90,11 @@ export const Asessment = () => {
         <div className="assessment_bg  sticky top-0 z-[1] h-screen max-h-[800px] min-h-[650px] bg-gray-100 md:max-h-[1100px] md:min-h-[750px]">
           <div className="assessment_content_wrapper absolute bottom-0 top-0 my-0 flex w-full flex-col items-center rounded-[25px] bg-white px-[10vh]  py-0 md:my-0 md:rounded-[40px] md:px-[10vh]  md:py-0 SP:mx-0 SP:px-0">
             <div className="w-[90%]">
-              <h2 className="max-md:text-2xl mb-5 text-center text-4xl font-bold">
-                What is Udemy Service
+              <h2 className="max-md:text-2xl mb-5 text-center text-4xl font-bold lg:mt-10">
+                Why Choose Us?
               </h2>
               <p className="mb-4 text-center text-base md:mb-24">
-                An application that provides features to improve efficiency and
-                increase user engagement.
+                Boost Enrollments, Elevate Ratings, and Watch Your Revenue Soar.
               </p>
             </div>
             <div className="w-full">

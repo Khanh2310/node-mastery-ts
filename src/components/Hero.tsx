@@ -9,6 +9,7 @@ import arrow from '@/images/icons/arrow.png'
 import arrow_up from '@/images/icons/arrow_up.png'
 import deco_1 from '@/images/avatars/deco-1.png'
 import iconPlus from '@/images/icons/plus_custom.webp'
+import DOMPurify from 'dompurify';
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
@@ -27,10 +28,10 @@ export function Hero() {
   }
 
   const [slides, setSlides] = useState([
-    { id: 1, content: 'Slide 1' },
-    { id: 2, content: 'Slide 2' },
-    { id: 3, content: 'Slide 3' },
-    { id: 4, content: 'Slide 4' },
+    { id: 1, content: 'User 1' },
+    { id: 2, content: 'User 2' },
+    { id: 3, content: 'User 3' },
+    { id: 4, content: 'User 4' },
   ])
 
   const sliderRef = useRef<Slider | null>(null)
@@ -39,7 +40,7 @@ export function Hero() {
   const addSlide = () => {
     const newSlide = {
       id: slides.length + 1,
-      content: `Slide ${slides.length + 1}`,
+      content: `User ${slides.length + 1}`,
     }
     setSlides([...slides, newSlide])
   }
@@ -64,22 +65,20 @@ export function Hero() {
 
   return (
     <>
-      <div className="relative h-[450px] bg-[#C1CEFE] text-center">
-        <div className="mx-auto w-full max-w-[1366px] px-5 md:pb-36 lg:pt-40">
+      <div className="relative h-[380px] bg-[#C1CEFE] text-center">
+        <div className="mx-auto w-full px-5 md:pb-36 lg:pt-40">
           <h1 className="pb-6 text-center text-[22px] font-bold text-white md:text-[32px]">
-            Shared premium subscription with lower price on Udemy Service
+            Ignite Your Udemy Success: Real Traffic, Real Students, Real Revenue!
           </h1>
 
-          <p className="pb-10 text-base font-medium text-white md:text-lg">
-            Boost your Udemy enrollments and ratings with our safe, affordable,
-            and results-driven service. Real students, real traffic, real
-            results.
+          <p className="pb-10 text-base text-white md:text-lg">
+            Are you a dedicated Udemy instructor looking to boost your course enrollments and improve your ratings? Look no further!<br /> Our innovative service is designed specifically for existing Udemy instructors who want to maximize their potential without compromising their account safety.
           </p>
         </div>
 
         <svg
           data-v-2dd81426=""
-          className="svg z-2 absolute"
+          className="svg z-2 absolute bottom-0 translate-y-full"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           version="1.1"
@@ -99,25 +98,52 @@ export function Hero() {
       </div>
       <Container className="pt-20 text-center lg:pt-0">
         <div className="relative z-10 mt-36 w-full bg-white lg:-mt-[20px]">
-          <div className="relative z-10 mx-auto mt-12 flex max-w-[1366px] -translate-y-[60px] flex-wrap justify-center rounded-full">
+          <div className="relative z-10 mx-auto mt-12 flex  gap-6 -translate-y-[60px] flex-wrap justify-center rounded-full">
             {[
-              { id: 1, name: 'Free Trial', credit: '10 credits' },
+              {
+                id: 1, name: 'Free Trial', credit: '10 credits', category: [
+                  '01 new student : 01 credit',
+                  '01 new 5-star rate: 05 credits',
+                  'Valid 03 days',
+                  'Only for 1 instructor'
+                ]
+              },
               {
                 id: 2,
-                name: 'Pay as you run',
+                name: 'PAY AS YOU GO',
 
                 credit: '1 USD = 10 credits',
+                category: [
+                  '01 new student : 01 credit',
+                  '01 new 5-star rate: 05 credits',
+                  'No expire',
+                  'Unlimited instructor / course'
+                ]
               },
-              { id: 3, name: 'Basic plan', credit: '10 USD = 130 credits' },
-              { id: 4, name: 'Premium plan', credit: '20 USD = 300 credits' },
+              {
+                id: 3, name: 'Basic plan', credit: '10 USD = 130 credits', category: [
+                  '01 new student : 01 credit',
+                  '01 new 5-star rate: 05 credits',
+                  'No expire',
+                  'Unlimited instructor / course'
+                ]
+              },
+              {
+                id: 4, name: 'Premium plan', credit: '20 USD = 300 credits', category: [
+                  '01 new student : 01 credit',
+                  '01 new 5-star rate: 05 credits',
+                  'No expire',
+                  'Unlimited instructor / course'
+                ]
+              },
             ].map((option) => (
               <div
                 key={option.id}
-                className="mr-6 last:mr-0 tablet:w-[calc(25%-18px)]"
+                className="lg:w-[calc(25%-18px)] md:w-1/3"
               >
                 <div className=" flex cursor-pointer flex-col items-center overflow-hidden rounded-2xl bg-white shadow-xl transition-all hover:shadow-[0_8px_32px_#0000003d]">
                   <div className="relative w-full pb-10">
-                    <p className="mt-6 block text-[32px] font-semibold lg:mb-8">
+                    <p className="mt-6 block text-2xl font-bold lg:mb-5 uppercase">
                       {option.name}
                     </p>
                     <svg
@@ -148,10 +174,9 @@ export function Hero() {
                       >
                         {slides.map((_, index) => (
                           <div
-                            className={`border-3 overflow-hidden rounded-full border-white  ${
-                              currentIndex === index &&
+                            className={`border-3 overflow-hidden rounded-full border-white  ${currentIndex === index &&
                               'scale-105 transform duration-500'
-                            }`}
+                              }`}
                             key={index}
                             data-index={index}
                           >
@@ -180,11 +205,10 @@ export function Hero() {
                   <div className="relative z-[2] w-full bg-[#758ECD] pb-5 pt-7">
                     {slides.map((item, index) => (
                       <p
-                        className={` my-1 transform text-sm text-white  ${
-                          slides.length - 1 === item.id
-                            ? 'opacity-1 transition-all delay-700 duration-1000 ease-in-out'
-                            : 'opacity-0 transition-all delay-700 duration-1000 ease-in-out'
-                        }`}
+                        className={` my-1 transform text-sm text-white  ${slides.length - 1 === item.id
+                          ? 'opacity-1 transition-all delay-700 duration-1000 ease-in-out'
+                          : 'opacity-0 transition-all delay-700 duration-1000 ease-in-out'
+                          }`}
                         key={index}
                       >
                         {slides.length - 1 === item.id &&
@@ -201,98 +225,34 @@ export function Hero() {
                   onClick={() => handleShowContent(option.id)}
                 >
                   <ul
-                    className={`${
-                      show[option.id] ? 'h-auto' : 'max-h-[60px]'
-                    } overflow-hidden transition-all`}
+                    className={`${show[option.id] ? 'h-auto' : 'max-h-[60px]'
+                      } overflow-hidden transition-all`}
                   >
-                    <li className="flex items-center gap-2">
-                      <span className="">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          className="size-4 text-[#7b5bf7]"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="m4.5 12.75 6 6 9-13.5"
-                          />
-                        </svg>
-                      </span>
-                      <p className="truncate text-sm text-[#7b5bf7]">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit.
-                      </p>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          className="size-4 text-[#7b5bf7]"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="m4.5 12.75 6 6 9-13.5"
-                          />
-                        </svg>
-                      </span>
-                      <p className="truncate text-sm text-[#7b5bf7]">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit.
-                      </p>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          className="size-4 text-[#7b5bf7]"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="m4.5 12.75 6 6 9-13.5"
-                          />
-                        </svg>
-                      </span>
-                      <p className="truncate text-sm text-[#7b5bf7]">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit.
-                      </p>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth="1.5"
-                          stroke="currentColor"
-                          className="size-4 text-[#7b5bf7]"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="m4.5 12.75 6 6 9-13.5"
-                          />
-                        </svg>
-                      </span>
-                      <p className="truncate text-sm text-[#7b5bf7]">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing
-                        elit.
-                      </p>
-                    </li>
+                    {option?.category.map((categoryItem, index) => (
+
+                      <li className="flex items-center gap-2" key={index}>
+                        <span className="">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            strokeWidth="1.5"
+                            stroke="currentColor"
+                            className="size-4 text-[#7b5bf7]"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="m4.5 12.75 6 6 9-13.5"
+                            />
+                          </svg>
+                        </span>
+                        <p className="truncate text-sm text-[#7b5bf7]">
+                          {categoryItem}
+                        </p>
+                      </li>
+                    ))}
+
                   </ul>
                   <div className="mx-auto my-3 w-3 cursor-pointer">
                     {show[option.id] ? (

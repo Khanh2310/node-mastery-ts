@@ -30,6 +30,7 @@
     "axios": "^1.6.8",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "dompurify": "^3.1.7",
     "framer-motion": "^11.1.9",
     "next": "^14.0.4",
     "react": "^18.3.1",
@@ -47,6 +48,7 @@
     "zod": "^3.23.7"
   },
   "devDependencies": {
+    "@types/dompurify": "^3.0.5",
     "@types/react-slick": "^0.23.13",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.0.4",
