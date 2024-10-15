@@ -113,7 +113,7 @@ export function Hero() {
             ].map((option) => (
               <div
                 key={option.id}
-                className="mr-6 last:mr-0  lg:w-[calc(25%-18px)]"
+                className="mr-6 last:mr-0 tablet:w-[calc(25%-18px)]"
               >
                 <div className=" flex cursor-pointer flex-col items-center overflow-hidden rounded-2xl bg-white shadow-xl transition-all hover:shadow-[0_8px_32px_#0000003d]">
                   <div className="relative w-full pb-10">

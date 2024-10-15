@@ -23,7 +23,8 @@ const config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
         purpleColor: '#7b5bf7',
-        'gradient-dot': 'linear-gradient(180deg, rgba(244, 244, 246, 1) 50%, rgba(236, 247, 255, 1) 50%)'
+        'gradient-dot':
+          'linear-gradient(180deg, rgba(244, 244, 246, 1) 50%, rgba(236, 247, 255, 1) 50%)',
       },
       colors: {
         border: 'hsl(var(--border))',
@@ -80,10 +81,10 @@ const config = {
         'accordion-up': 'accordion-up 0.2s ease-out',
       },
       screens: {
-        tablet: { min: '712px', max: '1060px' },
+        tablet: { min: '769px' },
         PC: { min: '1060px', max: '1406px' },
-        SP: { max: '712px' },
-        laptops: {min: '768px', max: '1200px'},
+        mobile: { max: '768' },
+        laptops: { min: '768px', max: '1200px' },
       },
     },
   },
