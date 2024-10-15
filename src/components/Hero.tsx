@@ -65,18 +65,19 @@ export function Hero() {
   return (
     <Container className="bg-[#7b5bf7] pt-20 text-center lg:pt-32">
       <div className="px-5 md:pb-36">
-        <h1 className="text-[22px] md:text-[32px] text-center pt-16 pb-6 text-white font-bold">
+        <h1 className="pb-6 pt-16 text-center text-[22px] font-bold text-white md:text-[32px]">
           Shared premium subscription with lower price on Udemy Service
         </h1>
 
-        <p className="md:text-lg font-medium text-white pb-10 text-base">
-          Providing high-quality, affordable streaming for 5 years
+        <p className="pb-10 text-base font-medium text-white md:text-lg">
+          Boost your Udemy enrollments and ratings with our safe, affordable,
+          and results-driven service. Real students, real traffic, real results.
         </p>
       </div>
-      <div className="lg:-mt-[20px] mt-36 w-full bg-white relative z-10">
+      <div className="relative z-10 mt-36 w-full bg-white lg:-mt-[20px]">
         <svg
           data-v-2dd81426=""
-          className="svg absolute z-2"
+          className="svg z-2 absolute"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           version="1.1"
@@ -94,7 +95,7 @@ export function Hero() {
           </g>
         </svg>
 
-        <div className="-translate-y-[60px] mx-auto rounded-full mt-12 grid  w-[1366px] grid-cols-3 gap-8  px-0 xl:px-0 tablet:max-w-[672px] tablet:grid-cols-2 tablet:px-0 PC:w-[1020px] PC:grid-cols-2 SP:w-full SP:max-w-[333px] SP:grid-cols-1 SP:px-5 relative z-10">
+        <div className="relative z-10 mx-auto mt-12 grid  w-[1366px] -translate-y-[60px] grid-cols-3  gap-8 rounded-full px-0 xl:px-0 tablet:max-w-[672px] tablet:grid-cols-2 tablet:px-0 PC:w-[1020px] PC:grid-cols-2 SP:w-full SP:max-w-[333px] SP:grid-cols-1 SP:px-5">
           {[
             { name: 'Trial', id: 1 },
             {
@@ -140,9 +141,10 @@ export function Hero() {
                     >
                       {slides.map((_, index) => (
                         <div
-                          className={`border-3 overflow-hidden rounded-full border-white  ${currentIndex === index &&
+                          className={`border-3 overflow-hidden rounded-full border-white  ${
+                            currentIndex === index &&
                             'scale-105 transform duration-500'
-                            }`}
+                          }`}
                           key={index}
                           data-index={index}
                         >
@@ -189,8 +191,9 @@ export function Hero() {
                 onClick={() => handleShowContent(option.id)}
               >
                 <ul
-                  className={`${show[option.id] ? 'h-auto' : 'max-h-[60px]'
-                    } overflow-hidden transition-all`}
+                  className={`${
+                    show[option.id] ? 'h-auto' : 'max-h-[60px]'
+                  } overflow-hidden transition-all`}
                 >
                   <li className="flex items-center gap-2">
                     <span className="">
@@ -312,4 +315,3 @@ export function Hero() {
     </Container>
   )
 }
-

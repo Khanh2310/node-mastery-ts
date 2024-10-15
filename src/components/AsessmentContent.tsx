@@ -6,25 +6,21 @@ import avatar3 from '@/images/screenshots/ilus3.jpg'
 import avatar4 from '@/images/screenshots/ilus4.jpg'
 import avatar5 from '@/images/screenshots/ilus5.jpg'
 
-
 export const AsessmentContent = ({ ass_ars }: any) => {
   return (
     <>
       {ass_ars.map(
         ({
           id_as,
+
           id_img,
           id_text,
-          title1,
           subtitle1,
           description1,
-          title2,
           subtitle2,
           description2,
-          title3,
           subtitle3,
           description3,
-          title4,
           subtitle4,
           description4,
           subtitle5,
@@ -38,36 +34,46 @@ export const AsessmentContent = ({ ass_ars }: any) => {
             id={id_as != '' ? id_as : ''}
             key={id_as}
           >
-            <div className="assessment_container_wrap_content flex flex-col-reverse justify-between gap-y-0 gap-x-5 md:flex-row md:items-center">
-              <div className="assessment_wrap order-1 flex items-center ">
+            <div className="assessment_container_wrap_content flex flex-col-reverse justify-between gap-x-5 gap-y-0 md:flex-row md:items-center">
+              <div className="assessment_wrap order-1 flex items-center justify-center ">
                 <div
-                  className="assessment_wrap_picture relative flex justify-center mb-4"
+                  className="assessment_wrap_picture relative mb-4 flex justify-center"
                   id={`${id_img != '' ? id_img : ''}`}
                 >
                   <Image
                     src={avatar1}
-                    className=" assessment_content-image m-auto  max-w-full object-contain max-h-[165px] assm_1_1 md:object-cover md:max-w-[40vw] md:max-h-[330px] translate-y-0 mb-0 opacity-0 invisible pointer-events-none transition-all duration-500 ease-linear current:opacity-1 current:pointer-events-none current:invisible  md:mb-0"
+                    className=" assessment_content-image assm_1_1  current:opacity-1 current:pointer-events-none current:invisible pointer-events-none invisible m-auto mb-0 max-h-[165px] max-w-full translate-y-0 object-contain opacity-0 transition-all duration-500 ease-linear md:mb-0 md:max-h-[330px] md:max-w-[40vw]  md:object-cover"
                     alt={''}
+                    width={500}
+                    height={500}
                   />
                   <Image
                     src={avatar2}
-                    className="assessment_content-image  m-auto  max-w-full object-contain max-h-[165px] absolute top-0 assm_2_2  md:object-cover md:max-w-[40vw] md:max-h-[330px] translate-y-0 mb-0 opacity-0 invisible pointer-events-none transition-all duration-500 ease-linear current:opacity-1 current:pointer-events-none current:invisible  md:mb-0"
+                    className="assessment_content-image  assm_2_2  current:opacity-1 current:pointer-events-none current:invisible pointer-events-none invisible absolute  top-0 m-auto mb-0 max-h-[165px] max-w-full translate-y-0 object-contain opacity-0 transition-all duration-500 ease-linear md:mb-0 md:max-h-[330px] md:max-w-[40vw]  md:object-cover"
                     alt=""
+                    width={500}
+                    height={500}
                   />
                   <Image
                     src={avatar3}
-                    className="assessment_content-image m-auto  max-w-full object-contain max-h-[165px] absolute top-0 assm_3_3  md:object-cover md:max-w-[40vw] md:max-h-[330px] translate-y-0 mb-0 opacity-0 invisible pointer-events-none transition-all duration-500 ease-linear current:opacity-1 current:pointer-events-none current:invisible  md:mb-0s"
+                    className="assessment_content-image assm_3_3  current:opacity-1 current:pointer-events-none current:invisible md:mb-0s pointer-events-none invisible  absolute top-0 m-auto mb-0 max-h-[165px] max-w-full translate-y-0 object-contain opacity-0 transition-all duration-500 ease-linear md:max-h-[330px] md:max-w-[40vw]  md:object-cover"
                     alt=""
+                    width={500}
+                    height={500}
                   />
                   <Image
                     src={avatar4}
-                    className="assessment_content-image m-auto  max-w-full object-contain max-h-[165px] absolute top-0 assm_4_4  md:object-cover md:max-w-[40vw] md:max-h-[330px] translate-y-0 mb-0 opacity-0 invisible pointer-events-none transition-all duration-500 ease-linear current:opacity-1 current:pointer-events-none current:invisible  md:mb-0"
+                    className="assessment_content-image assm_4_4  current:opacity-1 current:pointer-events-none current:invisible pointer-events-none invisible absolute  top-0 m-auto mb-0 max-h-[165px] max-w-full translate-y-0 object-contain opacity-0 transition-all duration-500 ease-linear md:mb-0 md:max-h-[330px] md:max-w-[40vw]  md:object-cover"
                     alt=""
+                    width={500}
+                    height={500}
                   />
                   <Image
                     src={avatar5}
-                    className="assessment_content-image m-auto  max-w-full object-contain max-h-[165px] absolute top-0 assm_5_5  md:object-cover md:max-w-[40vw] md:max-h-[330px] translate-y-0 mb-0 opacity-0 invisible pointer-events-none transition-all duration-500 ease-linear current:opacity-1 current:pointer-events-none current:invisible  md:mb-0"
+                    className="assessment_content-image assm_5_5  current:opacity-1 current:pointer-events-none current:invisible pointer-events-none invisible absolute  top-0 m-auto mb-0 max-h-[165px] max-w-full translate-y-0 object-contain opacity-0 transition-all duration-500 ease-linear md:mb-0 md:max-h-[330px] md:max-w-[40vw]  md:object-cover"
                     alt=""
+                    width={500}
+                    height={500}
                   />
                 </div>
               </div>
@@ -75,8 +81,9 @@ export const AsessmentContent = ({ ass_ars }: any) => {
                 <div className="progress p-0 md:px-0 md:py-5">
                   <div className="right">
                     <div
-                      className={` items assm_1_1 before:-left-[20px] before:bottom-0 before:top-0 before:m-auto before:w-[12px] before:transform-none before:p-0 after:w-[38px] ${cls_cur != '' ? cls_cur : ''
-                        }`}
+                      className={` items assm_1_1 before:-left-[20px] before:bottom-0 before:top-0 before:m-auto before:w-[12px] before:transform-none before:p-0 after:w-[38px] ${
+                        cls_cur != '' ? cls_cur : ''
+                      }`}
                     >
                       <h2 className="">{subtitle1}</h2>
                       <span className="hidden pl-3 md:mt-2 md:pl-0">
@@ -85,8 +92,9 @@ export const AsessmentContent = ({ ass_ars }: any) => {
                     </div>
 
                     <div
-                      className={`after:absolute items assm_2_2 after:h-[38px] after:-left-[59px] ${cls_cur != '' ? cls_cur : ''
-                        }`}
+                      className={`items assm_2_2 after:absolute after:-left-[59px] after:h-[38px] ${
+                        cls_cur != '' ? cls_cur : ''
+                      }`}
                     >
                       <h2 className="">{subtitle2}</h2>
                       <span className="hidden pl-3 md:mt-2 md:pl-0">
@@ -95,8 +103,9 @@ export const AsessmentContent = ({ ass_ars }: any) => {
                     </div>
 
                     <div
-                      className={` items assm_3_3 after:absolute after:h-[38px] after:-left-[59px] ${cls_cur != '' ? cls_cur : ''
-                        }`}
+                      className={` items assm_3_3 after:absolute after:-left-[59px] after:h-[38px] ${
+                        cls_cur != '' ? cls_cur : ''
+                      }`}
                     >
                       <h2 className="">{subtitle3}</h2>
                       <span className="hidden pl-3 md:mt-2 md:pl-0">
@@ -105,8 +114,9 @@ export const AsessmentContent = ({ ass_ars }: any) => {
                     </div>
 
                     <div
-                      className={`items assm_4_4 after:absolute after:h-[38px] after:-left-[59px] ${cls_cur != '' ? cls_cur : ''
-                        }`}
+                      className={`items assm_4_4 after:absolute after:-left-[59px] after:h-[38px] ${
+                        cls_cur != '' ? cls_cur : ''
+                      }`}
                     >
                       <h2 className="">{subtitle4}</h2>
                       <span className="hidden pl-3 md:mt-2 md:pl-0">
@@ -115,8 +125,9 @@ export const AsessmentContent = ({ ass_ars }: any) => {
                     </div>
 
                     <div
-                      className={`items assm_5_5 after:absolute after:h-[38px] after:-left-[59px] ${cls_cur != '' ? cls_cur : ''
-                        }`}
+                      className={`items assm_5_5 after:absolute after:-left-[59px] after:h-[38px] ${
+                        cls_cur != '' ? cls_cur : ''
+                      }`}
                     >
                       <h2 className="">{subtitle5}</h2>
                       <span className="hidden pl-3 md:mt-2 md:pl-0">
