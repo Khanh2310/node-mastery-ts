@@ -65,13 +65,13 @@ export function Hero() {
 
   return (
     <>
-      <div className="relative h-[380px] bg-[#C1CEFE] text-center">
+      <div className="relative md:h-[300px] lg:h-[380px] bg-[#C1CEFE] text-center">
         <div className="mx-auto w-full px-5 md:pb-36 lg:pt-40">
-          <h1 className="pb-6 text-center text-[22px] font-bold text-white md:text-[32px]">
+          <h1 className="mb-6 text-center text-[22px] font-bold text-white md:text-[32px]">
             Ignite Your Udemy Success: Real Traffic, Real Students, Real Revenue!
           </h1>
 
-          <p className="pb-10 text-base text-white md:text-lg">
+          <p className="lg:pb-20 text-base text-white md:text-lg md:pb-10">
             Are you a dedicated Udemy instructor looking to boost your course enrollments and improve your ratings? Look no further!<br /> Our innovative service is designed specifically for existing Udemy instructors who want to maximize their potential without compromising their account safety.
           </p>
         </div>
@@ -170,7 +170,7 @@ export function Hero() {
                       <Slider
                         {...settings}
                         ref={sliderRef}
-                        className="w-[200px] overflow-hidden "
+                        className="lg:w-[180px] overflow-hidden"
                       >
                         {slides.map((_, index) => (
                           <div
