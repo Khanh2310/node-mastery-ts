@@ -88,9 +88,9 @@ export const Asessment = () => {
         id="assessmentflow"
       >
         <div className="assessment_bg sticky top-0 z-[1] h-screen max-h-[800px] min-h-[650px] bg-gray-100 md:max-h-[1100px] md:min-h-[750px]">
-          <div className="assessment_content_wrapper absolute bottom-0 top-0 my-0 flex w-full flex-col items-center rounded-[25px] bg-white px-[10vh]  py-0 md:my-0 md:rounded-[40px] md:px-[10vh]  md:py-0 SP:mx-0 SP:px-0">
+          <div className="assessment_content_wrapper absolute bottom-0 top-0 my-0 flex w-full flex-col items-center bg-white lg:px-[10vh]   py-0 md:my-0 md:px-[10vh] md:py-0 SP:mx-0 SP:px-0">
             <div className="w-[90%]">
-              <h2 className="max-md:text-2xl mb-5 text-center text-4xl font-bold lg:mt-10">
+              <h2 className="max-md:text-2xl mb-5 text-center text-4xl font-bold lg:mt-10 md:mt-10 sm:mt-6">
                 Why Choose Us?
               </h2>
               <p className="mb-4 text-center text-base md:mb-24">

@@ -91,6 +91,26 @@
     transform: translate(calc((1 - cos(45deg))*100%), -100%) rotate(45deg);
     transform-origin: 0% 100%;
   }
+
+
+  @keyframes swinging {
+    0% {
+      transform: rotate(10deg);
+    }
+
+    50% {
+      transform: rotate(-5deg);
+    }
+
+    100% {
+      transform: rotate(10deg);
+    }
+  }
+
+  .swingimage {
+    @apply origin-top ease-in-out;
+    animation: swinging 2.5s forwards infinite;
+  }
 }
 
 @layer base {

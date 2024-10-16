@@ -170,7 +170,7 @@ export function Hero() {
                       <Slider
                         {...settings}
                         ref={sliderRef}
-                        className="lg:w-[180px] overflow-hidden"
+                        className="lg:w-[180px] w-[150px] overflow-hidden"
                       >
                         {slides.map((_, index) => (
                           <div
@@ -287,7 +287,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="">DON"T KNOW HOW TO DO? LET OUR EXPERT TEAM HANDLE EVERYTHING FOR YOU WITH STARTER PLAN</div>
+        <div className="lg:text-2xl font-bold px-5">Don"t KNOW HOW TO DO? LET OUR EXPERT TEAM HANDLE EVERYTHING FOR YOU WITH STARTER PLAN</div>
         <div className="relative z-10 mx-auto mt-12 flex gap-6 flex-wrap justify-center rounded-full">
           {[
             {
@@ -372,7 +372,7 @@ export function Hero() {
                     <Slider
                       {...settings}
                       ref={sliderRef}
-                      className="lg:w-[180px] overflow-hidden"
+                      className="lg:w-[180px] w-[150px] overflow-hidden"
                     >
                       {slides.map((_, index) => (
                         <div

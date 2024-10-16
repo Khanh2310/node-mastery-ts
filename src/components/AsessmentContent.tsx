@@ -86,7 +86,7 @@ export const AsessmentContent = ({ ass_ars }: any) => {
                     >
                       <h2 className="">{subtitle1}</h2>
                       <span className="hidden pl-3 md:mt-2 md:pl-0">
-                        <p className="text-base font-normal italic">{description1}</p>
+                        <p className="text-sm lg:text-base font-normal italic">{description1}</p>
                       </span>
                     </div>
 
@@ -96,7 +96,7 @@ export const AsessmentContent = ({ ass_ars }: any) => {
                     >
                       <h2 className="">{subtitle2}</h2>
                       <span className="hidden pl-3 md:mt-2 md:pl-0">
-                        <p className="text-base font-normal italic">{description2}</p>
+                        <p className="text-sm lg:text-base font-normal italic">{description2}</p>
                       </span>
                     </div>
 
@@ -106,7 +106,7 @@ export const AsessmentContent = ({ ass_ars }: any) => {
                     >
                       <h2 className="">{subtitle3}</h2>
                       <span className="hidden pl-3 md:mt-2 md:pl-0">
-                        <p className="text-base font-normal italic">{description3}</p>
+                        <p className="text-sm lg:text-base font-normal italic">{description3}</p>
                       </span>
                     </div>
 
@@ -116,7 +116,7 @@ export const AsessmentContent = ({ ass_ars }: any) => {
                     >
                       <h2 className="">{subtitle4}</h2>
                       <span className="hidden pl-3 md:mt-2 md:pl-0">
-                        <p className="text-base font-normal italic">{description4}</p>
+                        <p className="text-sm lg:text-base font-normal italic">{description4}</p>
                       </span>
                     </div>
 
@@ -126,7 +126,7 @@ export const AsessmentContent = ({ ass_ars }: any) => {
                     >
                       <h2 className="">{subtitle5}</h2>
                       <span className="hidden pl-3 md:mt-2 md:pl-0">
-                        <p className="text-base font-normal italic">{description5}</p>
+                        <p className="text-sm lg:text-base font-normal italic">{description5}</p>
                       </span>
                     </div>
                   </div>

@@ -23,7 +23,7 @@ function Accordion({
     }, [])
 
     return (
-        <div className=" border px-[30px] py-[25px] rounded-lg mb-5 last:mb-0">
+        <div className="border px-[30px] py-[25px] rounded-lg mb-5 last:mb-0">
             <h2>
                 <button
                     className="flex items-center justify-between w-full text-left font-semibold py-2"
@@ -94,14 +94,13 @@ export const Faq = () => {
                     <h1 className="text-4xl font-bold text-slate-900 mb-4">Frequently asked questions</h1>
                     <p className='text-base'>Can't find what you're looking for? Feel free to reach out to us through our contact page or live support.</p>
                 </div>
-                <div className="divide-y divide-slate-200">
+                <div>
                     {faqs.map((faq, index) => (
                         <Accordion key={index} title={faq.title} id={`faqs-${index}`} active={faq.active}>
                             {faq.text}
                         </Accordion>
                     ))}
                 </div>
-
             </div>
         </main>
     )
