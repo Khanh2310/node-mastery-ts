@@ -143,7 +143,7 @@ export function Hero() {
               >
                 <div className=" flex cursor-pointer flex-col items-center overflow-hidden rounded-2xl bg-white shadow-xl transition-all hover:shadow-[0_8px_32px_#0000003d]">
                   <div className="relative w-full pb-10">
-                    <p className="mt-6 block text-2xl font-bold lg:mb-5 uppercase">
+                    <p className="mt-6 block text-2xl font-bold lg:mb-5 uppercase text-[#5a27da]">
                       {option.name}
                     </p>
                     <svg
@@ -287,7 +287,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="lg:text-2xl font-bold px-5">Don"t KNOW HOW TO DO? LET OUR EXPERT TEAM HANDLE EVERYTHING FOR YOU WITH STARTER PLAN</div>
+        <div className="lg:text-2xl font-bold px-5">DON'T KNOW HOW TO DO? LET OUR EXPERT TEAM HANDLE EVERYTHING FOR YOU WITH STARTER PLAN</div>
         <div className="relative z-10 mx-auto mt-12 flex gap-6 flex-wrap justify-center rounded-full">
           {[
             {
@@ -345,7 +345,7 @@ export function Hero() {
 
                   {pagkage?.sale && <div className="ribbon">{pagkage.sale}</div>}
 
-                  <p className="mt-6 block text-2xl font-bold lg:mb-5 uppercase">
+                  <p className="mt-6 block text-2xl font-bold lg:mb-5 uppercase text-[#5a27da]">
                     {pagkage.name}
                   </p>
                   <svg

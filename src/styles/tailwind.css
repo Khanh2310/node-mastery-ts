@@ -111,6 +111,26 @@
     @apply origin-top ease-in-out;
     animation: swinging 2.5s forwards infinite;
   }
+
+
+  @keyframes animage {
+    0% {
+      transform: translateY(10%);
+    }
+
+    50% {
+      transform: translateY(-5%);
+    }
+
+    100% {
+      transform: translateY(10%);
+    }
+  }
+
+  .animage {
+    @apply origin-top ease-in-out;
+    animation: animage 2.5s forwards infinite;
+  }
 }
 
 @layer base {
