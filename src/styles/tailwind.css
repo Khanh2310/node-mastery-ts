@@ -73,6 +73,26 @@
   }
 }
 
+@layer utilities {
+  .ribbon {
+    --f: 0.5em;
+    @apply text-xs font-bold text-white absolute top-0 right-0 leading-7 bg-[#BD1550];
+    padding-inline: 1lh;
+    padding-bottom: var(--f);
+    border-image: conic-gradient(#0008 0 0) 51%/var(--f);
+    clip-path: polygon(100% calc(100% - var(--f)),
+        100% 100%,
+        calc(100% - var(--f)) calc(100% - var(--f)),
+        var(--f) calc(100% - var(--f)),
+        0 100%,
+        0 calc(100% - var(--f)),
+        999px calc(100% - var(--f) - 999px),
+        calc(100% - 999px) calc(100% - var(--f) - 999px));
+    transform: translate(calc((1 - cos(45deg))*100%), -100%) rotate(45deg);
+    transform-origin: 0% 100%;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;

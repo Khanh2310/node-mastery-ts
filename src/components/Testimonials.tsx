@@ -203,38 +203,38 @@ const testimonials = [
 const listPeopleUse = [
   {
     image: 'iconRocket',
-    title: 'REAL-TIME DELIVERY',
+    title: 'Pay as you run',
     content:
-      'Real-time delivery after payment without waiting, fast arrival to dispel your worries',
+      'Only pay when your run start small with 1 USD',
   },
   {
     image: 'iconRocket',
-    title: 'QUICK RESET',
+    title: 'Realtime monitoring',
     content:
-      'Click reset passkey on the subscription page without waiting and manual operation',
+      'You can see the realtime execution progress',
   },
   {
     image: 'iconRocket',
-    title: 'SSL CERTIFICATE',
+    title: 'Your account safety',
     content:
-      'Payments take place in a secure environment with an SSL security certificate',
+      'Risk free for your udemy account',
   },
   {
     image: 'iconRocket',
-    title: '24/7 LIVE SUPPORT',
+    title: 'Support Center',
     content:
-      'provides 24/7 online private customer service, help you have a good experience',
+      'Assist all your concerns',
   },
   {
     image: 'iconRocket',
-    title: 'SUITABLE SUBSCRIBER',
-    content: 'Get premium subscription at lower price.',
+    title: 'Result Guarantee',
+    content: 'No pay if fail execution',
   },
   {
     image: 'iconRocket',
-    title: 'REFUND GUARANTEE',
+    title: 'Best price - Hight Profit',
     content:
-      'We offer buyer protection, with refunds available within 24 hours.',
+      'No similar service in the market guarantee your revenue after 100 credits',
   },
 ]
 
@@ -325,22 +325,21 @@ export function Testimonials() {
     <section
       id="testimonials"
       aria-label="What our customers are saying"
-      className="bg-slate-50 px-5 py-20 sm:py-32 sm:px-20 md:px-20 xl:px-40"
+      className="bg-slate-50 py-20 sm:py-32 "
     >
       <Container>
-        <div className="mx-auto mb-[80px] max-w-2xl text-center">
+        <div className=" mb-[80px] text-center">
           <h2 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
             Why <span className="text-[#5a27da]">more and more</span> people use
             <span className="text-[#5a27da]"> Udemy Service?</span>
           </h2>
         </div>
         <div
-          className="md:w-max-[80%] mx-auto flex w-[80%] flex-wrap justify-center sm:justify-center
-        md:w-full md:max-w-[1366px] lg:max-w-none lg:justify-between xl:justify-center xl:gap-x-10 xl:gap-y-5 tablet:justify-center"
+          className="flex justify-center flex-wrap w-full gap-6"
         >
           {listPeopleUse.map((item, index) => (
             <div
-              className="flex w-full px-4 py-6 hover:rounded-2xl hover:shadow-[0_24px_40px_#e6dbdb52] md:w-[438px] "
+              className="flex md:w-[calc(50%-12px)] lg:w-[calc(33.333333%-16px)] px-4 py-6 hover:rounded-2xl hover:shadow-[0_24px_40px_#e6dbdb52]"
               key={index}
             >
               <div className="mr-6 flex h-16 w-16 items-center justify-center rounded-full shadow-[0_20px_20px_#0000000d] hover:bg-[#ef534f] hover:fill-white hover:shadow-[0_4px_10px_#00000014]">
@@ -362,7 +361,7 @@ export function Testimonials() {
           ))}
         </div>
 
-        <div className="md:mt-36 mt-11">
+        <div className=" mt-11">
           <h2 className="mb-[68px] text-center lg:text-4xl font-bold leading-10">
             Hear from our happy clients
           </h2>

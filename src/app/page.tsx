@@ -7,6 +7,7 @@ import { PrimaryFeatures } from '@/components/PrimaryFeatures'
 import { SecondaryFeatures } from '@/components/SecondaryFeatures'
 import { Testimonials } from '@/components/Testimonials'
 import { BasicLayout } from '@/components/layouts/BasicLayout'
+import { Faq } from '../components/Faq';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         {/* <SecondaryFeatures /> */}
         {/* <CallToAction /> */}
         <Testimonials />
+        <Faq />
         {/* <Pricing /> */}
       </main>
     </BasicLayout>
