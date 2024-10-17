@@ -42,7 +42,7 @@ export const AsessmentContent = ({ ass_ars }: any) => {
                 >
                   <Image
                     src={avatar1}
-                    className=" assessment_content-image assm_1_1  current:opacity-1 current:pointer-events-none current:invisible pointer-events-none invisible m-auto mb-0 max-h-[165px] max-w-full translate-y-0 object-contain opacity-0 transition-all duration-500 ease-linear md:mb-0 md:max-h-[330px] md:max-w-[40vw]  md:object-cover"
+                    className=" assessment_content-image assm_1_1  current:opacity-1 current:pointer-events-none current:invisible pointer-events-none invisible m-auto  max-h-[165px] max-w-full translate-y-0 object-contain opacity-0 transition-all duration-500 ease-linear md:mb-0 md:max-h-[330px] md:max-w-[40vw]  md:object-cover"
                     alt={''}
                     width={500}
                     height={500}
@@ -81,7 +81,7 @@ export const AsessmentContent = ({ ass_ars }: any) => {
                 <div className="progress p-0 md:px-0 md:py-5">
                   <div className="right">
                     <div
-                      className={` items assm_1_1 before:-left-[20px] before:bottom-0 before:top-0 before:m-auto before:w-[12px] before:transform-none before:p-0 after:w-[38px] ${cls_cur != '' ? cls_cur : ''
+                      className={` items assm_1_1 before:-left-[20px] before:top-0 before:m-auto before:w-[12px] before:transform-none before:p-0 after:w-[38px] ${cls_cur != '' ? cls_cur : ''
                         }`}
                     >
                       <h2 className="">{subtitle1}</h2>

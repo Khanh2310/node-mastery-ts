@@ -6,8 +6,9 @@ import { Container } from '@/components/Container'
 import avatar1 from '@/images/avatars/avatar-4.png'
 
 import arrow from '@/images/icons/arrow.png'
+import arrow_opacity from '@/images/icons/arrow_opacity.png'
 import arrow_up from '@/images/icons/arrow_up.png'
-import deco_1 from '@/images/avatars/deco-1.png'
+import arrow_up_opacity from '@/images/icons/arrow_up_opacity.png'
 import iconPlus from '@/images/icons/plus_custom.webp'
 import DOMPurify from 'dompurify';
 
@@ -224,7 +225,7 @@ export function Hero() {
                     {option.name == 'Free Trial' ? <div className="font-bold text-white lg:mt-4 lg:text-2xl">
                       {option.credit} credits
                     </div> : <div className="font-bold text-white lg:mt-4 lg:text-2xl">
-                      <span className='text-lg leading-7'>$</span>{option.price} = {option.credit} credits
+                      <span className='text-lg leading-7 font-medium'>$</span>{option.price} = {option.credit} credits
                     </div>}
 
                   </div>
@@ -270,13 +271,13 @@ export function Hero() {
                           <Image src={arrow_up} width={10} height={10} alt="" />
                         </div>
                         <div>
-                          <Image src={arrow_up} width={10} height={10} alt="" />
+                          <Image src={arrow_up_opacity} width={10} height={10} alt="" />
                         </div>
                       </>
                     ) : (
                       <>
                         <div className="transition-all">
-                          <Image src={arrow} width={10} height={10} alt="" />
+                          <Image src={arrow_opacity} width={10} height={10} alt="" />
                         </div>
                         <div>
                           <Image src={arrow} width={10} height={10} alt="" />
@@ -368,7 +369,7 @@ export function Hero() {
                       <path
                         data-v-fb0f0a5d=""
                         d="M0,15L148.773,15Q74.3864,13.8677,0,0L0,15ZM148.773,15Q155.386,15.1007,162,15.1007Q168.614,15.1007,175.227,15L148.773,15ZM175.227,15L324,15L324,0Q249.614,13.8677,175.227,15Z"
-                        fill="#758ECD"
+                        fill="#A2D2FF"
                         fillOpacity="1"
                       ></path>
                     </g>
@@ -409,7 +410,7 @@ export function Hero() {
                     </button>
                   </div>
                 </div>
-                <div className="relative z-[2] w-full bg-[#758ECD] pb-5 pt-7 rounded-b-2xl">
+                <div className="relative z-[2] w-full bg-[#A2D2FF] pb-5 pt-7 rounded-b-2xl">
                   {slides.map((item, index) => (
                     <p
                       className={` my-1 transform text-sm text-white  ${slides.length - 1 === item.id
@@ -423,7 +424,7 @@ export function Hero() {
                     </p>
                   ))}
                   <div className="font-bold text-white lg:mt-4 lg:text-2xl">
-                    <span className='text-lg leading-7'>$</span>{''}{pagkage.credit}
+                    <span className='text-lg leading-7 font-medium'>$</span>{''}{pagkage.credit}
                   </div>
                 </div>
               </div>
@@ -467,13 +468,13 @@ export function Hero() {
                         <Image src={arrow_up} width={10} height={10} alt="" />
                       </div>
                       <div>
-                        <Image src={arrow_up} width={10} height={10} alt="" />
+                        <Image src={arrow_up_opacity} width={10} height={10} alt="" />
                       </div>
                     </>
                   ) : (
                     <>
                       <div className="transition-all">
-                        <Image src={arrow} width={10} height={10} alt="" />
+                        <Image src={arrow_opacity} width={10} height={10} alt="" />
                       </div>
                       <div>
                         <Image src={arrow} width={10} height={10} alt="" />

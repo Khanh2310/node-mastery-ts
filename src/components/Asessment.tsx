@@ -127,7 +127,7 @@ export const Asessment = () => {
               data-item=".assm_4_4"
             ></div>
             <div
-              className="assessment_container_bg_scroll_item 4 h-screen"
+              className="assessment_container_bg_scroll_item 5 h-screen"
               data-show="#assm_5"
               data-item=".assm_5_5"
             ></div>

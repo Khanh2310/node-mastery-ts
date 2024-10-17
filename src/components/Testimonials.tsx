@@ -307,6 +307,8 @@ export function Testimonials() {
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    centerMode: true,
+    focusOnSelect: true,
     responsive: [
       {
         breakpoint: 1280,
@@ -369,10 +371,10 @@ export function Testimonials() {
           <h2 className="mb-[68px] text-center lg:text-4xl font-bold leading-10">
             Hear from our happy clients
           </h2>
-          <Slider {...settings} className="slider-container testimonial">
+          <Slider {...settings} className="slider-container testimonial bg-transparent">
             {testimonials.map((slideItem, slideIndex) => (
               <div
-                className="flex h-[200px] flex-col justify-between rounded-2xl p-5 shadow-[0_4px_16px_#00000014]"
+                className="flex h-[200px] flex-col justify-between rounded-2xl p-5 shadow-[0_4px_16px_#f1f5f9] mb-2"
                 key={slideIndex}
               >
                 <div className="mb-6 flex items-start">
