@@ -76,7 +76,7 @@
 @layer utilities {
   .ribbon {
     --f: 0.5em;
-    @apply text-xs font-bold text-white absolute top-0 right-0 leading-7 bg-[#BD1550];
+    @apply text-xs font-bold text-white absolute top-0 right-0 leading-7 bg-[#10b981];
     padding-inline: 1lh;
     padding-bottom: var(--f);
     border-image: conic-gradient(#0008 0 0) 51%/var(--f);

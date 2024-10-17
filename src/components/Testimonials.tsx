@@ -335,8 +335,7 @@ export function Testimonials() {
       <Container>
         <div className=" mb-[80px] text-center">
           <h2 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            Why <span className="text-[#5a27da]">more and more</span> people use
-            <span className="text-[#5a27da]"> Udemy Service?</span>
+            <span className="text-[#5a27da]">Udemy</span> Growth
           </h2>
         </div>
         <div

@@ -126,7 +126,9 @@ export function Hero() {
                   '01 new 5-star rate: 05 credits',
                   'No expire',
                   'Unlimited instructor / course'
-                ]
+                ],
+                sale: '30%'
+
               },
               {
                 id: 4, name: 'Premium plan', credit: '20 USD = 300 credits', category: [
@@ -134,15 +136,19 @@ export function Hero() {
                   '01 new 5-star rate: 05 credits',
                   'No expire',
                   'Unlimited instructor / course'
-                ]
+                ],
+                sale: '50%'
+
               },
             ].map((option) => (
               <div
                 key={option.id}
                 className="lg:w-[calc(25%-18px)] md:calc(33.33%-16px)"
               >
-                <div className=" flex cursor-pointer flex-col items-center overflow-hidden rounded-2xl bg-white shadow-xl transition-all hover:shadow-[0_8px_32px_#0000003d]">
+                <div className=" flex cursor-pointer flex-col items-center rounded-2xl bg-white shadow-xl transition-all hover:shadow-[0_8px_32px_#0000003d]">
                   <div className="relative w-full pb-10">
+
+                    {option?.sale && <div className="ribbon">{option.sale}</div>}
                     <p className="mt-6 block text-2xl font-bold lg:mb-5 uppercase text-[#5a27da]">
                       {option.name}
                     </p>
@@ -161,7 +167,7 @@ export function Hero() {
                         <path
                           data-v-fb0f0a5d=""
                           d="M0,15L148.773,15Q74.3864,13.8677,0,0L0,15ZM148.773,15Q155.386,15.1007,162,15.1007Q168.614,15.1007,175.227,15L148.773,15ZM175.227,15L324,15L324,0Q249.614,13.8677,175.227,15Z"
-                          fill="#758ECD"
+                          fill="#A2D2FF"
                           fillOpacity="1"
                         ></path>
                       </g>
@@ -202,7 +208,7 @@ export function Hero() {
                       </button>
                     </div>
                   </div>
-                  <div className="relative z-[2] w-full bg-[#758ECD] pb-5 pt-7">
+                  <div className="relative z-[2] w-full bg-[#A2D2FF] pb-5 pt-7 rounded-b-2xl">
                     {slides.map((item, index) => (
                       <p
                         className={` my-1 transform text-sm text-white  ${slides.length - 1 === item.id
@@ -279,7 +285,7 @@ export function Hero() {
                     href="#"
                     className="block cursor-pointer rounded-full bg-[#758ECD] py-4 text-xs font-bold uppercase text-white"
                   >
-                    {option.name === 'Trial' ? 'USE NOW' : 'PURCHASE NOW'}
+                    {option.name === 'Free Trial' ? 'Try Now' : 'PURCHASE NOW'}
                   </Link>
                 </div>
               </div>
@@ -287,11 +293,11 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="lg:text-2xl font-bold px-5">DON'T KNOW HOW TO DO? LET OUR EXPERT TEAM HANDLE EVERYTHING FOR YOU WITH STARTER PLAN</div>
+        <div className="lg:text-2xl font-bold px-5">DON'T KNOW HOW TO DO? LET OUR EXPERT TEAM HANDLE EVERYTHING</div>
         <div className="relative z-10 mx-auto mt-12 flex gap-6 flex-wrap justify-center rounded-full">
           {[
             {
-              id: 5, name: 'STARTER PLAN', credit: '10 USD', category: [
+              id: 5, name: 'STARTER PLAN', credit: '10', category: [
                 'New student : 100 students',
                 'New 5-star rate: 10 rating',
                 'Execute by our expert team',
@@ -303,7 +309,7 @@ export function Hero() {
               id: 6,
               name: 'MOVER PLAN',
 
-              credit: '50 USD',
+              credit: '50',
               category: [
                 'New student : 1.000 students',
                 'New 5-star rate: 30 rating',
@@ -313,7 +319,7 @@ export function Hero() {
               ]
             },
             {
-              id: 7, name: 'FLYER PLAN', credit: '100 USD', category: [
+              id: 7, name: 'FLYER PLAN', credit: '100', category: [
                 'New student : 2.000 students',
                 'New 5-star rate: 30 rating',
                 "Revenue Guarantee: 50 USD *",
@@ -322,10 +328,9 @@ export function Hero() {
                 'Delivery date: 15 Days'
               ]
               ,
-              sale: '10%'
             },
             {
-              id: 8, name: 'LEAP PLAN', credit: '300 USD', category: [
+              id: 8, name: 'LEAP PLAN', credit: '300', category: [
                 'New student : 20.000 students',
                 'New 5-star rate: 50 rating',
                 "Revenue Guarantee: 100 USD *",
@@ -342,9 +347,6 @@ export function Hero() {
               <div className=" flex cursor-pointer flex-col items-center rounded-2xl bg-white shadow-xl transition-all hover:shadow-[0_8px_32px_#0000003d]">
 
                 <div className="relative w-full pb-10">
-
-                  {pagkage?.sale && <div className="ribbon">{pagkage.sale}</div>}
-
                   <p className="mt-6 block text-2xl font-bold lg:mb-5 uppercase text-[#5a27da]">
                     {pagkage.name}
                   </p>
@@ -417,8 +419,8 @@ export function Hero() {
                         item.content + ` joined ${index + ' seconds ago'}`}
                     </p>
                   ))}
-                  <div className="font-bold text-white lg:mt-4 lg:text-lg lg:leading-[22px]">
-                    {pagkage.credit}
+                  <div className="font-bold text-white lg:mt-4 lg:text-2xl">
+                    <span className='text-lg leading-7'>$</span>{''}{pagkage.credit}
                   </div>
                 </div>
               </div>
@@ -481,7 +483,7 @@ export function Hero() {
                   href="#"
                   className="block cursor-pointer rounded-full bg-[#758ECD] py-4 text-xs font-bold uppercase text-white"
                 >
-                  {pagkage.name === 'Trial' ? 'USE NOW' : 'PURCHASE NOW'}
+                  PURCHASE NOW
                 </Link>
               </div>
             </div>
