@@ -84,7 +84,7 @@ const config = {
         tablet: { min: '769px' },
         PC: { min: '1060px', max: '1406px' },
         mobile: { max: '768' },
-        laptops: { min: '768px', max: '1200px' },
+        laptops: { min: '1025px', max: '1300px' },
       },
     },
   },

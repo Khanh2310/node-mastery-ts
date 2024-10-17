@@ -101,7 +101,7 @@ export function Hero() {
           <div className="relative z-10 mx-auto mt-12 flex gap-6 -translate-y-[60px] flex-wrap justify-center rounded-full">
             {[
               {
-                id: 1, name: 'Free Trial', credit: '10 credits', category: [
+                id: 1, name: 'Free Trial', price: '', credit: '10', category: [
                   '01 new student : 01 credit',
                   '01 new 5-star rate: 05 credits',
                   'Valid 03 days',
@@ -111,8 +111,8 @@ export function Hero() {
               {
                 id: 2,
                 name: 'PAY AS YOU GO',
-
-                credit: '1 USD = 10 credits',
+                price: '1',
+                credit: '10',
                 category: [
                   '01 new student : 01 credit',
                   '01 new 5-star rate: 05 credits',
@@ -121,7 +121,7 @@ export function Hero() {
                 ]
               },
               {
-                id: 3, name: 'Basic plan', credit: '10 USD = 130 credits', category: [
+                id: 3, name: 'Basic plan', price: '10', credit: '130', category: [
                   '01 new student : 01 credit',
                   '01 new 5-star rate: 05 credits',
                   'No expire',
@@ -131,7 +131,7 @@ export function Hero() {
 
               },
               {
-                id: 4, name: 'Premium plan', credit: '20 USD = 300 credits', category: [
+                id: 4, name: 'Premium plan', price: '20', credit: '300', category: [
                   '01 new student : 01 credit',
                   '01 new 5-star rate: 05 credits',
                   'No expire',
@@ -143,7 +143,7 @@ export function Hero() {
             ].map((option) => (
               <div
                 key={option.id}
-                className="lg:w-[calc(25%-18px)] md:calc(33.33%-16px)"
+                className="xl:w-[calc(25%-18px)] md:calc(33.33%-16px) laptops:calc(33.33%-16px)"
               >
                 <div className=" flex cursor-pointer flex-col items-center rounded-2xl bg-white shadow-xl transition-all hover:shadow-[0_8px_32px_#0000003d]">
                   <div className="relative w-full pb-10">
@@ -221,9 +221,12 @@ export function Hero() {
                           item.content + ` joined ${index + ' seconds ago'}`}
                       </p>
                     ))}
-                    <div className="font-bold text-white lg:mt-4 lg:text-lg lg:leading-[22px]">
-                      {option.credit}
-                    </div>
+                    {option.name == 'Free Trial' ? <div className="font-bold text-white lg:mt-4 lg:text-2xl">
+                      {option.credit} credits
+                    </div> : <div className="font-bold text-white lg:mt-4 lg:text-2xl">
+                      <span className='text-lg leading-7'>$</span>{option.price} = {option.credit} credits
+                    </div>}
+
                   </div>
                 </div>
                 <div
@@ -253,7 +256,7 @@ export function Hero() {
                             />
                           </svg>
                         </span>
-                        <p className="truncate text-sm text-[#7b5bf7]">
+                        <p className="text-sm text-[#7b5bf7]">
                           {categoryItem}
                         </p>
                       </li>
@@ -342,12 +345,12 @@ export function Hero() {
           ].map((pagkage) => (
             <div
               key={pagkage.id}
-              className="lg:w-[calc(25%-18px)] md:calc(33.33%-16px)"
+              className="xl:w-[calc(25%-18px)] md:calc(33.33%-16px) laptops:calc(33.33%-16px)"
             >
               <div className=" flex cursor-pointer flex-col items-center rounded-2xl bg-white shadow-xl transition-all hover:shadow-[0_8px_32px_#0000003d]">
 
                 <div className="relative w-full pb-10">
-                  <p className="mt-6 block text-2xl font-bold lg:mb-5 uppercase text-[#5a27da]">
+                  <p className="mt-6 block text-2xl font-bold lg:mb-5 uppercase text-[#5a27da] laptops:text-red-800">
                     {pagkage.name}
                   </p>
                   <svg
@@ -433,7 +436,6 @@ export function Hero() {
                     } overflow-hidden transition-all`}
                 >
                   {pagkage?.category.map((pagkageItem, index) => (
-
                     <li className="flex items-center gap-2" key={index}>
                       <span className="">
                         <svg
@@ -451,7 +453,7 @@ export function Hero() {
                           />
                         </svg>
                       </span>
-                      <p className="truncate text-sm text-[#7b5bf7]">
+                      <p className="text-sm text-[#7b5bf7]">
                         {pagkageItem}
                       </p>
                     </li>
@@ -479,12 +481,14 @@ export function Hero() {
                     </>
                   )}
                 </div>
+
                 <Link
                   href="#"
-                  className="block cursor-pointer rounded-full bg-[#758ECD] py-4 text-xs font-bold uppercase text-white"
+                  className="button-7 block cursor-pointer rounded-full bg-[#758ECD] py-4 text-xs font-bold uppercase text-white duration-300 hover:text-white"
                 >
                   PURCHASE NOW
                 </Link>
+
               </div>
             </div>
           ))}
