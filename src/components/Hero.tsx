@@ -51,7 +51,6 @@ export function Hero() {
     if (sliderRef.current) {
       sliderRef.current.slickNext()
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slides])
 
   const settings: Settings = {
@@ -68,7 +67,7 @@ export function Hero() {
 
   return (
     <>
-      <div className="relative h-[380px] bg-[#C1CEFE] text-center md:h-[380px] lg:h-[380px]">
+      <div className="relative h-[380px] bg-[#6C33B5] text-center md:h-[380px] lg:h-[380px]">
         <div className="mx-auto w-full px-5 pt-20 md:pb-0 md:pt-16 lg:pt-28">
           <h1 className="mb-6 text-center text-[22px] font-bold text-white md:text-[32px]">
             Ignite Your Udemy Success: Real Traffic, Real Students, Real
@@ -98,7 +97,7 @@ export function Hero() {
               data-v-2dd81426=""
               d="M0,0C0,0,1920,0,1920,0C1920,0,1920,30,1920,30C1920,30,1496.5,-1.66533e-15,961.5,0C426.5,1.66533e-15,0,30,0,30C0,30,0,0,0,0Z"
               fillRule="evenodd"
-              fill="#C1CEFE"
+              fill="#6C33B5"
               fillOpacity="1"
             ></path>
           </g>
@@ -186,7 +185,7 @@ export function Hero() {
                         <path
                           data-v-fb0f0a5d=""
                           d="M0,15L148.773,15Q74.3864,13.8677,0,0L0,15ZM148.773,15Q155.386,15.1007,162,15.1007Q168.614,15.1007,175.227,15L148.773,15ZM175.227,15L324,15L324,0Q249.614,13.8677,175.227,15Z"
-                          fill="#A2D2FF"
+                          fill="#6C33B5"
                           fillOpacity="1"
                         ></path>
                       </g>
@@ -228,7 +227,7 @@ export function Hero() {
                       </button>
                     </div>
                   </div>
-                  <div className="relative z-[2] w-full rounded-b-2xl bg-[#A2D2FF] pb-5 pt-7">
+                  <div className="relative z-[2] w-full rounded-b-2xl bg-[#6C33B5] pb-5 pt-7">
                     {slides.map((item, index) => (
                       <p
                         className={` my-1 transform text-sm text-white  ${
@@ -318,7 +317,7 @@ export function Hero() {
                   </div>
                   <Link
                     href="#"
-                    className="block cursor-pointer rounded-full bg-[#758ECD] py-4 text-xs font-bold uppercase text-white"
+                    className="block cursor-pointer rounded-full bg-[#6C33B5] py-4 text-xs font-bold uppercase text-white"
                   >
                     {option.name === 'Free Trial' ? 'Try Now' : 'PURCHASE NOW'}
                   </Link>
@@ -409,7 +408,7 @@ export function Hero() {
                       <path
                         data-v-fb0f0a5d=""
                         d="M0,15L148.773,15Q74.3864,13.8677,0,0L0,15ZM148.773,15Q155.386,15.1007,162,15.1007Q168.614,15.1007,175.227,15L148.773,15ZM175.227,15L324,15L324,0Q249.614,13.8677,175.227,15Z"
-                        fill="#A2D2FF"
+                        fill="#6C33B5"
                         fillOpacity="1"
                       ></path>
                     </g>
@@ -450,7 +449,7 @@ export function Hero() {
                     </button>
                   </div>
                 </div>
-                <div className="relative z-[2] w-full rounded-b-2xl bg-[#A2D2FF] pb-5 pt-7">
+                <div className="relative z-[2] w-full rounded-b-2xl bg-[#6C33B5] pb-5 pt-7">
                   {slides.map((item, index) => (
                     <p
                       className={` my-1 transform text-sm text-white  ${
@@ -536,7 +535,7 @@ export function Hero() {
 
                 <Link
                   href="#"
-                  className="button-7 block cursor-pointer rounded-full bg-[#758ECD] py-4 text-xs font-bold uppercase text-white duration-300 hover:text-white"
+                  className="block cursor-pointer rounded-full bg-[#6C33B5] py-4 text-xs font-bold uppercase text-white duration-300 hover:text-white"
                 >
                   PURCHASE NOW
                 </Link>

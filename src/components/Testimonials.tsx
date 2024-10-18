@@ -209,33 +209,38 @@ const listPeopleUse = [
   {
     image: iconRocket,
     title: 'Pay as you run',
-    content: 'Only pay when your run start small with 1 USD',
+    content:
+      'Enjoy the flexibility of our pay-as-you-go model, where you only invest when you see results. Get started for just $1, making it easy to grow without upfront costs!',
   },
   {
     image: iconPwd,
     title: 'Realtime monitoring',
-    content: 'You can see the realtime execution progress',
+    content:
+      'Enjoy the flexibility of our pay-as-you-go model, where you only invest when you see results. Get started for just $1, making it easy to grow without upfront costs!',
   },
   {
     image: iconSll,
     title: 'Your account safety',
-    content: 'Risk free for your udemy account',
+    content:
+      'We prioritize your peace of mind. Our practices are designed to be 100% risk-free for your Udemy account, ensuring compliance with all guidelines and protecting your reputation',
   },
   {
     image: iconSp,
     title: 'Support Center',
-    content: 'Assist all your concerns',
+    content:
+      'Have questions or concerns? Our dedicated support center is here to assist you within two hours, ensuring you receive prompt and helpful responses whenever you need them',
   },
   {
     image: iconSub,
     title: 'Result Guarantee',
-    content: 'No pay if fail execution',
+    content:
+      'We stand behind our service with a guarantee—if we don’t deliver enrollments or ratings, you don’t pay. This means zero financial risk for you!',
   },
   {
     image: iconRef,
     title: 'Best price - Hight Profit',
     content:
-      'No similar service in the market guarantee your revenue after 100 credits',
+      'Our unique service offers the best value in the market. With no comparable services available, you can expect to see a significant increase in your revenue as we help you reach your audience effectively',
   },
 ]
 

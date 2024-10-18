@@ -105,7 +105,7 @@ export const Header = () => {
   const { user } = useAuth()
 
   return (
-    <header className="fixed z-30 w-full bg-[#C1CEFE] py-5 backdrop-blur-md">
+    <header className="fixed z-30 w-full bg-[#6C33B5] py-5 backdrop-blur-md">
       <Container>
         <nav className="relative z-50 flex justify-between">
           <div className="flex items-center md:gap-x-12">
