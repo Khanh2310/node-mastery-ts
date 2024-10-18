@@ -7,7 +7,7 @@ type Props = {
 export const Logo = ({ className }: Props) => {
   return (
     <Image
-      className={`h-16 w-auto ${className}`}
+      className={`md:h-16 h-14 w-auto ${className}`}
       src={logo}
       height={150}
       width={150}

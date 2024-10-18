@@ -87,6 +87,7 @@ const config = {
         PC: { min: '1060px', max: '1406px' },
         mobile: { max: '768' },
         laptops: { min: '1025px', max: '1300px' },
+        small_SP: {max:'390px'}
       },
     },
   },

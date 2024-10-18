@@ -37,7 +37,7 @@ export function Hero() {
 
   const sliderRef = useRef<Slider | null>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
-  console.log(currentIndex)
+  console.log('current', sliderRef.current)
 
   const addSlide = () => {
     const newSlide = {
@@ -159,7 +159,7 @@ export function Hero() {
             ].map((option) => (
               <div
                 key={option.id}
-                className="md:calc(33.33%-16px) laptops:calc(33.33%-16px) xl:w-[calc(25%-18px)]"
+                className="small_SP:w-[90%] md:calc(33.33%-16px) laptops:calc(33.33%-16px) xl:w-[calc(25%-18px)]"
               >
                 <div className=" flex cursor-pointer flex-col items-center rounded-2xl bg-white shadow-xl transition-all hover:shadow-[0_8px_32px_#0000003d]">
                   <div className="relative w-full pb-10">
@@ -197,10 +197,9 @@ export function Hero() {
                       >
                         {slides.map((_, index) => (
                           <div
-                            className={`border-3 overflow-hidden rounded-full border-white  ${
-                              currentIndex === index &&
+                            className={`border-3 overflow-hidden rounded-full border-white  ${currentIndex === index &&
                               'scale-105 transform duration-500'
-                            }`}
+                              }`}
                             key={index}
                             data-index={index}
                           >
@@ -229,11 +228,10 @@ export function Hero() {
                   <div className="relative z-[2] w-full rounded-b-2xl bg-[#6C33B5] pb-5 pt-7">
                     {slides.map((item, index) => (
                       <p
-                        className={` my-1 transform text-sm text-white  ${
-                          slides.length - 1 === item.id
-                            ? 'opacity-1 transition-all delay-700 duration-1000 ease-in-out'
-                            : 'opacity-0 transition-all delay-700 duration-1000 ease-in-out'
-                        }`}
+                        className={` my-1 transform text-sm text-white  ${slides.length - 1 === item.id
+                          ? 'opacity-1 transition-all delay-700 duration-1000 ease-in-out'
+                          : 'opacity-0 transition-all delay-700 duration-1000 ease-in-out'
+                          }`}
                         key={index}
                       >
                         {slides.length - 1 === item.id &&
@@ -257,9 +255,8 @@ export function Hero() {
                   onClick={() => handleShowContent(option.id)}
                 >
                   <ul
-                    className={`${
-                      show[option.id] ? 'h-auto' : 'max-h-[60px]'
-                    } overflow-hidden transition-all`}
+                    className={`${show[option.id] ? 'h-auto' : 'max-h-[60px]'
+                      } overflow-hidden transition-all`}
                   >
                     {option?.category.map((categoryItem, index) => (
                       <li className="flex items-center gap-2" key={index}>
@@ -385,7 +382,7 @@ export function Hero() {
           ].map((pagkage) => (
             <div
               key={pagkage.id}
-              className="md:calc(33.33%-16px) laptops:calc(33.33%-16px) xl:w-[calc(25%-18px)]"
+              className="small_SP:w-[90%] md:calc(33.33%-16px) laptops:calc(33.33%-16px) xl:w-[calc(25%-18px)]"
             >
               <div className=" flex cursor-pointer flex-col items-center rounded-2xl bg-white shadow-xl transition-all hover:shadow-[0_8px_32px_#0000003d]">
                 <div className="relative w-full pb-10">
@@ -420,9 +417,8 @@ export function Hero() {
                     >
                       {slides.map((_, index) => (
                         <div
-                          className={`border-3 overflow-hidden rounded-full border-white  ${
-                            currentIndex === index && 'border border-red-600'
-                          }`}
+                          className={`border-3 overflow-hidden rounded-full border-white  ${currentIndex === index && 'border border-red-600'
+                            }`}
                           key={index}
                           data-index={index}
                         >
@@ -451,11 +447,10 @@ export function Hero() {
                 <div className="relative z-[2] w-full rounded-b-2xl bg-[#6C33B5] pb-5 pt-7">
                   {slides.map((item, index) => (
                     <p
-                      className={` my-1 transform text-sm text-white  ${
-                        slides.length - 1 === item.id
-                          ? 'opacity-1 transition-all delay-700 duration-1000 ease-in-out'
-                          : 'opacity-0 transition-all delay-700 duration-1000 ease-in-out'
-                      }`}
+                      className={` my-1 transform text-sm text-white  ${slides.length - 1 === item.id
+                        ? 'opacity-1 transition-all delay-700 duration-1000 ease-in-out'
+                        : 'opacity-0 transition-all delay-700 duration-1000 ease-in-out'
+                        }`}
                       key={index}
                     >
                       {slides.length - 1 === item.id &&
@@ -474,9 +469,8 @@ export function Hero() {
                 onClick={() => handleShowContent(pagkage.id)}
               >
                 <ul
-                  className={`${
-                    show[pagkage.id] ? 'h-auto' : 'max-h-[60px]'
-                  } overflow-hidden transition-all`}
+                  className={`${show[pagkage.id] ? 'h-auto' : 'max-h-[60px]'
+                    } overflow-hidden transition-all`}
                 >
                   {pagkage?.category.map((pagkageItem, index) => (
                     <li className="flex items-center gap-2" key={index}>
