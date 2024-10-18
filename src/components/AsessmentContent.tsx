@@ -81,52 +81,67 @@ export const AsessmentContent = ({ ass_ars }: any) => {
                 <div className="progress p-0 md:px-0 md:py-5">
                   <div className="right">
                     <div
-                      className={` items assm_1_1 before:-left-[20px] before:top-0 before:m-auto before:w-[12px] before:transform-none before:p-0 after:w-[38px] ${cls_cur != '' ? cls_cur : ''
-                        }`}
+                      className={` items assm_1_1 before:-left-[20px] before:top-0 before:m-auto before:w-[12px] before:transform-none before:p-0 after:w-[38px] ${
+                        cls_cur != '' ? cls_cur : ''
+                      }`}
                     >
                       <h2 className="">{subtitle1}</h2>
                       <span className="hidden pl-3 md:mt-2 md:pl-0">
-                        <p className="text-sm lg:text-base font-normal italic">{description1}</p>
+                        <p className="text-xs font-normal italic lg:text-base">
+                          {description1}
+                        </p>
                       </span>
                     </div>
 
                     <div
-                      className={`items assm_2_2 after:absolute after:-left-[59px] after:h-[38px] ${cls_cur != '' ? cls_cur : ''
-                        }`}
+                      className={`items assm_2_2 after:absolute after:-left-[59px] after:h-[38px] ${
+                        cls_cur != '' ? cls_cur : ''
+                      }`}
                     >
                       <h2 className="">{subtitle2}</h2>
                       <span className="hidden pl-3 md:mt-2 md:pl-0">
-                        <p className="text-sm lg:text-base font-normal italic">{description2}</p>
+                        <p className="text-xs font-normal italic lg:text-base">
+                          {description2}
+                        </p>
                       </span>
                     </div>
 
                     <div
-                      className={` items assm_3_3 after:absolute after:-left-[59px] after:h-[38px] ${cls_cur != '' ? cls_cur : ''
-                        }`}
+                      className={` items assm_3_3 after:absolute after:-left-[59px] after:h-[38px] ${
+                        cls_cur != '' ? cls_cur : ''
+                      }`}
                     >
                       <h2 className="">{subtitle3}</h2>
                       <span className="hidden pl-3 md:mt-2 md:pl-0">
-                        <p className="text-sm lg:text-base font-normal italic">{description3}</p>
+                        <p className="text-xs font-normal italic lg:text-base">
+                          {description3}
+                        </p>
                       </span>
                     </div>
 
                     <div
-                      className={`items assm_4_4 after:absolute after:-left-[59px] after:h-[38px] ${cls_cur != '' ? cls_cur : ''
-                        }`}
+                      className={`items assm_4_4 after:absolute after:-left-[59px] after:h-[38px] ${
+                        cls_cur != '' ? cls_cur : ''
+                      }`}
                     >
                       <h2 className="">{subtitle4}</h2>
                       <span className="hidden pl-3 md:mt-2 md:pl-0">
-                        <p className="text-sm lg:text-base font-normal italic">{description4}</p>
+                        <p className="text-xs font-normal italic lg:text-base">
+                          {description4}
+                        </p>
                       </span>
                     </div>
 
                     <div
-                      className={`items assm_5_5 after:absolute after:-left-[59px] after:h-[38px] ${cls_cur != '' ? cls_cur : ''
-                        }`}
+                      className={`items assm_5_5 after:absolute after:-left-[59px] after:h-[38px] ${
+                        cls_cur != '' ? cls_cur : ''
+                      }`}
                     >
                       <h2 className="">{subtitle5}</h2>
                       <span className="hidden pl-3 md:mt-2 md:pl-0">
-                        <p className="text-sm lg:text-base font-normal italic">{description5}</p>
+                        <p className="text-xs font-normal italic lg:text-base">
+                          {description5}
+                        </p>
                       </span>
                     </div>
                   </div>

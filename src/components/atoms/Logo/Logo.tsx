@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import logo from '@/images/logos/UdemyService-logo.svg'
+import logo from '@/images/logos/UdemyService-logo.png'
 
 type Props = {
   className?: string

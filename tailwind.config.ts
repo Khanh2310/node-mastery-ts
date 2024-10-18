@@ -25,6 +25,8 @@ const config = {
         purpleColor: '#7b5bf7',
         'gradient-dot':
           'linear-gradient(180deg, rgba(244, 244, 246, 1) 50%, rgba(236, 247, 255, 1) 50%)',
+        'gradient-box':
+          'linear-gradient(180deg, hsla(245, 100%, 98%), hsla(0, 100%, 94%, 0))',
       },
       colors: {
         border: 'hsl(var(--border))',
