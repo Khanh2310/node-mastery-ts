@@ -112,6 +112,7 @@ export const Header = () => {
             <Link href="#" aria-label="Home">
               <Logo className="h-10 w-auto" />
             </Link>
+
             <div className="hidden md:flex md:gap-x-6">
               {/* <NavLink href="#features">Features</NavLink>
               <NavLink href="#testimonials">Testimonials</NavLink>
@@ -119,6 +120,8 @@ export const Header = () => {
             </div>
           </div>
           <div className="flex items-center gap-x-2 md:gap-x-4">
+            <div className="text-white">Ignite Your Udemy Success</div>
+
             <div className="hidden md:block">
               <Button
                 href={user ? '/dashboard' : '/login'}

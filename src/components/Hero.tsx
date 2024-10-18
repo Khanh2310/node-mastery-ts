@@ -70,8 +70,7 @@ export function Hero() {
       <div className="relative h-[380px] bg-[#6C33B5] text-center md:h-[380px] lg:h-[380px]">
         <div className="mx-auto w-full px-5 pt-20 md:pb-0 md:pt-16 lg:pt-28">
           <h1 className="mb-6 text-center text-[22px] font-bold text-white md:text-[32px]">
-            Ignite Your Udemy Success: Real Traffic, Real Students, Real
-            Revenue!
+            Real Traffic, Real Students, Real Revenue!
           </h1>
 
           <p className="text-sm text-white md:pb-10 md:text-base lg:pb-20">
