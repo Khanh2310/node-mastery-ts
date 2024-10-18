@@ -59,28 +59,48 @@ export const Faq = () => {
 
     const faqs = [
         {
-            title: "1. Do you offer a trial ?",
-            text: "Absolutely, we offer a Micro Plan that serves as a trial option, complete with a money-back guarantee. If you encounter any issues with our proxies, just shoot us a message and we'll process your refund immediately.",
+            title: "1. What types of instructors benefit from your service?",
+            text: "Our service is designed for all existing Udemy instructors, whether you are new to the platform or have been teaching for years. If you’re looking to boost your coursements, improve your ratings, and increase your revenue, our tailored solutions can help you achieve your goals.",
             active: false,
         },
         {
-            title: "2. What's your money-back guarantee policy?",
-            text: "We offer a 14-day money-back guarantee for all unused data on plans purchased via credit card.",
+            title: "2. How do you ensure that the traffic is genuine?",
+            text: "We utilize targeted marketing strategies that focus on reaching real students actively seeking online courses. Our promotions are conducted across various social media platforms, ensuring that the traffic generated is both authentic and engaged.",
             active: false,
         },
         {
-            title: "3. What locations are available for your proxies?",
-            text: "We provide mobile and residential proxies in over 38 countries, including the United States, Germany, the United Kingdom, France, Malaysia, Belgium, the Netherlands, Italy, Canada, Spain, India, Thailand, Indonesia, and more.",
+            title: "3. Is my Udemy account safe with your service?",
+            text: "Absolutely. We prioritize the safety and integrity of your Udemy account by strictly adhering to Udemy’s Terms of Service. Our ethical practices guarantee that your account remains secure, allowing you to focus on creating valuable content for your students.",
             active: false,
         },
         {
-            title: "4. How many proxies come with each plan?",
-            text: "With any subscription, you can create an unlimited number of proxies. The only limitation is the bandwidth, which varies between plans.",
-            active: true,
+            title: "4. How quickly can I expect to see results?",
+            text: "While results may vary depending on various factors such as course type and audience, many instructors begin to see an increase in enrollments and ratings shortly after using our service. Our real-time monitoring dashboard allows you to track progress and make timely adjustments to optimize your results.",
+            active: false,
         },
         {
-            title: "5. Do you offer static or sticky IP proxies?",
-            text: "We offer sticky IPs with long durations. If the IP disconnects, we'll reassign you another IP from the same city and ISP. This ensures your activities remain completely undetectable and won't raise any flags.",
+            title: "5. What payment options do you offer?",
+            text: "We operate on a pay-per-success model, meaning you only pay for the actual actions generated . This ensures that you are investing in results rather than empty promises. Payment is straightforward and can be made using Paypal, Local Bank Transfer (Vietnam), Zalopay, Momo...",
+            active: false,
+        },
+        {
+            title: "6. Can I try your service before committing?",
+            text: "Yes! We offer a trial service that allows you to experience our platform and see the benefits firsthand. This trial period is designed to give you confidence in our capabilities without any long-term commitment. However, please note that our trial service only allows you to promote for only 1 unique instructor within 03 days.",
+            active: false,
+        },
+        {
+            title: "7. What support do you provide during the service?",
+            text: "We pride ourselves on offering excellent customer support. Our team is available to answer your questions, provide guidance, and assist you in optimizing your campaigns. You can reach out to us via email or chat, and we will respond promptly to help you navigate your experience.",
+            active: false,
+        },
+        {
+            title: "8. How does the real-time tracking dashboard work?",
+            text: "Our History Tracking Dashboard provides you with real-time insights into your campaign’s performance. You can monitor key metrics such as total traffics, enrollments, ratings, allowing you to make informed decisions and adjustments in real-time for maximum impact.",
+            active: false,
+        },
+        {
+            title: "9. How can I begin?",
+            text: "You can follow our basic guideline here to undertand how to prepare your instructor account, your course, promote coupon as well as how to run request to increase enrollment, rating. Please do not hestitate to let us know if you need any further assitance by emailing or chatting our Customer Support Center.",
             active: false,
         },
 
