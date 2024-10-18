@@ -107,11 +107,14 @@ export const Header = () => {
   return (
     <header className="fixed z-30 w-full bg-[#6C33B5] py-5 backdrop-blur-md">
       <Container>
-        <nav className="relative z-50 flex justify-between">
+        <nav className="relative z-50 flex items-center justify-between">
           <div className="flex items-center md:gap-x-12">
             <Link href="#" aria-label="Home">
               <Logo className="h-10 w-auto" />
             </Link>
+            <div className="font-bold text-white">
+              Ignite Your Udemy Success
+            </div>
 
             <div className="hidden md:flex md:gap-x-6">
               {/* <NavLink href="#features">Features</NavLink>
@@ -120,8 +123,6 @@ export const Header = () => {
             </div>
           </div>
           <div className="flex items-center gap-x-2 md:gap-x-4">
-            <div className="text-white">Ignite Your Udemy Success</div>
-
             <div className="hidden md:block">
               <Button
                 href={user ? '/dashboard' : '/login'}
