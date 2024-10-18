@@ -84,11 +84,11 @@ export const Asessment = () => {
   return (
     <div className="scroll-smooth">
       <div
-        className="assessment relative z-10 h-auto bg-transparent py-0 md:py-[130px] lg:py-[70px] "
+        className="assessment relative z-10 h-auto bg-transparent py-0 md:pt-[130px] lg:pt-[70px] "
         id="assessmentflow"
       >
         <div className="assessment_bg sticky top-0 z-[1] h-screen max-h-[800px] min-h-[650px] bg-gray-100 md:max-h-[1100px] md:min-h-[750px]">
-          <div className="assessment_content_wrapper SP:mx-0 SP:px-0 absolute bottom-0 top-0 my-0 flex w-full flex-col items-center   bg-white py-0 md:my-0 md:px-[10vh] md:py-0 lg:px-[10vh]">
+          <div className="assessment_content_wrapper SP:mx-0 SP:px-0 absolute bottom-0 top-0 my-0 flex w-full flex-col items-center bg-gray-50 py-0 md:my-0 md:px-[10vh] md:py-0 lg:px-[10vh]">
             <div className="w-[90%]">
               <h2 className="max-md:text-2xl mb-5 mt-10 text-center text-4xl font-bold md:mt-10 lg:mt-10">
                 Why Choose Us?
@@ -98,7 +98,7 @@ export const Asessment = () => {
               </p>
             </div>
             <div className="w-full">
-              <div className="assessment_content_content SP:ml-0 SP:w-full relative my-auto ml-2 w-[92%] max-w-[1200px] overflow-hidden md:mx-auto">
+              <div className="assessment_content_content SP:ml-0 SP:w-full relative my-auto w-full max-w-[1200px] overflow-hidden md:mx-auto md:ml-2 md:w-[92%]">
                 <AsessmentContent ass_ars={as_ars} />
               </div>
             </div>
