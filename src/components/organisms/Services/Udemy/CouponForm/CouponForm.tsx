@@ -62,12 +62,12 @@ export const CouponForm = ({ initialValues, courseId }: Props) => {
   return (
     <>
       <form
-        className="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2"
+        className="mt-4 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-2 bg-white p-5 rounded-md shadow-sm"
         onSubmit={handleSubmit(onValid)}
       >
         <TextBoxWithLabel
           className="col-span-full"
-          labelProps={{ children: 'Instructor link' }}
+          labelProps={{ children: 'Coupon' }}
           textboxProps={register('coupon')}
           error={errors.coupon?.message}
           isRequired

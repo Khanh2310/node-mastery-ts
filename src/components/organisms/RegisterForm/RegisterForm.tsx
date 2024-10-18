@@ -123,7 +123,7 @@ export const RegisterForm = ({ initialValues }: Props) => {
           className="col-span-full mt-5"
           disabled={isSubmitting || isMutating}
         >
-          Sign up <span aria-hidden="true">&rarr;</span>
+          Sign up <span className='ml-1' aria-hidden="true">&rarr;</span>
         </Button>
       </form>
     </>

@@ -2,6 +2,7 @@ import { useId } from 'react'
 import dynamic from 'next/dynamic'
 import qrImage from '@/images/app/qr-code-svgrepo-com.svg'
 import Image from 'next/image'
+import { Loading } from '@/components/atoms/Loading'
 
 export default function ListTopUp() {
   const listTopUp = [
@@ -11,7 +12,7 @@ export default function ListTopUp() {
       Component: dynamic(
         () => import('@/components/organisms/DepositATM/DepositATM'),
         {
-          loading: () => <p>Loading...</p>,
+          loading: () => <Loading className='mt-24'/>,
         },
       ),
     },
