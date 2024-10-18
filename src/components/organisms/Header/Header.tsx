@@ -108,11 +108,11 @@ export const Header = () => {
     <header className="fixed z-30 w-full bg-[#6C33B5] py-5 backdrop-blur-md">
       <Container>
         <nav className="relative z-50 flex items-center justify-between">
-          <div className="flex items-center md:gap-x-12">
+          <div className="flex items-center md:gap-x-2">
             <Link href="#" aria-label="Home">
               <Logo className="h-10 w-auto" />
             </Link>
-            <div className="font-bold text-white md:block hidden">
+            <div className="font-bold text-white md:block hidden md:text-2xl">
               Ignite Your Udemy Success
             </div>
 
