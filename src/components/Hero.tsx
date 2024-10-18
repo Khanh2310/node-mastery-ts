@@ -37,6 +37,7 @@ export function Hero() {
 
   const sliderRef = useRef<Slider | null>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
+  console.log(currentIndex)
 
   const addSlide = () => {
     const newSlide = {
@@ -50,6 +51,7 @@ export function Hero() {
     if (sliderRef.current) {
       sliderRef.current.slickNext()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [slides])
 
   const settings: Settings = {
@@ -421,8 +423,7 @@ export function Hero() {
                       {slides.map((_, index) => (
                         <div
                           className={`border-3 overflow-hidden rounded-full border-white  ${
-                            currentIndex === index &&
-                            'scale-105 transform duration-500'
+                            currentIndex === index && 'border border-red-600'
                           }`}
                           key={index}
                           data-index={index}
