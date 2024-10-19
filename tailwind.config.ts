@@ -84,7 +84,7 @@ const config = {
       },
       screens: {
         tablet: { min: '769px' },
-        lapstops_big: { min: '1070px' },
+        lapstops_big: { min: '1130px' },
         mobile: { max: '768' },
         laptops: { min: '1025px', max: '1300px' },
         small_SP: {max:'426px'}
