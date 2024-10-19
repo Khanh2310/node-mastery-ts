@@ -150,7 +150,7 @@ export function Hero() {
                             {
                                 id: 4,
                                 name: 'Premium plan',
-                                price: '20',
+                                price: '19',
                                 credit: '300',
                                 category: [
                                     '01 new student : 01 credit',
