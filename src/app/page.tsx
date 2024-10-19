@@ -21,6 +21,7 @@ export default function Home() {
         <Testimonials />
         <Faq />
         {/* <Pricing /> */}
+
       </main>
     </BasicLayout>
   )
