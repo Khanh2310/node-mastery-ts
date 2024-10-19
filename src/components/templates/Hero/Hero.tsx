@@ -137,7 +137,7 @@ export function Hero() {
                             {
                                 id: 3,
                                 name: 'Basic plan',
-                                price: '10',
+                                price: '9',
                                 credit: '130',
                                 category: [
                                     '01 new student : 01 credit',
@@ -335,7 +335,7 @@ export function Hero() {
                         {
                             id: 5,
                             name: 'STARTER PLAN',
-                            credit: '10',
+                            credit: '9',
                             category: [
                                 'New student : 100 students',
                                 'New 5-star rate: 10 rating',
@@ -348,7 +348,7 @@ export function Hero() {
                             id: 6,
                             name: 'MOVER PLAN',
 
-                            credit: '50',
+                            credit: '49',
                             category: [
                                 'New student : 1.000 students',
                                 'New 5-star rate: 30 rating',
@@ -360,7 +360,7 @@ export function Hero() {
                         {
                             id: 7,
                             name: 'FLYER PLAN',
-                            credit: '100',
+                            credit: '99',
                             category: [
                                 'New student : 2.000 students',
                                 'New 5-star rate: 30 rating',
@@ -373,7 +373,7 @@ export function Hero() {
                         {
                             id: 8,
                             name: 'LEAP PLAN',
-                            credit: '300',
+                            credit: '299',
                             category: [
                                 'New student : 20.000 students',
                                 'New 5-star rate: 50 rating',

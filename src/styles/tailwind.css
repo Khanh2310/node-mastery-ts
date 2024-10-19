@@ -76,20 +76,18 @@
 @layer utilities {
   .ribbon {
     --f: 0.5em;
-    @apply absolute right-0 top-0 bg-[#7CB9F0] text-xs font-bold leading-7 text-white;
+    @apply absolute right-0 top-0 bg-[#7CB9F0] text-lg font-bold leading-7 text-white;
     padding-inline: 1lh;
     padding-bottom: var(--f);
     border-image: conic-gradient(#0008 0 0) 51% / var(--f);
-    clip-path: polygon(
-      100% calc(100% - var(--f)),
-      100% 100%,
-      calc(100% - var(--f)) calc(100% - var(--f)),
-      var(--f) calc(100% - var(--f)),
-      0 100%,
-      0 calc(100% - var(--f)),
-      999px calc(100% - var(--f) - 999px),
-      calc(100% - 999px) calc(100% - var(--f) - 999px)
-    );
+    clip-path: polygon(100% calc(100% - var(--f)),
+        100% 100%,
+        calc(100% - var(--f)) calc(100% - var(--f)),
+        var(--f) calc(100% - var(--f)),
+        0 100%,
+        0 calc(100% - var(--f)),
+        999px calc(100% - var(--f) - 999px),
+        calc(100% - 999px) calc(100% - var(--f) - 999px));
     transform: translate(calc((1 - cos(45deg)) * 100%), -100%) rotate(45deg);
     transform-origin: 0% 100%;
   }
