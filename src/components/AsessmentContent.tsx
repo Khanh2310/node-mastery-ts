@@ -1,10 +1,10 @@
 import Image from 'next/image'
 import React from 'react'
-import avatar1 from '@/images/screenshots/ilus1.jpg'
-import avatar2 from '@/images/screenshots/ilus2.jpg'
-import avatar3 from '@/images/screenshots/ilus3.jpg'
-import avatar4 from '@/images/screenshots/ilus4.jpg'
-import avatar5 from '@/images/screenshots/ilus5.jpg'
+import avatar1 from '@/images/screenshots/ilus1.png'
+import avatar2 from '@/images/screenshots/ilus2.png'
+import avatar3 from '@/images/screenshots/ilus3.png'
+import avatar4 from '@/images/screenshots/ilus4.png'
+import avatar5 from '@/images/screenshots/ilus5.png'
 
 export const AsessmentContent = ({ ass_ars }: any) => {
   return (
@@ -81,9 +81,8 @@ export const AsessmentContent = ({ ass_ars }: any) => {
                 <div className="progress p-0 md:px-0 md:py-5">
                   <div className="right">
                     <div
-                      className={` items assm_1_1 before:-left-[20px] before:top-0 before:m-auto before:w-[12px] before:transform-none before:p-0 after:w-[38px] ${
-                        cls_cur != '' ? cls_cur : ''
-                      }`}
+                      className={` items assm_1_1 before:-left-[20px] before:top-0 before:m-auto before:w-[12px] before:transform-none before:p-0 after:w-[38px] ${cls_cur != '' ? cls_cur : ''
+                        }`}
                     >
                       <h2 className="">{subtitle1}</h2>
                       <span className="hidden pl-3 md:mt-2 md:pl-0">
@@ -94,9 +93,8 @@ export const AsessmentContent = ({ ass_ars }: any) => {
                     </div>
 
                     <div
-                      className={`items assm_2_2 after:absolute after:-left-[59px] after:h-[38px] ${
-                        cls_cur != '' ? cls_cur : ''
-                      }`}
+                      className={`items assm_2_2 after:absolute after:-left-[59px] after:h-[38px] ${cls_cur != '' ? cls_cur : ''
+                        }`}
                     >
                       <h2 className="">{subtitle2}</h2>
                       <span className="hidden pl-3 md:mt-2 md:pl-0">
@@ -107,9 +105,8 @@ export const AsessmentContent = ({ ass_ars }: any) => {
                     </div>
 
                     <div
-                      className={` items assm_3_3 after:absolute after:-left-[59px] after:h-[38px] ${
-                        cls_cur != '' ? cls_cur : ''
-                      }`}
+                      className={` items assm_3_3 after:absolute after:-left-[59px] after:h-[38px] ${cls_cur != '' ? cls_cur : ''
+                        }`}
                     >
                       <h2 className="">{subtitle3}</h2>
                       <span className="hidden pl-3 md:mt-2 md:pl-0">
@@ -120,9 +117,8 @@ export const AsessmentContent = ({ ass_ars }: any) => {
                     </div>
 
                     <div
-                      className={`items assm_4_4 after:absolute after:-left-[59px] after:h-[38px] ${
-                        cls_cur != '' ? cls_cur : ''
-                      }`}
+                      className={`items assm_4_4 after:absolute after:-left-[59px] after:h-[38px] ${cls_cur != '' ? cls_cur : ''
+                        }`}
                     >
                       <h2 className="">{subtitle4}</h2>
                       <span className="hidden pl-3 md:mt-2 md:pl-0">
@@ -133,9 +129,8 @@ export const AsessmentContent = ({ ass_ars }: any) => {
                     </div>
 
                     <div
-                      className={`items assm_5_5 after:absolute after:-left-[59px] after:h-[38px] ${
-                        cls_cur != '' ? cls_cur : ''
-                      }`}
+                      className={`items assm_5_5 after:absolute after:-left-[59px] after:h-[38px] ${cls_cur != '' ? cls_cur : ''
+                        }`}
                     >
                       <h2 className="">{subtitle5}</h2>
                       <span className="hidden pl-3 md:mt-2 md:pl-0">
