@@ -86,7 +86,7 @@ const page = () => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col sm:mx-auto w-full justify-center lg:hidden sm:w-1/2 mb-24">
+                    <div className="flex flex-col sm:mx-auto w-full justify-center lg:hidden tablet:block sm:w-1/2 mb-24">
                         <div className="flex">
                             <Image src={imageLogo} width={120} height={120} alt="" className="rounded-2xl mr-6 mb-6" />
                             <div className="">
