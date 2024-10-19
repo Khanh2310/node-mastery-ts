@@ -161,11 +161,11 @@ export function Hero() {
                                 sale: '50%',
                             },
                         ].map((option) => (
-                            <div onClick={() => router.push(`details/${option.id}`)}
+                            <div
                                 key={option.id}
                                 className="small_SP:w-[90%] md:calc(33.33%-16px) laptops:calc(33.33%-16px) xl:w-[calc(25%-18px)]"
                             >
-                                <div className=" flex cursor-pointer flex-col items-center rounded-2xl bg-white shadow-xl transition-all hover:shadow-[0_8px_32px_#0000003d]">
+                                <div onClick={() => router.push(`details/${option.id}`)} className=" flex cursor-pointer flex-col items-center rounded-2xl bg-white shadow-xl transition-all hover:shadow-[0_8px_32px_#0000003d]">
                                     <div className="relative w-full pb-10">
                                         {option?.sale && (
                                             <div className="ribbon">{option.sale}</div>
@@ -328,7 +328,7 @@ export function Hero() {
                 </div>
 
                 <div className="px-5 font-bold lg:text-2xl">
-                    DON'T KNOW HOW TO DO? LET OUR EXPERT TEAM HANDLE EVERYTHING
+                    DON'T KNOW HOW TO DO? LET'S OUR EXPERT TEAM HANDLE EVERYTHING
                 </div>
                 <div className="relative z-10 mx-auto mt-12 flex flex-wrap justify-center gap-6 rounded-full">
                     {[
@@ -388,7 +388,7 @@ export function Hero() {
                             key={pagkage.id}
                             className="small_SP:w-[90%] md:calc(33.33%-16px) laptops:calc(33.33%-16px) xl:w-[calc(25%-18px)]"
                         >
-                            <div className=" flex cursor-pointer flex-col items-center rounded-2xl bg-white shadow-xl transition-all hover:shadow-[0_8px_32px_#0000003d]">
+                            <div onClick={() => router.push(`details/${pagkage.id}`)} className=" flex cursor-pointer flex-col items-center rounded-2xl bg-white shadow-xl transition-all hover:shadow-[0_8px_32px_#0000003d]">
                                 <div className="relative w-full pb-10">
                                     <p className="mt-6 block text-2xl font-bold uppercase text-[#5a27da] lg:mb-5">
                                         {pagkage.name}
