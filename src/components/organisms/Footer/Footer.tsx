@@ -52,15 +52,15 @@ export const Footer = () => {
                 ].map((item, index) => (
                   <div key={index} className='mx-3'>
                     <Link href={item.href} >
-                      <Image src={item.logo} width={54} height={54} alt='' className='object-cover' />
+                      <Image src={item.logo} alt='' className='object-cover w-10 h-10 md:w-[54px] md:h-[54px]' />
                     </Link>
                   </div>
                 ))
               }
             </div>
             <div className="">
-              <div className="flex text-white">
-                <div className="flex-1">
+              <div className="flex pb-14 md:pb-0 pt-7 md:pt-0 flex-col justify-center items-center text-center text-white md:flex-row md:text-left md:items-start md:justify-normal">
+                <div className="flex-1 mb-[10px] md:mb-0">
                   <h3 className='text-sm mb-6 font-medium uppercase'>ABOUT</h3>
                   <ul>
                     <li className='mb-4 text-[#fff9] hover:text-white cursor-pointer'>About Us</li>
@@ -71,14 +71,14 @@ export const Footer = () => {
                 <div className="flex-1">
                   <h3 className='text-sm mb-6 font-medium uppercase'>Other tool</h3>
                   <ul>
-                    <li className='mb-4 text-[#fff9] hover:text-white cursor-pointer'>100 Free Udemy Courses</li>
-                    <li className='mb-4 text-[#fff9] hover:text-white cursor-pointer'>Popular IT Certificate Free Practice Courses</li>
+                    <li className='mb-6 md:mb-4 text-[#fff9] hover:text-white cursor-pointer'>100 Free Udemy Courses</li>
+                    <li className='mb-6 md:mb-4 text-[#fff9] hover:text-white cursor-pointer'>Popular IT Certificate Free Practice Courses</li>
                   </ul>
                 </div>
-                <div className="flex-1">
+                <div className="flex-1 mb-4 md:mb-0">
                   <h3 className='text-sm mb-6 font-medium uppercase'>Language</h3>
-                  <button className="flex items-center bg-[#FFFFFF1A] px-4 py-1 rounded-full gap-x-1 hover:opacity-80">
-                    <Image src={earth} width={18} height={18} alt='' />
+                  <button className="flex items-center bg-[#FFFFFF1A] px-4 py-1 rounded-full hover:opacity-80">
+                    <Image src={earth} width={18} height={18} alt='' className='mr-2' />
                     <p>English</p>
                   </button>
                 </div>
@@ -86,9 +86,9 @@ export const Footer = () => {
                   <h3 className='text-sm mb-6 font-medium uppercase'>Customer service</h3>
                   <ul>
                     <li className='mb-4 text-[#fff9] hover:text-white cursor-pointer'>Support</li>
-                    <li className='mb-4 text-[#fff9] hover:text-white cursor-pointer'>24/7 Support, 12 hours response</li>
+                    <li className='mb-6 md:mb-4 text-[#fff9] hover:text-white cursor-pointer'>24/7 Support, 12 hours response</li>
                   </ul>
-                  <div className="flex items-center gap-3 hover:cursor-pointer">
+                  <div className="flex items-center flex-col gap-y-6  md:gap-3 hover:cursor-pointer md:flex-row">
                     <div className="">
                       <Image src={safe} width={130} height={38} alt='' />
 
@@ -108,14 +108,14 @@ export const Footer = () => {
             </div>
           </div>
         </Container>
-        <div className=" bg-black pt-[21px] pb-[29px] px-5">
-          <div className="flex items-center justify-center gap-x-6">
-            <Image src={paypal} width={130} height={38} alt='' />
-            <Image src={zalopay} width={130} height={38} alt='' />
-            <Image src={momo} width={130} height={38} alt='' />
-            <Image src={vietQR} width={130} height={38} alt='' />
+        <div className=" bg-black md:pt-[21px] md:pb-[29px] md:px-5 px-5 py-7 ">
+          <div className="flex items-center justify-center gap-x-6 flex-wrap md:0 mb-7">
+            <Image src={paypal} width={130} height={38} alt='' className='md:w-[130px] md:h-[38px] w-20 h-[50px] object-cover' />
+            <Image src={zalopay} width={130} height={38} alt='' className='md:w-[130px] md:h-[38px] w-20 h-[50px] object-cover' />
+            <Image src={momo} width={130} height={38} alt='' className='md:w-[130px] md:h-[38px] w-20 h-[50px] object-cover' />
+            <Image src={vietQR} width={130} height={38} alt='' className='md:w-[130px] md:h-[38px] w-20 h-[50px] object-cover' />
           </div>
-          <div className="text-[#788086] flex flex-col  items-center text-xs">
+          <div className="text-[#788086] flex flex-col  items-center text-xs text-center">
             <p>All copyrights, trade marks, service marks belong to the corresponding owners.</p>
             <p>Copyright © 2024 Udemy.com All Rights.</p>
             <div>
