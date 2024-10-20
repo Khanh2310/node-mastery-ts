@@ -71,7 +71,7 @@ export const Footer = () => {
                 <div className="flex-1">
                   <h3 className='text-sm mb-6 font-medium uppercase'>Other tool</h3>
                   <ul>
-                    <li className='mb-6 md:mb-4 text-[#fff9] hover:text-white cursor-pointer'>999+FREE Courses Account</li>
+                    <li className='mb-6 md:mb-4 text-[#fff9] hover:text-white cursor-pointer'>999+ FREE Courses Account</li>
                     <li className='mb-6 md:mb-4 text-[#fff9] hover:text-white cursor-pointer'>Popular IT Free Courses</li>
                   </ul>
                 </div>

@@ -10,7 +10,6 @@ import arrow_opacity from '@/images/icons/arrow_opacity.png'
 import arrow_up from '@/images/icons/arrow_up.png'
 import arrow_up_opacity from '@/images/icons/arrow_up_opacity.png'
 import iconPlus from '@/images/icons/plus_custom.webp'
-import DOMPurify from 'dompurify'
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
@@ -19,12 +18,10 @@ import Slider, { Settings } from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { useRouter } from 'next/navigation'
-import { Modal } from '@/components/organisms/Modal'
 export function Hero() {
     const router = useRouter()
 
 
-    const [openModal, setModal] = useState(false)
     const [show, setShow] = useState<{ [key: number]: any }>({})
     const handleShowContent = (itemId: number) => {
         setShow((prevVisibleItems) => ({
@@ -70,9 +67,7 @@ export function Hero() {
     }
 
 
-    const handleClose = (itemId: number) => {
-        setModal(true)
-    }
+
 
     return (
         <>
@@ -535,13 +530,12 @@ export function Hero() {
                                         )}
                                     </div>
                                 </div>
-                                <div onClick={() => setModal(true)}
-                                    className=" cursor-pointer rounded-full bg-[#6C33B5] py-4 text-xs font-bold uppercase text-white duration-300 hover:text-white"
+                                <Link href="#"
+                                    className=" block cursor-pointer rounded-full bg-[#6C33B5] py-4 text-xs font-bold uppercase text-white duration-300 hover:text-white"
                                 >
                                     PURCHASE NOW
-                                </div>
+                                </Link>
 
-                                <Modal openModal={openModal} handleClose={() => setModal(false)} />
                             </div>
                         </div>
                     ))}
