@@ -24,7 +24,7 @@ export function Hero() {
     const router = useRouter()
 
 
-    const [openModal, setModal] = useState<{ [key: number]: any }>({})
+    const [openModal, setModal] = useState(false)
     const [show, setShow] = useState<{ [key: number]: any }>({})
     const handleShowContent = (itemId: number) => {
         setShow((prevVisibleItems) => ({
@@ -70,11 +70,8 @@ export function Hero() {
     }
 
 
-    const handleShowModal = (itemId: number) => {
-        setModal((prevVisibleItems) => ({
-            ...prevVisibleItems,
-            [itemId]: !prevVisibleItems[itemId],
-        }))
+    const handleClose = (itemId: number) => {
+        setModal(true)
     }
 
     return (
@@ -538,13 +535,13 @@ export function Hero() {
                                         )}
                                     </div>
                                 </div>
-                                <div onClick={() => handleShowModal(pagkage.id)}
+                                <div onClick={() => setModal(true)}
                                     className=" cursor-pointer rounded-full bg-[#6C33B5] py-4 text-xs font-bold uppercase text-white duration-300 hover:text-white"
                                 >
                                     PURCHASE NOW
                                 </div>
 
-                                <Modal openModal={openModal} setModal={setModal} value={pagkage} />
+                                <Modal openModal={openModal} handleClose={() => setModal(false)} />
                             </div>
                         </div>
                     ))}

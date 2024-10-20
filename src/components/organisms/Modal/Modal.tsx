@@ -1,18 +1,15 @@
 "use client"
 interface IModal {
     openModal: any,
-    setModal: any,
-    value: any
+    handleClose: () => void,
 }
-import { ReactDOM } from "react";
-export const Modal = ({ openModal = false, setModal, value }: IModal) => {
+import ReactDOM from 'react-dom';
+export const Modal = ({ openModal = false, handleClose }: IModal) => {
+    if (typeof document === 'undefined') return <div className='modal'></div>
 
-    console.log(openModal);
 
-    const handleModal = () => {
-        setModal(!openModal)
-    }
-    return (
+
+    return ReactDOM.createPortal(
         <div >
             {openModal &&
                 <div className='fixed top-0 left-0 w-full h-full bg-black/20 flex justify-center items-center z-[99999]'>
@@ -24,9 +21,9 @@ export const Modal = ({ openModal = false, setModal, value }: IModal) => {
                         <div className='border-t border-gray-300 flex justify-between items-center px-4 pt-2'>
                             <div className='text-sm font-medium text-gray-700'></div>
                             <button
+                                onClick={handleClose}
                                 type='button'
                                 className='h-8 px-2 text-sm rounded-md bg-gray-700 text-white'
-                                onClick={handleModal}
                             >
                                 Close
                             </button>
@@ -34,6 +31,6 @@ export const Modal = ({ openModal = false, setModal, value }: IModal) => {
                     </div>
                 </div>
             }
-        </div>
+        </div>, document.querySelector('body') as HTMLBodyElement
     );
 };

@@ -9,6 +9,12 @@
   --gradient-color-4: #94c8ff;
 }
 
+body {
+  font-family: 'Gilroy', sans-serif;
+
+}
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;
