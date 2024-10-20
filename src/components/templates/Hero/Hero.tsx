@@ -88,7 +88,7 @@ export function Hero() {
 
                 <svg
                     data-v-2dd81426=""
-                    className="svg z-2 absolute bottom-0 translate-y-full"
+                    className="svg z-2 absolute bottom-0 translate-y-[95%]"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     version="1.1"
