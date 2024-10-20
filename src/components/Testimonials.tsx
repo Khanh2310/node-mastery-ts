@@ -8,19 +8,24 @@ import avatarImage3 from '@/images/avatars/avatar-3.png'
 import avatarImage4 from '@/images/avatars/avatar-4.png'
 import avatarImage5 from '@/images/avatars/avatar-5.png'
 import iconRocket from '@/images/icons/rocket.svg'
-import iconPwd from '@/images/icons/pwd.webp'
-import iconSll from '@/images/icons/ssl.webp'
-import iconSp from '@/images/icons/support.webp'
-import iconSub from '@/images/icons/subscriber.webp'
-import iconRef from '@/images/icons/refund.webp'
+import itemRocket_hover from '@/images/icons/rocket-hover.svg'
+import iconPwd from '@/images/icons/pwd.svg'
+import iconPwd_hover from '@/images/icons/pwd_hover.svg'
+import iconSll from '@/images/icons/ssl.svg'
+import iconSll_hover from '@/images/icons/ssl_hover.svg'
+import iconSp from '@/images/icons/support.svg'
+import iconSp_hover from '@/images/icons/support_hover.svg'
+import iconSub from '@/images/icons/subcribe.svg'
+import iconSub_hover from '@/images/icons/subcribe_hover.svg'
+import iconRef from '@/images/icons/refund.svg'
+import iconRef_hover from '@/images/icons/refund_hover.svg'
 
 import Slider, { Settings } from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import { useState } from 'react'
 
-const coupon = () => {
-  return
-}
+
 const testimonials = [
   {
     content:
@@ -206,37 +211,49 @@ const testimonials = [
 
 const listPeopleUse = [
   {
+    id: 1,
     image: iconRocket,
+    image_hover: itemRocket_hover,
     title: 'Pay as you run',
     content:
       'Enjoy the flexibility of our pay-as-you-go model, where you only invest when you see results. Get started for just $1, making it easy to grow without upfront costs!',
   },
   {
+    id: 2,
     image: iconPwd,
+    image_hover: iconPwd_hover,
     title: 'Realtime monitoring',
     content:
       'Enjoy the flexibility of our pay-as-you-go model, where you only invest when you see results. Get started for just $1, making it easy to grow without upfront costs!',
   },
   {
+    id: 3,
     image: iconSll,
+    image_hover: iconSll_hover,
     title: 'Your account safety',
     content:
       'We prioritize your peace of mind. Our practices are designed to be 100% risk-free for your Udemy account, ensuring compliance with all guidelines and protecting your reputation',
   },
   {
+    id: 4,
     image: iconSp,
+    image_hover: iconSp_hover,
     title: 'Support Center',
     content:
       'Have questions or concerns? Our dedicated support center is here to assist you within two hours, ensuring you receive prompt and helpful responses whenever you need them',
   },
   {
+    id: 5,
     image: iconSub,
+    image_hover: iconSub_hover,
     title: 'Result Guarantee',
     content:
       'We stand behind our service with a guarantee—if we don’t deliver enrollments or ratings, you don’t pay. This means zero financial risk for you!',
   },
   {
+    id: 6,
     image: iconRef,
+    image_hover: iconRef_hover,
     title: 'Best price - Hight Profit',
     content:
       'Our unique service offers the best value in the market. With no comparable services available, you can expect to see a significant increase in your revenue as we help you reach your audience effectively',
@@ -301,6 +318,20 @@ function SamplePrevArrow(props: any) {
 }
 
 export function Testimonials() {
+
+
+  const [hovered, setHovered] = useState<number | null>()
+
+
+
+  const handleMouseEnter = (id: number) => {
+    setHovered(id);
+  };
+
+  const handleMouseLeave = () => {
+    setHovered(null);
+  };
+
   const settings: Settings = {
     speed: 500,
     slidesToShow: 3,
@@ -341,17 +372,25 @@ export function Testimonials() {
         <div className="block w-full flex-wrap justify-center gap-6 md:flex lg:flex">
           {listPeopleUse.map((item, index) => (
             <div
-              className="mb-5 flex px-4 py-6 last:mb-0 hover:rounded-2xl hover:shadow-[0_24px_40px_#e6dbdb52] md:mb-0 md:w-[calc(50%-12px)] lg:mb-0 lg:w-[calc(33.333333%-16px)]"
-              key={index}
+              className="cursor-pointer mb-5 flex px-4 py-6 last:mb-0 hover:rounded-2xl hover:shadow-[0_24px_40px_#e6dbdb52] md:mb-0 md:w-[calc(50%-12px)] lg:mb-0 lg:w-[calc(33.333333%-16px)]"
+              key={item.id}
+              onMouseEnter={() => handleMouseEnter(item.id)}
+              onMouseLeave={handleMouseLeave}
             >
-              <div className="mr-6 flex h-16 w-16 items-center justify-center rounded-full shadow-[0_20px_20px_#0000000d] hover:bg-[#ef534f] hover:fill-white hover:shadow-[0_4px_10px_#00000014]">
-                <Image
+              <div className={`mr-6 flex h-16 w-16 items-center justify-center rounded-full shadow-[0_20px_20px_#0000000d] ease-in-out duration-1000 ${hovered === item.id && 'bg-[#6C33B5] shadow-[0_4px_10px_#00000014]'} `} >
+                {hovered === item.id ? <Image
+                  src={item?.image_hover}
+                  width={36}
+                  height={36}
+                  alt=""
+                  className='text-white fill-white'
+                /> : <Image
                   src={item.image}
                   width={36}
                   height={36}
                   alt=""
-                  className=" hover:fill-white"
-                />
+                />}
+
               </div>
               <div className="flex-1">
                 <p className="pb-6 text-lg font-bold text-[#333232]">
@@ -404,6 +443,6 @@ export function Testimonials() {
         </div>
 
       </Container>
-    </section>
+    </section >
   )
 }

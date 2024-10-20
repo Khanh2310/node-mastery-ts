@@ -23,7 +23,6 @@ export function Hero() {
     const router = useRouter()
 
     const [show, setShow] = useState<{ [key: number]: any }>({})
-    const [showModal, setShowModal] = useState(true)
     const handleShowContent = (itemId: number) => {
         setShow((prevVisibleItems) => ({
             ...prevVisibleItems,
@@ -40,7 +39,6 @@ export function Hero() {
 
     const sliderRef = useRef<Slider | null>(null)
     const [currentIndex, setCurrentIndex] = useState(0)
-    console.log('current', sliderRef.current)
 
     const addSlide = () => {
         const newSlide = {
