@@ -19,9 +19,12 @@ import Slider, { Settings } from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { useRouter } from 'next/navigation'
+import { Modal } from '@/components/organisms/Modal'
 export function Hero() {
     const router = useRouter()
 
+
+    const [openModal, setModal] = useState<{ [key: number]: any }>({})
     const [show, setShow] = useState<{ [key: number]: any }>({})
     const handleShowContent = (itemId: number) => {
         setShow((prevVisibleItems) => ({
@@ -66,6 +69,13 @@ export function Hero() {
         prevArrow: undefined,
     }
 
+
+    const handleShowModal = (itemId: number) => {
+        setModal((prevVisibleItems) => ({
+            ...prevVisibleItems,
+            [itemId]: !prevVisibleItems[itemId],
+        }))
+    }
 
     return (
         <>
@@ -466,78 +476,80 @@ export function Hero() {
                                     </div>
                                 </div>
                             </div>
-                            <div
-                                className="bg-gradient-box mt-5 overflow-hidden rounded-2xl p-5"
-                                onClick={() => handleShowContent(pagkage.id)}
-                            >
-                                <ul
-                                    className={`${show[pagkage.id] ? 'h-auto' : 'max-h-[60px]'
-                                        } overflow-hidden transition-all`}
+                            <div className="bg-gradient-box mt-5 overflow-hidden rounded-2xl p-5">
+                                <div
+                                    onClick={() => handleShowContent(pagkage.id)}
                                 >
-                                    {pagkage?.category.map((pagkageItem, index) => (
-                                        <li className="flex items-center gap-2" key={index}>
-                                            <span className="">
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    fill="none"
-                                                    viewBox="0 0 24 24"
-                                                    strokeWidth="1.5"
-                                                    stroke="currentColor"
-                                                    className="size-4 text-[#7b5bf7]"
-                                                >
-                                                    <path
-                                                        strokeLinecap="round"
-                                                        strokeLinejoin="round"
-                                                        d="m4.5 12.75 6 6 9-13.5"
+                                    <ul
+                                        className={`${show[pagkage.id] ? 'h-auto' : 'max-h-[60px]'
+                                            } overflow-hidden transition-all`}
+                                    >
+                                        {pagkage?.category.map((pagkageItem, index) => (
+                                            <li className="flex items-center gap-2" key={index}>
+                                                <span className="">
+                                                    <svg
+                                                        xmlns="http://www.w3.org/2000/svg"
+                                                        fill="none"
+                                                        viewBox="0 0 24 24"
+                                                        strokeWidth="1.5"
+                                                        stroke="currentColor"
+                                                        className="size-4 text-[#7b5bf7]"
+                                                    >
+                                                        <path
+                                                            strokeLinecap="round"
+                                                            strokeLinejoin="round"
+                                                            d="m4.5 12.75 6 6 9-13.5"
+                                                        />
+                                                    </svg>
+                                                </span>
+                                                <p className="text-sm text-[#7b5bf7]">{pagkageItem}</p>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <div className="mx-auto my-3 w-3 cursor-pointer">
+                                        {show[pagkage.id] ? (
+                                            <>
+                                                <div className="transition-all">
+                                                    <Image src={arrow_up} width={10} height={10} alt="" />
+                                                </div>
+                                                <div>
+                                                    <Image
+                                                        src={arrow_up_opacity}
+                                                        width={10}
+                                                        height={10}
+                                                        alt=""
                                                     />
-                                                </svg>
-                                            </span>
-                                            <p className="text-sm text-[#7b5bf7]">{pagkageItem}</p>
-                                        </li>
-                                    ))}
-                                </ul>
-                                <div className="mx-auto my-3 w-3 cursor-pointer">
-                                    {show[pagkage.id] ? (
-                                        <>
-                                            <div className="transition-all">
-                                                <Image src={arrow_up} width={10} height={10} alt="" />
-                                            </div>
-                                            <div>
-                                                <Image
-                                                    src={arrow_up_opacity}
-                                                    width={10}
-                                                    height={10}
-                                                    alt=""
-                                                />
-                                            </div>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <div className="transition-all">
-                                                <Image
-                                                    src={arrow_opacity}
-                                                    width={10}
-                                                    height={10}
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <div>
-                                                <Image src={arrow} width={10} height={10} alt="" />
-                                            </div>
-                                        </>
-                                    )}
+                                                </div>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <div className="transition-all">
+                                                    <Image
+                                                        src={arrow_opacity}
+                                                        width={10}
+                                                        height={10}
+                                                        alt=""
+                                                    />
+                                                </div>
+                                                <div>
+                                                    <Image src={arrow} width={10} height={10} alt="" />
+                                                </div>
+                                            </>
+                                        )}
+                                    </div>
                                 </div>
-                                <Link
-                                    href="#"
-                                    className="block cursor-pointer rounded-full bg-[#6C33B5] py-4 text-xs font-bold uppercase text-white duration-300 hover:text-white"
+                                <div onClick={() => handleShowModal(pagkage.id)}
+                                    className=" cursor-pointer rounded-full bg-[#6C33B5] py-4 text-xs font-bold uppercase text-white duration-300 hover:text-white"
                                 >
                                     PURCHASE NOW
-                                </Link>
+                                </div>
+
+                                <Modal openModal={openModal} setModal={setModal} value={pagkage} />
                             </div>
                         </div>
                     ))}
                 </div>
-            </Container>
+            </Container >
         </>
     )
 }

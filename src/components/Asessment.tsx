@@ -90,7 +90,7 @@ export const Asessment = () => {
         <div className="assessment_bg sticky top-0 z-[1] h-screen max-h-[800px] min-h-[650px] bg-gray-100 md:max-h-[1100px] md:min-h-[750px]">
           <div className="assessment_content_wrapper SP:mx-0 SP:px-0 absolute bottom-0 top-0 my-0 flex w-full flex-col items-center bg-gray-50 py-0 md:my-0 md:px-[10vh] md:py-0 lg:px-[10vh]">
             <div className="w-[90%]">
-              <h2 className="max-md:text-2xl mb-5 mt-10 text-center text-4xl font-bold md:mt-10 lg:mt-10">
+              <h2 className="max-md:text-2xl mb-5 text-center text-4xl font-bold md:mt-10 lg:mt-10">
                 Why Choose Us?
               </h2>
               <p className="mb-4 text-center text-base md:mb-24">

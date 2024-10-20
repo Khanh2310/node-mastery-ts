@@ -8,6 +8,7 @@ import { Testimonials } from '@/components/Testimonials'
 import { BasicLayout } from '@/components/layouts/BasicLayout'
 import { Faq } from '../components/Faq';
 import Hero from './(home)/hero/page'
+import { Modal } from '@/components/organisms/Modal'
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         {/* <PrimaryFeatures /> */}
         {/* <SecondaryFeatures /> */}
         {/* <CallToAction /> */}
+
         <Testimonials />
         <Faq />
         {/* <Pricing /> */}
