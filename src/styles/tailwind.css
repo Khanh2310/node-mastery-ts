@@ -11,9 +11,7 @@
 
 body {
   font-family: 'Gilroy', sans-serif;
-
 }
-
 
 @layer base {
   :root {
@@ -86,14 +84,16 @@ body {
     padding-inline: 1lh;
     padding-bottom: var(--f);
     border-image: conic-gradient(#0008 0 0) 51% / var(--f);
-    clip-path: polygon(100% calc(100% - var(--f)),
-        100% 100%,
-        calc(100% - var(--f)) calc(100% - var(--f)),
-        var(--f) calc(100% - var(--f)),
-        0 100%,
-        0 calc(100% - var(--f)),
-        999px calc(100% - var(--f) - 999px),
-        calc(100% - 999px) calc(100% - var(--f) - 999px));
+    clip-path: polygon(
+      100% calc(100% - var(--f)),
+      100% 100%,
+      calc(100% - var(--f)) calc(100% - var(--f)),
+      var(--f) calc(100% - var(--f)),
+      0 100%,
+      0 calc(100% - var(--f)),
+      999px calc(100% - var(--f) - 999px),
+      calc(100% - 999px) calc(100% - var(--f) - 999px)
+    );
     transform: translate(calc((1 - cos(45deg)) * 100%), -100%) rotate(45deg);
     transform-origin: 0% 100%;
   }
@@ -134,6 +134,11 @@ body {
   .animage {
     @apply origin-top ease-in-out;
     animation: animage 2.5s forwards infinite;
+  }
+
+  .no-img-styles {
+    max-width: none;
+    height: auto;
   }
 }
 

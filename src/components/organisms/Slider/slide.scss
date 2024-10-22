@@ -1,0 +1,48 @@
+.swiper-slide {
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease; /* Thêm opacity vào transition */
+}
+
+.swiper-slide-active {
+  opacity: 1; /* Đảm bảo slide active có độ mờ 100% */
+  animation-delay: 0.1s;
+  animation-duration: 0.9s;
+  animation-name: swiperActive-f087a4a3;
+  transform: scale(1.05); /* Tăng kích thước cho slide active */
+}
+
+@keyframes swiperActive-f087a4a3 {
+  0% {
+    transform: translate(0);
+  }
+  50% {
+    transform: translate(-5px);
+  }
+  to {
+    transform: translate(0);
+  }
+}
+
+.swiper-slide-next img {
+  animation-duration: 1s;
+  animation-name: swiperNext-f087a4a3;
+}
+
+@keyframes swiperNext-f087a4a3 {
+  0% {
+    height: 24px;
+    transform: translate(24px);
+    width: 24px;
+  }
+  40% {
+    height: 54px;
+    transform: translate(-10px);
+    width: 54px;
+  }
+  to {
+    height: 48px;
+    transform: translate(0);
+    width: 48px;
+  }
+}
