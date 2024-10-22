@@ -161,7 +161,7 @@ export function Hero() {
                         ></path>
                       </g>
                     </svg>
-                    <div className="mx-auto flex w-52 justify-center">
+                    <div className="absolute bottom-0 left-1/2 z-10 mx-auto flex w-52 -translate-x-1/2 translate-y-1/2 items-center justify-center">
                       <div className={styles.categoryShowcase}>
                         <div className={styles.categoryShowcaseSwiper}>
                           <Slider />
@@ -371,7 +371,7 @@ export function Hero() {
                       ></path>
                     </g>
                   </svg>
-                  <div className="mx-auto flex w-52 justify-center">
+                  <div className="absolute bottom-0 left-1/2 z-10 mx-auto flex w-52 -translate-x-1/2 translate-y-1/2 items-center justify-center">
                     <div className={styles.categoryShowcase}>
                       <div className={styles.categoryShowcaseSwiper}>
                         <Slider />
