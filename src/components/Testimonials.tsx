@@ -25,7 +25,6 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { useState } from 'react'
 
-
 const testimonials = [
   {
     content:
@@ -318,19 +317,15 @@ function SamplePrevArrow(props: any) {
 }
 
 export function Testimonials() {
-
-
   const [hovered, setHovered] = useState<number | null>()
 
-
-
   const handleMouseEnter = (id: number) => {
-    setHovered(id);
-  };
+    setHovered(id)
+  }
 
   const handleMouseLeave = () => {
-    setHovered(null);
-  };
+    setHovered(null)
+  }
 
   const settings: Settings = {
     speed: 500,
@@ -372,25 +367,25 @@ export function Testimonials() {
         <div className="block w-full flex-wrap justify-center gap-6 md:flex lg:flex">
           {listPeopleUse.map((item, index) => (
             <div
-              className="cursor-pointer mb-5 flex px-4 py-6 last:mb-0 hover:rounded-2xl hover:shadow-[0_24px_40px_#e6dbdb52] md:mb-0 md:w-[calc(50%-12px)] lg:mb-0 lg:w-[calc(33.333333%-16px)]"
+              className="mb-5 flex cursor-pointer px-4 py-6 last:mb-0 hover:rounded-2xl hover:shadow-[0_24px_40px_#e6dbdb52] md:mb-0 md:w-[calc(50%-12px)] lg:mb-0 lg:w-[calc(33.333333%-16px)]"
               key={item.id}
               onMouseEnter={() => handleMouseEnter(item.id)}
               onMouseLeave={handleMouseLeave}
             >
-              <div className={`mr-6 flex h-16 w-16 items-center justify-center rounded-full shadow-[0_20px_20px_#0000000d] ease-in-out duration-1000 ${hovered === item.id && 'bg-[#6C33B5] shadow-[0_4px_10px_#00000014]'} `} >
-                {hovered === item.id ? <Image
-                  src={item?.image_hover}
-                  width={36}
-                  height={36}
-                  alt=""
-                  className='text-white fill-white'
-                /> : <Image
-                  src={item.image}
-                  width={36}
-                  height={36}
-                  alt=""
-                />}
-
+              <div
+                className={`mr-6 flex h-16 w-16 items-center justify-center rounded-full shadow-[0_20px_20px_#0000000d] transition-all duration-700 ${hovered === item.id && 'bg-[#6C33B5] shadow-[0_4px_10px_#00000014]'} `}
+              >
+                {hovered === item.id ? (
+                  <Image
+                    src={item?.image_hover}
+                    width={36}
+                    height={36}
+                    alt=""
+                    className="fill-white text-white"
+                  />
+                ) : (
+                  <Image src={item.image} width={36} height={36} alt="" />
+                )}
               </div>
               <div className="flex-1">
                 <p className="pb-6 text-lg font-bold text-[#333232]">
@@ -441,8 +436,7 @@ export function Testimonials() {
             ))}
           </Slider>
         </div>
-
       </Container>
-    </section >
+    </section>
   )
 }
