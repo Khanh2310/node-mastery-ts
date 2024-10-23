@@ -11,9 +11,6 @@ import iconPlus from '@/images/icons/plus_custom.webp'
 
 import { useState } from 'react'
 import Link from 'next/link'
-import styles from './page.module.scss'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
 import { useRouter } from 'next/navigation'
 import { Slider } from '@/components/organisms/Slider'
 export function Hero() {
@@ -162,20 +159,19 @@ export function Hero() {
                       </g>
                     </svg>
                     <div className="absolute bottom-0 left-1/2 z-10 mx-auto flex w-52 -translate-x-1/2 translate-y-1/2 items-center justify-center">
-                      <div className={styles.categoryShowcase}>
-                        <div className={styles.categoryShowcaseSwiper}>
+                      <div className="relative z-[1] flex h-[54px] w-44 items-center">
+                        <div className="h-[54px] w-[142px] overflow-hidden rounded-bl-[54px] rounded-tl-[54px] pl-[2px]">
                           <Slider />
                           <button
                             type="button"
-                            className={`${styles.categoryshowcaseplus}`}
+                            className="absolute right-4 top-0 z-[2] cursor-pointer border-none bg-transparent p-0 "
                           >
                             <Image
                               src={iconPlus}
                               alt="btn"
-                              className={`${styles.btn} h-12 w-12 object-cover`}
+                              className="h-[49px] w-[49px] rounded-full object-cover"
                               width={48}
                               height={48}
-                              objectFit="cover"
                             />
                           </button>
                         </div>
@@ -372,20 +368,19 @@ export function Hero() {
                     </g>
                   </svg>
                   <div className="absolute bottom-0 left-1/2 z-10 mx-auto flex w-52 -translate-x-1/2 translate-y-1/2 items-center justify-center">
-                    <div className={styles.categoryShowcase}>
-                      <div className={styles.categoryShowcaseSwiper}>
+                    <div className="relative z-[1] flex h-[54px] w-44 items-center">
+                      <div className="h-[54px] w-[142px] overflow-hidden rounded-bl-[54px] rounded-tl-[54px] pl-[2px]">
                         <Slider />
                         <button
                           type="button"
-                          className={`${styles.categoryshowcaseplus}`}
+                          className="absolute right-4 top-0 z-[2] cursor-pointer border-none bg-transparent p-0 "
                         >
                           <Image
                             src={iconPlus}
                             alt="btn"
-                            className={`${styles.btn} h-12 w-12 object-cover`}
+                            className="h-[49px] w-[49px] rounded-full object-cover"
                             width={48}
                             height={48}
-                            objectFit="cover"
                           />
                         </button>
                       </div>
