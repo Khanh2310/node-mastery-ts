@@ -3,7 +3,6 @@ import Image from 'next/image'
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.css'
-import styles from './Slider.module.scss'
 import './slide.scss'
 import { Autoplay } from 'swiper/modules'
 
@@ -46,7 +45,7 @@ export const Slider: React.FC = () => {
             alt={`Image ${index + 1}`}
             width={500}
             height={300}
-            className={`${styles.image} no-img-styles`}
+            className="no-img-styles box-border h-[48px] w-[48px] rounded-[48px] border-2 border-white bg-white object-cover"
           />
         </SwiperSlide>
       ))}

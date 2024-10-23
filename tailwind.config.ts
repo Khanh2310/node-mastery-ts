@@ -77,17 +77,34 @@ const config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+
+        swiperActive: {
+          '0%': { transform: 'translate(0)' },
+          '50%': { transform: 'translate(-5px)' },
+          '100%': { transform: 'translate(0)' },
+        },
+        swiperNext: {
+          '0%': { height: '24px', transform: 'translate(24px)', width: '24px' },
+          '40%': {
+            height: '54px',
+            transform: 'translate(-10px)',
+            width: '54px',
+          },
+          '100%': { height: '48px', transform: 'translate(0)', width: '48px' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        swiperActive: 'swiperActive-f087a4a3 0.9s ease-in-out 0.1s',
+        swiperNext: 'swiperNext-f087a4a3 1s ease-in-out',
       },
       screens: {
         tablet: { max: '1129px' },
         lapstops_big: { min: '1130px' },
         mobile: { max: '768' },
         laptops: { min: '1025px', max: '1300px' },
-        small_SP: {max:'426px'}
+        small_SP: { max: '426px' },
       },
     },
   },
