@@ -266,11 +266,17 @@ export function Hero() {
                       </>
                     )}
                   </div>
+
                   <Link
-                    href="#"
-                    className="block cursor-pointer rounded-full bg-[#6C33B5] py-4 text-xs font-bold uppercase text-white"
+                    href="#_"
+                    className="group relative block overflow-hidden rounded-full bg-[#6C33B5] px-5 py-3 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-[#6C33B5] hover:to-[#9c67e5] hover:ring-2 hover:ring-[#9c67e5] hover:ring-offset-2"
                   >
-                    {option.name === 'Free Trial' ? 'Try Now' : 'PURCHASE NOW'}
+                    <span className="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-1000 group-hover:-translate-x-64" />
+                    <span className="relative text-xs font-bold uppercase">
+                      {option.name === 'Free Trial'
+                        ? 'Try Now'
+                        : 'PURCHASE NOW'}
+                    </span>
                   </Link>
                 </div>
               </div>
@@ -470,10 +476,13 @@ export function Hero() {
                   </div>
                 </div>
                 <Link
-                  href="#"
-                  className=" block cursor-pointer rounded-full bg-[#6C33B5] py-4 text-xs font-bold uppercase text-white duration-300 hover:text-white"
+                  href="#_"
+                  className="group relative block overflow-hidden rounded-full bg-[#6C33B5] px-5 py-3 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-[#6C33B5] hover:to-[#9c67e5] hover:ring-2 hover:ring-[#9c67e5] hover:ring-offset-2"
                 >
-                  PURCHASE NOW
+                  <span className="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-1000 group-hover:-translate-x-64" />
+                  <span className="relative text-xs font-bold">
+                    PURCHASE NOW
+                  </span>
                 </Link>
               </div>
             </div>
