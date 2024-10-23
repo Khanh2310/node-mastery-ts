@@ -98,7 +98,7 @@ export const Asessment = () => {
               </p>
             </div>
             <div className="w-full">
-              <div className="assessment_content_content SP:ml-0 SP:w-full relative my-auto w-full max-w-[1200px] overflow-hidden md:mx-auto md:ml-2 md:w-[92%]">
+              <div className="assessment_content_content SP:ml-0 SP:w-full relative my-auto w-full max-w-[1200px] overflow-hidden md:mx-auto md:w-[92%]">
                 <AsessmentContent ass_ars={as_ars} />
               </div>
             </div>

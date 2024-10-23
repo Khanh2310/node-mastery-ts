@@ -3,7 +3,6 @@ import Image from 'next/image'
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.css'
-import './slide.scss'
 import { Autoplay } from 'swiper/modules'
 
 export const Slider: React.FC = () => {
