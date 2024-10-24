@@ -7,11 +7,17 @@ import arrow from '@/images/icons/arrow.png'
 import arrow_opacity from '@/images/icons/arrow_opacity.png'
 import arrow_up from '@/images/icons/arrow_up.png'
 import arrow_up_opacity from '@/images/icons/arrow_up_opacity.png'
+import defaultFree from '@/images/logos/UdemyService-logo.jpg'
 import avatar_default1 from '@/images/avatars/default1.png'
 import avatar_default2 from '@/images/avatars/default2.png'
 import avatar_default3 from '@/images/avatars/default3.png'
 import avatar_default4 from '@/images/avatars/default4.png'
 import avatar_default5 from '@/images/avatars/880-200x200.jpg'
+import avatar_default6 from '@/images/avatars/default6.png'
+import avatar_default7 from '@/images/avatars/default7.png'
+import avatar_default8 from '@/images/avatars/default8.jpg'
+import avatar_default9 from '@/images/avatars/default9.png'
+import avatar_default10 from '@/images/avatars/default10.png'
 import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -47,7 +53,7 @@ export function Hero() {
         'Valid 03 days',
         'Only for 1 instructor',
       ],
-      userHasPurchased: 'https://picsum.photos/200?random=',
+      userHasPurchased: [],
     },
     {
       id: 2,
@@ -60,7 +66,18 @@ export function Hero() {
         'No expire',
         'Unlimited instructor / course',
       ],
-      userHasPurchased: 'https://picsum.photos/200?random=',
+      userHasPurchased: [
+        avatar_default1,
+        avatar_default2,
+        avatar_default3,
+        avatar_default4,
+        avatar_default5,
+        avatar_default6,
+        avatar_default7,
+        avatar_default8,
+        avatar_default9,
+        avatar_default10,
+      ],
     },
     {
       id: 3,
@@ -73,8 +90,18 @@ export function Hero() {
         'No expire',
         'Unlimited instructor / course',
       ],
-      userHasPurchased: 'https://picsum.photos/200?random=',
-
+      userHasPurchased: [
+        avatar_default1,
+        avatar_default2,
+        avatar_default3,
+        avatar_default4,
+        avatar_default5,
+        avatar_default1,
+        avatar_default2,
+        avatar_default3,
+        avatar_default4,
+        avatar_default5,
+      ],
       sale: '30%',
     },
     {
@@ -88,7 +115,18 @@ export function Hero() {
         'No expire',
         'Unlimited instructor / course',
       ],
-      userHasPurchased: 'https://picsum.photos/200?random=',
+      userHasPurchased: [
+        avatar_default1,
+        avatar_default2,
+        avatar_default3,
+        avatar_default4,
+        avatar_default5,
+        avatar_default1,
+        avatar_default2,
+        avatar_default3,
+        avatar_default4,
+        avatar_default5,
+      ],
       sale: '50%',
     },
   ]
@@ -238,11 +276,11 @@ export function Hero() {
             {pakageBasic.map((option) => (
               <div
                 key={option.id}
-                className="md:calc(33.33%-16px) laptops:calc(33.33%-16px) xl:w-[calc(25%-18px)] small_SP:w-[90%]"
+                className="md:calc(33.33%-16px) laptops:calc(33.33%-16px)  xl:w-[calc(25%-18px)] small_SP:w-[90%]"
               >
                 <div
                   onClick={() => router.push(`details/${option.id}`)}
-                  className=" flex cursor-pointer flex-col items-center rounded-2xl bg-white shadow-xl transition-all hover:shadow-[0_8px_32px_#0000003d]"
+                  className=" flex cursor-pointer flex-col items-center rounded-2xl bg-white shadow-xl transition-all hover:shadow-[0_8px_32px_#0000003d] "
                 >
                   <div className="relative w-full pb-10">
                     {option?.sale && (
@@ -272,34 +310,51 @@ export function Hero() {
                       </g>
                     </svg>
                     <div className="absolute bottom-0 left-1/2 z-10 mx-auto flex w-52 -translate-x-1/2 translate-y-1/2 items-center justify-center">
-                      <Slider
-                        imageUser={option.userHasPurchased}
-                        idUser={option.id}
-                      />
+                      {option.id === 1 ? (
+                        <div className="relative z-[1] flex h-[54px] items-center">
+                          <Image
+                            src={defaultFree}
+                            alt=""
+                            width={500}
+                            height={300}
+                            className="box-border h-[48px] w-[48px] rounded-[48px] border-2 border-white bg-white object-cover"
+                          />
+                        </div>
+                      ) : (
+                        <Slider imageUser={option.userHasPurchased || []} />
+                      )}
                     </div>
                   </div>
-                  <div className="relative z-[2] w-full rounded-b-2xl bg-[#6C33B5] pb-5 pt-7">
-                    {slides.map((item, index) => (
-                      <p
-                        className={` my-1 transform text-sm text-white  ${
-                          slides.length - 1 === item.id
-                            ? 'opacity-1 transition-all delay-700 duration-1000 ease-in-out'
-                            : 'opacity-0 transition-all delay-700 duration-1000 ease-in-out'
-                        }`}
-                        key={index}
-                      >
-                        {slides.length - 1 === item.id &&
-                          item.content + ` joined ${index + ' seconds ago'}`}
-                      </p>
-                    ))}
+                  <div className="relative z-[2] mt-auto w-full   rounded-b-2xl bg-[#6C33B5] pb-5 pt-10">
+                    {option.id === 1 ? (
+                      <p className="text-xl text-white ">Free to use</p>
+                    ) : (
+                      slides.map((item, index) => (
+                        <p
+                          className={`transform text-sm text-white  ${
+                            slides.length - 1 === item.id
+                              ? 'opacity-1 transition-all delay-700 duration-1000 ease-in-out'
+                              : 'opacity-0 transition-all delay-700 duration-1000 ease-in-out'
+                          }`}
+                          key={index}
+                        >
+                          {slides.length - 1 === item.id &&
+                            item.content + ` joined ${index + ' seconds ago'}`}
+                        </p>
+                      ))
+                    )}
+
                     {option.name == 'Free Trial' ? (
-                      <div className="font-bold text-white lg:mt-4 lg:text-2xl">
+                      <div className="test-base font-bold text-white">
                         {option.credit} credits
                       </div>
                     ) : (
-                      <div className="font-bold text-white lg:mt-4 lg:text-2xl">
+                      <div className="font-bold text-white lg:text-2xl">
                         <span className="text-lg font-medium leading-7">$</span>
-                        {option.price} = {option.credit} credits
+                        {option.price} /{' '}
+                        <span className="text-base">
+                          {option.credit} credits
+                        </span>
                       </div>
                     )}
                   </div>
@@ -422,7 +477,7 @@ export function Hero() {
                     </g>
                   </svg>
                   <div className="absolute bottom-0 left-1/2 z-10 mx-auto flex w-52 -translate-x-1/2 translate-y-1/2 items-center justify-center">
-                    {/* <Slider imageUser={pagkage?.userHasPurchased} /> */}
+                    <Slider imageUser={pagkage?.userHasPurchased} />
                   </div>
                 </div>
                 <div className="relative z-[2] w-full rounded-b-2xl bg-[#6C33B5] pb-5 pt-7">
