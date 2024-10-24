@@ -7,11 +7,15 @@ import arrow from '@/images/icons/arrow.png'
 import arrow_opacity from '@/images/icons/arrow_opacity.png'
 import arrow_up from '@/images/icons/arrow_up.png'
 import arrow_up_opacity from '@/images/icons/arrow_up_opacity.png'
-import iconPlus from '@/images/icons/plus_custom.webp'
-
+import avatar_default1 from '@/images/avatars/default1.png'
+import avatar_default2 from '@/images/avatars/default2.png'
+import avatar_default3 from '@/images/avatars/default3.png'
+import avatar_default4 from '@/images/avatars/default4.png'
+import avatar_default5 from '@/images/avatars/880-200x200.jpg'
 import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import axios from 'axios'
 import { Slider } from '@/components/organisms/Slider'
 export function Hero() {
   const router = useRouter()
@@ -30,6 +34,166 @@ export function Hero() {
     { id: 3, content: 'User 3' },
     { id: 4, content: 'User 4' },
   ])
+
+  const pakageBasic = [
+    {
+      id: 1,
+      name: 'Free Trial',
+      price: '',
+      credit: '10',
+      category: [
+        '01 new student : 01 credit',
+        '01 new 5-star rate: 05 credits',
+        'Valid 03 days',
+        'Only for 1 instructor',
+      ],
+      userHasPurchased: 'https://picsum.photos/200?random=',
+    },
+    {
+      id: 2,
+      name: 'PAY AS YOU GO',
+      price: '1',
+      credit: '10',
+      category: [
+        '01 new student : 01 credit',
+        '01 new 5-star rate: 05 credits',
+        'No expire',
+        'Unlimited instructor / course',
+      ],
+      userHasPurchased: 'https://picsum.photos/200?random=',
+    },
+    {
+      id: 3,
+      name: 'Basic plan',
+      price: '9',
+      credit: '130',
+      category: [
+        '01 new student : 01 credit',
+        '01 new 5-star rate: 05 credits',
+        'No expire',
+        'Unlimited instructor / course',
+      ],
+      userHasPurchased: 'https://picsum.photos/200?random=',
+
+      sale: '30%',
+    },
+    {
+      id: 4,
+      name: 'Premium plan',
+      price: '19',
+      credit: '300',
+      category: [
+        '01 new student : 01 credit',
+        '01 new 5-star rate: 05 credits',
+        'No expire',
+        'Unlimited instructor / course',
+      ],
+      userHasPurchased: 'https://picsum.photos/200?random=',
+      sale: '50%',
+    },
+  ]
+
+  const requestPackage = [
+    {
+      id: 5,
+      name: 'STARTER PLAN',
+      credit: '9',
+      category: [
+        'New student : 100 students',
+        'New 5-star rate: 10 rating',
+        'Execute by our expert team',
+        'No login info required',
+        'Delivery date: 05 Days',
+      ],
+      userHasPurchased: [
+        avatar_default1,
+        avatar_default2,
+        avatar_default3,
+        avatar_default4,
+        avatar_default5,
+        avatar_default1,
+        avatar_default2,
+        avatar_default3,
+        avatar_default4,
+        avatar_default5,
+      ],
+    },
+    {
+      id: 6,
+      name: 'MOVER PLAN',
+
+      credit: '49',
+      category: [
+        'New student : 1.000 students',
+        'New 5-star rate: 30 rating',
+        'Execute by our expert team',
+        'No login info required',
+        'Delivery date: 10 Days',
+      ],
+      userHasPurchased: [
+        avatar_default1,
+        avatar_default2,
+        avatar_default3,
+        avatar_default4,
+        avatar_default5,
+        avatar_default1,
+        avatar_default2,
+        avatar_default3,
+        avatar_default4,
+        avatar_default5,
+      ],
+    },
+    {
+      id: 7,
+      name: 'FLYER PLAN',
+      credit: '99',
+      category: [
+        'New student : 2.000 students',
+        'New 5-star rate: 30 rating',
+        'Revenue Guarantee: 50 USD *',
+        'Executed by our expert team',
+        'No login info required',
+        'Delivery date: 15 Days',
+      ],
+      userHasPurchased: [
+        avatar_default1,
+        avatar_default2,
+        avatar_default3,
+        avatar_default4,
+        avatar_default5,
+        avatar_default1,
+        avatar_default2,
+        avatar_default3,
+        avatar_default4,
+        avatar_default5,
+      ],
+    },
+    {
+      id: 8,
+      name: 'LEAP PLAN',
+      credit: '299',
+      category: [
+        'New student : 20.000 students',
+        'New 5-star rate: 50 rating',
+        'Revenue Guarantee: 100 USD *',
+        'Executed by our expert team',
+        'No login info required',
+        'Delivery date: 15 Days',
+      ],
+      userHasPurchased: [
+        avatar_default1,
+        avatar_default2,
+        avatar_default3,
+        avatar_default4,
+        avatar_default5,
+        avatar_default1,
+        avatar_default2,
+        avatar_default3,
+        avatar_default4,
+        avatar_default5,
+      ],
+    },
+  ]
 
   return (
     <>
@@ -71,58 +235,7 @@ export function Hero() {
       <Container className="text-center">
         <div className="relative z-10 -mt-[20px] w-full bg-white">
           <div className="relative z-10 mx-auto mt-12 flex -translate-y-[60px] flex-wrap justify-center gap-6 rounded-full">
-            {[
-              {
-                id: 1,
-                name: 'Free Trial',
-                price: '',
-                credit: '10',
-                category: [
-                  '01 new student : 01 credit',
-                  '01 new 5-star rate: 05 credits',
-                  'Valid 03 days',
-                  'Only for 1 instructor',
-                ],
-              },
-              {
-                id: 2,
-                name: 'PAY AS YOU GO',
-                price: '1',
-                credit: '10',
-                category: [
-                  '01 new student : 01 credit',
-                  '01 new 5-star rate: 05 credits',
-                  'No expire',
-                  'Unlimited instructor / course',
-                ],
-              },
-              {
-                id: 3,
-                name: 'Basic plan',
-                price: '9',
-                credit: '130',
-                category: [
-                  '01 new student : 01 credit',
-                  '01 new 5-star rate: 05 credits',
-                  'No expire',
-                  'Unlimited instructor / course',
-                ],
-                sale: '30%',
-              },
-              {
-                id: 4,
-                name: 'Premium plan',
-                price: '19',
-                credit: '300',
-                category: [
-                  '01 new student : 01 credit',
-                  '01 new 5-star rate: 05 credits',
-                  'No expire',
-                  'Unlimited instructor / course',
-                ],
-                sale: '50%',
-              },
-            ].map((option) => (
+            {pakageBasic.map((option) => (
               <div
                 key={option.id}
                 className="md:calc(33.33%-16px) laptops:calc(33.33%-16px) xl:w-[calc(25%-18px)] small_SP:w-[90%]"
@@ -159,23 +272,10 @@ export function Hero() {
                       </g>
                     </svg>
                     <div className="absolute bottom-0 left-1/2 z-10 mx-auto flex w-52 -translate-x-1/2 translate-y-1/2 items-center justify-center">
-                      <div className="relative z-[1] flex h-[54px] w-44 items-center">
-                        <div className="h-[54px] w-[142px] overflow-hidden rounded-bl-[54px] rounded-tl-[54px] pl-[2px]">
-                          <Slider />
-                          <button
-                            type="button"
-                            className="absolute right-4 top-0 z-[2] cursor-pointer border-none bg-transparent p-0 "
-                          >
-                            <Image
-                              src={iconPlus}
-                              alt="btn"
-                              className="h-[49px] w-[49px] rounded-full object-cover"
-                              width={48}
-                              height={48}
-                            />
-                          </button>
-                        </div>
-                      </div>
+                      <Slider
+                        imageUser={option.userHasPurchased}
+                        idUser={option.id}
+                      />
                     </div>
                   </div>
                   <div className="relative z-[2] w-full rounded-b-2xl bg-[#6C33B5] pb-5 pt-7">
@@ -288,59 +388,7 @@ export function Hero() {
           DON'T KNOW HOW TO DO? LET'S OUR EXPERT TEAM HANDLE EVERYTHING
         </div>
         <div className="relative z-10 mx-auto mt-12 flex flex-wrap justify-center gap-6 rounded-full">
-          {[
-            {
-              id: 5,
-              name: 'STARTER PLAN',
-              credit: '9',
-              category: [
-                'New student : 100 students',
-                'New 5-star rate: 10 rating',
-                'Execute by our expert team',
-                'No login info required',
-                'Delivery date: 05 Days',
-              ],
-            },
-            {
-              id: 6,
-              name: 'MOVER PLAN',
-
-              credit: '49',
-              category: [
-                'New student : 1.000 students',
-                'New 5-star rate: 30 rating',
-                'Execute by our expert team',
-                'No login info required',
-                'Delivery date: 10 Days',
-              ],
-            },
-            {
-              id: 7,
-              name: 'FLYER PLAN',
-              credit: '99',
-              category: [
-                'New student : 2.000 students',
-                'New 5-star rate: 30 rating',
-                'Revenue Guarantee: 50 USD *',
-                'Executed by our expert team',
-                'No login info required',
-                'Delivery date: 15 Days',
-              ],
-            },
-            {
-              id: 8,
-              name: 'LEAP PLAN',
-              credit: '299',
-              category: [
-                'New student : 20.000 students',
-                'New 5-star rate: 50 rating',
-                'Revenue Guarantee: 100 USD *',
-                'Executed by our expert team',
-                'No login info required',
-                'Delivery date: 15 Days',
-              ],
-            },
-          ].map((pagkage) => (
+          {requestPackage.map((pagkage) => (
             <div
               key={pagkage.id}
               className="md:calc(33.33%-16px) laptops:calc(33.33%-16px) xl:w-[calc(25%-18px)] small_SP:w-[90%]"
@@ -374,23 +422,7 @@ export function Hero() {
                     </g>
                   </svg>
                   <div className="absolute bottom-0 left-1/2 z-10 mx-auto flex w-52 -translate-x-1/2 translate-y-1/2 items-center justify-center">
-                    <div className="relative z-[1] flex h-[54px] w-44 items-center">
-                      <div className="h-[54px] w-[142px] overflow-hidden rounded-bl-[54px] rounded-tl-[54px] pl-[2px]">
-                        <Slider />
-                        <button
-                          type="button"
-                          className="absolute right-4 top-0 z-[2] cursor-pointer border-none bg-transparent p-0 "
-                        >
-                          <Image
-                            src={iconPlus}
-                            alt="btn"
-                            className="h-[49px] w-[49px] rounded-full object-cover"
-                            width={48}
-                            height={48}
-                          />
-                        </button>
-                      </div>
-                    </div>
+                    {/* <Slider imageUser={pagkage?.userHasPurchased} /> */}
                   </div>
                 </div>
                 <div className="relative z-[2] w-full rounded-b-2xl bg-[#6C33B5] pb-5 pt-7">
