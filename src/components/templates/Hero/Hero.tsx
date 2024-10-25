@@ -325,16 +325,17 @@ export function Hero() {
                       )}
                     </div>
                   </div>
-                  <div className="relative z-[2] mt-auto w-full   rounded-b-2xl bg-[#6C33B5] pb-5 pt-10">
+                  <div className="relative z-[2] mt-auto w-full rounded-b-2xl bg-[#6C33B5] pb-5 pt-10">
                     {option.id === 1 ? (
-                      <p className="text-xl text-white ">Free to use</p>
+                      <p className="mb-2 text-xl text-white">Free to use</p>
                     ) : (
                       slides.map((item, index) => (
                         <p
-                          className={`transform text-sm text-white  ${slides.length - 1 === item.id
+                          className={`my-1 transform text-sm text-white  ${
+                            slides.length - 1 === item.id
                               ? 'opacity-1 transition-all delay-700 duration-1000 ease-in-out'
                               : 'opacity-0 transition-all delay-700 duration-1000 ease-in-out'
-                            }`}
+                          }`}
                           key={index}
                         >
                           {slides.length - 1 === item.id &&
@@ -363,8 +364,9 @@ export function Hero() {
                   onClick={() => handleShowContent(option.id)}
                 >
                   <ul
-                    className={`${show[option.id] ? 'h-auto' : 'max-h-[60px]'
-                      } overflow-hidden transition-all`}
+                    className={`${
+                      show[option.id] ? 'h-auto' : 'max-h-[60px]'
+                    } overflow-hidden transition-all`}
                   >
                     {option?.category.map((categoryItem, index) => (
                       <li className="flex items-center gap-2" key={index}>
@@ -481,10 +483,11 @@ export function Hero() {
                 <div className="relative z-[2] mt-auto w-full   rounded-b-2xl bg-[#6C33B5] pb-5 pt-10">
                   {slides.map((item, index) => (
                     <p
-                      className={` my-1 transform text-sm text-white  ${slides.length - 1 === item.id
+                      className={`my-1 transform text-sm text-white  ${
+                        slides.length - 1 === item.id
                           ? 'opacity-1 transition-all delay-700 duration-1000 ease-in-out'
                           : 'opacity-0 transition-all delay-700 duration-1000 ease-in-out'
-                        }`}
+                      }`}
                       key={index}
                     >
                       {slides.length - 1 === item.id &&
@@ -501,8 +504,9 @@ export function Hero() {
               <div className="mt-5 overflow-hidden rounded-2xl bg-gradient-box p-5">
                 <div onClick={() => handleShowContent(pagkage.id)}>
                   <ul
-                    className={`${show[pagkage.id] ? 'h-auto' : 'max-h-[60px]'
-                      } overflow-hidden transition-all`}
+                    className={`${
+                      show[pagkage.id] ? 'h-auto' : 'max-h-[60px]'
+                    } overflow-hidden transition-all`}
                   >
                     {pagkage?.category.map((pagkageItem, index) => (
                       <li className="flex items-center gap-2" key={index}>
