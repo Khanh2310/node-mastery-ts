@@ -11,9 +11,7 @@
 
 body {
   font-family: 'Gilroy', sans-serif;
-
 }
-
 
 @layer base {
   :root {
@@ -86,14 +84,16 @@ body {
     padding-inline: 1lh;
     padding-bottom: var(--f);
     border-image: conic-gradient(#0008 0 0) 51% / var(--f);
-    clip-path: polygon(100% calc(100% - var(--f)),
-        100% 100%,
-        calc(100% - var(--f)) calc(100% - var(--f)),
-        var(--f) calc(100% - var(--f)),
-        0 100%,
-        0 calc(100% - var(--f)),
-        999px calc(100% - var(--f) - 999px),
-        calc(100% - 999px) calc(100% - var(--f) - 999px));
+    clip-path: polygon(
+      100% calc(100% - var(--f)),
+      100% 100%,
+      calc(100% - var(--f)) calc(100% - var(--f)),
+      var(--f) calc(100% - var(--f)),
+      0 100%,
+      0 calc(100% - var(--f)),
+      999px calc(100% - var(--f) - 999px),
+      calc(100% - 999px) calc(100% - var(--f) - 999px)
+    );
     transform: translate(calc((1 - cos(45deg)) * 100%), -100%) rotate(45deg);
     transform-origin: 0% 100%;
   }
@@ -161,4 +161,46 @@ body {
 
 .testimonial.slick-initialized .slick-slide {
   margin: 0 8px !important;
+}
+
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 4px;
+  }
+
+  .scrollbar::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: transparent;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: #c0c0c0;
+    border-radius: 100vh;
+    border: 2px solid #c0c0c0;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #c0c0c0;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+    height: 3px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: #c0c0c0;
+    border-radius: 100vh;
+    border: 2px solid #c0c0c0;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: #c0c0c0;
+  }
 }

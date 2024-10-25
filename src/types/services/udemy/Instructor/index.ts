@@ -22,3 +22,17 @@ export type InstructorsResponseType = {
   items: Instructor[] | []
   totalData: number
 }
+
+export enum RatingRange {
+  LOW = 'LOW',
+  MIDDLE = 'MIDDLE',
+  HIGHT = 'HIGH'
+}
+
+export enum RatingRank {
+  HOT = 'HOT',
+  NEW = 'NEW',
+  BESTSELLER = 'BESTSELLER',
+  HIGHEST_RATED = 'Highest rated'
+}
+

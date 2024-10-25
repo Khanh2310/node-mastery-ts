@@ -1,7 +1,7 @@
 'use client'
 import axiosInstance from '@/config/axiosInstance'
 import { UrlApi } from '@/config/url'
-import { fullName, isClient } from '@/lib/utils'
+import { isClient } from '@/lib/utils'
 import { CommonResType } from '@/schemas/commonType'
 import { User } from '@/types/User'
 import useSWR from 'swr'

@@ -25,8 +25,8 @@ export const TextboxForSearch = ({
       <label className="sr-only" {...labelProps}>
         {children}
       </label>
-      <div className="w-full flex border rounded-md">
-        <Textbox {...textboxProps} className={textboxProps?.className} />
+      <div className="w-full flex border rounded-md group">
+        <Textbox {...textboxProps} className={`${textboxProps?.className} focus:!ring-slate-200 focus:!ring-1`} />
         {(textboxProps.value as string).length > 0 && (
           <div className="flex items-center ">
             <button
@@ -47,7 +47,7 @@ export const TextboxForSearch = ({
             type="submit"
             className={`${
               (textboxProps.value as string).length > 0 &&
-              '!bg-blue-600 text-gray-100 mb-[-1px] mt-[-1px] mr-[-1px] h-[calc(100%+2px)]'
+              '!bg-blue-600 !text-gray-100 mb-[-1px] mt-[-1px] mr-[-1px] h-[calc(100%+2px)]'
             }   p-2 md:p-2.5 hover:py-[calc(0.5rem+1px)] hover:md:py-[calc(0.625rem+1px)] text-gray-400 hover:text-gray-100 group relative min-w-0 flex-1 overflow-hidden bg-white text-sm font-medium text-center hover:bg-blue-700 focus:z-10 last:rounded-r-md`}
           >
             <MagnifyingGlassIcon className="h-5 w-5" aria-hidden="true" />
