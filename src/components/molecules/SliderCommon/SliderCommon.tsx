@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.css'
 import { Autoplay } from 'swiper/modules'
 interface AvatarProps {
-  avatarUser: StaticImageData[] // Ensure this prop is defined
+  avatarUser: StaticImageData[]
 }
 export const SliderCommon: React.FC<AvatarProps> = ({ avatarUser }) => {
   function shuffleArray<T>(array: T[]): T[] {

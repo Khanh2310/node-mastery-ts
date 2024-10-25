@@ -21,8 +21,8 @@ import avatar_default10 from '@/images/avatars/default10.png'
 import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import axios from 'axios'
 import { Slider } from '@/components/organisms/Slider'
+import { MessageRotator } from '@/components/molecules/MessageRotator'
 export function Hero() {
   const router = useRouter()
 
@@ -33,13 +33,6 @@ export function Hero() {
       [itemId]: !prevVisibleItems[itemId],
     }))
   }
-
-  const [slides, setSlides] = useState([
-    { id: 1, content: 'User 1' },
-    { id: 2, content: 'User 2' },
-    { id: 3, content: 'User 3' },
-    { id: 4, content: 'User 4' },
-  ])
 
   const pakageBasic = [
     {
@@ -78,6 +71,7 @@ export function Hero() {
         avatar_default9,
         avatar_default10,
       ],
+      renderName: 100,
     },
     {
       id: 3,
@@ -103,6 +97,7 @@ export function Hero() {
         avatar_default5,
       ],
       sale: '30%',
+      renderName: 90,
     },
     {
       id: 4,
@@ -128,6 +123,7 @@ export function Hero() {
         avatar_default5,
       ],
       sale: '50%',
+      renderName: 80,
     },
   ]
 
@@ -155,6 +151,7 @@ export function Hero() {
         avatar_default4,
         avatar_default5,
       ],
+      renderName: 70,
     },
     {
       id: 6,
@@ -180,6 +177,7 @@ export function Hero() {
         avatar_default4,
         avatar_default5,
       ],
+      renderName: 100,
     },
     {
       id: 7,
@@ -205,6 +203,7 @@ export function Hero() {
         avatar_default4,
         avatar_default5,
       ],
+      renderName: 99,
     },
     {
       id: 8,
@@ -230,8 +229,42 @@ export function Hero() {
         avatar_default4,
         avatar_default5,
       ],
+      renderName: 89,
     },
   ]
+
+  const generateRandomNamesWithTime = (count: number): string[] => {
+    const alphabet = 'abcdefghijklmnopqrstuvwxyz0123456789'
+    const messages: string[] = []
+
+    const randomTimeAgo = () => {
+      const timeType = Math.floor(Math.random() * 3) // 0: days, 1: hours, 2: seconds
+      let timeValue
+
+      if (timeType === 0) {
+        timeValue = Math.floor(Math.random() * 12) + 1 // Giới hạn từ 1 đến 12 ngày
+        return `${timeValue} days ago`
+      } else if (timeType === 1) {
+        timeValue = Math.floor(Math.random() * 60) + 1 // Giới hạn từ 1 đến 60 giờ
+        return `${timeValue} hours ago`
+      } else {
+        timeValue = Math.floor(Math.random() * 60) + 1 // Giới hạn từ 1 đến 60 giây
+        return `${timeValue} seconds ago`
+      }
+    }
+
+    for (let i = 0; i < count; i++) {
+      const randomName = Array.from(
+        { length: 5 },
+        () => alphabet[Math.floor(Math.random() * alphabet.length)],
+      ).join('')
+      messages.push(
+        `${randomName.slice(0, 2)}***${randomName.slice(2)} joined ${randomTimeAgo()}`,
+      )
+    }
+
+    return messages
+  }
 
   return (
     <>
@@ -329,19 +362,15 @@ export function Hero() {
                     {option.id === 1 ? (
                       <p className="mb-2 text-xl text-white">Free to use</p>
                     ) : (
-                      slides.map((item, index) => (
-                        <p
-                          className={`my-1 transform text-sm text-white  ${
-                            slides.length - 1 === item.id
-                              ? 'opacity-1 transition-all delay-700 duration-1000 ease-in-out'
-                              : 'opacity-0 transition-all delay-700 duration-1000 ease-in-out'
-                          }`}
-                          key={index}
-                        >
-                          {slides.length - 1 === item.id &&
-                            item.content + ` joined ${index + ' seconds ago'}`}
-                        </p>
-                      ))
+                      <p className="my-1">
+                        {option.renderName !== undefined && (
+                          <MessageRotator
+                            messages={generateRandomNamesWithTime(
+                              option.renderName,
+                            )}
+                          />
+                        )}
+                      </p>
                     )}
 
                     {option.name == 'Free Trial' ? (
@@ -481,19 +510,15 @@ export function Hero() {
                   </div>
                 </div>
                 <div className="relative z-[2] mt-auto w-full   rounded-b-2xl bg-[#6C33B5] pb-5 pt-10">
-                  {slides.map((item, index) => (
-                    <p
-                      className={`my-1 transform text-sm text-white  ${
-                        slides.length - 1 === item.id
-                          ? 'opacity-1 transition-all delay-700 duration-1000 ease-in-out'
-                          : 'opacity-0 transition-all delay-700 duration-1000 ease-in-out'
-                      }`}
-                      key={index}
-                    >
-                      {slides.length - 1 === item.id &&
-                        item.content + ` joined ${index + ' seconds ago'}`}
-                    </p>
-                  ))}
+                  <p className="my-1">
+                    {pagkage.renderName !== undefined && (
+                      <MessageRotator
+                        messages={generateRandomNamesWithTime(
+                          pagkage.renderName,
+                        )}
+                      />
+                    )}
+                  </p>
                   <div className="font-bold text-white lg:mt-4 lg:text-2xl">
                     <span className="text-lg font-medium leading-7">$</span>
                     {''}

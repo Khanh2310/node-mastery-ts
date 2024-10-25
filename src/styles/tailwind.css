@@ -216,25 +216,3 @@ body {
     width: 48px;
   }
 }
-
-@keyframes fade {
-  0% {
-    opacity: 0;
-  }
-  10% {
-    opacity: 1; /* Show text */
-  }
-  30% {
-    opacity: 1; /* Keep text visible */
-  }
-  40% {
-    opacity: 0; /* Hide text */
-  }
-  100% {
-    opacity: 0; /* Ensure hidden at the end */
-  }
-}
-
-.animate-fade {
-  animation: fade 8s linear infinite; /* 8s for full cycle */
-}
