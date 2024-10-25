@@ -362,7 +362,7 @@ export function Hero() {
                     {option.id === 1 ? (
                       <p className="mb-2 text-xl text-white">Free to use</p>
                     ) : (
-                      <p className="my-1">
+                      <div className="my-1">
                         {option.renderName !== undefined && (
                           <MessageRotator
                             messages={generateRandomNamesWithTime(
@@ -370,7 +370,7 @@ export function Hero() {
                             )}
                           />
                         )}
-                      </p>
+                      </div>
                     )}
 
                     {option.name == 'Free Trial' ? (
@@ -510,7 +510,7 @@ export function Hero() {
                   </div>
                 </div>
                 <div className="relative z-[2] mt-auto w-full   rounded-b-2xl bg-[#6C33B5] pb-5 pt-10">
-                  <p className="my-1">
+                  <div className="my-1">
                     {pagkage.renderName !== undefined && (
                       <MessageRotator
                         messages={generateRandomNamesWithTime(
@@ -518,7 +518,7 @@ export function Hero() {
                         )}
                       />
                     )}
-                  </p>
+                  </div>
                   <div className="font-bold text-white lg:mt-4 lg:text-2xl">
                     <span className="text-lg font-medium leading-7">$</span>
                     {''}
