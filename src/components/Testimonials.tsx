@@ -364,6 +364,7 @@ export function Testimonials() {
             <span className="text-[#5a27da]">Udemy</span> Growth
           </h2>
         </div>
+
         <div className="block w-full flex-wrap justify-center gap-6 md:flex lg:flex">
           {listPeopleUse.map((item, index) => (
             <div
@@ -373,20 +374,27 @@ export function Testimonials() {
               onMouseLeave={handleMouseLeave}
             >
               <div
-                className={`mr-6 flex h-16 w-16 items-center justify-center rounded-full shadow-[0_20px_20px_#0000000d] transition-all duration-700 ${hovered === item.id && 'bg-[#6C33B5] shadow-[0_4px_10px_#00000014]'} `}
+                className={`relative mr-6 flex h-16 w-16 items-center justify-center rounded-full shadow-[0_20px_20px_#0000000d] transition-all duration-1000 ease-in-out ${hovered === item.id ? 'bg-[#6C33B5] shadow-[0_4px_10px_#00000014]' : 'bg-white'} `}
               >
-                {hovered === item.id ? (
-                  <Image
-                    src={item?.image_hover}
-                    width={36}
-                    height={36}
-                    alt=""
-                    className="fill-white text-white"
-                  />
-                ) : (
-                  <Image src={item.image} width={36} height={36} alt="" />
-                )}
+                {/* Default Image */}
+                <Image
+                  src={item.image}
+                  width={36}
+                  height={36}
+                  alt=""
+                  className={`absolute transition-all duration-1000 ease-in-out transform ${hovered === item.id ? 'opacity-0 scale-90' : 'opacity-100 scale-100'}`}
+                />
+
+                {/* Hover Image */}
+                <Image
+                  src={item.image_hover}
+                  width={36}
+                  height={36}
+                  alt=""
+                  className={`absolute transition-all duration-1000 ease-in-out transform ${hovered === item.id ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
+                />
               </div>
+
               <div className="flex-1">
                 <p className="pb-6 text-lg font-bold text-[#333232]">
                   {item.title}
@@ -396,7 +404,6 @@ export function Testimonials() {
             </div>
           ))}
         </div>
-
         <div className=" mt-11">
           <h2 className="mb-[68px] text-center font-bold leading-10 lg:text-4xl">
             Hear from our happy clients
