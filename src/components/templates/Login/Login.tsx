@@ -19,7 +19,7 @@ export const Login = () => {
           href="/register"
           className="font-medium text-blue-600 hover:underline"
         >
-          Sign up
+          Sign up{' '}
         </Link>
         for a free trial.
       </p>

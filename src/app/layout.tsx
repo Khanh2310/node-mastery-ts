@@ -6,6 +6,7 @@ import '@/styles/tailwind.css'
 import '@/styles/Asesment.scss'
 import { type Metadata } from 'next'
 import { Providers } from './provider'
+import { ViewTransitions } from 'next-view-transitions'
 
 export const metadata: Metadata = {
   title: {
@@ -34,22 +35,27 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html
-      lang="en"
-      className={clsx(
-        'h-full scroll-smooth bg-white antialiased',
-        inter.variable,
-        lexend.variable,
-      )}
-    >
-      <body suppressHydrationWarning={true} className="flex h-full flex-col">
-        <Providers>
-          <>
-            {children}
-            <Toaster />
-          </>
-        </Providers>
-      </body>
-    </html>
+    <ViewTransitions>
+      <html
+        lang="en"
+        className={clsx(
+          'h-full scroll-smooth bg-white antialiased',
+          inter.variable,
+          lexend.variable,
+        )}
+      >
+        <body
+          suppressHydrationWarning={true}
+          className="scrollbar-thin flex h-full flex-col"
+        >
+          <Providers>
+            <>
+              {children}
+              <Toaster />
+            </>
+          </Providers>
+        </body>
+      </html>
+    </ViewTransitions>
   )
 }

@@ -17,15 +17,15 @@ export const CouponArea = ({ courseId }: Props) => {
       </td>
     )
   return (
-    <td className="p-5" colSpan={100}>
+    <td className="py-10 pr-5 pl-16" colSpan={100}>
       <div className="block gap-4 md:flex">
         <div className="w-[calc((100%-1rem)/2)]">
           <h3 className="border-l-8 border-l-orange-600 px-2 text-lg font-bold leading-normal">
             Coupon
           </h3>
           <p className="mt-2 text-base leading-normal">
-            Please enter a valid coupon. The valid period of the coupon is from
-            the creation date to the following 30 days
+            Please enter a valid coupon. <br/>The valid period of the coupon is from
+            the creation date to the following 30 days.
           </p>
         </div>
         <div className="w-[calc((100%-1rem)/2)]">
