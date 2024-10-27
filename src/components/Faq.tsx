@@ -103,12 +103,10 @@ export const Faq = () => {
             text: "You can follow our basic guideline here to undertand how to prepare your instructor account, your course, promote coupon as well as how to run request to increase enrollment, rating. Please do not hestitate to let us know if you need any further assitance by emailing or chatting our Customer Support Center.",
             active: false,
         },
-
-
     ]
 
     return (
-        <main className="relative min-h-screen flex flex-col justify-center bg-slate-50 overflow-hidden">
+        <main className="relative min-h-screen flex flex-col justify-center overflow-hidden">
             <div className="w-full max-w-2xl mx-auto px-4 md:px-6 py-24">
                 <div className="text-center mb-[50px]">
                     <h1 className="text-4xl font-bold text-slate-900 mb-4">Frequently asked questions</h1>

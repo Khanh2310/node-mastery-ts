@@ -2,11 +2,6 @@
 import Image from 'next/image'
 
 import { Container } from '@/components/Container'
-import avatarImage1 from '@/images/avatars/avatar-1.png'
-import avatarImage2 from '@/images/avatars/avatar-2.png'
-import avatarImage3 from '@/images/avatars/avatar-3.png'
-import avatarImage4 from '@/images/avatars/avatar-4.png'
-import avatarImage5 from '@/images/avatars/avatar-5.png'
 import iconRocket from '@/images/icons/rocket.svg'
 import itemRocket_hover from '@/images/icons/rocket-hover.svg'
 import iconPwd from '@/images/icons/pwd.svg'
@@ -32,7 +27,6 @@ const testimonials = [
     author: {
       name: 'Sarah Thompson',
       role: 'Online Course Creator',
-      image: avatarImage1,
     },
   },
   {
@@ -41,7 +35,6 @@ const testimonials = [
     author: {
       name: 'Michael Roberts',
       role: 'Educational Entrepreneur',
-      image: avatarImage4,
     },
   },
   {
@@ -50,7 +43,6 @@ const testimonials = [
     author: {
       name: 'Emily Johnson',
       role: 'Udemy Instructor',
-      image: avatarImage5,
     },
   },
   {
@@ -59,7 +51,6 @@ const testimonials = [
     author: {
       name: 'David Martinez',
       role: 'Digital Marketing Specialist',
-      image: avatarImage2,
     },
   },
   {
@@ -68,7 +59,6 @@ const testimonials = [
     author: {
       name: 'Jessica Brown',
       role: 'Language Instructor',
-      image: avatarImage3,
     },
   },
   {
@@ -77,7 +67,6 @@ const testimonials = [
     author: {
       name: 'Daniel Lee',
       role: 'Business Coach',
-      image: avatarImage4,
     },
   },
   {
@@ -86,7 +75,6 @@ const testimonials = [
     author: {
       name: 'Laura Wilson',
       role: 'Fitness Trainer',
-      image: avatarImage4,
     },
   },
   {
@@ -95,7 +83,6 @@ const testimonials = [
     author: {
       name: 'James Anderson',
       role: 'Graphic Design Instructor',
-      image: avatarImage4,
     },
   },
   {
@@ -104,7 +91,6 @@ const testimonials = [
     author: {
       name: 'Olivia Martinez',
       role: 'STEM Educator',
-      image: avatarImage4,
     },
   },
   {
@@ -113,7 +99,6 @@ const testimonials = [
     author: {
       name: 'Kevin Garcia',
       role: 'Software Development Trainer',
-      image: avatarImage4,
     },
   },
   {
@@ -122,7 +107,6 @@ const testimonials = [
     author: {
       name: 'Sophia Taylor',
       role: 'Art Instructor',
-      image: avatarImage4,
     },
   },
   {
@@ -131,7 +115,6 @@ const testimonials = [
     author: {
       name: 'Ryan Williams',
       role: 'Personal Development Coach',
-      image: avatarImage4,
     },
   },
   {
@@ -140,7 +123,6 @@ const testimonials = [
     author: {
       name: 'Megan Davis',
       role: 'Music Teacher',
-      image: avatarImage4,
     },
   },
   {
@@ -149,7 +131,6 @@ const testimonials = [
     author: {
       name: 'Matthew Robinson',
       role: 'History Professor',
-      image: avatarImage4,
     },
   },
   {
@@ -158,7 +139,6 @@ const testimonials = [
     author: {
       name: 'Isabella Harris',
       role: 'Cooking Instructor',
-      image: avatarImage4,
     },
   },
   {
@@ -167,7 +147,6 @@ const testimonials = [
     author: {
       name: 'Ethan Clark',
       role: 'Freelance Writer',
-      image: avatarImage4,
     },
   },
   {
@@ -176,7 +155,6 @@ const testimonials = [
     author: {
       name: 'Ava Nelson',
       role: 'Marketing Strategist',
-      image: avatarImage4,
     },
   },
   {
@@ -185,7 +163,6 @@ const testimonials = [
     author: {
       name: 'Lucas Wright',
       role: 'Photography Instructor',
-      image: avatarImage4,
     },
   },
   {
@@ -194,7 +171,6 @@ const testimonials = [
     author: {
       name: 'Grace Turner',
       role: 'Wellness Coach',
-      image: avatarImage4,
     },
   },
   {
@@ -203,7 +179,6 @@ const testimonials = [
     author: {
       name: 'Noah King',
       role: 'Programming Instructor',
-      image: avatarImage4,
     },
   },
 ]
@@ -259,15 +234,9 @@ const listPeopleUse = [
   },
 ]
 
-function QuoteIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-    <svg aria-hidden="true" width={105} height={78} {...props}>
-      <path d="M25.086 77.292c-4.821 0-9.115-1.205-12.882-3.616-3.767-2.561-6.78-6.102-9.04-10.622C1.054 58.534 0 53.411 0 47.686c0-5.273.904-10.396 2.712-15.368 1.959-4.972 4.746-9.567 8.362-13.786a59.042 59.042 0 0 1 12.43-11.3C28.325 3.917 33.599 1.507 39.324 0l11.074 13.786c-6.479 2.561-11.677 5.951-15.594 10.17-3.767 4.219-5.65 7.835-5.65 10.848 0 1.356.377 2.863 1.13 4.52.904 1.507 2.637 3.089 5.198 4.746 3.767 2.41 6.328 4.972 7.684 7.684 1.507 2.561 2.26 5.5 2.26 8.814 0 5.123-1.959 9.19-5.876 12.204-3.767 3.013-8.588 4.52-14.464 4.52Zm54.24 0c-4.821 0-9.115-1.205-12.882-3.616-3.767-2.561-6.78-6.102-9.04-10.622-2.11-4.52-3.164-9.643-3.164-15.368 0-5.273.904-10.396 2.712-15.368 1.959-4.972 4.746-9.567 8.362-13.786a59.042 59.042 0 0 1 12.43-11.3C82.565 3.917 87.839 1.507 93.564 0l11.074 13.786c-6.479 2.561-11.677 5.951-15.594 10.17-3.767 4.219-5.65 7.835-5.65 10.848 0 1.356.377 2.863 1.13 4.52.904 1.507 2.637 3.089 5.198 4.746 3.767 2.41 6.328 4.972 7.684 7.684 1.507 2.561 2.26 5.5 2.26 8.814 0 5.123-1.959 9.19-5.876 12.204-3.767 3.013-8.588 4.52-14.464 4.52Z" />
-    </svg>
-  )
-}
+
 function SampleNextArrow(props: any) {
-  const { className, style, onClick } = props
+  const { onClick } = props
   return (
     <div
       className="absolute right-0 top-1/2  z-10 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full shadow-[0_2px_8px_#00000014] transition-all duration-300 hover:bg-[#7b5bf7] hover:text-white"
@@ -292,7 +261,7 @@ function SampleNextArrow(props: any) {
 }
 
 function SamplePrevArrow(props: any) {
-  const { className, style, onClick } = props
+  const { onClick } = props
   return (
     <div
       className="absolute top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full shadow-[0_2px_8px_#00000014] transition-all duration-300 hover:bg-[#7b5bf7] hover:text-white"
@@ -367,7 +336,7 @@ export function Testimonials() {
         </div>
 
         <div className="block w-full flex-wrap justify-center gap-6 md:flex lg:flex">
-          {listPeopleUse.map((item, index) => (
+          {listPeopleUse.map((item) => (
             <div
               className="mb-5 flex cursor-pointer px-4 py-6 last:mb-0 hover:rounded-2xl hover:shadow-[0_24px_40px_#e6dbdb52] md:mb-0 md:w-[calc(50%-12px)] lg:mb-0 lg:w-[calc(33.333333%-16px)]"
               key={item.id}
@@ -377,7 +346,6 @@ export function Testimonials() {
               <div
                 className={`relative mr-6 flex h-16 w-16 items-center justify-center rounded-full shadow-[0_20px_20px_#0000000d] transition-all duration-1000 ease-in-out ${hovered === item.id ? 'bg-[#6C33B5] shadow-[0_4px_10px_#00000014]' : 'bg-white'} `}
               >
-                {/* Default Image */}
                 <Image
                   src={item.image}
                   width={36}
@@ -386,7 +354,6 @@ export function Testimonials() {
                   className={`absolute transition-all duration-1000 ease-in-out transform ${hovered === item.id ? 'opacity-0 scale-90' : 'opacity-100 scale-100'}`}
                 />
 
-                {/* Hover Image */}
                 <Image
                   src={item.image_hover}
                   width={36}
@@ -411,7 +378,7 @@ export function Testimonials() {
           </h2>
           <Slider
             {...settings}
-            className="slider-container testimonial bg-transparent"
+            className="slider-container testimonial bg-transparent cursor-pointer"
           >
             {testimonials.map((slideItem, slideIndex) => (
               <div
@@ -421,7 +388,7 @@ export function Testimonials() {
                 <div className="mb-6 flex items-start">
                   <div className="mr-4">
                     <Image
-                      src={slideItem.author.image}
+                      src={`https://picsum.photos/200/?random=${slideIndex}`}
                       width={48}
                       height={48}
                       alt=""
