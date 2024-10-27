@@ -50,7 +50,7 @@ export function Hero() {
         'No expire',
         'Unlimited instructor / course',
       ],
-      userHasPurchased: Array.from({ length: 10 }, (_, i) => 201 + i), // Seeds 101 to 150
+      userHasPurchased: Array.from({ length: 10 }, (_, i) => 201 + i),
       renderName: 100,
     },
     {
@@ -64,7 +64,7 @@ export function Hero() {
         'No expire',
         'Unlimited instructor / course',
       ],
-      userHasPurchased: Array.from({ length: 10 }, (_, i) => 301 + i), // Seeds 101 to 150
+      userHasPurchased: Array.from({ length: 10 }, (_, i) => 301 + i),
       sale: '30%',
       renderName: 90,
     },
@@ -79,7 +79,7 @@ export function Hero() {
         'No expire',
         'Unlimited instructor / course',
       ],
-      userHasPurchased: Array.from({ length: 10 }, (_, i) => 401 + i), // Seeds 101 to 150
+      userHasPurchased: Array.from({ length: 10 }, (_, i) => 401 + i),
       sale: '50%',
       renderName: 80,
     },
@@ -97,7 +97,7 @@ export function Hero() {
         'No login info required',
         'Delivery date: 05 Days',
       ],
-      userHasPurchased: Array.from({ length: 10 }, (_, i) => 501 + i), // Seeds 101 to 150
+      userHasPurchased: Array.from({ length: 10 }, (_, i) => 501 + i),
       renderName: 70,
     },
     {
@@ -175,7 +175,6 @@ export function Hero() {
         `${randomName.slice(0, 2)}***${randomName.slice(2)} joined ${randomTimeAgo()}`,
       )
     }
-
     return messages
   }
 

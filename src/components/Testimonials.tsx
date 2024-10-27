@@ -19,7 +19,7 @@ import iconSub from '@/images/icons/subcribe.svg'
 import iconSub_hover from '@/images/icons/subcribe_hover.svg'
 import iconRef from '@/images/icons/refund.svg'
 import iconRef_hover from '@/images/icons/refund_hover.svg'
-
+import imageGrowth from '@/images/screenshots/UdemyGrowth.png'
 import Slider, { Settings } from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -356,13 +356,14 @@ export function Testimonials() {
     <section
       id="testimonials"
       aria-label="What our customers are saying"
-      className="bg-slate-50 py-10"
+      className="py-10"
     >
       <Container>
-        <div className=" mb-[80px] text-center">
-          <h2 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
-            <span className="text-[#5a27da]">Udemy</span> Growth
+        <div className="mb-[80px] text-center md:mt-20 mt-10 bg-[#f8f8f8] py-5 rounded-lg relative">
+          <h2 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Why <span className="text-[#5a27da]">more and more </span> people use
+            <span className="text-[#5a27da]"> Udemy</span> Growth
           </h2>
+          <Image src={imageGrowth} width={200} height={200} alt='' className='absolute -top-full right-0 -translate-y-2' />
         </div>
 
         <div className="block w-full flex-wrap justify-center gap-6 md:flex lg:flex">
