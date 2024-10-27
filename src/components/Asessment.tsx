@@ -76,33 +76,29 @@ export const Asessment = () => {
           Boost Enrollments, Elevate Ratings, and Watch Your Revenue Soar.
         </p>
       </div>
-      <div className="flex justify-center items-center mx-16 ">
-        <div className="bg-white rounded-lg shadow-lg p-6 w-full flex space-x-8 relative h-[330px]">
+      <div className="flex justify-center items-center shadow-[0_4px_24px_#0000000a]">
+        <div className="bg-white rounded-lg shadow-lg p-6 w-full flex space-x-8 relative h-[330px]  items-center">
           <div className="absolute left-4 top-1/2 transform -translate-y-1/2 flex flex-col items-center space-y-2">
             {testimonials.map((_, index) => (
               <span
                 key={index}
-                onClick={() => handleDotClick(index)} // Add click handler for each dot
+                onClick={() => handleDotClick(index)}
                 className={`w-2 h-2 rounded-full cursor-pointer ${index === currentIndex ? 'bg-[#7b5bf7]' : 'bg-gray-300'}`}
               />
             ))}
           </div>
 
           <div
-            className="flex items-center justify-center rounded-full w-[280px] h-[280px]"
+            className="flex items-center flex-col justify-center"
           >
+            <p className="font-semibold text-2xl">{testimonials[currentIndex].name}</p>
             <Image src={testimonials[currentIndex].initials} width={280} height={280} alt='' />
           </div>
 
-          <div className="flex-1 flex flex-col justify-between">
-            <blockquote className="text-lg italic mb-2 overflow-y-auto max-h-[200px]">
+          <div className="flex-1 flex flex-col justify-between w-full xl:max-w-[650px] lg:max-w-[500px] md:max-w-[400px]">
+            <blockquote className="text-lg italic mb-2">
               {testimonials[currentIndex].quote}
             </blockquote>
-            <div className='flex items-center'>
-              <p className="font-semibold mr-4">{testimonials[currentIndex].name}</p>
-              <Image src={dot} width={4} height={4} alt='' />
-              <p className="text-gray-500 ml-4">{testimonials[currentIndex].title}</p>
-            </div>
           </div>
 
           <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4">
@@ -110,8 +106,8 @@ export const Asessment = () => {
               onClick={handlePrevious}
               className="p-2 bg-white rounded-full shadow hover:bg-[#7b5bf7] hover:text-white focus:outline-none w-10 h-10 flex items-center justify-center"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" className="size-3">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor" className="size-3">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
               </svg>
 
             </button>
@@ -119,8 +115,8 @@ export const Asessment = () => {
               onClick={handleNext}
               className="p-2 bg-white rounded-full shadow hover:bg-[#7b5bf7] hover:text-white focus:outline-none w-10 h-10 flex items-center justify-center"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" className="size-3">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor" className="size-3">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
               </svg>
 
             </button>
