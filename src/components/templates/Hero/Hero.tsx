@@ -7,17 +7,6 @@ import arrow from '@/images/icons/arrow.png'
 import arrow_opacity from '@/images/icons/arrow_opacity.png'
 import arrow_up from '@/images/icons/arrow_up.png'
 import arrow_up_opacity from '@/images/icons/arrow_up_opacity.png'
-import defaultFree from '@/images/logos/UdemyService-logo.jpg'
-import avatar_default1 from '@/images/avatars/default1.png'
-import avatar_default2 from '@/images/avatars/default2.png'
-import avatar_default3 from '@/images/avatars/default3.png'
-import avatar_default4 from '@/images/avatars/default4.png'
-import avatar_default5 from '@/images/avatars/880-200x200.jpg'
-import avatar_default6 from '@/images/avatars/default6.png'
-import avatar_default7 from '@/images/avatars/default7.png'
-import avatar_default8 from '@/images/avatars/default8.jpg'
-import avatar_default9 from '@/images/avatars/default9.png'
-import avatar_default10 from '@/images/avatars/default10.png'
 import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
@@ -46,7 +35,9 @@ export function Hero() {
         'Valid 03 days',
         'Only for 1 instructor',
       ],
-      userHasPurchased: [],
+      userHasPurchased: Array.from({ length: 10 }, (_, i) => 101 + i), // Seeds 101 to 150
+      renderName: 100,
+
     },
     {
       id: 2,
@@ -59,18 +50,7 @@ export function Hero() {
         'No expire',
         'Unlimited instructor / course',
       ],
-      userHasPurchased: [
-        avatar_default1,
-        avatar_default2,
-        avatar_default3,
-        avatar_default4,
-        avatar_default5,
-        avatar_default6,
-        avatar_default7,
-        avatar_default8,
-        avatar_default9,
-        avatar_default10,
-      ],
+      userHasPurchased: Array.from({ length: 10 }, (_, i) => 201 + i), // Seeds 101 to 150
       renderName: 100,
     },
     {
@@ -84,18 +64,7 @@ export function Hero() {
         'No expire',
         'Unlimited instructor / course',
       ],
-      userHasPurchased: [
-        avatar_default1,
-        avatar_default2,
-        avatar_default3,
-        avatar_default4,
-        avatar_default5,
-        avatar_default1,
-        avatar_default2,
-        avatar_default3,
-        avatar_default4,
-        avatar_default5,
-      ],
+      userHasPurchased: Array.from({ length: 10 }, (_, i) => 301 + i), // Seeds 101 to 150
       sale: '30%',
       renderName: 90,
     },
@@ -110,18 +79,7 @@ export function Hero() {
         'No expire',
         'Unlimited instructor / course',
       ],
-      userHasPurchased: [
-        avatar_default1,
-        avatar_default2,
-        avatar_default3,
-        avatar_default4,
-        avatar_default5,
-        avatar_default1,
-        avatar_default2,
-        avatar_default3,
-        avatar_default4,
-        avatar_default5,
-      ],
+      userHasPurchased: Array.from({ length: 10 }, (_, i) => 401 + i), // Seeds 101 to 150
       sale: '50%',
       renderName: 80,
     },
@@ -139,24 +97,12 @@ export function Hero() {
         'No login info required',
         'Delivery date: 05 Days',
       ],
-      userHasPurchased: [
-        avatar_default1,
-        avatar_default2,
-        avatar_default3,
-        avatar_default4,
-        avatar_default5,
-        avatar_default1,
-        avatar_default2,
-        avatar_default3,
-        avatar_default4,
-        avatar_default5,
-      ],
+      userHasPurchased: Array.from({ length: 10 }, (_, i) => 501 + i), // Seeds 101 to 150
       renderName: 70,
     },
     {
       id: 6,
       name: 'MOVER PLAN',
-
       credit: '49',
       category: [
         'New student : 1.000 students',
@@ -165,18 +111,7 @@ export function Hero() {
         'No login info required',
         'Delivery date: 10 Days',
       ],
-      userHasPurchased: [
-        avatar_default1,
-        avatar_default2,
-        avatar_default3,
-        avatar_default4,
-        avatar_default5,
-        avatar_default1,
-        avatar_default2,
-        avatar_default3,
-        avatar_default4,
-        avatar_default5,
-      ],
+      userHasPurchased: Array.from({ length: 10 }, (_, i) => 601 + i),
       renderName: 100,
     },
     {
@@ -191,18 +126,7 @@ export function Hero() {
         'No login info required',
         'Delivery date: 15 Days',
       ],
-      userHasPurchased: [
-        avatar_default1,
-        avatar_default2,
-        avatar_default3,
-        avatar_default4,
-        avatar_default5,
-        avatar_default1,
-        avatar_default2,
-        avatar_default3,
-        avatar_default4,
-        avatar_default5,
-      ],
+      userHasPurchased: Array.from({ length: 10 }, (_, i) => 701 + i),
       renderName: 99,
     },
     {
@@ -217,18 +141,7 @@ export function Hero() {
         'No login info required',
         'Delivery date: 15 Days',
       ],
-      userHasPurchased: [
-        avatar_default1,
-        avatar_default2,
-        avatar_default3,
-        avatar_default4,
-        avatar_default5,
-        avatar_default1,
-        avatar_default2,
-        avatar_default3,
-        avatar_default4,
-        avatar_default5,
-      ],
+      userHasPurchased: Array.from({ length: 10 }, (_, i) => 801 + i),
       renderName: 89,
     },
   ]
@@ -343,24 +256,20 @@ export function Hero() {
                       </g>
                     </svg>
                     <div className="absolute bottom-0 left-1/2 z-10 mx-auto flex w-52 -translate-x-1/2 translate-y-1/2 items-center justify-center">
-                      {option.id === 1 ? (
-                        <div className="relative z-[1] flex h-[54px] items-center">
-                          <Image
-                            src={defaultFree}
-                            alt=""
-                            width={500}
-                            height={300}
-                            className="box-border h-[48px] w-[48px] rounded-[48px] border-2 border-white bg-white object-cover"
-                          />
-                        </div>
-                      ) : (
-                        <Slider imageUser={option.userHasPurchased || []} />
-                      )}
+                      <Slider imageUser={option.userHasPurchased} />
                     </div>
                   </div>
                   <div className="relative z-[2] mt-auto w-full rounded-b-2xl bg-[#6C33B5] pb-5 pt-10">
                     {option.id === 1 ? (
-                      <p className="mb-2 text-xl text-white">Free to use</p>
+                      <div className="lg:my-2 my-[6px]">
+                        {option.renderName !== undefined && (
+                          <MessageRotator
+                            messages={generateRandomNamesWithTime(
+                              option.renderName,
+                            )}
+                          />
+                        )}
+                      </div>
                     ) : (
                       <div className="my-1">
                         {option.renderName !== undefined && (
@@ -393,9 +302,8 @@ export function Hero() {
                   onClick={() => handleShowContent(option.id)}
                 >
                   <ul
-                    className={`${
-                      show[option.id] ? 'h-auto' : 'max-h-[60px]'
-                    } overflow-hidden transition-all`}
+                    className={`${show[option.id] ? 'h-auto' : 'max-h-[60px]'
+                      } overflow-hidden transition-all`}
                   >
                     {option?.category.map((categoryItem, index) => (
                       <li className="flex items-center gap-2" key={index}>
@@ -506,7 +414,7 @@ export function Hero() {
                     </g>
                   </svg>
                   <div className="absolute bottom-0 left-1/2 z-10 mx-auto flex w-52 -translate-x-1/2 translate-y-1/2 items-center justify-center">
-                    <Slider imageUser={pagkage?.userHasPurchased} />
+                    <Slider imageUser={pagkage.userHasPurchased} />
                   </div>
                 </div>
                 <div className="relative z-[2] mt-auto w-full   rounded-b-2xl bg-[#6C33B5] pb-5 pt-10">
@@ -529,9 +437,8 @@ export function Hero() {
               <div className="mt-5 overflow-hidden rounded-2xl bg-gradient-box p-5">
                 <div onClick={() => handleShowContent(pagkage.id)}>
                   <ul
-                    className={`${
-                      show[pagkage.id] ? 'h-auto' : 'max-h-[60px]'
-                    } overflow-hidden transition-all`}
+                    className={`${show[pagkage.id] ? 'h-auto' : 'max-h-[60px]'
+                      } overflow-hidden transition-all`}
                   >
                     {pagkage?.category.map((pagkageItem, index) => (
                       <li className="flex items-center gap-2" key={index}>

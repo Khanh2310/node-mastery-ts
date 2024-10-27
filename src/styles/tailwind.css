@@ -84,16 +84,14 @@ body {
     padding-inline: 1lh;
     padding-bottom: var(--f);
     border-image: conic-gradient(#0008 0 0) 51% / var(--f);
-    clip-path: polygon(
-      100% calc(100% - var(--f)),
-      100% 100%,
-      calc(100% - var(--f)) calc(100% - var(--f)),
-      var(--f) calc(100% - var(--f)),
-      0 100%,
-      0 calc(100% - var(--f)),
-      999px calc(100% - var(--f) - 999px),
-      calc(100% - 999px) calc(100% - var(--f) - 999px)
-    );
+    clip-path: polygon(100% calc(100% - var(--f)),
+        100% 100%,
+        calc(100% - var(--f)) calc(100% - var(--f)),
+        var(--f) calc(100% - var(--f)),
+        0 100%,
+        0 calc(100% - var(--f)),
+        999px calc(100% - var(--f) - 999px),
+        calc(100% - 999px) calc(100% - var(--f) - 999px));
     transform: translate(calc((1 - cos(45deg)) * 100%), -100%) rotate(45deg);
     transform-origin: 0% 100%;
   }
@@ -171,24 +169,29 @@ body {
 .swiper-slide {
   transition:
     transform 0.3s ease,
-    opacity 0.3s ease; /* Thêm opacity vào transition */
+    opacity 0.3s ease;
+  /* Thêm opacity vào transition */
 }
 
 .swiper-slide-active {
-  opacity: 1; /* Đảm bảo slide active có độ mờ 100% */
+  opacity: 1;
+  /* Đảm bảo slide active có độ mờ 100% */
   animation-delay: 0.1s;
   animation-duration: 0.9s;
   animation-name: swiperActive-f087a4a3;
-  transform: scale(1.05); /* Tăng kích thước cho slide active */
+  transform: scale(1.05);
+  /* Tăng kích thước cho slide active */
 }
 
 @keyframes swiperActive-f087a4a3 {
   0% {
     transform: translate(0);
   }
+
   50% {
     transform: translate(-5px);
   }
+
   to {
     transform: translate(0);
   }
@@ -205,11 +208,13 @@ body {
     transform: translate(24px);
     width: 24px;
   }
+
   40% {
     height: 54px;
     transform: translate(-10px);
     width: 54px;
   }
+
   to {
     height: 48px;
     transform: translate(0);

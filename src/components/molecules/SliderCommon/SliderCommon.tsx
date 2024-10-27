@@ -5,24 +5,9 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/swiper-bundle.css'
 import { Autoplay } from 'swiper/modules'
 interface AvatarProps {
-  avatarUser: StaticImageData[]
+  avatarUser: number[]
 }
 export const SliderCommon: React.FC<AvatarProps> = ({ avatarUser }) => {
-  function shuffleArray<T>(array: T[]): T[] {
-    const shuffledArray = [...array]
-    for (let i = shuffledArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1))
-      ;[shuffledArray[i], shuffledArray[j]] = [
-        shuffledArray[j],
-        shuffledArray[i],
-      ]
-    }
-    return shuffledArray
-  }
-
-  const shuffledAvatars = useMemo(() => {
-    return shuffleArray(avatarUser)
-  }, [avatarUser])
   return (
     <Swiper
       modules={[Autoplay]}
@@ -54,10 +39,10 @@ export const SliderCommon: React.FC<AvatarProps> = ({ avatarUser }) => {
         slides[(activeIndex + 2) % slides.length].style.opacity = '1'
       }}
     >
-      {shuffledAvatars.map((avatar, index) => (
+      {avatarUser.map((avatar, index) => (
         <SwiperSlide key={index}>
           <Image
-            src={avatar}
+            src={`https://picsum.photos/seed/${avatar}/50/50`}
             alt={`Image ${index + 1}`}
             width={500}
             height={300}
