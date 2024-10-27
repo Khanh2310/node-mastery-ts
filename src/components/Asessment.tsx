@@ -13,7 +13,6 @@ export const Asessment = () => {
   const testimonials = [
     {
       initials: avatar1,
-      color: '#f8b195',
       quote:
         "Experience a significant increase in enrollment numbers as we drive authentic traffic to your courses from real students who are genuinely eager to learn. Our strategies ensure that your courses reach those who are not just browsing, are actively seeking the knowledge you offer. Say goodbye to stagnant numbers and hello to a vibrant classroom filled with engaged learners!",
       name: 'Boost Enrollment',
@@ -21,7 +20,6 @@ export const Asessment = () => {
     },
     {
       initials: avatar2,
-      color: '#c06c85',
       quote:
         "Elevate your course ratings to new heights with our proven methodologies. We specialize in tailored solutions that foster positive reviews, helping your courses shine in the crowded marketplace. With our incredible starting price of just $0.50 for a 5-star rating, investing in your course’s reputation has never been more accessible. Watch as your ratings improve, bringing more visibility and credibility to your offerings!",
       name: 'Enhance Your Course Rating',
@@ -29,7 +27,6 @@ export const Asessment = () => {
     },
     {
       initials: avatar3,
-      color: '#c06c85',
       quote:
         "Unlock your earning potential with our targeted approach that ensures your courses connect with the right audience. Our marketing strategies not only increase engagement but also foster positive reviews, leading to greater profitability. With our support, you’ll transform your passion for teaching into a sustainable income stream, empowering your financial freedom!",
       name: 'Maximize Your Revenue',
@@ -37,7 +34,6 @@ export const Asessment = () => {
     },
     {
       initials: avatar4,
-      color: '#c06c85',
       quote:
         "Your peace of mind is our top priority. We are committed to maintaining the integrity of your Udemy account by strictly adhering to Udemy’s Terms of Service. Our ethical practices guarantee a secure and reliable experience, so you can focus on what you do best—creating exceptional courses—without worrying about your account’s safety.",
       name: '100% Account Safety',
@@ -45,7 +41,6 @@ export const Asessment = () => {
     },
     {
       initials: avatar5,
-      color: '#c06c85',
       quote:
         "Gain invaluable insights into your campaign’s effectiveness with our advanced History Tracking Dashboard. This tool provides real-time updates on your performance, allowing you to make informed decisions and adjustments as needed. Our pay-per-success model ensures that you only invest in actions that yield results, making it a highly cost-effective and results-oriented solution that aligns with your goals.",
       name: 'Real-Time Performance Monitoring',
@@ -74,7 +69,7 @@ export const Asessment = () => {
   return (
     <Container>
       <div className="flex justify-center items-center mx-16 mt-28 ">
-        <div className="bg-white rounded-lg shadow-lg p-6 w-full flex space-x-8 relative h-[300px]">
+        <div className="bg-white rounded-lg shadow-lg p-6 w-full flex space-x-8 relative h-[330px]">
           <div className="absolute left-4 top-1/2 transform -translate-y-1/2 flex flex-col items-center space-y-2">
             {testimonials.map((_, index) => (
               <span
@@ -86,10 +81,9 @@ export const Asessment = () => {
           </div>
 
           <div
-            className="flex items-center justify-center rounded-full w-[120px] h-[120px] mt-[65px]"
-            style={{ backgroundColor: testimonials[currentIndex].color }}
+            className="flex items-center justify-center rounded-full w-[280px] h-[280px]"
           >
-            <Image src={testimonials[currentIndex].initials} width={120} height={120} alt='' />
+            <Image src={testimonials[currentIndex].initials} width={280} height={280} alt='' />
           </div>
 
           <div className="flex-1 flex flex-col justify-between">
