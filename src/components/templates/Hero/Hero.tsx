@@ -376,12 +376,12 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="px-5  bg-[#f8f8f8] py-5 rounded-lg relative ">
-          <h2 className='font-bold lg:text-2xl'>
-            DON'T KNOW HOW TO DO? LET'S OUR EXPERT TEAM HANDLE EVERYTHING
+        <div className="px-5  bg-[#f8f8f8] py-5 rounded-lg relative md:my-10">
+          <h2 className='font-bold lg:text-4xl md:text-2xl'>
+            Don't have <span className="text-[#5a27da]">TIME</span>? Our team handle <span className="text-[#5a27da]">EVERYTHING </span>
           </h2>
 
-          <Image width={100} height={100} src={imageLine} className='hidden md:block absolute top-0 -translate-y-4  right-10 z-10' alt='' />
+          <Image width={180} height={180} src={imageLine} className='hidden md:block absolute -top-full  right-0 z-10' alt='' />
         </div>
         <div className="relative z-10 mx-auto mt-12 flex flex-wrap justify-center gap-6 rounded-full">
           {requestPackage.map((pagkage) => (

@@ -1,151 +1,117 @@
-import Image from 'next/image'
-import React from 'react'
-import avatar1 from '@/images/screenshots/ilus1.png'
-import avatar2 from '@/images/screenshots/ilus2.png'
-import avatar3 from '@/images/screenshots/ilus3.png'
-import avatar4 from '@/images/screenshots/ilus4.png'
-import avatar5 from '@/images/screenshots/ilus5.png'
+"use client"
 
-export const AsessmentContent = ({ ass_ars }: any) => {
+import { SetStateAction, useState } from 'react';
+import { Container } from './Container';
+
+export const AsessmentContent = () => {
+  const testimonials = [
+    {
+      initials: 'DO',
+      color: '#f8b195',
+      quote:
+        "As a leading shared streaming subscription merchant, we were one of the first to join GamsGo's full management model in 2023. Through the platform's subscription management system, we not only saved on operational costs but also achieved significant improvements in user retention. Last year, popular subscriptions like Netflix and Crunchyroll became our best-selling products, leading to a 60% increase in quarterly sales. We focused on providing high-quality accounts, while GamsGo handled operations and customer support.",
+      name: 'David Owens',
+      title: 'Digital Content Vertical Merchant',
+    },
+    {
+      initials: 'JD',
+      color: '#c06c85',
+      quote:
+        "GamsGo's platform allowed us to scale our business efficiently. By reducing overhead and managing subscriptions seamlessly, we saw a marked increase in customer satisfaction and revenue.",
+      name: 'Jane Doe',
+      title: 'Streaming Service Provider',
+    },
+    // Add more testimonials if needed
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+  };
+
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    );
+  };
+
+  // Function to handle dot clicks
+  const handleDotClick = (index: SetStateAction<number>) => {
+    setCurrentIndex(index);
+  };
+
   return (
-    <>
-      {ass_ars.map(
-        ({
-          id_as,
+    <Container>
+      <div className="flex justify-center items-center mx-16 mt-28 ">
+        <div className="bg-white rounded-lg shadow-lg p-6 w-full flex space-x-8 relative h-[250px]">
+          <div className="absolute left-4 top-1/2 transform -translate-y-1/2 flex flex-col items-center space-y-2">
+            {testimonials.map((_, index) => (
+              <span
+                key={index}
+                onClick={() => handleDotClick(index)} // Add click handler for each dot
+                className={`w-2 h-2 rounded-full cursor-pointer ${index === currentIndex ? 'bg-red-500' : 'bg-gray-300'}`}
+              />
+            ))}
+          </div>
 
-          id_img,
-          id_text,
-          subtitle1,
-          description1,
-          subtitle2,
-          description2,
-          subtitle3,
-          description3,
-          subtitle4,
-          description4,
-          subtitle5,
-          description5,
-          cls_cur,
-        }: any) => (
           <div
-            data-show=".target-show"
-            data-item=".target-item"
-            className="assessment_container_wrap "
-            id={id_as != '' ? id_as : ''}
-            key={id_as}
+            className="flex items-center justify-center rounded-full w-20 h-20 mt-[50px]"
+            style={{ backgroundColor: testimonials[currentIndex].color }}
           >
-            <div className="assessment_container_wrap_content flex flex-col-reverse justify-between gap-x-5 gap-y-0 md:flex-row md:items-center">
-              <div className="assessment_wrap order-1 flex items-center justify-center ">
-                <div
-                  className="assessment_wrap_picture relative mb-4 flex justify-center"
-                  id={`${id_img != '' ? id_img : ''}`}
-                >
-                  <Image
-                    src={avatar1}
-                    className=" assessment_content-image assm_1_1  current:opacity-1 current:pointer-events-none current:invisible pointer-events-none invisible m-auto  max-h-[165px] max-w-full translate-y-0 object-contain opacity-0 transition-all duration-500 ease-linear md:mb-0 md:max-h-[330px] md:max-w-[40vw]  md:object-cover"
-                    alt={''}
-                    width={500}
-                    height={500}
-                  />
-                  <Image
-                    src={avatar2}
-                    className="assessment_content-image  assm_2_2  current:opacity-1 current:pointer-events-none current:invisible pointer-events-none invisible absolute  top-0 m-auto mb-0 max-h-[165px] max-w-full translate-y-0 object-contain opacity-0 transition-all duration-500 ease-linear md:mb-0 md:max-h-[330px] md:max-w-[40vw]  md:object-cover"
-                    alt=""
-                    width={500}
-                    height={500}
-                  />
-                  <Image
-                    src={avatar3}
-                    className="assessment_content-image assm_3_3  current:opacity-1 current:pointer-events-none current:invisible md:mb-0s pointer-events-none invisible  absolute top-0 m-auto mb-0 max-h-[165px] max-w-full translate-y-0 object-contain opacity-0 transition-all duration-500 ease-linear md:max-h-[330px] md:max-w-[40vw]  md:object-cover"
-                    alt=""
-                    width={500}
-                    height={500}
-                  />
-                  <Image
-                    src={avatar4}
-                    className="assessment_content-image assm_4_4  current:opacity-1 current:pointer-events-none current:invisible pointer-events-none invisible absolute  top-0 m-auto mb-0 max-h-[165px] max-w-full translate-y-0 object-contain opacity-0 transition-all duration-500 ease-linear md:mb-0 md:max-h-[330px] md:max-w-[40vw]  md:object-cover"
-                    alt=""
-                    width={500}
-                    height={500}
-                  />
-                  <Image
-                    src={avatar5}
-                    className="assessment_content-image assm_5_5  current:opacity-1 current:pointer-events-none current:invisible pointer-events-none invisible absolute  top-0 m-auto mb-0 max-h-[165px] max-w-full translate-y-0 object-contain opacity-0 transition-all duration-500 ease-linear md:mb-0 md:max-h-[330px] md:max-w-[40vw]  md:object-cover"
-                    alt=""
-                    width={500}
-                    height={500}
-                  />
-                </div>
-              </div>
-              <div className="assessment_slide pb-0 pt-[5px]">
-                <div className="progress p-0 md:px-0 md:py-5">
-                  <div className="right">
-                    <div
-                      className={` items assm_1_1 before:-left-[20px] before:top-0 before:m-auto before:w-[12px] before:transform-none before:p-0 after:w-[38px] ${cls_cur != '' ? cls_cur : ''
-                        }`}
-                    >
-                      <h2 className="">{subtitle1}</h2>
-                      <span className="hidden pl-3 md:mt-2 md:pl-0">
-                        <p className="text-xs font-normal italic lg:text-base">
-                          {description1}
-                        </p>
-                      </span>
-                    </div>
+            <span className="text-3xl font-bold text-black">{testimonials[currentIndex].initials}</span>
+          </div>
 
-                    <div
-                      className={`items assm_2_2 after:absolute after:-left-[59px] after:h-[38px] ${cls_cur != '' ? cls_cur : ''
-                        }`}
-                    >
-                      <h2 className="">{subtitle2}</h2>
-                      <span className="hidden pl-3 md:mt-2 md:pl-0">
-                        <p className="text-xs font-normal italic lg:text-base">
-                          {description2}
-                        </p>
-                      </span>
-                    </div>
-
-                    <div
-                      className={` items assm_3_3 after:absolute after:-left-[59px] after:h-[38px] ${cls_cur != '' ? cls_cur : ''
-                        }`}
-                    >
-                      <h2 className="">{subtitle3}</h2>
-                      <span className="hidden pl-3 md:mt-2 md:pl-0">
-                        <p className="text-xs font-normal italic lg:text-base">
-                          {description3}
-                        </p>
-                      </span>
-                    </div>
-
-                    <div
-                      className={`items assm_4_4 after:absolute after:-left-[59px] after:h-[38px] ${cls_cur != '' ? cls_cur : ''
-                        }`}
-                    >
-                      <h2 className="">{subtitle4}</h2>
-                      <span className="hidden pl-3 md:mt-2 md:pl-0">
-                        <p className="text-xs font-normal italic lg:text-base">
-                          {description4}
-                        </p>
-                      </span>
-                    </div>
-
-                    <div
-                      className={`items assm_5_5 after:absolute after:-left-[59px] after:h-[38px] ${cls_cur != '' ? cls_cur : ''
-                        }`}
-                    >
-                      <h2 className="">{subtitle5}</h2>
-                      <span className="hidden pl-3 md:mt-2 md:pl-0">
-                        <p className="text-xs font-normal italic lg:text-base">
-                          {description5}
-                        </p>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div className="flex-1 flex flex-col justify-between">
+            <blockquote className="text-lg italic mb-2 overflow-y-auto max-h-[200px]">
+              {testimonials[currentIndex].quote}
+            </blockquote>
+            <div>
+              <p className="font-semibold">{testimonials[currentIndex].name}</p>
+              <p className="text-gray-500">{testimonials[currentIndex].title}</p>
             </div>
           </div>
-        ),
-      )}
-    </>
-  )
+
+          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4">
+            <button
+              onClick={handlePrevious}
+              className="p-2 bg-white rounded-full shadow hover:bg-gray-200 focus:outline-none"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="9.8984375" height="6.364013671875" viewBox="0 0 9.8984375 6.364013671875">
+                <g transform="matrix(0,-1,-1,0,16.262451171875,16.262451171875)">
+                  <g transform="matrix(-0.7071067690849304,0.7071067690849304,-0.7071067690849304,-0.7071067690849304,35.76131334783449,7.813643768468779)">
+                    <rect x="16.26239824295044" y="11.313232421875" width="7" height="2" rx="1" fill="#262743"></rect>
+                  </g>
+                  <g transform="matrix(0.7071068286895752,0.7071067690849304,-0.7071067690849304,0.7071068286895752,7.8134472208135435,-6.1353045543300055)">
+                    <rect x="11.312691450119019" y="6.364013671875" width="7" height="2.000000238418579" rx="1.0000001192092896" fill="#262743"></rect>
+                  </g>
+                </g>
+              </svg>
+            </button>
+            <button
+              onClick={handleNext}
+              className="p-2 bg-white rounded-full shadow hover:bg-gray-200 focus:outline-none"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="9.8984375" height="6.364013671875" viewBox="0 0 9.8984375 6.364013671875">
+                <g transform="matrix(0,1,-1,0,9.8984375,-9.8984375)">
+                  <g transform="matrix(-0.7071067690849304,0.7071067690849304,-0.7071067690849304,-0.7071067690849304,31.261276201902632,-3.0504070493380766)">
+                    <rect x="16.26239824295044" y="4.94921875" width="7" height="2" rx="1" fill="#262743"></rect>
+                  </g>
+                  <g transform="matrix(0.7071068286895752,0.7071067690849304,-0.7071067690849304,0.7071068286895752,3.3134100748816877,-7.9992807009483755)">
+                    <rect x="11.312691450119019" y="0" width="7" height="2.000000238418579" rx="1.0000001192092896" fill="#262743"></rect>
+                  </g>
+                </g>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </Container>
+  );
 }
+
+
+
+
+
+

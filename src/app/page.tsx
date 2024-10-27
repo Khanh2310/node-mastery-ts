@@ -4,8 +4,8 @@ import { Testimonials } from '@/components/Testimonials'
 import { BasicLayout } from '@/components/layouts/BasicLayout'
 import { Faq } from '../components/Faq'
 import Hero from './(home)/hero/page'
-import styles from './page.module.scss'
 import Image from 'next/image'
+import { AsessmentContent } from '@/components/AsessmentContent'
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
       <main>
         <Hero />
 
-        {/* <Asessment /> */}
+        <AsessmentContent />
         <Testimonials />
         <Faq />
       </main>
