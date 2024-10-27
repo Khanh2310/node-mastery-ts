@@ -75,7 +75,7 @@ export const Asessment = () => {
               <span
                 key={index}
                 onClick={() => handleDotClick(index)} // Add click handler for each dot
-                className={`w-2 h-2 rounded-full cursor-pointer ${index === currentIndex ? 'bg-red-500' : 'bg-gray-300'}`}
+                className={`w-2 h-2 rounded-full cursor-pointer ${index === currentIndex ? 'bg-[#7b5bf7]' : 'bg-gray-300'}`}
               />
             ))}
           </div>
@@ -100,33 +100,21 @@ export const Asessment = () => {
           <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4">
             <button
               onClick={handlePrevious}
-              className="p-2 bg-white rounded-full shadow hover:bg-gray-200 focus:outline-none w-10 h-10 flex items-center justify-center"
+              className="p-2 bg-white rounded-full shadow hover:bg-[#7b5bf7] hover:text-white focus:outline-none w-10 h-10 flex items-center justify-center"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="9.8984375" height="6.364013671875" viewBox="0 0 9.8984375 6.364013671875">
-                <g transform="matrix(0,-1,-1,0,16.262451171875,16.262451171875)">
-                  <g transform="matrix(-0.7071067690849304,0.7071067690849304,-0.7071067690849304,-0.7071067690849304,35.76131334783449,7.813643768468779)">
-                    <rect x="16.26239824295044" y="11.313232421875" width="7" height="2" rx="1" fill="#262743"></rect>
-                  </g>
-                  <g transform="matrix(0.7071068286895752,0.7071067690849304,-0.7071067690849304,0.7071068286895752,7.8134472208135435,-6.1353045543300055)">
-                    <rect x="11.312691450119019" y="6.364013671875" width="7" height="2.000000238418579" rx="1.0000001192092896" fill="#262743"></rect>
-                  </g>
-                </g>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" className="size-3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
               </svg>
+
             </button>
             <button
               onClick={handleNext}
-              className="p-2 bg-white rounded-full shadow hover:bg-gray-200 focus:outline-none w-10 h-10 flex items-center justify-center"
+              className="p-2 bg-white rounded-full shadow hover:bg-[#7b5bf7] hover:text-white focus:outline-none w-10 h-10 flex items-center justify-center"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="9.8984375" height="6.364013671875" viewBox="0 0 9.8984375 6.364013671875">
-                <g transform="matrix(0,1,-1,0,9.8984375,-9.8984375)">
-                  <g transform="matrix(-0.7071067690849304,0.7071067690849304,-0.7071067690849304,-0.7071067690849304,31.261276201902632,-3.0504070493380766)">
-                    <rect x="16.26239824295044" y="4.94921875" width="7" height="2" rx="1" fill="#262743"></rect>
-                  </g>
-                  <g transform="matrix(0.7071068286895752,0.7071067690849304,-0.7071067690849304,0.7071068286895752,3.3134100748816877,-7.9992807009483755)">
-                    <rect x="11.312691450119019" y="0" width="7" height="2.000000238418579" rx="1.0000001192092896" fill="#262743"></rect>
-                  </g>
-                </g>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" className="size-3">
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
               </svg>
+
             </button>
           </div>
         </div>
