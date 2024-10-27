@@ -68,7 +68,15 @@ export const Asessment = () => {
 
   return (
     <Container>
-      <div className="flex justify-center items-center mx-16 mt-28 ">
+      <div className="w-full mt-28 ">
+        <h2 className="max-md:text-2xl mb-5 text-center text-4xl font-bold md:mt-10 lg:mt-10">
+          Why Choose Us?
+        </h2>
+        <p className="mb-4 text-center text-base md:mb-16">
+          Boost Enrollments, Elevate Ratings, and Watch Your Revenue Soar.
+        </p>
+      </div>
+      <div className="flex justify-center items-center mx-16 ">
         <div className="bg-white rounded-lg shadow-lg p-6 w-full flex space-x-8 relative h-[330px]">
           <div className="absolute left-4 top-1/2 transform -translate-y-1/2 flex flex-col items-center space-y-2">
             {testimonials.map((_, index) => (
