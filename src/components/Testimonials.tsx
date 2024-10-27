@@ -363,7 +363,7 @@ export function Testimonials() {
           <h2 className="font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Why <span className="text-[#5a27da]">more and more </span> people use
             <span className="text-[#5a27da]"> Udemy</span> Growth
           </h2>
-          <Image src={imageGrowth} width={200} height={200} alt='' className='absolute -top-full right-0 -translate-y-2' />
+          <Image src={imageGrowth} width={200} height={200} alt='' className='md:w-[100px] md:h-[100px] w-28 h-28 -top-1/2 absolute lg:-top-full right-0 -translate-y-2 lg:w-[200px] lg:h-[200px]' />
         </div>
 
         <div className="block w-full flex-wrap justify-center gap-6 md:flex lg:flex">

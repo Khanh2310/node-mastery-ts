@@ -12,6 +12,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Slider } from '@/components/organisms/Slider'
 import { MessageRotator } from '@/components/molecules/MessageRotator'
+import imageLine from '@/images/screenshots/imageLine.png'
 export function Hero() {
   const router = useRouter()
 
@@ -375,8 +376,12 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="px-5 font-bold lg:text-2xl">
-          DON'T KNOW HOW TO DO? LET'S OUR EXPERT TEAM HANDLE EVERYTHING
+        <div className="px-5  bg-[#f8f8f8] py-5 rounded-lg relative ">
+          <h2 className='font-bold lg:text-2xl'>
+            DON'T KNOW HOW TO DO? LET'S OUR EXPERT TEAM HANDLE EVERYTHING
+          </h2>
+
+          <Image width={100} height={100} src={imageLine} className='hidden md:block absolute top-0 -translate-y-4  right-10 z-10' alt='' />
         </div>
         <div className="relative z-10 mx-auto mt-12 flex flex-wrap justify-center gap-6 rounded-full">
           {requestPackage.map((pagkage) => (
