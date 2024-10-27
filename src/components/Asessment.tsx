@@ -1,139 +1,148 @@
-'use client'
+"use client"
 
-import React, { useEffect } from 'react'
-import { AsessmentContent } from './AsessmentContent'
-
+import { SetStateAction, useState } from 'react';
+import { Container } from './Container';
+import avatar1 from '@/images/screenshots/ilus1.png'
+import avatar2 from '@/images/screenshots/ilus2.png'
+import avatar3 from '@/images/screenshots/ilus3.png'
+import avatar4 from '@/images/screenshots/ilus4.png'
+import avatar5 from '@/images/screenshots/ilus5.png'
+import dot from '@/images/screenshots/dot-icon.svg'
+import Image from 'next/image';
 export const Asessment = () => {
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const config = {
-        rootMargin: '50% 50%',
-        threshold: 1,
-        root: null,
-      }
-
-      const observer = new IntersectionObserver((entries) => {
-        for (let i = entries.length - 1; i >= 0; i--) {
-          const entry: any = entries[i]
-          if (entry.isIntersecting) {
-            document.querySelectorAll('.assessment .items').forEach((img) => {
-              img.classList.remove('current')
-            })
-            document
-              .querySelectorAll('.assessment_content-image')
-              .forEach((img) => {
-                img.classList.remove('current')
-              })
-            document
-              .querySelectorAll('.assessment_container_wrap')
-              .forEach((img) => {
-                img.classList.remove('show_anm')
-              })
-
-            const img = document.querySelector(entry.target.dataset.show)
-            const img_item = document.querySelectorAll(
-              entry.target.dataset.item,
-            )
-
-            if (img) {
-              img.classList.add('show_anm')
-            }
-
-            img_item.forEach((item) => {
-              item.classList.add('current')
-            })
-            break
-          }
-        }
-      }, config)
-
-      const sections = document.querySelectorAll(
-        '.assessment_container_bg_scroll_item',
-      )
-      sections.forEach((section) => observer.observe(section))
-
-      return () => {
-        sections.forEach((section) => observer.unobserve(section))
-      }
-    }
-  }, [])
-
-  const as_ars = [
+  const testimonials = [
     {
-      id_as: 'assm_1',
-      id_img: 'section-1',
-      id_text: '',
-      subtitle1: 'Boost Enrollment',
-      description1:
-        'Experience a significant increase in enrollment numbers as we drive authentic traffic to your courses from real students who are genuinely eager to learn. Our strategies ensure that your courses reach those who are not just browsing, are actively seeking the knowledge you offer. Say goodbye to stagnant numbers and hello to a vibrant classroom filled with engaged learners!',
-      subtitle2: 'Enhance Your Course Rating',
-      description2:
-        'Elevate your course ratings to new heights with our proven methodologies. We specialize in tailored solutions that foster positive reviews, helping your courses shine in the crowded marketplace. With our incredible starting price of just $0.50 for a 5-star rating, investing in your course’s reputation has never been more accessible. Watch as your ratings improve, bringing more visibility and credibility to your offerings!',
-      subtitle3: 'Maximize Your Revenue',
-      description3:
-        'Unlock your earning potential with our targeted approach that ensures your courses connect with the right audience. Our marketing strategies not only increase engagement but also foster positive reviews, leading to greater profitability. With our support, you’ll transform your passion for teaching into a sustainable income stream, empowering your financial freedom!',
-      subtitle4: '100% Account Safety',
-      description4:
-        'Your peace of mind is our top priority. We are committed to maintaining the integrity of your Udemy account by strictly adhering to Udemy’s Terms of Service. Our ethical practices guarantee a secure and reliable experience, so you can focus on what you do best—creating exceptional courses—without worrying about your account’s safety.',
-      subtitle5: 'Real-Time Performance Monitoring',
-      description5:
-        'Gain invaluable insights into your campaign’s effectiveness with our advanced History Tracking Dashboard. This tool provides real-time updates on your performance, allowing you to make informed decisions and adjustments as needed. Our pay-per-success model ensures that you only invest in actions that yield results, making it a highly cost-effective and results-oriented solution that aligns with your goals.',
-      cls_cur: '',
+      initials: avatar1,
+      color: '#f8b195',
+      quote:
+        "Experience a significant increase in enrollment numbers as we drive authentic traffic to your courses from real students who are genuinely eager to learn. Our strategies ensure that your courses reach those who are not just browsing, are actively seeking the knowledge you offer. Say goodbye to stagnant numbers and hello to a vibrant classroom filled with engaged learners!",
+      name: 'Boost Enrollment',
+      title: 'Digital Content Vertical Merchant',
     },
-  ]
+    {
+      initials: avatar2,
+      color: '#c06c85',
+      quote:
+        "Elevate your course ratings to new heights with our proven methodologies. We specialize in tailored solutions that foster positive reviews, helping your courses shine in the crowded marketplace. With our incredible starting price of just $0.50 for a 5-star rating, investing in your course’s reputation has never been more accessible. Watch as your ratings improve, bringing more visibility and credibility to your offerings!",
+      name: 'Enhance Your Course Rating',
+      title: 'Streaming Service Provider',
+    },
+    {
+      initials: avatar3,
+      color: '#c06c85',
+      quote:
+        "Unlock your earning potential with our targeted approach that ensures your courses connect with the right audience. Our marketing strategies not only increase engagement but also foster positive reviews, leading to greater profitability. With our support, you’ll transform your passion for teaching into a sustainable income stream, empowering your financial freedom!",
+      name: 'Maximize Your Revenue',
+      title: 'Streaming Service Provider',
+    },
+    {
+      initials: avatar4,
+      color: '#c06c85',
+      quote:
+        "Your peace of mind is our top priority. We are committed to maintaining the integrity of your Udemy account by strictly adhering to Udemy’s Terms of Service. Our ethical practices guarantee a secure and reliable experience, so you can focus on what you do best—creating exceptional courses—without worrying about your account’s safety.",
+      name: '100% Account Safety',
+      title: 'Streaming Service Provider',
+    },
+    {
+      initials: avatar5,
+      color: '#c06c85',
+      quote:
+        "Gain invaluable insights into your campaign’s effectiveness with our advanced History Tracking Dashboard. This tool provides real-time updates on your performance, allowing you to make informed decisions and adjustments as needed. Our pay-per-success model ensures that you only invest in actions that yield results, making it a highly cost-effective and results-oriented solution that aligns with your goals.",
+      name: 'Real-Time Performance Monitoring',
+      title: 'Streaming Service Provider',
+    },
+    // Add more testimonials if needed
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+  };
+
+  const handlePrevious = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
+    );
+  };
+
+  // Function to handle dot clicks
+  const handleDotClick = (index: SetStateAction<number>) => {
+    setCurrentIndex(index);
+  };
+
   return (
-    <div className="scroll-smooth">
-      <div
-        className="assessment relative z-10 h-auto bg-transparent py-0 md:pt-[130px] lg:pt-[70px] "
-        id="assessmentflow"
-      >
-        <div className="assessment_bg sticky top-0 z-[1] h-screen max-h-[800px] min-h-[650px] bg-gray-100 md:max-h-[1100px] md:min-h-[750px]">
-          <div className="assessment_content_wrapper SP:mx-0 SP:px-0 absolute bottom-0 top-0 my-0 flex w-full flex-col items-center bg-gray-50 py-0 md:my-0 md:px-[10vh] md:py-0 lg:px-[10vh]">
-            <div className="w-[90%]">
-              <h2 className="max-md:text-2xl mb-5 text-center text-4xl font-bold md:mt-10 lg:mt-10">
-                Why Choose Us?
-              </h2>
-              <p className="mb-4 text-center text-base md:mb-24">
-                Boost Enrollments, Elevate Ratings, and Watch Your Revenue Soar.
-              </p>
-            </div>
-            <div className="w-full">
-              <div className="assessment_content_content SP:ml-0 SP:w-full relative my-auto w-full max-w-[1200px] overflow-hidden md:mx-auto md:w-[92%]">
-                <AsessmentContent ass_ars={as_ars} />
-              </div>
+    <Container>
+      <div className="flex justify-center items-center mx-16 mt-28 ">
+        <div className="bg-white rounded-lg shadow-lg p-6 w-full flex space-x-8 relative h-[250px]">
+          <div className="absolute left-4 top-1/2 transform -translate-y-1/2 flex flex-col items-center space-y-2">
+            {testimonials.map((_, index) => (
+              <span
+                key={index}
+                onClick={() => handleDotClick(index)} // Add click handler for each dot
+                className={`w-2 h-2 rounded-full cursor-pointer ${index === currentIndex ? 'bg-red-500' : 'bg-gray-300'}`}
+              />
+            ))}
+          </div>
+
+          <div
+            className="flex items-center justify-center rounded-full w-[120px] h-[120px] mt-[40px]"
+            style={{ backgroundColor: testimonials[currentIndex].color }}
+          >
+            <Image src={testimonials[currentIndex].initials} width={120} height={120} alt='' />
+          </div>
+
+          <div className="flex-1 flex flex-col justify-between">
+            <blockquote className="text-lg italic mb-2 overflow-y-auto max-h-[200px]">
+              {testimonials[currentIndex].quote}
+            </blockquote>
+            <div className='flex items-center'>
+              <p className="font-semibold mr-4">{testimonials[currentIndex].name}</p>
+              <Image src={dot} width={4} height={4} alt='' />
+              <p className="text-gray-500 ml-4">{testimonials[currentIndex].title}</p>
             </div>
           </div>
-        </div>
-        <div className="assessment_container -mb-100vh relative mx-auto mt-0 min-h-screen bg-transparent md:rounded-[50px] md:bg-[#ffffff]">
-          <div className="assessment_container_bg_scroll">
-            <div
-              className="assessment_container_bg_scroll_item 1 h-screen"
-              data-show="#assm_1"
-              data-item=".assm_1_1"
-            ></div>
-            <div
-              className="assessment_container_bg_scroll_item 2 h-screen"
-              data-show="#assm_2"
-              data-item=".assm_2_2"
-            ></div>
-            <div
-              className="assessment_container_bg_scroll_item 3 h-screen"
-              data-show="#assm_3"
-              data-item=".assm_3_3"
-            ></div>
-            <div
-              className="assessment_container_bg_scroll_item 4 h-screen"
-              data-show="#assm_4"
-              data-item=".assm_4_4"
-            ></div>
-            <div
-              className="assessment_container_bg_scroll_item 5 h-screen"
-              data-show="#assm_5"
-              data-item=".assm_5_5"
-            ></div>
+
+          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4">
+            <button
+              onClick={handlePrevious}
+              className="p-2 bg-white rounded-full shadow hover:bg-gray-200 focus:outline-none w-10 h-10 flex items-center justify-center"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="9.8984375" height="6.364013671875" viewBox="0 0 9.8984375 6.364013671875">
+                <g transform="matrix(0,-1,-1,0,16.262451171875,16.262451171875)">
+                  <g transform="matrix(-0.7071067690849304,0.7071067690849304,-0.7071067690849304,-0.7071067690849304,35.76131334783449,7.813643768468779)">
+                    <rect x="16.26239824295044" y="11.313232421875" width="7" height="2" rx="1" fill="#262743"></rect>
+                  </g>
+                  <g transform="matrix(0.7071068286895752,0.7071067690849304,-0.7071067690849304,0.7071068286895752,7.8134472208135435,-6.1353045543300055)">
+                    <rect x="11.312691450119019" y="6.364013671875" width="7" height="2.000000238418579" rx="1.0000001192092896" fill="#262743"></rect>
+                  </g>
+                </g>
+              </svg>
+            </button>
+            <button
+              onClick={handleNext}
+              className="p-2 bg-white rounded-full shadow hover:bg-gray-200 focus:outline-none w-10 h-10 flex items-center justify-center"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" width="9.8984375" height="6.364013671875" viewBox="0 0 9.8984375 6.364013671875">
+                <g transform="matrix(0,1,-1,0,9.8984375,-9.8984375)">
+                  <g transform="matrix(-0.7071067690849304,0.7071067690849304,-0.7071067690849304,-0.7071067690849304,31.261276201902632,-3.0504070493380766)">
+                    <rect x="16.26239824295044" y="4.94921875" width="7" height="2" rx="1" fill="#262743"></rect>
+                  </g>
+                  <g transform="matrix(0.7071068286895752,0.7071067690849304,-0.7071067690849304,0.7071068286895752,3.3134100748816877,-7.9992807009483755)">
+                    <rect x="11.312691450119019" y="0" width="7" height="2.000000238418579" rx="1.0000001192092896" fill="#262743"></rect>
+                  </g>
+                </g>
+              </svg>
+            </button>
           </div>
         </div>
       </div>
-    </div>
-  )
+    </Container>
+  );
 }
+
+
+
+
+
+

@@ -328,7 +328,7 @@ export function Testimonials() {
       className="py-10"
     >
       <Container>
-        <div className="mb-[80px] text-center md:mt-20 mt-10 bg-[#f8f8f8] py-5 rounded-lg relative">
+        <div className="mb-[80px] text-center md:mt-20 mt-10 bg-[#f8f8f8] bg-opacity-65 py-5 rounded-lg relative">
           <h2 className="font-display md:text-2xl font-bold tracking-tight text-slate-900 sm:text-4xl">Why <span className="text-[#5a27da]">more and more </span> people use
             <span className="text-[#5a27da]"> Udemy</span> Growth
           </h2>
