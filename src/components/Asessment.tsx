@@ -74,7 +74,7 @@ export const Asessment = () => {
   return (
     <Container>
       <div className="flex justify-center items-center mx-16 mt-28 ">
-        <div className="bg-white rounded-lg shadow-lg p-6 w-full flex space-x-8 relative h-[250px]">
+        <div className="bg-white rounded-lg shadow-lg p-6 w-full flex space-x-8 relative h-[300px]">
           <div className="absolute left-4 top-1/2 transform -translate-y-1/2 flex flex-col items-center space-y-2">
             {testimonials.map((_, index) => (
               <span
@@ -86,7 +86,7 @@ export const Asessment = () => {
           </div>
 
           <div
-            className="flex items-center justify-center rounded-full w-[120px] h-[120px] mt-[40px]"
+            className="flex items-center justify-center rounded-full w-[120px] h-[120px] mt-[65px]"
             style={{ backgroundColor: testimonials[currentIndex].color }}
           >
             <Image src={testimonials[currentIndex].initials} width={120} height={120} alt='' />
