@@ -213,7 +213,7 @@ export function Hero() {
               fillRule="evenodd"
               fill="#6C33B5"
               fillOpacity="1"
-            ></path>
+            />
           </g>
         </svg>
       </div>
@@ -372,6 +372,12 @@ export function Hero() {
                         : 'PURCHASE NOW'}
                     </span>
                   </Link>
+                  <Link
+                    href={`details/${option.id}`}
+                    className="inline-block pt-6 text-center text-sm font-bold text-[#6C33B5] underline"
+                  >
+                    View more details
+                  </Link>
                 </div>
               </div>
             ))}
@@ -515,6 +521,12 @@ export function Hero() {
                   <span className="relative text-xs font-bold">
                     PURCHASE NOW
                   </span>
+                </Link>
+                <Link
+                  href={`details/${pagkage.id}`}
+                  className="inline-block pt-6 text-center text-sm font-bold text-[#6C33B5] underline"
+                >
+                  View more details
                 </Link>
               </div>
             </div>
