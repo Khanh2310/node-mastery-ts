@@ -334,7 +334,7 @@ export function Testimonials() {
     >
       <Container>
         <div className="relative mb-[80px] mt-10 rounded-lg bg-[#f8f8f8] bg-opacity-65 py-5 text-center md:mt-20">
-          <h2 className="font-display font-bold tracking-tight text-slate-900 sm:text-4xl md:text-3xl">
+          <h2 className="font-display font-bold tracking-tight text-slate-900 md:text-3xl text-2xl">
             Why <span className="text-[#5a27da]">more and more </span> people
             use
             <span className="text-[#5a27da]"> Udemy Growth</span>
@@ -344,11 +344,11 @@ export function Testimonials() {
             width={200}
             height={200}
             alt=""
-            className="absolute -top-1/2 right-0 h-28 w-28 -translate-y-2 md:h-[100px] md:w-[100px] lg:-top-full lg:h-[200px] lg:w-[200px]"
+            className="hidden lg:block absolute -top-1/2 right-0 h-28 w-28 -translate-y-2 md:h-[100px] md:w-[100px] lg:-top-full lg:h-[200px] lg:w-[200px]"
           />
         </div>
 
-        <div className="block w-full flex-wrap justify-center gap-6 md:flex lg:flex">
+        <div className="block w-full flex-wrap justify-center gap-6 md:flex lg:flex lg:mb-36 mb-16">
           {listPeopleUse.map((item) => (
             <div
               className="mb-5 flex cursor-pointer px-4 py-6 last:mb-0 hover:rounded-2xl hover:shadow-[0_24px_40px_#e6dbdb52] md:mb-0 md:w-[calc(50%-12px)] lg:mb-0 lg:w-[calc(33.333333%-16px)]"
@@ -394,8 +394,9 @@ export function Testimonials() {
             </div>
           ))}
         </div>
-        <div className=" mt-11 relative">
-          <h2 className="mb-[68px] text-center font-bold leading-10 lg:text-4xl">
+
+        <div className="relative">
+          <h2 className="mb-[68px] text-center font-bold leading-10 lg:text-4xl text-2xl">
             Hear from our happy clients
           </h2>
 
