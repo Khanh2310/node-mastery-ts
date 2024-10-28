@@ -302,8 +302,7 @@ export function Testimonials() {
     infinite: true,
     centerPadding: '100px',
     autoplay: true,
-    autoplaySpeed: 1000,
-    speed: 500,
+    autoplaySpeed: 2000,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
