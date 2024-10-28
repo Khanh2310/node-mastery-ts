@@ -55,7 +55,7 @@ export function Hero() {
     },
     {
       id: 3,
-      name: 'Basic plan',
+      name: 'Basic Pack',
       price: '9',
       credit: '130',
       category: [
@@ -70,7 +70,7 @@ export function Hero() {
     },
     {
       id: 4,
-      name: 'Premium plan',
+      name: 'Premium Pack',
       price: '19',
       credit: '300',
       category: [
