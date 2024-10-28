@@ -232,9 +232,9 @@ export const Assessment = () => {
 
   return (
     <Container>
-      <div className="mt-10 shadow-[0_4px_24px_#0000000a] md:mt-28">
-        <div className="relative h-[330px] bg-white shadow-lg">
-          <div>
+      <div className="mt-10  shadow-[0_4px_24px_#0000000a] md:mt-28">
+        <div className="relative flex h-[330px] flex-col items-center justify-center bg-white shadow-lg ">
+          <div className="">
             <div className="absolute left-4 top-1/2 z-10 flex -translate-y-1/2 transform flex-col items-center space-y-2">
               {testimonials.map((_, index) => (
                 <span
@@ -247,7 +247,7 @@ export const Assessment = () => {
               ))}
             </div>
             <div
-              className={`${fadeClass} ass  relative flex  w-full items-center space-x-8 p-6`}
+              className={`${fadeClass} ass relative flex w-full items-center space-x-8 p-6`}
             >
               <div className="flex flex-col items-center justify-center">
                 <p className="text-2xl font-semibold">
@@ -261,14 +261,14 @@ export const Assessment = () => {
                 />
               </div>
               <div className="flex w-full flex-1 flex-col justify-between md:max-w-[400px] lg:max-w-[500px] xl:max-w-[650px]">
-                <blockquote className="mb-2 max-h-[200px] overflow-y-auto text-lg italic">
+                <blockquote className="mb-2 max-h-[200px] overflow-y-auto text-base italic">
                   {testimonials[currentIndex].quote}
                 </blockquote>
               </div>
             </div>
           </div>
 
-          <div className="absolute bottom-0 left-1/2 flex transform items-center justify-center">
+          <div className="absolute bottom-8 left-1/2 flex -translate-x-1/2 transform items-center justify-center gap-x-3">
             <button
               onClick={handlePrevious}
               className="btn flex h-10 w-10 items-center justify-center rounded-full bg-white p-2 shadow hover:bg-[#7b5bf7] hover:text-white focus:outline-none"
@@ -277,14 +277,14 @@ export const Assessment = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                strokeWidth="3"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 className="size-3"
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="m4.5 15.75 7.5-7.5 7.5 7.5"
+                  d="M15.75 19.5 8.25 12l7.5-7.5"
                 />
               </svg>
             </button>
@@ -296,14 +296,14 @@ export const Assessment = () => {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                strokeWidth="3"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 className="size-3"
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                  d="m8.25 4.5 7.5 7.5-7.5 7.5"
                 />
               </svg>
             </button>
