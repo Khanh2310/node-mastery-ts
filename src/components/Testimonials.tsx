@@ -301,6 +301,9 @@ export function Testimonials() {
     focusOnSelect: true,
     infinite: true,
     centerPadding: '100px',
+    autoplay: true,
+    autoplaySpeed: 1000,
+    speed: 500,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
@@ -355,22 +358,20 @@ export function Testimonials() {
               onMouseLeave={handleMouseLeave}
             >
               <div
-                className={`relative mr-6 flex h-16 w-16 items-center justify-center rounded-full shadow-[0_20px_20px_#0000000d] transition-all duration-1000 ease-in-out ${
-                  hovered === item.id
-                    ? 'bg-[#6C33B5] shadow-[0_4px_10px_#00000014]'
-                    : 'bg-white'
-                } `}
+                className={`relative mr-6 flex h-16 w-16 items-center justify-center rounded-full shadow-[0_20px_20px_#0000000d] transition-all duration-1000 ease-in-out ${hovered === item.id
+                  ? 'bg-[#6C33B5] shadow-[0_4px_10px_#00000014]'
+                  : 'bg-white'
+                  } `}
               >
                 <Image
                   src={item.image}
                   width={36}
                   height={36}
                   alt=""
-                  className={`absolute transform transition-all duration-1000 ease-in-out ${
-                    hovered === item.id
-                      ? 'scale-90 opacity-0'
-                      : 'scale-100 opacity-100'
-                  }`}
+                  className={`absolute transform transition-all duration-1000 ease-in-out ${hovered === item.id
+                    ? 'scale-90 opacity-0'
+                    : 'scale-100 opacity-100'
+                    }`}
                 />
 
                 <Image
@@ -378,11 +379,10 @@ export function Testimonials() {
                   width={36}
                   height={36}
                   alt=""
-                  className={`absolute transform transition-all duration-1000 ease-in-out ${
-                    hovered === item.id
-                      ? 'scale-100 opacity-100'
-                      : 'scale-90 opacity-0'
-                  }`}
+                  className={`absolute transform transition-all duration-1000 ease-in-out ${hovered === item.id
+                    ? 'scale-100 opacity-100'
+                    : 'scale-90 opacity-0'
+                    }`}
                 />
               </div>
 

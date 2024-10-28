@@ -301,11 +301,11 @@ export function Hero() {
                 <div
                   className="mt-5 overflow-hidden rounded-2xl bg-gradient-box p-5"
                   onClick={() => handleShowContent(option.id)}
+
                 >
                   <ul
-                    className={`${
-                      show[option.id] ? 'h-auto' : 'max-h-[60px]'
-                    } overflow-hidden transition-all`}
+                    className={`${show[option.id] ? 'h-auto' : 'max-h-[60px]'
+                      } overflow-hidden transition-all`}
                   >
                     {option?.category.map((categoryItem, index) => (
                       <li className="flex items-center gap-2" key={index}>
@@ -360,7 +360,8 @@ export function Hero() {
                       </>
                     )}
                   </div>
-
+                </div>
+                <div className="">
                   <Link
                     href="#_"
                     className="group relative block overflow-hidden rounded-full bg-[#6C33B5] px-5 py-3 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-[#6C33B5] hover:to-[#9c67e5] hover:ring-2 hover:ring-[#9c67e5] hover:ring-offset-2"
@@ -455,9 +456,8 @@ export function Hero() {
               <div className="mt-5 overflow-hidden rounded-2xl bg-gradient-box p-5">
                 <div onClick={() => handleShowContent(pagkage.id)}>
                   <ul
-                    className={`${
-                      show[pagkage.id] ? 'h-auto' : 'max-h-[60px]'
-                    } overflow-hidden transition-all`}
+                    className={`${show[pagkage.id] ? 'h-auto' : 'max-h-[60px]'
+                      } overflow-hidden transition-all`}
                   >
                     {pagkage?.category.map((pagkageItem, index) => (
                       <li className="flex items-center gap-2" key={index}>
@@ -513,21 +513,23 @@ export function Hero() {
                     )}
                   </div>
                 </div>
-                <Link
-                  href="#_"
-                  className="group relative block overflow-hidden rounded-full bg-[#6C33B5] px-5 py-3 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-[#6C33B5] hover:to-[#9c67e5] hover:ring-2 hover:ring-[#9c67e5] hover:ring-offset-2"
-                >
-                  <span className="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-1000 group-hover:-translate-x-64" />
-                  <span className="relative text-xs font-bold">
-                    PURCHASE NOW
-                  </span>
-                </Link>
-                <Link
-                  href={`details/${pagkage.id}`}
-                  className="inline-block pt-6 text-center text-sm font-bold text-[#6C33B5] underline"
-                >
-                  View more details
-                </Link>
+                <div className="">
+                  <Link
+                    href="#_"
+                    className="group relative block overflow-hidden rounded-full bg-[#6C33B5] px-5 py-3 text-white transition-all duration-300 ease-out hover:bg-gradient-to-r hover:from-[#6C33B5] hover:to-[#9c67e5] hover:ring-2 hover:ring-[#9c67e5] hover:ring-offset-2"
+                  >
+                    <span className="ease absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform bg-white opacity-10 transition-all duration-1000 group-hover:-translate-x-64" />
+                    <span className="relative text-xs font-bold">
+                      PURCHASE NOW
+                    </span>
+                  </Link>
+                  <Link
+                    href={`details/${pagkage.id}`}
+                    className="inline-block pt-6 text-center text-sm font-bold text-[#6C33B5] underline"
+                  >
+                    View more details
+                  </Link>
+                </div>
               </div>
             </div>
           ))}

@@ -10,10 +10,10 @@ import { ViewTransitions } from 'next-view-transitions'
 export const metadata: Metadata = {
   title: {
     template: '%s - Udemy Service',
-    default: 'Udemy Service - Accounting made simple for small businesses',
+    default: 'Udemy Growth: Ignite Your Udemy Success',
   },
   description:
-    'Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited.',
+    'Real Traffic, Real Students, Real Revenue!Are you a dedicated Udemy instructor looking to boost your course enrollments and improve your ratings? Look no further!Our innovative service is designed specifically for existing Udemy instructors who want to maximize their potential without compromising their account safety.',
 }
 
 const inter = Inter({
