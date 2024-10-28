@@ -79,10 +79,10 @@ export const Assessment = () => {
     }, 800)
   }
 
-  // useEffect(() => {
-  //   const interval = setInterval(handleNext, 4000)
-  //   return () => clearInterval(interval)
-  // }, [])
+  useEffect(() => {
+    const interval = setInterval(handleNext, 4000)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <Container>
