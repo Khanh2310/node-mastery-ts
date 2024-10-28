@@ -300,6 +300,7 @@ export function Testimonials() {
     centerMode: true,
     focusOnSelect: true,
     infinite: true,
+    centerPadding: '100px',
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
@@ -309,6 +310,7 @@ export function Testimonials() {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
+          centerPadding: '0',
         },
       },
       {

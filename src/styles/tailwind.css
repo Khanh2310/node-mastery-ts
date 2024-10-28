@@ -233,7 +233,7 @@ body {
 }
 
 .slick-center,
-.slick-active {
+.slick-slide.slick-active {
   opacity: 1;
   filter: blur(0);
   transition:
