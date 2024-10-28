@@ -38,7 +38,6 @@ export function Hero() {
       ],
       userHasPurchased: Array.from({ length: 10 }, (_, i) => 101 + i), // Seeds 101 to 150
       renderName: 100,
-
     },
     {
       id: 2,
@@ -173,7 +172,9 @@ export function Hero() {
         () => alphabet[Math.floor(Math.random() * alphabet.length)],
       ).join('')
       messages.push(
-        `${randomName.slice(0, 2)}***${randomName.slice(2)} joined ${randomTimeAgo()}`,
+        `${randomName.slice(0, 2)}***${randomName.slice(
+          2,
+        )} joined ${randomTimeAgo()}`,
       )
     }
     return messages
@@ -261,7 +262,7 @@ export function Hero() {
                   </div>
                   <div className="relative z-[2] mt-auto w-full rounded-b-2xl bg-[#6C33B5] pb-5 pt-10">
                     {option.id === 1 ? (
-                      <div className="lg:my-2 my-[6px]">
+                      <div className="my-[6px] lg:my-2">
                         {option.renderName !== undefined && (
                           <MessageRotator
                             messages={generateRandomNamesWithTime(
@@ -302,8 +303,9 @@ export function Hero() {
                   onClick={() => handleShowContent(option.id)}
                 >
                   <ul
-                    className={`${show[option.id] ? 'h-auto' : 'max-h-[60px]'
-                      } overflow-hidden transition-all`}
+                    className={`${
+                      show[option.id] ? 'h-auto' : 'max-h-[60px]'
+                    } overflow-hidden transition-all`}
                   >
                     {option?.category.map((categoryItem, index) => (
                       <li className="flex items-center gap-2" key={index}>
@@ -376,12 +378,18 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="px-5  bg-[#f8f8f8] py-5 rounded-lg relative md:my-10">
-          <h2 className='font-bold lg:text-4xl md:text-2xl'>
-            Don't have <span className="text-[#5a27da]">TIME</span>? Our team handle <span className="text-[#5a27da]">EVERYTHING </span>
+        <div className="relative  rounded-lg bg-[#f8f8f8] px-5 py-5 md:my-10">
+          <h2 className="font-bold sm:text-4xl md:text-3xl">
+            Don't have <span className="text-[#5a27da]">TIME</span>? Our team
+            handle <span className="text-[#5a27da]">EVERYTHING </span>
           </h2>
-
-          <Image width={180} height={180} src={imageLine} className='hidden md:block absolute -top-full  right-0 z-10' alt='' />
+          <Image
+            width={180}
+            height={180}
+            src={imageLine}
+            className="absolute -top-full right-0 z-10 hidden md:block md:translate-y-4"
+            alt=""
+          />
         </div>
         <div className="relative z-10 mx-auto mt-12 flex flex-wrap justify-center gap-6 rounded-full">
           {requestPackage.map((pagkage) => (
@@ -441,8 +449,9 @@ export function Hero() {
               <div className="mt-5 overflow-hidden rounded-2xl bg-gradient-box p-5">
                 <div onClick={() => handleShowContent(pagkage.id)}>
                   <ul
-                    className={`${show[pagkage.id] ? 'h-auto' : 'max-h-[60px]'
-                      } overflow-hidden transition-all`}
+                    className={`${
+                      show[pagkage.id] ? 'h-auto' : 'max-h-[60px]'
+                    } overflow-hidden transition-all`}
                   >
                     {pagkage?.category.map((pagkageItem, index) => (
                       <li className="flex items-center gap-2" key={index}>
