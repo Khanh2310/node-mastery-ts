@@ -27,6 +27,8 @@ const config = {
           'linear-gradient(180deg, rgba(244, 244, 246, 1) 50%, rgba(236, 247, 255, 1) 50%)',
         'gradient-box':
           'linear-gradient(180deg, hsla(245, 100%, 98%), hsla(0, 100%, 94%, 0))',
+        'gradient-item-howitworks':
+          'linear-gradient(90deg, #fcf8f7 52%, hsla(12,45%,98%,0))',
       },
       colors: {
         border: 'hsl(var(--border))',
