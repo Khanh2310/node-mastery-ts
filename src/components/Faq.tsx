@@ -109,8 +109,8 @@ export const Faq = () => {
         <main className="relative min-h-screen flex flex-col justify-center overflow-hidden">
             <div className="w-full max-w-2xl mx-auto px-4 md:px-6 py-24">
                 <div className="text-center mb-[50px]">
-                    <h1 className="text-4xl font-bold text-slate-900 mb-4">Frequently asked questions</h1>
-                    <p className='text-base'>Can't find what you're looking for? Feel free to reach out to us through our contact page or live support.</p>
+                    <h1 className="text-2xl md:text-4xl font-bold text-slate-900 mb-4">Frequently asked questions</h1>
+                    <p className='text-sm md:text-base'>Can't find what you're looking for? Feel free to reach out to us through our contact page or live support.</p>
                 </div>
                 <div>
                     {faqs.map((faq, index) => (
