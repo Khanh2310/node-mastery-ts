@@ -394,10 +394,14 @@ export function Testimonials() {
             </div>
           ))}
         </div>
-        <div className=" mt-11">
+        <div className=" mt-11 relative">
           <h2 className="mb-[68px] text-center font-bold leading-10 lg:text-4xl">
             Hear from our happy clients
           </h2>
+
+
+          <div className="hidden xl:block absolute bg-gradient_slick_left h-[210px] w-[110px] z-[1] left-0 top-1/2 -translate-y-1/4 -translate-x-8" />
+
           <Slider
             {...settings}
             className="slider-container testimonial cursor-pointer bg-transparent"
@@ -432,6 +436,7 @@ export function Testimonials() {
               </div>
             ))}
           </Slider>
+          <div className="absolute bg-gradient_slick_right h-[210px] w-[110px] z-[1] right-0 top-1/2 -translate-y-1/4 translate-x-8 hidden xl:block" />
         </div>
       </Container>
     </section>
