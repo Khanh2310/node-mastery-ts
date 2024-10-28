@@ -234,7 +234,6 @@ const listPeopleUse = [
   },
 ]
 
-
 function SampleNextArrow(props: any) {
   const { onClick } = props
   return (
@@ -328,11 +327,19 @@ export function Testimonials() {
       className="py-10"
     >
       <Container>
-        <div className="mb-[80px] text-center md:mt-20 mt-10 bg-[#f8f8f8] bg-opacity-65 py-5 rounded-lg relative">
-          <h2 className="font-display md:text-2xl font-bold tracking-tight text-slate-900 sm:text-4xl">Why <span className="text-[#5a27da]">more and more </span> people use
-            <span className="text-[#5a27da]"> Udemy</span> Growth
+        <div className="relative mb-[80px] mt-10 rounded-lg bg-[#f8f8f8] bg-opacity-65 py-5 text-center md:mt-20">
+          <h2 className="font-display font-bold tracking-tight text-slate-900 sm:text-4xl md:text-3xl">
+            Why <span className="text-[#5a27da]">more and more </span> people
+            use
+            <span className="text-[#5a27da]"> Udemy Growth</span>
           </h2>
-          <Image src={imageGrowth} width={200} height={200} alt='' className='md:w-[100px] md:h-[100px] w-28 h-28 -top-1/2 absolute lg:-top-full right-0 -translate-y-2 lg:w-[200px] lg:h-[200px]' />
+          <Image
+            src={imageGrowth}
+            width={200}
+            height={200}
+            alt=""
+            className="absolute -top-1/2 right-0 h-28 w-28 -translate-y-2 md:h-[100px] md:w-[100px] lg:-top-full lg:h-[200px] lg:w-[200px]"
+          />
         </div>
 
         <div className="block w-full flex-wrap justify-center gap-6 md:flex lg:flex">
@@ -344,14 +351,22 @@ export function Testimonials() {
               onMouseLeave={handleMouseLeave}
             >
               <div
-                className={`relative mr-6 flex h-16 w-16 items-center justify-center rounded-full shadow-[0_20px_20px_#0000000d] transition-all duration-1000 ease-in-out ${hovered === item.id ? 'bg-[#6C33B5] shadow-[0_4px_10px_#00000014]' : 'bg-white'} `}
+                className={`relative mr-6 flex h-16 w-16 items-center justify-center rounded-full shadow-[0_20px_20px_#0000000d] transition-all duration-1000 ease-in-out ${
+                  hovered === item.id
+                    ? 'bg-[#6C33B5] shadow-[0_4px_10px_#00000014]'
+                    : 'bg-white'
+                } `}
               >
                 <Image
                   src={item.image}
                   width={36}
                   height={36}
                   alt=""
-                  className={`absolute transition-all duration-1000 ease-in-out transform ${hovered === item.id ? 'opacity-0 scale-90' : 'opacity-100 scale-100'}`}
+                  className={`absolute transform transition-all duration-1000 ease-in-out ${
+                    hovered === item.id
+                      ? 'scale-90 opacity-0'
+                      : 'scale-100 opacity-100'
+                  }`}
                 />
 
                 <Image
@@ -359,7 +374,11 @@ export function Testimonials() {
                   width={36}
                   height={36}
                   alt=""
-                  className={`absolute transition-all duration-1000 ease-in-out transform ${hovered === item.id ? 'opacity-100 scale-100' : 'opacity-0 scale-90'}`}
+                  className={`absolute transform transition-all duration-1000 ease-in-out ${
+                    hovered === item.id
+                      ? 'scale-100 opacity-100'
+                      : 'scale-90 opacity-0'
+                  }`}
                 />
               </div>
 
@@ -378,7 +397,7 @@ export function Testimonials() {
           </h2>
           <Slider
             {...settings}
-            className="slider-container testimonial bg-transparent cursor-pointer"
+            className="slider-container testimonial cursor-pointer bg-transparent"
           >
             {testimonials.map((slideItem, slideIndex) => (
               <div
