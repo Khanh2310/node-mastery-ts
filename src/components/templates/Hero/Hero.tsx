@@ -384,7 +384,6 @@ export function Hero() {
             ))}
           </div>
         </div>
-
         <div className="relative  rounded-lg bg-[#f8f8f8] px-5 py-5 md:my-10">
           <h2 className="font-bold sm:text-4xl md:text-3xl">
             Don't have <span className="text-[#5a27da]">TIME</span>? Our team
