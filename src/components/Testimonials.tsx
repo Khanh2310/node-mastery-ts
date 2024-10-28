@@ -296,9 +296,10 @@ export function Testimonials() {
   }
 
   const settings: Settings = {
-    speed: 500,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    centerMode: true,
+    focusOnSelect: true,
+    infinite: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
     responsive: [
@@ -315,6 +316,7 @@ export function Testimonials() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          centerMode: false,
         },
       },
     ],
@@ -401,7 +403,7 @@ export function Testimonials() {
           >
             {testimonials.map((slideItem, slideIndex) => (
               <div
-                className="mb-2 flex h-[200px] flex-col justify-between rounded-2xl p-5 shadow-[0_4px_16px_#f1f5f9]"
+                className="mb-2 flex h-[200px] w-full flex-col justify-between rounded-2xl p-5 shadow-[0_4px_16px_#f1f5f9]"
                 key={slideIndex}
               >
                 <div className="mb-6 flex items-start">
