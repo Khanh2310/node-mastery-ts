@@ -232,8 +232,8 @@ export const Assessment = () => {
 
   return (
     <Container>
-      <div className="mt-10  shadow-[0_4px_24px_#0000000a] md:mt-28">
-        <div className="relative flex h-[330px] flex-col items-center justify-center bg-white shadow-lg ">
+      <div className="mt-10 shadow-[0_4px_24px_#0000000a] md:mt-28">
+        <div className="relative flex h-[330px] flex-col items-center justify-center rounded-2xl bg-white shadow-lg ">
           <div className="">
             <div className="absolute left-4 top-1/2 z-10 flex -translate-y-1/2 transform flex-col items-center space-y-2">
               {testimonials.map((_, index) => (
