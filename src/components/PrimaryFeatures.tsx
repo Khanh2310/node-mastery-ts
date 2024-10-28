@@ -11,30 +11,37 @@ import screenshotExpenses from '@/images/screenshots/expenses.png'
 import screenshotPayroll from '@/images/screenshots/payroll.png'
 import screenshotReporting from '@/images/screenshots/reporting.png'
 import screenshotVatReturns from '@/images/screenshots/vat-returns.png'
+import React from 'react'
 
 const features = [
   {
-    title: 'Payroll',
+    title: 'Boost Enrollment',
     description:
-      "Keep track of everyone's salaries and whether or not they've been paid. Direct deposit not supported.",
+      'Experience a significant increase in enrollment numbers as we drive authentic traffic to your courses from real students who are genuinely eager to learn. Our strategies ensure that your courses reach those who are not just browsing, are actively seeking the knowledge you offer. Say goodbye to stagnant numbers and hello to a vibrant classroom filled with engaged learners!',
     image: screenshotPayroll,
   },
   {
-    title: 'Claim expenses',
+    title: 'Enhance Your Course Rating',
     description:
-      "All of your receipts organized into one place, as long as you don't mind typing in the data by hand.",
+      'Elevate your course ratings to new heights with our proven methodologies. We specialize in tailored solutions that foster positive reviews, helping your courses shine in the crowded marketplace. With our incredible starting price of just $0.50 for a 5-star rating, investing in your course’s reputation has never been more accessible. Watch as your ratings improve, bringing more visibility and credibility to your offerings!',
     image: screenshotExpenses,
   },
   {
-    title: 'VAT handling',
+    title: 'Maximize Your Revenue',
     description:
-      "We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
+      'Unlock your earning potential with our targeted approach that ensures your courses connect with the right audience. Our marketing strategies not only increase engagement but also foster positive reviews, leading to greater profitability. With our support, you’ll transform your passion for teaching into a sustainable income stream, empowering your financial freedom!',
     image: screenshotVatReturns,
   },
   {
-    title: 'Reporting',
+    title: '100% Account Safety',
     description:
-      'Easily export your data into an Excel spreadsheet where you can do whatever the hell you want with it.',
+      'Your peace of mind is our top priority. We are committed to maintaining the integrity of your Udemy account by strictly adhering to Udemy’s Terms of Service. Our ethical practices guarantee a secure and reliable experience, so you can focus on what you do best—creating exceptional courses—without worrying about your account’s safety.',
+    image: screenshotReporting,
+  },
+  {
+    title: 'Real-Time Performance Monitoring',
+    description:
+      'Gain invaluable insights into your campaign’s effectiveness with our advanced History Tracking Dashboard. This tool provides real-time updates on your performance, allowing you to make informed decisions and adjustments as needed. Our pay-per-success model ensures that you only invest in actions that yield results, making it a highly cost-effective and results-oriented solution that aligns with your goals.',
     image: screenshotReporting,
   },
 ]
@@ -105,7 +112,7 @@ export function PrimaryFeatures() {
                       <h3>
                         <Tab
                           className={clsx(
-                            'font-display text-lg ui-not-focus-visible:outline-none',
+                            'font-display ui-not-focus-visible:outline-none text-lg',
                             selectedIndex === featureIndex
                               ? 'text-blue-600 lg:text-white'
                               : 'text-blue-100 hover:text-white lg:text-white',

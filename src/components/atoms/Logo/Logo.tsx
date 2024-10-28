@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import logo from '@/images/logos/Diligent-logo.png'
+import logo from '@/images/logos/UdemyService-logo.svg'
 
 type Props = {
   className?: string
@@ -7,10 +7,10 @@ type Props = {
 export const Logo = ({ className }: Props) => {
   return (
     <Image
-      className={`h-15 w-auto ${className}`}
+      className={`md:h-16 h-14 w-auto ${className}`}
       src={logo}
-      height={100}
-      width={100}
+      height={150}
+      width={150}
       alt="Service"
     />
   )

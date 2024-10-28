@@ -4,47 +4,197 @@ import { Container } from '@/components/Container'
 import { Logo } from '@/components/atoms/Logo'
 import { NavLink } from '@/components/atoms/NavLink/NavLink'
 
+import facebook from '@/images/icons/facebook.webp'
+import telegram from '@/images/icons/telegram.webp'
+import tiktok from '@/images/icons/tiktok.webp'
+import twitter from '@/images/icons/twitter.webp'
+import Image from 'next/image'
+import earth from '@/images/icons/earth.svg'
+import safe from '@/images/screenshots/Google_Safe.webp'
+import trusted from '@/images/screenshots/TrustedSite.webp'
+import sitelock from '@/images/screenshots/Google_Safe.webp'
+import momo from '@/images/logos/visa.webp'
+import paypal from '@/images/logos/visa.webp'
+import zalopay from '@/images/logos/visa.webp'
+import vietQR from '@/images/logos/visa.webp'
+
 export const Footer = () => {
   return (
-    <footer className="bg-slate-50">
-      <Container>
-        <div className="py-16">
-          <Logo className="mx-auto h-10 w-auto" />
-          <nav className="mt-10 text-sm" aria-label="quick links">
-            <div className="-my-1 flex justify-center gap-x-6">
-              <NavLink href="#features">Features</NavLink>
-              <NavLink href="#testimonials">Testimonials</NavLink>
-              <NavLink href="#pricing">Pricing</NavLink>
+    <>
+      <footer className="relative bg-[#192b37]">
+        <span className="absolute top-0 w-full -translate-y-1 md:-translate-y-2 lg:-translate-y-[1rem]">
+          <svg
+            data-v-c6bcc2cb=""
+            className=""
+            preserveAspectRatio="none"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlnsXlink="http://www.w3.org/1999/xlink"
+            fill="none"
+            version="1.1"
+            viewBox="0 0 1920 30.000000000000234"
+          >
+            <g
+              data-v-c6bcc2cb=""
+              transform="matrix(-1,-1.2246468525851679e-16,1.2246468525851679e-16,-1,3840,60.0000000000007)"
+            >
+              <path
+                data-v-c6bcc2cb=""
+                d="M1920,30.000000000000234C1920,30.000000000000234,3840,30.000000000000234,3840,30.000000000000234C3840,30.000000000000234,3840,60.000000000000234,3840,60.000000000000234C3840,60.000000000000234,3416.5,30.000000000000234,2881.5,30.000000000000234C2346.5,30.000000000000234,1920,60.000000000000234,1920,60.000000000000234C1920,60.000000000000234,1920,30.000000000000234,1920,30.000000000000234Z"
+                fillRule="evenodd"
+                fill="#192C38"
+                fillOpacity="1"
+              ></path>
+            </g>
+          </svg>
+        </span>
+        <Container>
+          <div className="md:mb-8">
+            <div className="flex -translate-y-1/2 items-center justify-center">
+              {[
+                {
+                  logo: facebook,
+                  href: 'facebook',
+                },
+                {
+                  logo: telegram,
+                  href: 'telegram',
+                },
+                {
+                  logo: tiktok,
+                  href: 'tiktok',
+                },
+                {
+                  logo: twitter,
+                  href: 'twitter',
+                },
+              ].map((item, index) => (
+                <div key={index} className="mx-3">
+                  <Link href={item.href}>
+                    <Image
+                      src={item.logo}
+                      alt=""
+                      className="h-10 w-10 object-cover hover:opacity-95 md:h-[54px] md:w-[54px]"
+                    />
+                  </Link>
+                </div>
+              ))}
             </div>
-          </nav>
-        </div>
-        <div className="flex flex-col items-center border-t border-slate-400/10 py-10 sm:flex-row-reverse sm:justify-between">
-          <div className="flex gap-x-6">
-            <Link href="#" className="group" aria-label="Udemy Service on X">
-              <svg
-                className="h-6 w-6 fill-slate-500 group-hover:fill-slate-700"
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-              >
-                <path d="M13.3174 10.7749L19.1457 4H17.7646L12.7039 9.88256L8.66193 4H4L10.1122 12.8955L4 20H5.38119L10.7254 13.7878L14.994 20H19.656L13.3171 10.7749H13.3174ZM11.4257 12.9738L10.8064 12.0881L5.87886 5.03974H8.00029L11.9769 10.728L12.5962 11.6137L17.7652 19.0075H15.6438L11.4257 12.9742V12.9738Z" />
-              </svg>
-            </Link>
-            <Link href="#" className="group" aria-label="Udemy Service on GitHub">
-              <svg
-                className="h-6 w-6 fill-slate-500 group-hover:fill-slate-700"
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-              >
-                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z" />
-              </svg>
-            </Link>
+            <div className="">
+              <div className="flex flex-col items-center justify-center pb-14 pt-7 text-center text-white md:flex-row md:items-start md:justify-normal md:pb-0 md:pt-0 md:text-left">
+                <div className="mb-[10px] flex-1 md:mb-0">
+                  <h3 className="mb-6 text-sm font-medium uppercase">ABOUT</h3>
+                  <ul>
+                    <li className="mb-4 cursor-pointer text-[#fff9] hover:text-white">
+                      About Us
+                    </li>
+                    <li className="mb-4 cursor-pointer text-[#fff9] hover:text-white">
+                      Contact Us
+                    </li>
+                    <li className="mb-4 cursor-pointer text-[#fff9] hover:text-white">
+                      Help Center
+                    </li>
+                  </ul>
+                </div>
+                <div className="flex-1">
+                  <h3 className="mb-6 text-sm font-medium uppercase">
+                    Other tool
+                  </h3>
+                  <ul>
+                    <li className="mb-6 cursor-pointer text-[#fff9] hover:text-white md:mb-4">
+                      999+ FREE Courses Account
+                    </li>
+                    <li className="mb-6 cursor-pointer text-[#fff9] hover:text-white md:mb-4">
+                      Popular IT Free Courses
+                    </li>
+                  </ul>
+                </div>
+                <div className="mb-4 flex-1 md:mb-0">
+                  <h3 className="mb-6 text-sm font-medium uppercase">
+                    Language
+                  </h3>
+                  <button className="flex items-center rounded-full bg-[#FFFFFF1A] px-4 py-1 hover:opacity-80">
+                    <Image
+                      src={earth}
+                      width={18}
+                      height={18}
+                      alt=""
+                      className="mr-2"
+                    />
+                    <p>English</p>
+                  </button>
+                </div>
+                <div className="">
+                  <h3 className="mb-6 text-sm font-medium uppercase">
+                    Customer service
+                  </h3>
+                  <ul>
+                    <li className="mb-4 cursor-pointer text-[#fff9] hover:text-white">
+                      Support
+                    </li>
+                    <li className="mb-6 cursor-pointer text-[#fff9] hover:text-white md:mb-4">
+                      24/7 Support, 12 hours response
+                    </li>
+                  </ul>
+                  <div className="flex flex-col items-center gap-y-6  hover:cursor-pointer md:flex-row md:gap-3">
+                    <div className="">
+                      <Image src={safe} width={130} height={38} alt="" />
+                    </div>
+                    <div className="">
+                      <Image src={trusted} width={86} height={36} alt="" />
+                    </div>
+                    <div className="">
+                      <Image src={sitelock} width={130} height={38} alt="" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <p className="mt-6 text-sm text-slate-500 sm:mt-0">
-            Copyright &copy; {new Date().getFullYear()} Udemy Service. All rights
-            reserved.
-          </p>
+        </Container>
+        <div className=" bg-black px-5 py-7 md:px-5 md:pb-[29px] md:pt-[21px] ">
+          <div className="md:0 mb-7 flex flex-wrap items-center justify-center gap-x-6">
+            <Image
+              src={paypal}
+              width={130}
+              height={38}
+              alt=""
+              className="h-[50px] w-20 object-cover md:h-[38px] md:w-[130px]"
+            />
+            <Image
+              src={zalopay}
+              width={130}
+              height={38}
+              alt=""
+              className="h-[50px] w-20 object-cover md:h-[38px] md:w-[130px]"
+            />
+            <Image
+              src={momo}
+              width={130}
+              height={38}
+              alt=""
+              className="h-[50px] w-20 object-cover md:h-[38px] md:w-[130px]"
+            />
+            <Image
+              src={vietQR}
+              width={130}
+              height={38}
+              alt=""
+              className="h-[50px] w-20 object-cover md:h-[38px] md:w-[130px]"
+            />
+          </div>
+          <div className="flex flex-col items-center  text-center text-xs text-[#788086]">
+            <p>
+              All copyrights, trade marks, service marks belong to the
+              corresponding owners.
+            </p>
+            <p>Copyright © 2024 Udemy.com All Rights.</p>
+            <div>
+              <span className="uppercase">TERMS AND CONDITION</span> and{' '}
+              <span className="uppercase">PRIVACY POLICY</span>
+            </div>
+          </div>
         </div>
-      </Container>
-    </footer>
+      </footer>
+    </>
   )
 }

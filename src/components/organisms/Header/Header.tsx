@@ -105,13 +105,17 @@ export const Header = () => {
   const { user } = useAuth()
 
   return (
-    <header className="fixed z-10 w-full bg-white/30 py-5 backdrop-blur-md">
+    <header className="fixed z-30 w-full bg-[#6C33B5] py-2 backdrop-blur-md">
       <Container>
-        <nav className="relative z-50 flex justify-between">
-          <div className="flex items-center md:gap-x-12">
-            <Link href="#" aria-label="Home">
+        <nav className="relative z-50 flex items-center justify-between">
+          <div className="flex items-center md:gap-x-2">
+            <Link href="/" aria-label="Home">
               <Logo className="h-10 w-auto" />
             </Link>
+            <div className="font-bold text-white md:block hidden md:text-2xl">
+              Ignite Your Udemy Success
+            </div>
+
             <div className="hidden md:flex md:gap-x-6">
               {/* <NavLink href="#features">Features</NavLink>
               <NavLink href="#testimonials">Testimonials</NavLink>

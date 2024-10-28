@@ -35,23 +35,26 @@ export default function RootLayout({
 }) {
   return (
     <ViewTransitions>
-    <html
-      lang="en"
-      className={clsx(
-        'h-full scroll-smooth bg-white antialiased',
-        inter.variable,
-        lexend.variable,
-      )}
-    >
-      <body  suppressHydrationWarning={true} className="flex h-full flex-col scrollbar-thin">
-        <Providers>
-          <>
-          {children}
-          <Toaster />
-          </>
-        </Providers>
-      </body>
-    </html>
+      <html
+        lang="en"
+        className={clsx(
+          'h-full scroll-smooth bg-white antialiased',
+          inter.variable,
+          lexend.variable,
+        )}
+      >
+        <body
+          suppressHydrationWarning={true}
+          className="scrollbar-thin flex h-full flex-col"
+        >
+          <Providers>
+            <>
+              {children}
+              <Toaster />
+            </>
+          </Providers>
+        </body>
+      </html>
     </ViewTransitions>
   )
 }

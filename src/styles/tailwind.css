@@ -9,6 +9,10 @@
   --gradient-color-4: #94c8ff;
 }
 
+body {
+  font-family: 'Gilroy', sans-serif;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -73,54 +77,147 @@
   }
 }
 
+@layer utilities {
+  .ribbon {
+    --f: 0.5em;
+    @apply absolute right-0 top-0 bg-[#7CB9F0] text-lg font-bold leading-7 text-white;
+    padding-inline: 1lh;
+    padding-bottom: var(--f);
+    border-image: conic-gradient(#0008 0 0) 51% / var(--f);
+    clip-path: polygon(100% calc(100% - var(--f)),
+        100% 100%,
+        calc(100% - var(--f)) calc(100% - var(--f)),
+        var(--f) calc(100% - var(--f)),
+        0 100%,
+        0 calc(100% - var(--f)),
+        999px calc(100% - var(--f) - 999px),
+        calc(100% - 999px) calc(100% - var(--f) - 999px));
+    transform: translate(calc((1 - cos(45deg)) * 100%), -100%) rotate(45deg);
+    transform-origin: 0% 100%;
+  }
+
+  @keyframes swinging {
+    0% {
+      transform: rotate(10deg);
+    }
+
+    50% {
+      transform: rotate(-5deg);
+    }
+
+    100% {
+      transform: rotate(10deg);
+    }
+  }
+
+  .swingimage {
+    @apply origin-top ease-in-out;
+    animation: swinging 2.5s forwards infinite;
+  }
+
+  @keyframes animage {
+    0% {
+      transform: translateY(10%);
+    }
+
+    50% {
+      transform: translateY(-5%);
+    }
+
+    100% {
+      transform: translateY(10%);
+    }
+  }
+
+  .animage {
+    @apply origin-top ease-in-out;
+    animation: animage 2.5s forwards infinite;
+  }
+
+  .no-img-styles {
+    max-width: none;
+    height: auto;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
 
+.slick-track {
+  display: flex !important;
+}
 
-@layer utilities {
-  .scrollbar::-webkit-scrollbar {
-    width: 6px;
-    height: 4px;
+.testimonial.slick-slide {
+  height: auto !important;
+}
+
+.testimonial {
+  height: 100%;
+}
+
+.testimonial.slick-initialized .slick-slide {
+  margin: 0 8px !important;
+}
+
+.swiper-slide {
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+  /* Thêm opacity vào transition */
+}
+
+.swiper-slide-active {
+  opacity: 1;
+  /* Đảm bảo slide active có độ mờ 100% */
+  animation-delay: 0.1s;
+  animation-duration: 0.9s;
+  animation-name: swiperActive-f087a4a3;
+  transform: scale(1.05);
+  /* Tăng kích thước cho slide active */
+}
+
+@keyframes swiperActive-f087a4a3 {
+  0% {
+    transform: translate(0);
   }
 
-  .scrollbar::-webkit-scrollbar-track {
-    border-radius: 100vh;
-    background: transparent;
+  50% {
+    transform: translate(-5px);
   }
 
-  .scrollbar::-webkit-scrollbar-thumb {
-    background: #c0c0c0;
-    border-radius: 100vh;
-    border: 2px solid #c0c0c0;
+  to {
+    transform: translate(0);
+  }
+}
+
+.swiper-slide-next img {
+  animation-duration: 1s;
+  animation-name: swiperNext-f087a4a3;
+}
+
+@keyframes swiperNext-f087a4a3 {
+  0% {
+    height: 24px;
+    transform: translate(24px);
+    width: 24px;
   }
 
-  .scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #c0c0c0;
+  40% {
+    height: 54px;
+    transform: translate(-10px);
+    width: 54px;
   }
 
-  .scrollbar-thin::-webkit-scrollbar {
-    width: 4px;
-    height: 3px;
-  }
-
-  .scrollbar-thin::-webkit-scrollbar-track {
-    border-radius: 100vh;
-    background: transparent;
-  }
-
-  .scrollbar-thin::-webkit-scrollbar-thumb {
-    background: #c0c0c0;
-    border-radius: 100vh;
-    border: 2px solid #c0c0c0;
-  }
-
-  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-    background: #c0c0c0;
+  to {
+    height: 48px;
+    transform: translate(0);
+    width: 48px;
   }
 }
