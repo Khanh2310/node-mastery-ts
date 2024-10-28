@@ -2,7 +2,7 @@ import Image, { StaticImageData } from 'next/image'
 import iconPlus from '@/images/icons/plus_custom.webp'
 import { SliderCommon } from '@/components/molecules/SliderCommon'
 type AvatarProps = {
-  imageUser: StaticImageData[]
+  imageUser: number[]
 }
 export const Slider = ({ imageUser }: AvatarProps) => {
   return (

@@ -3,7 +3,6 @@ import clsx from 'clsx'
 
 import { Toaster } from '@/components/ui/toaster'
 import '@/styles/tailwind.css'
-import '@/styles/Asesment.scss'
 import { type Metadata } from 'next'
 import { Providers } from './provider'
 import { ViewTransitions } from 'next-view-transitions'
