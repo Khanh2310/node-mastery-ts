@@ -1,134 +1,147 @@
-"use client"
+'use client'
 
-import { SetStateAction, useState } from 'react';
-import { Container } from './Container';
+import { SetStateAction, useState } from 'react'
+import { Container } from './Container'
 import avatar1 from '@/images/screenshots/ilus1.png'
 import avatar2 from '@/images/screenshots/ilus2.png'
 import avatar3 from '@/images/screenshots/ilus3.png'
 import avatar4 from '@/images/screenshots/ilus4.png'
 import avatar5 from '@/images/screenshots/ilus5.png'
 import dot from '@/images/screenshots/dot-icon.svg'
-import Image from 'next/image';
+import Image from 'next/image'
 export const Asessment = () => {
   const testimonials = [
     {
       initials: avatar1,
       quote:
-        "Experience a significant increase in enrollment numbers as we drive authentic traffic to your courses from real students who are genuinely eager to learn. Our strategies ensure that your courses reach those who are not just browsing, are actively seeking the knowledge you offer. Say goodbye to stagnant numbers and hello to a vibrant classroom filled with engaged learners!",
+        'Experience a significant increase in enrollment numbers as we drive authentic traffic to your courses from real students who are genuinely eager to learn. Our strategies ensure that your courses reach those who are not just browsing, are actively seeking the knowledge you offer. Say goodbye to stagnant numbers and hello to a vibrant classroom filled with engaged learners!',
       name: 'Boost Enrollment',
       title: 'Digital Content Vertical Merchant',
     },
     {
       initials: avatar2,
       quote:
-        "Elevate your course ratings to new heights with our proven methodologies. We specialize in tailored solutions that foster positive reviews, helping your courses shine in the crowded marketplace. With our incredible starting price of just $0.50 for a 5-star rating, investing in your course’s reputation has never been more accessible. Watch as your ratings improve, bringing more visibility and credibility to your offerings!",
+        'Elevate your course ratings to new heights with our proven methodologies. We specialize in tailored solutions that foster positive reviews, helping your courses shine in the crowded marketplace. With our incredible starting price of just $0.50 for a 5-star rating, investing in your course’s reputation has never been more accessible. Watch as your ratings improve, bringing more visibility and credibility to your offerings!',
       name: 'Enhance Your Course Rating',
       title: 'Streaming Service Provider',
     },
     {
       initials: avatar3,
       quote:
-        "Unlock your earning potential with our targeted approach that ensures your courses connect with the right audience. Our marketing strategies not only increase engagement but also foster positive reviews, leading to greater profitability. With our support, you’ll transform your passion for teaching into a sustainable income stream, empowering your financial freedom!",
+        'Unlock your earning potential with our targeted approach that ensures your courses connect with the right audience. Our marketing strategies not only increase engagement but also foster positive reviews, leading to greater profitability. With our support, you’ll transform your passion for teaching into a sustainable income stream, empowering your financial freedom!',
       name: 'Maximize Your Revenue',
       title: 'Streaming Service Provider',
     },
     {
       initials: avatar4,
       quote:
-        "Your peace of mind is our top priority. We are committed to maintaining the integrity of your Udemy account by strictly adhering to Udemy’s Terms of Service. Our ethical practices guarantee a secure and reliable experience, so you can focus on what you do best—creating exceptional courses—without worrying about your account’s safety.",
+        'Your peace of mind is our top priority. We are committed to maintaining the integrity of your Udemy account by strictly adhering to Udemy’s Terms of Service. Our ethical practices guarantee a secure and reliable experience, so you can focus on what you do best—creating exceptional courses—without worrying about your account’s safety.',
       name: '100% Account Safety',
       title: 'Streaming Service Provider',
     },
     {
       initials: avatar5,
       quote:
-        "Gain invaluable insights into your campaign’s effectiveness with our advanced History Tracking Dashboard. This tool provides real-time updates on your performance, allowing you to make informed decisions and adjustments as needed. Our pay-per-success model ensures that you only invest in actions that yield results, making it a highly cost-effective and results-oriented solution that aligns with your goals.",
+        'Gain invaluable insights into your campaign’s effectiveness with our advanced History Tracking Dashboard. This tool provides real-time updates on your performance, allowing you to make informed decisions and adjustments as needed. Our pay-per-success model ensures that you only invest in actions that yield results, making it a highly cost-effective and results-oriented solution that aligns with your goals.',
       name: 'Real-Time Performance Monitoring',
       title: 'Streaming Service Provider',
     },
     // Add more testimonials if needed
-  ];
+  ]
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0)
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-  };
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length)
+  }
 
   const handlePrevious = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1
-    );
-  };
+      prevIndex === 0 ? testimonials.length - 1 : prevIndex - 1,
+    )
+  }
 
   // Function to handle dot clicks
   const handleDotClick = (index: SetStateAction<number>) => {
-    setCurrentIndex(index);
-  };
+    setCurrentIndex(index)
+  }
 
   return (
     <Container>
-      <div className="w-full mt-28 ">
-        <h2 className="max-md:text-2xl mb-5 text-center text-4xl font-bold md:mt-10 lg:mt-10">
-          Why Choose Us?
-        </h2>
-        <p className="mb-4 text-center text-base md:mb-16">
-          Boost Enrollments, Elevate Ratings, and Watch Your Revenue Soar.
-        </p>
-      </div>
-      <div className="flex justify-center items-center shadow-[0_4px_24px_#0000000a]">
-        <div className="bg-white rounded-lg shadow-lg p-6 w-full flex space-x-8 relative h-[330px]  items-center">
-          <div className="absolute left-4 top-1/2 transform -translate-y-1/2 flex flex-col items-center space-y-2">
+      <div className="mt-10 flex items-center justify-center shadow-[0_4px_24px_#0000000a] md:mt-28">
+        <div className="relative flex h-[330px] w-full items-center space-x-8 rounded-lg bg-white p-6  shadow-lg">
+          <div className="absolute left-4 top-1/2 flex -translate-y-1/2 transform flex-col items-center space-y-2">
             {testimonials.map((_, index) => (
               <span
                 key={index}
                 onClick={() => handleDotClick(index)}
-                className={`w-2 h-2 rounded-full cursor-pointer ${index === currentIndex ? 'bg-[#7b5bf7]' : 'bg-gray-300'}`}
+                className={`h-2 w-2 cursor-pointer rounded-full ${
+                  index === currentIndex ? 'bg-[#7b5bf7]' : 'bg-gray-300'
+                }`}
               />
             ))}
           </div>
 
-          <div
-            className="flex items-center flex-col justify-center"
-          >
-            <p className="font-semibold text-2xl">{testimonials[currentIndex].name}</p>
-            <Image src={testimonials[currentIndex].initials} width={280} height={280} alt='' />
+          <div className="flex flex-col items-center justify-center">
+            <p className="text-2xl font-semibold">
+              {testimonials[currentIndex].name}
+            </p>
+            <Image
+              src={testimonials[currentIndex].initials}
+              width={280}
+              height={280}
+              alt=""
+            />
           </div>
 
-          <div className="flex-1 flex flex-col justify-between w-full xl:max-w-[650px] lg:max-w-[500px] md:max-w-[400px]">
-            <blockquote className="text-lg italic mb-2">
+          <div className="flex w-full flex-1 flex-col justify-between md:max-w-[400px] lg:max-w-[500px] xl:max-w-[650px]">
+            <blockquote className="mb-2 text-lg italic">
               {testimonials[currentIndex].quote}
             </blockquote>
           </div>
 
-          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex flex-col space-y-4">
+          <div className="absolute right-4 top-1/2 flex -translate-y-1/2 transform flex-col space-y-4">
             <button
               onClick={handlePrevious}
-              className="p-2 bg-white rounded-full shadow hover:bg-[#7b5bf7] hover:text-white focus:outline-none w-10 h-10 flex items-center justify-center"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white p-2 shadow hover:bg-[#7b5bf7] hover:text-white focus:outline-none"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor" className="size-3">
-                <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 15.75 7.5-7.5 7.5 7.5" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="3"
+                stroke="currentColor"
+                className="size-3"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m4.5 15.75 7.5-7.5 7.5 7.5"
+                />
               </svg>
-
             </button>
             <button
               onClick={handleNext}
-              className="p-2 bg-white rounded-full shadow hover:bg-[#7b5bf7] hover:text-white focus:outline-none w-10 h-10 flex items-center justify-center"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white p-2 shadow hover:bg-[#7b5bf7] hover:text-white focus:outline-none"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor" className="size-3">
-                <path strokeLinecap="round" strokeLinejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="3"
+                stroke="currentColor"
+                className="size-3"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                />
               </svg>
-
             </button>
           </div>
         </div>
       </div>
     </Container>
-  );
+  )
 }
-
-
-
-
-
-
