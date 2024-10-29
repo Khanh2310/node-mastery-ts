@@ -11,9 +11,34 @@ import available from '@/images/logos/available.png'
 import pass from '@/images/logos/pass.png'
 import star_fill from '@/images/icons/star.svg'
 import star_not_fill from '@/images/icons/star-not-fill.svg'
-import { HowitWorksCommon } from '@/components/molecules/HowitWorksCommon'
+import { HowitWorks } from '@/components/organisms/HowitWorks'
 
-const page = () => {
+
+
+const listHowitWorks = [
+  {
+    title: "1. Preparation Before Execution:",
+    text: "Navigate to your Udemy instructor page and select your course.\nSet up a free coupon for your course in the Promotions tab.\nIn the Active/Scheduled Coupons section, click on 'Share Coupon' to obtain the promotional course link.",
+    active: true,
+  },
+  {
+    title: "2. Increasing Student Enrollment:",
+    text: "Go to the “Run Enroll” page. Enter your Udemy promotional course link.\nSpecify the number of students you wish to enroll.\nClick the “Run Enroll” button and monitor the progress of your job in the History Tracking section.",
+    active: false,
+  },
+  {
+    title: "3. Enhancing Course Ratings:",
+    text: "Go to the “Run Rate” page.\nEnter your Udemy promotional course link. Provide the desired rating content. Click the “Run Rate” button and track the status of your job in the History Tracking section.",
+    active: false,
+  },
+  {
+    title: "4. Credit Deduction Policy:",
+    text: "Your credits will only be deducted once the History Tracking indicates that your job has been marked as COMPLETED.\nPlease contact us if your credits are deducted in the event of a FAILURE.",
+    active: false,
+  },
+]
+
+const Page = () => {
   return (
     <BasicLayout>
       <section className="pt-24 lg:pb-40 lg:pt-32">
@@ -298,10 +323,12 @@ const page = () => {
           </button>
         </div>
 
-        <HowitWorksCommon />
+        <Container>
+          <HowitWorks listHowitWorks={listHowitWorks} />
+        </Container>
       </section>
     </BasicLayout>
   )
 }
 
-export default page
+export default Page

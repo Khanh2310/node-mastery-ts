@@ -28,7 +28,7 @@ const config = {
         'gradient-box':
           'linear-gradient(180deg, hsla(245, 100%, 98%), hsla(0, 100%, 94%, 0))',
         'gradient-item-howitworks':
-          'linear-gradient(90deg, #fcf8f7 52%, hsla(12,45%,98%,0))',
+          'linear-gradient(90deg, #f9f6fe 52%, hsla(12,45%,98%,0))',
           'gradient_slick_right': 'linear-gradient(90deg, hsla(0, 0%, 100%, 0.8) 4%, #fff 71%, #fff 99%)',
           'gradient_slick_left': 'linear-gradient(270deg, hsla(0, 0%, 100%, 0.8) 4%, #fff 71%, #fff 99%)',
 
