@@ -18,7 +18,6 @@ interface Props {
   listHowitWorks: HowItWorksItem[];
 }
 
-
 function HowitWorksCommon({
   children,
   title,
@@ -63,7 +62,6 @@ function HowitWorksCommon({
     </div>
   )
 }
-
 
 export const HowitWorks: React.FC<Props> = ({ listHowitWorks }) => {
   return (
