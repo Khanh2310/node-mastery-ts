@@ -6,6 +6,7 @@ import '@/styles/tailwind.css'
 import { type Metadata } from 'next'
 import { Providers } from './provider'
 import { ViewTransitions } from 'next-view-transitions'
+import RootLayoutClient from './RootLayoutClient'
 
 export const metadata: Metadata = {
   title: {
@@ -49,7 +50,7 @@ export default function RootLayout({
         >
           <Providers>
             <>
-              {children}
+              <RootLayoutClient>{children}</RootLayoutClient>
               <Toaster />
             </>
           </Providers>
