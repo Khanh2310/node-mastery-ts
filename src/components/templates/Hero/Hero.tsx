@@ -36,7 +36,7 @@ export function Hero() {
         'Valid 03 days',
         'Only for 1 instructor',
       ],
-      userHasPurchased: Array.from({ length: 10 }, (_, i) => 101 + i), // Seeds 101 to 150
+      userHasPurchased: Array.from({ length: 10 }, (_, i) => 101 + i),
       renderName: 100,
     },
     {
