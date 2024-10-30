@@ -13,6 +13,9 @@ import { useRouter } from 'next/navigation'
 import { Slider } from '@/components/organisms/Slider'
 import { MessageRotator } from '@/components/molecules/MessageRotator'
 import imageLine from '@/images/screenshots/imageLine.png'
+
+// pages/api/[id].js
+
 export function Hero() {
   const router = useRouter()
 
@@ -301,11 +304,11 @@ export function Hero() {
                 <div
                   className="mt-5 overflow-hidden rounded-2xl bg-gradient-box p-5"
                   onClick={() => handleShowContent(option.id)}
-
                 >
                   <ul
-                    className={`${show[option.id] ? 'h-auto' : 'max-h-[60px]'
-                      } overflow-hidden transition-all`}
+                    className={`${
+                      show[option.id] ? 'h-auto' : 'max-h-[60px]'
+                    } overflow-hidden transition-all`}
                   >
                     {option?.category.map((categoryItem, index) => (
                       <li className="flex items-center gap-2" key={index}>
@@ -385,8 +388,8 @@ export function Hero() {
           </div>
         </div>
         <div className="relative  rounded-lg bg-[#f8f8f8] px-5 py-5 md:my-10">
-          <h2 className="font-bold text-2xl md:text-3xl">
-            Don't have <span className="text-[#5a27da]">TIME</span>?  Our team
+          <h2 className="text-2xl font-bold md:text-3xl">
+            Don't have <span className="text-[#5a27da]">TIME</span>? Our team
             handle <span className="text-[#5a27da]">EVERYTHING </span>
           </h2>
           <Image
@@ -455,8 +458,9 @@ export function Hero() {
               <div className="mt-5 overflow-hidden rounded-2xl bg-gradient-box p-5">
                 <div onClick={() => handleShowContent(pagkage.id)}>
                   <ul
-                    className={`${show[pagkage.id] ? 'h-auto' : 'max-h-[60px]'
-                      } overflow-hidden transition-all`}
+                    className={`${
+                      show[pagkage.id] ? 'h-auto' : 'max-h-[60px]'
+                    } overflow-hidden transition-all`}
                   >
                     {pagkage?.category.map((pagkageItem, index) => (
                       <li className="flex items-center gap-2" key={index}>
