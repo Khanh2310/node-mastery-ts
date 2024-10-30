@@ -291,7 +291,7 @@ export function Hero() {
                         {option.credit} credits
                       </div>
                     ) : (
-                      <div className="font-bold text-white lg:text-2xl">
+                      <div className="font-bold text-white md:text-2xl">
                         <span className="text-lg font-medium leading-7">$</span>
                         {option.price} /{' '}
                         <span className="text-base">
@@ -306,9 +306,8 @@ export function Hero() {
                   onClick={() => handleShowContent(option.id)}
                 >
                   <ul
-                    className={`${
-                      show[option.id] ? 'h-auto' : 'max-h-[60px]'
-                    } overflow-hidden transition-all`}
+                    className={`${show[option.id] ? 'h-auto' : 'max-h-[60px]'
+                      } overflow-hidden transition-all`}
                   >
                     {option?.category.map((categoryItem, index) => (
                       <li className="flex items-center gap-2" key={index}>
@@ -448,7 +447,7 @@ export function Hero() {
                       />
                     )}
                   </div>
-                  <div className="font-bold text-white lg:mt-4 lg:text-2xl">
+                  <div className="font-bold text-white lg:mt-4 md:text-2xl ">
                     <span className="text-lg font-medium leading-7">$</span>
                     {''}
                     {pagkage.credit}
@@ -458,9 +457,8 @@ export function Hero() {
               <div className="mt-5 overflow-hidden rounded-2xl bg-gradient-box p-5">
                 <div onClick={() => handleShowContent(pagkage.id)}>
                   <ul
-                    className={`${
-                      show[pagkage.id] ? 'h-auto' : 'max-h-[60px]'
-                    } overflow-hidden transition-all`}
+                    className={`${show[pagkage.id] ? 'h-auto' : 'max-h-[60px]'
+                      } overflow-hidden transition-all`}
                   >
                     {pagkage?.category.map((pagkageItem, index) => (
                       <li className="flex items-center gap-2" key={index}>
