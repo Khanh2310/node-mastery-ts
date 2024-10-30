@@ -112,7 +112,7 @@ export const Header = () => {
             <Link href="/" aria-label="Home">
               <Logo className="h-10 w-auto" />
             </Link>
-            <div className="font-bold text-white md:block hidden md:text-2xl">
+            <div className="hidden font-bold text-white md:block md:text-2xl">
               Ignite Your Udemy Success
             </div>
 

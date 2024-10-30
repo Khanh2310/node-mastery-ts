@@ -6,7 +6,7 @@ import '@/styles/tailwind.css'
 import { type Metadata } from 'next'
 import { Providers } from './provider'
 import { ViewTransitions } from 'next-view-transitions'
-import RootLayoutClient from './RootLayoutClient'
+import RootLayoutClient from './root-layout-client'
 
 export const metadata: Metadata = {
   title: {
