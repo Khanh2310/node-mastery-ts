@@ -146,7 +146,7 @@ const pakageBasic: Product[] = [
     id: 8,
     name: 'LEAP PLAN',
     credit: '',
-    students: '20000',
+    students: '20.000',
     rating: '50',
     price: '299',
     instructor: "Unlimited instructor",
@@ -375,15 +375,14 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
 
                     <div className="flex items-end lg:mt-6">
                       <strong className="mr-1 text-[32px] leading-10 text-[#ff9208]">
-                        85%
+                        99.99%
                       </strong>
-                      <p>User Satisfaction</p>
+                      <p className='text-2xl'>Happy users</p>
                     </div>
-                    <div className="lg:mt-16 lg:text-lg ">
-                      <strong className="text-[32px] leading-10 text-[#5a27da]">
+                    <div className="lg:mt-16 lg:text-lg text-center">
+                      <strong className="text-[60px] leading-10 text-[#5a27da]">
                         ${item.price}
-                      </strong>{' '}
-                      /month
+                      </strong>
                     </div>
 
                     <button className="flex w-[320px] items-center justify-center rounded-full bg-[#5a27da] py-4 hover:opacity-80 lg:mt-10">
@@ -468,9 +467,9 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
 
                       <div className="mt-5 flex items-end text-xs leading-[14px]">
                         <strong className="mr-1 text-xl leading-5 text-[#ff9208]">
-                          85%
+                          99.99%
                         </strong>
-                        <p className="">User Satisfaction</p>
+                        <p className="">Happy users</p>
                       </div>
                     </div>
                   </div>
@@ -628,11 +627,10 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
         </Container>
         {data.map((item, index) => (
           <div className="fixed bottom-0 left-0 z-10 h-auto w-full border-none bg-white px-5 py-4 shadow-[0_-4px_24px_#00000014] sm:px-[100px] lg:hidden" key={index}>
-            <div className="text-left">
-              <strong className="text-[32px] leading-10 text-[#5a27da]">
+            <div className="text-center">
+              <strong className="text-4xl leading-10 text-[#5a27da]">
                 ${item.price}
-              </strong>{' '}
-              / month
+              </strong>
             </div>
             <button className="mt-2 flex w-full items-center justify-center rounded-full bg-[#5a27da] px-5 py-4">
               <span className="text-base leading-5 text-white ">
