@@ -22,7 +22,11 @@ type Product = {
   id: number
   name: string
   price: string
-  credit: string
+  credit?: string,
+  instructor?: string,
+  rating?: string,
+  students?: string,
+  days?: string,
   category: string[]
   userHasPurchased: number[]
   renderName: number
@@ -42,7 +46,7 @@ const listHowitWorks = [
   },
   {
     title: '3. Enhancing Course Ratings:',
-    text: 'Go to the “Run Rate” page.\nEnter your Udemy promotional course link. Provide the desired rating content. Click the “Run Rate” button and track the status of your job in the History Tracking section.',
+    text: 'Go to the “Run Rate” page.\nEnter your Udemy promotional course link.\nProvide the desired rating content.\nClick the “Run Rate” button and track the status of your job in the History Tracking section.',
     active: false,
   },
   {
@@ -56,8 +60,10 @@ const pakageBasic: Product[] = [
   {
     id: 1,
     name: 'Free Trial',
-    price: '',
+    price: '0',
     credit: '10',
+    days: '3 Days',
+    instructor: "1 instructor",
     category: ['01 new student : 01 credit', '01 new 5-star rate: 05 credits'],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 101 + i),
     renderName: 100,
@@ -67,6 +73,8 @@ const pakageBasic: Product[] = [
     name: 'PAY AS YOU GO',
     price: '1',
     credit: '10',
+    days: 'Never Expired',
+    instructor: "Unlimited instructor",
     category: ['01 new student : 01 credit', '01 new 5-star rate: 05 credits'],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 201 + i),
     renderName: 100,
@@ -76,6 +84,8 @@ const pakageBasic: Product[] = [
     name: 'Basic Pack',
     price: '9',
     credit: '130',
+    instructor: "Unlimited instructor",
+    days: 'Never Expired',
     category: ['01 new student : 01 credit', '01 new 5-star rate: 05 credits'],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 301 + i),
     sale: '30%',
@@ -86,6 +96,8 @@ const pakageBasic: Product[] = [
     name: 'Premium Pack',
     price: '19',
     credit: '300',
+    instructor: "Unlimited instructor",
+    days: 'Never Expired',
     category: ['01 new student : 01 credit', '01 new 5-star rate: 05 credits'],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 401 + i),
     sale: '50%',
@@ -94,8 +106,12 @@ const pakageBasic: Product[] = [
   {
     id: 5,
     name: 'STARTER PLAN',
-    credit: '100',
+    credit: '',
+    students: '100',
+    rating: '10',
     price: '9',
+    instructor: "Unlimited instructor",
+    days: '5 Days',
     category: [],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 501 + i),
     renderName: 70,
@@ -103,8 +119,12 @@ const pakageBasic: Product[] = [
   {
     id: 6,
     name: 'MOVER PLAN',
-    credit: '1000',
+    credit: '',
+    students: '1000',
+    rating: '30',
     price: '49',
+    instructor: "Unlimited instructor",
+    days: '10 Days',
     category: [],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 601 + i),
     renderName: 100,
@@ -112,8 +132,12 @@ const pakageBasic: Product[] = [
   {
     id: 7,
     name: 'FLYER PLAN',
-    credit: '2000',
+    credit: '',
+    students: '2000',
+    rating: '30',
     price: '99',
+    instructor: "Unlimited instructor",
+    days: '15 Days',
     category: [],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 701 + i),
     renderName: 99,
@@ -121,8 +145,12 @@ const pakageBasic: Product[] = [
   {
     id: 8,
     name: 'LEAP PLAN',
-    credit: '20.000',
+    credit: '',
+    students: '20000',
+    rating: '50',
     price: '299',
+    instructor: "Unlimited instructor",
+    days: '15 Days',
     category: [],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 801 + i),
     renderName: 89,
@@ -161,7 +189,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                     <h3 className="text-5xl font-bold leading-[58px] text-[#2f4858]">
                       {item.name}
                     </h3>
-                    {item.id < 4 ? (
+                    {item.id <= 4 ? (
                       <ul className="flex flex-col border-b-[1px] border-b-[#9e9e9e] font-semibold text-[#2f4858] lg:flex-row lg:flex-wrap lg:pb-6 lg:pt-12">
                         <li className="flex w-1/2 items-center lg:mb-6">
                           <Image
@@ -185,8 +213,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             className="object-contain"
                           />
                           <div className="ml-2 flex items-center text-sm">
-                            <p className="mr-1">{item.credit}</p>
-                            <p>Instructor</p>
+                            <p >{item.instructor}</p>
                           </div>
                         </li>
                         <li className="flex w-1/2 items-center lg:mb-6">
@@ -210,8 +237,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             className="object-contain"
                           />
                           <div className="ml-2 flex items-center text-sm">
-                            <p className="mr-1">{item.credit}</p>
-                            <p>Days</p>
+                            <p>{item.days}</p>
                           </div>
                         </li>
                       </ul>
@@ -226,7 +252,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             className="object-contain"
                           />
                           <div className="ml-2 flex items-center text-sm ">
-                            <p className="mr-1">{item.credit}</p>
+                            <p className="mr-1">{item.students}</p>
                             <p>New students</p>
                           </div>
                         </li>
@@ -239,7 +265,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             className="object-contain"
                           />
                           <div className="ml-2 flex items-center text-sm">
-                            <p className="mr-1">{item.credit}</p>
+                            <p className="mr-1">{item.rating}</p>
                             <p>Rating</p>
                           </div>
                         </li>
@@ -288,7 +314,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             className="object-contain"
                           />
                           <div className="ml-2 flex items-center text-sm">
-                            <p>5 days delivery</p>
+                            {item.days}
                           </div>
                         </li>
                       </ul>
@@ -449,7 +475,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                     </div>
                   </div>
                   <div className="pb-2">
-                    {item.id < 4 ? (
+                    {item.id <= 4 ? (
                       <ul className="flex flex-col border-b-[1px] border-b-[#9e9e9e] ">
                         <li className="mb-4 flex items-center w-[70%]">
                           <Image
@@ -473,8 +499,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             className="object-contain"
                           />
                           <div className="ml-2 flex justify-between text-sm">
-                            <p className='mr-1'>{item.credit}</p>
-                            <p>Instructor</p>
+                            <p className='mr-1'>{item.instructor}</p>
                           </div>
                         </li>
                         <li className="mb-4 flex w-[70%] items-center">
@@ -498,8 +523,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             className="object-contain"
                           />
                           <div className="ml-2 flex justify-between text-sm">
-                            <p className='mr-1'>{item.credit}</p>
-                            <p>Days</p>
+                            <p>{item.days}</p>
                           </div>
                         </li>
 
@@ -515,7 +539,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             className="object-contain"
                           />
                           <div className="ml-2 flex items-center text-sm">
-                            <p className="mr-1">{item.credit}</p>
+                            <p className="mr-1">{item.students}</p>
                             <p>New students</p>
                           </div>
                         </li>
@@ -528,7 +552,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             className="object-contain"
                           />
                           <div className="ml-2 flex items-center text-sm">
-                            <p className="mr-1">{item.credit}</p>
+                            <p className="mr-1">{item.rating}</p>
                             <p>Rating</p>
                           </div>
                         </li>
@@ -541,7 +565,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             className="object-contain"
                           />
                           <div className="ml-2 flex items-center text-sm">
-                            <p>Unlimited instructor</p>
+                            <p>{item.instructor}</p>
                           </div>
                         </li>
                         <li className="mb-4 flex items-center w-[70%]">
@@ -577,7 +601,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             className="object-contain"
                           />
                           <div className="ml-2 flex items-center text-sm">
-                            <p>5 days delivery</p>
+                            <p>{item.days}</p>
                           </div>
                         </li>
 
