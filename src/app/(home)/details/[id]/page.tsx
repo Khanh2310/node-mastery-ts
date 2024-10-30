@@ -21,7 +21,7 @@ import { useEffect, useState } from 'react'
 type Product = {
   id: number
   name: string
-  price?: string
+  price: string
   credit: string
   category: string[]
   userHasPurchased: number[]
@@ -95,6 +95,7 @@ const pakageBasic: Product[] = [
     id: 5,
     name: 'STARTER PLAN',
     credit: '100',
+    price: '9',
     category: [],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 501 + i),
     renderName: 70,
@@ -103,6 +104,7 @@ const pakageBasic: Product[] = [
     id: 6,
     name: 'MOVER PLAN',
     credit: '1000',
+    price: '49',
     category: [],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 601 + i),
     renderName: 100,
@@ -111,6 +113,7 @@ const pakageBasic: Product[] = [
     id: 7,
     name: 'FLYER PLAN',
     credit: '2000',
+    price: '99',
     category: [],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 701 + i),
     renderName: 99,
@@ -119,6 +122,7 @@ const pakageBasic: Product[] = [
     id: 8,
     name: 'LEAP PLAN',
     credit: '20.000',
+    price: '299',
     category: [],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 801 + i),
     renderName: 89,
@@ -177,7 +181,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             src={instructor}
                             width={40}
                             height={40}
-                            alt="fdjfhjdsh"
+                            alt=""
                             className="object-contain"
                           />
                           <div className="ml-2 flex items-center text-sm">
@@ -190,7 +194,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             src={execute}
                             width={40}
                             height={40}
-                            alt="fdjfhjdsh"
+                            alt=""
                             className="object-contain"
                           />
                           <div className="ml-2 flex items-center text-sm">
@@ -202,7 +206,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             src={date}
                             width={40}
                             height={40}
-                            alt="fdjfhjdsh"
+                            alt=""
                             className="object-contain"
                           />
                           <div className="ml-2 flex items-center text-sm">
@@ -231,7 +235,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             src={rating}
                             width={40}
                             height={40}
-                            alt="fdjfhjdsh"
+                            alt=""
                             className="object-contain"
                           />
                           <div className="ml-2 flex items-center text-sm">
@@ -244,7 +248,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             src={instructor}
                             width={40}
                             height={40}
-                            alt="fdjfhjdsh"
+                            alt=""
                             className="object-contain"
                           />
                           <div className="ml-2 flex items-center text-sm">
@@ -256,7 +260,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             src={login}
                             width={40}
                             height={40}
-                            alt="fdjfhjdsh"
+                            alt=""
                             className="object-contain"
                           />
                           <div className="ml-2 flex items-center text-sm">
@@ -268,7 +272,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             src={execute}
                             width={40}
                             height={40}
-                            alt="fdjfhjdsh"
+                            alt=""
                             className="object-contain"
                           />
                           <div className="ml-2 flex items-center text-sm">
@@ -280,7 +284,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             src={date}
                             width={40}
                             height={40}
-                            alt="fdjfhjdsh"
+                            alt=""
                             className="object-contain"
                           />
                           <div className="ml-2 flex items-center text-sm">
@@ -351,7 +355,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                     </div>
                     <div className="lg:mt-16 lg:text-lg ">
                       <strong className="text-[32px] leading-10 text-[#5a27da]">
-                        $3.77
+                        ${item.price}
                       </strong>{' '}
                       /month
                     </div>
@@ -598,43 +602,42 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
             ))}
 
         </Container>
-        <div className="fixed bottom-0 left-0 z-10 h-auto w-full border-none bg-white px-5 py-4 shadow-[0_-4px_24px_#00000014] sm:px-[100px] lg:hidden">
-          <div className="text-left">
-            <strong className="text-[32px] leading-10 text-[#5a27da]">
-              $3.77
-            </strong>{' '}
-            / month
-            <span className="ml-2 text-xl text-[#9e9e9e] line-through">
-              $7.27
-            </span>
+        {data.map((item, index) => (
+          <div className="fixed bottom-0 left-0 z-10 h-auto w-full border-none bg-white px-5 py-4 shadow-[0_-4px_24px_#00000014] sm:px-[100px] lg:hidden" key={index}>
+            <div className="text-left">
+              <strong className="text-[32px] leading-10 text-[#5a27da]">
+                ${item.price}
+              </strong>{' '}
+              / month
+            </div>
+            <button className="mt-2 flex w-full items-center justify-center rounded-full bg-[#5a27da] px-5 py-4">
+              <span className="text-base leading-5 text-white ">
+                INVENTORY SHORTAGE
+              </span>
+              <span>
+                <svg
+                  data-v-96876882=""
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlnsXlink="http://www.w3.org/1999/xlink"
+                  fill="none"
+                  version="1.1"
+                  width="6"
+                  height="10"
+                  viewBox="0 0 6 10"
+                  className="ml-4"
+                >
+                  <g>
+                    <path
+                      d="M5.72134,5.82431C5.6948,5.8585,5.66637,5.89162,5.63604,5.9235C5.63604,5.9235,2.12132,9.61748,2.12132,9.61748C1.63604,10.1275,0.849242,10.1275,0.363961,9.61748C-0.12132,9.10744,-0.12132,8.28052,0.363961,7.77049C0.363961,7.77049,3,5,3,5C3,5,0.363961,2.22951,0.363961,2.22951C-0.12132,1.71948,-0.12132,0.892557,0.363961,0.382524C0.849242,-0.127508,1.63604,-0.127508,2.12132,0.382524C2.12132,0.382524,5.63604,4.0765,5.63604,4.0765C6.09099,4.55466,6.11942,5.31134,5.72134,5.82431Z"
+                      fill="#FFFFFF"
+                      fillOpacity="1"
+                    />
+                  </g>
+                </svg>
+              </span>
+            </button>
           </div>
-          <button className="mt-2 flex w-full items-center justify-center rounded-full bg-[#5a27da] px-5 py-4">
-            <span className="text-base leading-5 text-white ">
-              INVENTORY SHORTAGE
-            </span>
-            <span>
-              <svg
-                data-v-96876882=""
-                xmlns="http://www.w3.org/2000/svg"
-                xmlnsXlink="http://www.w3.org/1999/xlink"
-                fill="none"
-                version="1.1"
-                width="6"
-                height="10"
-                viewBox="0 0 6 10"
-                className="ml-4"
-              >
-                <g>
-                  <path
-                    d="M5.72134,5.82431C5.6948,5.8585,5.66637,5.89162,5.63604,5.9235C5.63604,5.9235,2.12132,9.61748,2.12132,9.61748C1.63604,10.1275,0.849242,10.1275,0.363961,9.61748C-0.12132,9.10744,-0.12132,8.28052,0.363961,7.77049C0.363961,7.77049,3,5,3,5C3,5,0.363961,2.22951,0.363961,2.22951C-0.12132,1.71948,-0.12132,0.892557,0.363961,0.382524C0.849242,-0.127508,1.63604,-0.127508,2.12132,0.382524C2.12132,0.382524,5.63604,4.0765,5.63604,4.0765C6.09099,4.55466,6.11942,5.31134,5.72134,5.82431Z"
-                    fill="#FFFFFF"
-                    fillOpacity="1"
-                  />
-                </g>
-              </svg>
-            </span>
-          </button>
-        </div>
+        ))}
         <Container>
           <HowitWorks listHowitWorks={listHowitWorks} />
         </Container>
