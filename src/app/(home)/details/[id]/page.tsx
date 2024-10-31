@@ -387,7 +387,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
 
                     <button className="flex w-[320px] items-center justify-center rounded-full bg-[#5a27da] py-4 hover:opacity-80 lg:mt-10">
                       <span className="text-base leading-5 text-white ">
-                        INVENTORY SHORTAGE
+                        Payment
                       </span>
                       <span>
                         <svg
@@ -634,7 +634,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
             </div>
             <button className="mt-2 flex w-full items-center justify-center rounded-full bg-[#5a27da] px-5 py-4">
               <span className="text-base leading-5 text-white ">
-                INVENTORY SHORTAGE
+                Payment
               </span>
               <span>
                 <svg
