@@ -16,13 +16,11 @@ export const ModalBase = ({ open = false, handleClose = () => { } }) => {
         className="overlay absolute inset-0 cursor-pointer bg-black bg-opacity-50"
         onClick={handleClose}
       />
-      <div className="modal-content relative z-10 w-[500px] translate-y-10 rounded-2xl  bg-[#42315d] px-6 pb-10 pt-16 text-center">
+      <div className="modal-content relative z-10 w-[500px] translate-y-10 rounded-2xl  bg-[#42315d] px-6 pb-10 md:pt-16 pt-14 text-center">
         <Image
           src={mystery}
-          width={160}
-          height={160}
           alt=""
-          className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-[65%] object-cover"
+          className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-[65%] object-cover w-32 h-32 md:w-[160px] md:h-[160px]"
         />
         <span
           className="absolute right-0 top-0 -translate-x-1/2 translate-y-1/2 cursor-pointer text-white hover:opacity-80"
@@ -43,15 +41,15 @@ export const ModalBase = ({ open = false, handleClose = () => { } }) => {
             />
           </svg>
         </span>
-        <h3 className="left-6 mb-6 text-xl text-white">
+        <h3 className="left-6 mb-6 md:text-xl text-base text-white">
           Congratulations, Time-limited reward!
         </h3>
-        <p className="mb-10 text-base leading-5 text-white">
+        <p className="md:mb-10 mb-5 md:text-base text-sm leading-5 text-white">
           You have received a limited-time coupon, valid for only <b>30</b>{' '}
           minutes after successful registration of new users.
         </p>
 
-        <div className="mb-6 text-5xl font-bold leading-[58px] text-white">
+        <div className="md:mb-6 mb-3 text-5xl font-bold leading-[58px] text-white">
           00:10:22
         </div>
         <div className="mb-10">
