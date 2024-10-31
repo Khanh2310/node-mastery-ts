@@ -3,15 +3,14 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import mystery from '@/images/screenshots/mystery.png'
 import mystery_off from '@/images/screenshots/mystery_off.webp'
-export const ModalBase = ({ open = false, handleClose = () => {} }) => {
+export const ModalBase = ({ open = false, handleClose = () => { } }) => {
   if (typeof document === 'undefined') return <div className="modal" />
   const bodyElement = document.querySelector('body')
   if (!bodyElement) return null
   return ReactDOM.createPortal(
     <div
-      className={`modal fixed inset-0 z-50 flex items-center justify-center p-5 ${
-        open == true ? '' : 'invisible opacity-0'
-      }`}
+      className={`modal fixed inset-0 z-50 flex items-center justify-center p-5 ${open == true ? '' : 'invisible opacity-0'
+        }`}
     >
       <div
         className="overlay absolute inset-0 cursor-pointer bg-black bg-opacity-50"
@@ -20,10 +19,10 @@ export const ModalBase = ({ open = false, handleClose = () => {} }) => {
       <div className="modal-content relative z-10 w-[500px] translate-y-10 rounded-2xl  bg-[#42315d] px-6 pb-10 pt-16 text-center">
         <Image
           src={mystery}
-          width={402}
-          height={224}
+          width={160}
+          height={160}
           alt=""
-          className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-[75%] object-cover"
+          className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-[65%] object-cover"
         />
         <span
           className="absolute right-0 top-0 -translate-x-1/2 translate-y-1/2 cursor-pointer text-white hover:opacity-80"
