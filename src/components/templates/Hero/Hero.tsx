@@ -14,8 +14,6 @@ import { Slider } from '@/components/organisms/Slider'
 import { MessageRotator } from '@/components/molecules/MessageRotator'
 import imageLine from '@/images/screenshots/imageLine.png'
 
-// pages/api/[id].js
-
 export function Hero() {
   const router = useRouter()
 
@@ -306,8 +304,9 @@ export function Hero() {
                   onClick={() => handleShowContent(option.id)}
                 >
                   <ul
-                    className={`${show[option.id] ? 'h-auto' : 'max-h-[60px]'
-                      } overflow-hidden transition-all`}
+                    className={`${
+                      show[option.id] ? 'h-auto' : 'max-h-[60px]'
+                    } overflow-hidden transition-all`}
                   >
                     {option?.category.map((categoryItem, index) => (
                       <li className="flex items-center gap-2" key={index}>
@@ -447,7 +446,7 @@ export function Hero() {
                       />
                     )}
                   </div>
-                  <div className="font-bold text-white lg:mt-4 md:text-2xl ">
+                  <div className="font-bold text-white md:text-2xl lg:mt-4 ">
                     <span className="text-lg font-medium leading-7">$</span>
                     {''}
                     {pagkage.credit}
@@ -457,8 +456,9 @@ export function Hero() {
               <div className="mt-5 overflow-hidden rounded-2xl bg-gradient-box p-5">
                 <div onClick={() => handleShowContent(pagkage.id)}>
                   <ul
-                    className={`${show[pagkage.id] ? 'h-auto' : 'max-h-[60px]'
-                      } overflow-hidden transition-all`}
+                    className={`${
+                      show[pagkage.id] ? 'h-auto' : 'max-h-[60px]'
+                    } overflow-hidden transition-all`}
                   >
                     {pagkage?.category.map((pagkageItem, index) => (
                       <li className="flex items-center gap-2" key={index}>
