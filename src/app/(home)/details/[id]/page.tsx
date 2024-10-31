@@ -31,6 +31,7 @@ type Product = {
   userHasPurchased: number[]
   renderName: number
   sale?: string
+  baseCount: number
 }
 
 const listHowitWorks = [
@@ -67,6 +68,7 @@ const pakageBasic: Product[] = [
     category: ['01 new student : 01 credit', '01 new 5-star rate: 05 credits'],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 101 + i),
     renderName: 100,
+    baseCount: 10,
   },
   {
     id: 2,
@@ -78,6 +80,8 @@ const pakageBasic: Product[] = [
     category: ['01 new student : 01 credit', '01 new 5-star rate: 05 credits'],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 201 + i),
     renderName: 100,
+    baseCount: 15,
+
   },
   {
     id: 3,
@@ -90,6 +94,8 @@ const pakageBasic: Product[] = [
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 301 + i),
     sale: '30%',
     renderName: 90,
+    baseCount: 20,
+
   },
   {
     id: 4,
@@ -102,6 +108,8 @@ const pakageBasic: Product[] = [
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 401 + i),
     sale: '50%',
     renderName: 80,
+    baseCount: 25,
+
   },
   {
     id: 5,
@@ -115,6 +123,8 @@ const pakageBasic: Product[] = [
     category: [],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 501 + i),
     renderName: 70,
+    baseCount: 30,
+
   },
   {
     id: 6,
@@ -128,6 +138,8 @@ const pakageBasic: Product[] = [
     category: [],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 601 + i),
     renderName: 100,
+    baseCount: 35,
+
   },
   {
     id: 7,
@@ -141,6 +153,8 @@ const pakageBasic: Product[] = [
     category: [],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 701 + i),
     renderName: 99,
+    baseCount: 40,
+
   },
   {
     id: 8,
@@ -154,10 +168,12 @@ const pakageBasic: Product[] = [
     category: [],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 801 + i),
     renderName: 89,
+    baseCount: 45,
   },
 ]
 
 const PackageDetail = ({ params }: { params: { id: string } }) => {
+  const [userCount, setUserCount] = useState(0);
   const [data, setData] = useState<Product[]>([])
   useEffect(() => {
     const product = pakageBasic.find((item) => item.id === Number(params.id))
@@ -165,7 +181,35 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
     if (product && product !== undefined) {
       setData([product])
     }
-  }, [params.id])
+
+    // Lấy giá trị từ localStorage
+    const storedCount = localStorage.getItem("userCount") ?? "0";
+    const lastUpdate = localStorage.getItem("lastUpdate") ?? "";
+
+    const now = new Date();
+    const nowInVietnamTime = new Date(now.getTime() + 7 * 60 * 60 * 1000); // Chuyển đổi sang giờ Việt Nam
+
+    const lastUpdatedDate = lastUpdate ? new Date(lastUpdate) : null
+    const lastUpdatedDateInVietnamTime = lastUpdatedDate ? new Date(lastUpdatedDate.getTime() + 7 * 60 * 60 * 1000)
+      : null;
+    // Kiểm tra nếu chưa lưu giá trị hoặc đã qua 24 giờ
+    if (
+      !storedCount ||
+      !lastUpdatedDateInVietnamTime ||
+      nowInVietnamTime.getDate() !== lastUpdatedDateInVietnamTime.getDate()
+    ) {
+
+      const newCount = (parseInt(storedCount) || 1056) + 10;
+      setUserCount(newCount);
+
+      // Cập nhật localStorage với thời gian hiện tại theo UTC
+      localStorage.setItem("userCount", newCount.toString());
+      localStorage.setItem("lastUpdate", now.toISOString());
+    } else {
+      // Nếu chưa qua 24 giờ, lấy giá trị hiện tại
+      setUserCount(parseInt(storedCount));
+    }
+  }, [])
   return (
     <BasicLayout>
       <section className="pt-24 lg:pb-40 lg:pt-32">
@@ -375,7 +419,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
 
                     <div className="flex items-end lg:mt-6">
                       <strong className="mr-1 text-[32px] leading-10 text-[#ff9208]">
-                        99.99%
+                        {userCount}
                       </strong>
                       <p className='text-2xl'>Happy users</p>
                     </div>
@@ -467,7 +511,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
 
                       <div className="mt-5 flex items-end text-xs leading-[14px]">
                         <strong className="mr-1 text-xl leading-5 text-[#ff9208]">
-                          99.99%
+                          {userCount}
                         </strong>
                         <p className="">Happy users</p>
                       </div>
