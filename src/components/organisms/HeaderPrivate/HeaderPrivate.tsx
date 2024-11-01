@@ -16,13 +16,15 @@ import { classNames } from '@/lib/utils'
 import { AvatarCompany } from '@/components/atoms/AvatarCompany'
 import Link from 'next/link'
 import { User } from '@/types/User'
+import { AvatarUser } from '../AvatarUser'
 
 type Props = {
   user: User | null
-  logout: () => Promise<void>;
+  logout: () => Promise<void>
 }
 
 export const HeaderPrivate = ({ user, logout }: Props) => {
+  console.log(user)
   const segment = useSelectedLayoutSegment()
   const listMenu = [
     {
@@ -96,7 +98,10 @@ export const HeaderPrivate = ({ user, logout }: Props) => {
                     <MenuButton className="relative flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
                       <span className="absolute -inset-1.5" />
                       <span className="sr-only">Open user menu</span>
-                      <AvatarCompany className="h-8 w-8 rounded-full" />
+                      {/* <AvatarCompany className="h-8 w-8 rounded-full" /> */}
+                      <AvatarUser
+                        name={`${user?.first_name} ${user?.last_name}`}
+                      />
                     </MenuButton>
                   </div>
                   <Transition
@@ -124,11 +129,11 @@ export const HeaderPrivate = ({ user, logout }: Props) => {
                       <MenuItem>
                         {({ focus }) => (
                           <button
-                            type='button'
+                            type="button"
                             onClick={logout}
                             className={classNames(
                               focus ? 'bg-gray-100' : '',
-                              'block px-4 py-2 text-sm text-gray-700 w-full text-left',
+                              'block w-full px-4 py-2 text-left text-sm text-gray-700',
                             )}
                           >
                             Sign out
