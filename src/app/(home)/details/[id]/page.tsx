@@ -22,11 +22,11 @@ type Product = {
   id: number
   name: string
   price: string
-  credit?: string,
-  instructor?: string,
-  rating?: string,
-  students?: string,
-  days?: string,
+  credit?: string
+  instructor?: string
+  rating?: string
+  students?: string
+  days?: string
   category: string[]
   userHasPurchased: number[]
   renderName: number
@@ -64,7 +64,7 @@ const pakageBasic: Product[] = [
     price: '0',
     credit: '10',
     days: '3 Days',
-    instructor: "1 instructor",
+    instructor: '1 instructor',
     category: ['01 new student : 01 credit', '01 new 5-star rate: 05 credits'],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 101 + i),
     renderName: 100,
@@ -76,40 +76,37 @@ const pakageBasic: Product[] = [
     price: '1',
     credit: '10',
     days: 'Never Expired',
-    instructor: "Unlimited instructor",
+    instructor: 'Unlimited instructor',
     category: ['01 new student : 01 credit', '01 new 5-star rate: 05 credits'],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 201 + i),
     renderName: 100,
     baseCount: 15,
-
   },
   {
     id: 3,
     name: 'Basic Pack',
     price: '9',
     credit: '130',
-    instructor: "Unlimited instructor",
+    instructor: 'Unlimited instructor',
     days: 'Never Expired',
     category: ['01 new student : 01 credit', '01 new 5-star rate: 05 credits'],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 301 + i),
     sale: '30%',
     renderName: 90,
     baseCount: 20,
-
   },
   {
     id: 4,
     name: 'Premium Pack',
     price: '19',
     credit: '300',
-    instructor: "Unlimited instructor",
+    instructor: 'Unlimited instructor',
     days: 'Never Expired',
     category: ['01 new student : 01 credit', '01 new 5-star rate: 05 credits'],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 401 + i),
     sale: '50%',
     renderName: 80,
     baseCount: 25,
-
   },
   {
     id: 5,
@@ -118,13 +115,12 @@ const pakageBasic: Product[] = [
     students: '100',
     rating: '10',
     price: '9',
-    instructor: "Unlimited instructor",
+    instructor: 'Unlimited instructor',
     days: '5 Days',
     category: [],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 501 + i),
     renderName: 70,
     baseCount: 30,
-
   },
   {
     id: 6,
@@ -133,13 +129,12 @@ const pakageBasic: Product[] = [
     students: '1000',
     rating: '30',
     price: '49',
-    instructor: "Unlimited instructor",
+    instructor: 'Unlimited instructor',
     days: '10 Days',
     category: [],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 601 + i),
     renderName: 100,
     baseCount: 35,
-
   },
   {
     id: 7,
@@ -148,13 +143,12 @@ const pakageBasic: Product[] = [
     students: '2000',
     rating: '30',
     price: '99',
-    instructor: "Unlimited instructor",
+    instructor: 'Unlimited instructor',
     days: '15 Days',
     category: [],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 701 + i),
     renderName: 99,
     baseCount: 40,
-
   },
   {
     id: 8,
@@ -163,7 +157,7 @@ const pakageBasic: Product[] = [
     students: '20.000',
     rating: '50',
     price: '299',
-    instructor: "Unlimited instructor",
+    instructor: 'Unlimited instructor',
     days: '15 Days',
     category: [],
     userHasPurchased: Array.from({ length: 10 }, (_, i) => 801 + i),
@@ -173,8 +167,19 @@ const pakageBasic: Product[] = [
 ]
 
 const PackageDetail = ({ params }: { params: { id: string } }) => {
-  const [userCount, setUserCount] = useState(0);
+  // const [userCount, setUserCount] = useState(0)
   const [data, setData] = useState<Product[]>([])
+
+  const getDateNumber = () => {
+    const now = new Date()
+    const dateStr = `${now.getFullYear()}${now.getMonth() + 1}${now.getDate()}`
+    return Number(dateStr)
+  }
+
+  const [userCount, setUserCount] = useState(() => {
+    const storedCount = localStorage.getItem('userCount')
+    return storedCount ? parseInt(storedCount) : 1000 // Giá trị mặc định nếu không có dữ liệu trong localStorage
+  })
   useEffect(() => {
     const product = pakageBasic.find((item) => item.id === Number(params.id))
 
@@ -182,34 +187,49 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
       setData([product])
     }
 
-    // Lấy giá trị từ localStorage
-    const storedCount = localStorage.getItem("userCount") ?? "0";
-    const lastUpdate = localStorage.getItem("lastUpdate") ?? "";
+    const currentDateNumber = getDateNumber()
 
-    const now = new Date();
-    const nowInVietnamTime = new Date(now.getTime() + 7 * 60 * 60 * 1000); // Chuyển đổi sang giờ Việt Nam
+    // Lấy ngày cuối cùng từ localStorage
+    const lastDateNumber = parseInt(
+      localStorage.getItem('lastDateNumber') || '0',
+    )
 
-    const lastUpdatedDate = lastUpdate ? new Date(lastUpdate) : null
-    const lastUpdatedDateInVietnamTime = lastUpdatedDate ? new Date(lastUpdatedDate.getTime() + 7 * 60 * 60 * 1000)
-      : null;
-    // Kiểm tra nếu chưa lưu giá trị hoặc đã qua 24 giờ
-    if (
-      !storedCount ||
-      !lastUpdatedDateInVietnamTime ||
-      nowInVietnamTime.getDate() !== lastUpdatedDateInVietnamTime.getDate()
-    ) {
+    if (currentDateNumber !== lastDateNumber) {
+      // Nếu ngày đã thay đổi, cập nhật số lượng người dùng
+      const newCount = userCount + currentDateNumber
 
-      const newCount = (parseInt(storedCount) || 1056) + 10;
-      setUserCount(newCount);
-
-      // Cập nhật localStorage với thời gian hiện tại theo UTC
-      localStorage.setItem("userCount", newCount.toString());
-      localStorage.setItem("lastUpdate", now.toISOString());
-    } else {
-      // Nếu chưa qua 24 giờ, lấy giá trị hiện tại
-      setUserCount(parseInt(storedCount));
+      setUserCount(newCount)
+      localStorage.setItem('userCount', newCount.toString())
+      localStorage.setItem('lastDateNumber', currentDateNumber.toString())
     }
-  }, [])
+    // // Lấy giá trị từ localStorage
+    // const storedCount = localStorage.getItem('userCount') ?? '0'
+    // const lastUpdate = localStorage.getItem('lastUpdate') ?? ''
+
+    // const now = new Date()
+    // const nowInVietnamTime = new Date(now.getTime() + 7 * 60 * 60 * 1000) // Chuyển đổi sang giờ Việt Nam
+
+    // const lastUpdatedDate = lastUpdate ? new Date(lastUpdate) : null
+    // const lastUpdatedDateInVietnamTime = lastUpdatedDate
+    //   ? new Date(lastUpdatedDate.getTime() + 7 * 60 * 60 * 1000)
+    //   : null
+    // // Kiểm tra nếu chưa lưu giá trị hoặc đã qua 24 giờ
+    // if (
+    //   !storedCount ||
+    //   !lastUpdatedDateInVietnamTime ||
+    //   nowInVietnamTime.getDate() !== lastUpdatedDateInVietnamTime.getDate()
+    // ) {
+    //   const newCount = (parseInt(storedCount) || 1056) + 10
+    //   setUserCount(newCount)
+
+    //   // Cập nhật localStorage với thời gian hiện tại theo UTC
+    //   localStorage.setItem('userCount', newCount.toString())
+    //   localStorage.setItem('lastUpdate', now.toISOString())
+    // } else {
+    //   // Nếu chưa qua 24 giờ, lấy giá trị hiện tại
+    //   setUserCount(parseInt(storedCount))
+    // }
+  }, [userCount])
   return (
     <BasicLayout>
       <section className="pt-24 lg:pb-40 lg:pt-32">
@@ -217,9 +237,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
           {data &&
             data.map((item, index) => (
               <div key={index}>
-                <div
-                  className="hidden justify-center lapstops_big:flex lapstops_big:flex-row "
-                >
+                <div className="hidden justify-center lapstops_big:flex lapstops_big:flex-row ">
                   <div className="lg:w-[200px] ">
                     <Image
                       src={imageLogo}
@@ -257,7 +275,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             className="object-contain"
                           />
                           <div className="ml-2 flex items-center text-sm">
-                            <p >{item.instructor}</p>
+                            <p>{item.instructor}</p>
                           </div>
                         </li>
                         <li className="flex w-1/2 items-center lg:mb-6">
@@ -372,7 +390,10 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                       </p>
                     ) : (
                       item.category.map((content, index) => (
-                        <p className="mt-3 text-sm italic last:mt-1" key={index}>
+                        <p
+                          className="mt-3 text-sm italic last:mt-1"
+                          key={index}
+                        >
                           {content}
                         </p>
                       ))
@@ -421,9 +442,9 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                       <strong className="mr-1 text-[32px] leading-10 text-[#ff9208]">
                         {userCount}
                       </strong>
-                      <p className='text-2xl'>Happy users</p>
+                      <p className="text-2xl">Happy users</p>
                     </div>
-                    <div className="lg:mt-16 lg:text-lg text-center">
+                    <div className="text-center lg:mt-16 lg:text-lg">
                       <strong className="text-[60px] leading-10 text-[#5a27da]">
                         ${item.price}
                       </strong>
@@ -520,7 +541,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                   <div className="pb-2">
                     {item.id <= 4 ? (
                       <ul className="flex flex-col border-b-[1px] border-b-[#9e9e9e] ">
-                        <li className="mb-4 flex items-center w-[70%]">
+                        <li className="mb-4 flex w-[70%] items-center">
                           <Image
                             src={credits}
                             width={40}
@@ -529,11 +550,11 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             className="object-contain"
                           />
                           <div className="ml-2 flex justify-between text-sm">
-                            <p className='mr-1'>{item.credit}</p>
-                            <p >Credits</p>
+                            <p className="mr-1">{item.credit}</p>
+                            <p>Credits</p>
                           </div>
                         </li>
-                        <li className="mb-4 flex items-center  w-[70%]">
+                        <li className="mb-4 flex w-[70%]  items-center">
                           <Image
                             src={instructor}
                             width={40}
@@ -542,7 +563,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             className="object-contain"
                           />
                           <div className="ml-2 flex justify-between text-sm">
-                            <p className='mr-1'>{item.instructor}</p>
+                            <p className="mr-1">{item.instructor}</p>
                           </div>
                         </li>
                         <li className="mb-4 flex w-[70%] items-center">
@@ -569,7 +590,6 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             <p>{item.days}</p>
                           </div>
                         </li>
-
                       </ul>
                     ) : (
                       <ul className="flex flex-col border-b-[1px] border-b-[#9e9e9e] ">
@@ -586,7 +606,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             <p>New students</p>
                           </div>
                         </li>
-                        <li className="mb-4 flex items-center w-[70%]">
+                        <li className="mb-4 flex w-[70%] items-center">
                           <Image
                             src={rating}
                             width={40}
@@ -599,7 +619,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             <p>Rating</p>
                           </div>
                         </li>
-                        <li className="mb-4 flex items-center w-[70%]">
+                        <li className="mb-4 flex w-[70%] items-center">
                           <Image
                             src={instructor}
                             width={40}
@@ -611,7 +631,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             <p>{item.instructor}</p>
                           </div>
                         </li>
-                        <li className="mb-4 flex items-center w-[70%]">
+                        <li className="mb-4 flex w-[70%] items-center">
                           <Image
                             src={login}
                             width={40}
@@ -623,7 +643,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             <p>No login required</p>
                           </div>
                         </li>
-                        <li className="mb-4 flex items-center w-[70%]">
+                        <li className="mb-4 flex w-[70%] items-center">
                           <Image
                             src={execute}
                             width={40}
@@ -635,7 +655,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             <p>Execute by our team</p>
                           </div>
                         </li>
-                        <li className="mb-4 flex items-center w-[70%]">
+                        <li className="mb-4 flex w-[70%] items-center">
                           <Image
                             src={date}
                             width={40}
@@ -647,7 +667,6 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                             <p>{item.days}</p>
                           </div>
                         </li>
-
                       </ul>
                     )}
                   </div>
@@ -667,19 +686,19 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                 </div>
               </div>
             ))}
-
         </Container>
         {data.map((item, index) => (
-          <div className="fixed bottom-0 left-0 z-10 h-auto w-full border-none bg-white px-5 py-4 shadow-[0_-4px_24px_#00000014] sm:px-[100px] lg:hidden" key={index}>
+          <div
+            className="fixed bottom-0 left-0 z-10 h-auto w-full border-none bg-white px-5 py-4 shadow-[0_-4px_24px_#00000014] sm:px-[100px] lg:hidden"
+            key={index}
+          >
             <div className="text-center">
               <strong className="text-4xl leading-10 text-[#5a27da]">
                 ${item.price}
               </strong>
             </div>
             <button className="mt-2 flex w-full items-center justify-center rounded-full bg-[#5a27da] px-5 py-4">
-              <span className="text-base leading-5 text-white ">
-                Payment
-              </span>
+              <span className="text-base leading-5 text-white ">Payment</span>
               <span>
                 <svg
                   data-v-96876882=""
