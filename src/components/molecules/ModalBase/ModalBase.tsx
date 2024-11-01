@@ -46,8 +46,9 @@ export const ModalBase = ({ open = false, handleClose = () => {} }) => {
           Congratulations, Time-limited reward!
         </h3>
         <p className="mb-5 text-sm leading-5 text-white md:mb-10 md:text-base">
-          You have received a limited-time coupon, valid for only <b>30</b>{' '}
-          minutes after successful registration of new users.
+          You have received a <b>LUCKY</b> coupon, valid for only 07 days after
+          successful claimed. Get yours <b>NOW</b> ! This lucky coupon's expired
+          after
         </p>
 
         <div className="mb-3 text-5xl font-bold leading-[58px] text-white md:mb-6">
