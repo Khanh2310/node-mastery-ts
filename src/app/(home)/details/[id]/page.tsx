@@ -177,8 +177,9 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
   }
 
   const [userCount, setUserCount] = useState(() => {
+    // Lấy `userCount` từ localStorage nếu có; nếu không, sử dụng `getDateNumber` để lấy ngày hiện tại
     const storedCount = localStorage.getItem('userCount')
-    return storedCount ? parseInt(storedCount) : 1000 // Giá trị mặc định nếu không có dữ liệu trong localStorage
+    return storedCount ? parseInt(storedCount) : getDateNumber()
   })
   useEffect(() => {
     const product = pakageBasic.find((item) => item.id === Number(params.id))
@@ -195,40 +196,14 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
     )
 
     if (currentDateNumber !== lastDateNumber) {
-      // Nếu ngày đã thay đổi, cập nhật số lượng người dùng
+      // Nếu ngày đã thay đổi, cập nhật `userCount`
       const newCount = userCount + currentDateNumber
 
       setUserCount(newCount)
       localStorage.setItem('userCount', newCount.toString())
       localStorage.setItem('lastDateNumber', currentDateNumber.toString())
     }
-    // // Lấy giá trị từ localStorage
-    // const storedCount = localStorage.getItem('userCount') ?? '0'
-    // const lastUpdate = localStorage.getItem('lastUpdate') ?? ''
-
-    // const now = new Date()
-    // const nowInVietnamTime = new Date(now.getTime() + 7 * 60 * 60 * 1000) // Chuyển đổi sang giờ Việt Nam
-
-    // const lastUpdatedDate = lastUpdate ? new Date(lastUpdate) : null
-    // const lastUpdatedDateInVietnamTime = lastUpdatedDate
-    //   ? new Date(lastUpdatedDate.getTime() + 7 * 60 * 60 * 1000)
-    //   : null
-    // // Kiểm tra nếu chưa lưu giá trị hoặc đã qua 24 giờ
-    // if (
-    //   !storedCount ||
-    //   !lastUpdatedDateInVietnamTime ||
-    //   nowInVietnamTime.getDate() !== lastUpdatedDateInVietnamTime.getDate()
-    // ) {
-    //   const newCount = (parseInt(storedCount) || 1056) + 10
-    //   setUserCount(newCount)
-
-    //   // Cập nhật localStorage với thời gian hiện tại theo UTC
-    //   localStorage.setItem('userCount', newCount.toString())
-    //   localStorage.setItem('lastUpdate', now.toISOString())
-    // } else {
-    //   // Nếu chưa qua 24 giờ, lấy giá trị hiện tại
-    //   setUserCount(parseInt(storedCount))
-    // }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userCount])
   return (
     <BasicLayout>
@@ -440,7 +415,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
 
                     <div className="flex items-end lg:mt-6">
                       <strong className="mr-1 text-[32px] leading-10 text-[#ff9208]">
-                        {userCount}
+                        {userCount + item.baseCount}
                       </strong>
                       <p className="text-2xl">Happy users</p>
                     </div>
@@ -471,7 +446,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
                               d="M5.72134,5.82431C5.6948,5.8585,5.66637,5.89162,5.63604,5.9235C5.63604,5.9235,2.12132,9.61748,2.12132,9.61748C1.63604,10.1275,0.849242,10.1275,0.363961,9.61748C-0.12132,9.10744,-0.12132,8.28052,0.363961,7.77049C0.363961,7.77049,3,5,3,5C3,5,0.363961,2.22951,0.363961,2.22951C-0.12132,1.71948,-0.12132,0.892557,0.363961,0.382524C0.849242,-0.127508,1.63604,-0.127508,2.12132,0.382524C2.12132,0.382524,5.63604,4.0765,5.63604,4.0765C6.09099,4.55466,6.11942,5.31134,5.72134,5.82431Z"
                               fill="#FFFFFF"
                               fillOpacity="1"
-                            ></path>
+                            />
                           </g>
                         </svg>
                       </span>
@@ -532,7 +507,7 @@ const PackageDetail = ({ params }: { params: { id: string } }) => {
 
                       <div className="mt-5 flex items-end text-xs leading-[14px]">
                         <strong className="mr-1 text-xl leading-5 text-[#ff9208]">
-                          {userCount}
+                          {userCount + item.baseCount}
                         </strong>
                         <p className="">Happy users</p>
                       </div>
